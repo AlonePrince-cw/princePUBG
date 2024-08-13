@@ -1,164 +1,195 @@
 <template>
-    <div class="_2ww0">
-      <div class="left" style="">
-        <div class="aa">
-          <div class="im1" >
-            <img src="../../assets/leftImg/2.png">
-          </div>
-          <div class="im2">
-            <img src="../../assets/leftImg/a.png">
-          </div>
+  <div class="_2ww0">
+    <div class="left" style="">
+      <div class="aa">
+        <div class="im1">
+          <img class="img_box_logo" src="../../assets/3.png" />
         </div>
-        <div class="bb">
-          <div style="height: 40px; width: 40px; padding-left: 8px; padding-right: 8px">
-            <div class="b"><img src="../../assets/leftImg/b1.png" style="height: 24px;width: 24px"></div>
-          </div>
-          <div style="height: 40px; width: 40px; padding-left: 8px; padding-right: 8px">
-            <div class="b"><img src="../../assets/leftImg/b2.png" style="height: 24px;width: 24px"></div>
-          </div>
-          <div style="height: 40px; width: 40px; padding-left: 8px; padding-right: 8px">
-            <div class="b"><img src="../../assets/leftImg/b3.png" style="height: 24px;width: 24px"></div>
-          </div>
-          <div style="height: 40px; width: 40px; padding-left: 8px; padding-right: 8px">
-            <div class="b"><img src="../../assets/leftImg/b4.png" style="height: 24px;width: 24px"></div>
-          </div>
-          <div style="height: 40px; width: 40px; padding-left: 8px; padding-right: 8px">
-            <div class="b"><img src="../../assets/leftImg/b5.png" style="height: 24px;width: 24px"></div>
-          </div>
-          <div style="height: 40px; width: 40px; padding-left: 8px; padding-right: 8px">
-            <div class="b"><img src="../../assets/leftImg/b6.png" style="height: 24px;width: 24px"></div>
-          </div>
-          <div style="height: 40px; width: 40px; padding-left: 8px; padding-right: 8px">
-            <div class="b"><img src="../../assets/leftImg/b7.png" style="height: 24px;width: 24px"></div>
-          </div>
-
-
-        </div>
-        <div class="cc">
-          <div class="c" ><img src="../../assets/leftImg/c1.png" style="height: 20px;width: 20px"></div>
-          <div class="c" ><img src="../../assets/leftImg/c2.png" style="height: 20px;width: 20px"></div>
-          <div class="c" ><img src="../../assets/leftImg/c3.png" style="height: 20px;width: 20px"></div>
-          <div class="c" ><img src="../../assets/leftImg/c4.png" style="height: 20px;width: 20px"></div>
-          <div class="c" ><img src="../../assets/leftImg/c5.png" style="height: 20px;width: 20px"></div>
-          <div class="c" ><img src="../../assets/leftImg/c6.png" style="height: 20px;width: 20px"></div>
+        <div class="im2">
+          <img class="img_box" src="../../assets/leftImg/a.png" />
         </div>
       </div>
-      <div class="middle">
-        <div class="tapOne">
-          <div class="topOne_a" >
-            <div class="topOne_a_1">
-                广告
-            </div>
-            <div class="topOne_a_2">
-              搜索
-            </div>
-
-          </div>
-          <div class="topOne_b" >
-            <div class="topOne_b_1">
-              <div class="topOne_b_1_1" >
-                更新时间
-              </div>
-              <div class="topOne_b_1_2" >
-                刷新
-              </div>
-
-            </div>
-            <div class="topOne_b_2">
-              <div class="topOne_b_2_1">
-                放弃草稿
-              </div>
-              <div class="topOne_b_2_2">
-                检查并发布
-              </div>
-            </div>
-            <div class="topOne_b_3">
-              设置
-            </div>
-
+      <div class="bb">
+        <div
+          style="
+            height: 40px;
+            width: 40px;
+            padding-left: 8px;
+            padding-right: 8px;
+          "
+        >
+          <div class="b" v-for="(item, index) in leftIcon" :key="index">
+            <img :src="item" style="height: 24px; width: 24px" />
           </div>
         </div>
-
-        <div class="tapTwo">
-          <div class="tapTwo_a">
-            <div class="search">
-              搜索
-            </div>
-            <div class="time">
-              时间
-            </div>
-          </div>
-          <div class="tapTwo_b">
-            <div class="classify" style="background: yellow">
-              分类1
-            </div>
-            <div class="classify" style="background: white">
-              分类2
-            </div>
-            <div class="classify" style="background: pink">
-              分类3
-            </div>
-          </div>
-          <div class="content">
-            内容
-          </div>
-          test middle
-        </div>
-
       </div>
-      <div class="right">
-        <div class="right_all">
-          <img src="../../assets/leftImg/right1.png" style="height: 16px; width: 16px; background-size: auto">
+      <div class="cc">
+        <div class="c">
+          <img
+            src="../../assets/leftImg/c1.png"
+            style="height: 20px; width: 20px"
+          />
         </div>
-        <div class="right_all">
-          <img src="../../assets/leftImg/right2.png" style="height: 16px; width: 16px">
+        <div class="c">
+          <img
+            src="../../assets/leftImg/c2.png"
+            style="height: 20px; width: 20px"
+          />
         </div>
-        <div class="right_all">
-          <img src="../../assets/leftImg/right3.png" style="height: 16px; width: 16px">
+        <div class="c">
+          <img
+            src="../../assets/leftImg/c3.png"
+            style="height: 20px; width: 20px"
+          />
+        </div>
+        <div class="c">
+          <img
+            src="../../assets/leftImg/c4.png"
+            style="height: 20px; width: 20px"
+          />
+        </div>
+        <div class="c">
+          <img
+            src="../../assets/leftImg/c5.png"
+            style="height: 20px; width: 20px"
+          />
+        </div>
+        <div class="c">
+          <img
+            src="../../assets/leftImg/c6.png"
+            style="height: 20px; width: 20px"
+          />
         </div>
       </div>
     </div>
+    <div class="middle">
+      <div class="tapOne">
+        <div class="topOne_a">
+          <div class="topOne_a_1">广告系列</div>
+          <div class="topOne_a_2">
+            <div class="span_text">雨果-哈哈哈网络-10 (500987052617167)</div>
+          </div>
+        </div>
+        <div class="topOne_b">
+          <div class="topOne_b_1">
+            <div class="topOne_b_1_1">更新时间：今天10:14</div>
+            <div class="topOne_b_1_2">
+              <img :src="refreshIcon" />
+
+
+            </div>
+          </div>
+          <div class="topOne_b_2">
+            <div class="topOne_b_2_1">放弃草稿</div>
+            <div class="topOne_b_2_2">检查并发布</div>
+          </div>
+          <div class="topOne_b_3">...</div>
+        </div>
+      </div>
+
+      <div class="tapTwo">
+        <div class="tapTwo_a">
+          <div class="search">搜索</div>
+          <div class="time">时间</div>
+        </div>
+        <div class="tapTwo_b">
+          <div class="classify">分类1</div>
+          <div class="classify">分类2</div>
+          <div class="classify">分类3</div>
+        </div>
+        <div class="content">内容</div>
+        test middle
+      </div>
+    </div>
+    <div class="right">
+      <div class="right_all">
+        <img
+          src="../../assets/leftImg/right1.png"
+          style="height: 16px; width: 16px; background-size: auto"
+        />
+      </div>
+      <div class="right_all">
+        <img
+          src="../../assets/leftImg/right2.png"
+          style="height: 16px; width: 16px"
+        />
+      </div>
+      <div class="right_all">
+        <img
+          src="../../assets/leftImg/right3.png"
+          style="height: 16px; width: 16px"
+        />
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-
-    export default {
-
+export default {
+  data() {
+    return {
+      leftIcon: [
+        require('../../assets/leftImg/b1.png'),
+        require('../../assets/leftImg/b2.png'),
+        require('../../assets/leftImg/b3.png'),
+        require('../../assets/leftImg/b4.png'),
+        require('../../assets/leftImg/b5.png'),
+        require('../../assets/leftImg/b6.png'),
+        require('../../assets/leftImg/b7.png'),
+      ],
+      refreshIcon:require('../../assets/leftImg/refresh.jpg'),
     }
+  },
+}
 </script>
 
 <style lang="scss" scoped>
 ._2ww0 {
-    align-items: stretch;
-    display: flex;
-    flex-direction: row;
-    height: 100%;
-    width: 100%;
+  align-items: stretch;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
 }
 .left {
   height: 919px;
   width: 56px;
-
+  padding: 0 8px;
+  background-color: rgba(255, 255, 255, 1);
 }
 .aa {
   height: 124px;
   width: 56px;
-
 }
 .im1 {
   height: 44px;
-  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8px;
+}
+.img_box_logo {
+  height: 20px;
+  width: 28px;
 }
 .im2 {
-  height: 60px;
-  width: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 24px;
+  .img_box {
+    height: 32px;
+    width: 32px;
+    border-radius: 6px;
+  }
 }
 .bb {
+  margin-top: 24px;
   height: 534px;
   width: 56px;
 }
 .b {
-  height: 24PX;
+  height: 24px;
   width: 24px;
   padding: 8px;
 }
@@ -177,8 +208,8 @@
 .middle {
   height: 919px;
   width: calc(100% - 100px);
-  background: aqua;
-
+  border: 1px solid rgb(28, 30, 33);
+  background: rgba(0, 0, 0, 0);
 }
 .tapOne {
   height: 60px;
@@ -190,68 +221,110 @@
   height: 44px;
   width: 390px;
   align-items: center;
-  margin-top: 8px;
-  margin-left: 4px;
-  margin-right: 4px;
-  background: beige;
   display: flex;
   justify-content: space-between;
 }
 .topOne_a_1 {
   height: 24px;
   width: 72px;
+  font-size: 18px;
+  font-weight: 700;
 }
 .topOne_a_2 {
-  width: 298px;
-  height: 34px;
-  border: 1px;
+  width: 300px;
+  height: 36px;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+  box-shadow: none;
+  color: rgba(0, 0, 0, 0.85);
+  font-family: Roboto, Arial, sans-serif;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  .span_text {
+    margin-left: 16px;
+    font-size: 14px;
+    width: 220px;
+    overflow: hidden; //超出的文本隐藏
+    text-overflow: ellipsis; //溢出用省略号显示
+    white-space: nowrap; //溢出不换行
+    color: rgba(0, 0, 0, 0.85);
+  }
 }
 .topOne_b {
   height: 44px;
   width: 445.73px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .topOne_b_1 {
   height: 36px;
   width: 183.73px;
-  background: pink;
   display: flex;
   justify-content: space-between;
 }
 .topOne_b_1_1 {
-  height: 17px;
-  width: 127.73px;
+  height: 44px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 44px;
 }
 .topOne_b_1_2 {
   height: 36px;
   width: 40px;
+  background-color:rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img{
+    width: 16px;
+    height: 18px;
+  }
 }
 .topOne_b_2 {
   height: 36px;
   width: 198px;
-  background: yellow;
+  //   background: yellow;
   display: flex;
   justify-content: space-between;
 }
 .topOne_b_2_1 {
   height: 36px;
   width: 88px;
+  background-color: rgba(0, 0, 0, 0.05);
+  line-height: 36px;
+  border-radius: 6px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 14px;
 }
 .topOne_b_2_2 {
   height: 36px;
   width: 102px;
+  background-color: rgba(0, 0, 0, 0.05);
+  line-height: 36px;
+  border-radius: 6px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 14px;
 }
 .topOne_b_3 {
-  height: 40px;
+  height: 36px;
   width: 36px;
-  background: white;
+  background-color: rgba(0, 0, 0, 0.05);
+  line-height: 32px;
+  border-radius: 6px;
+  text-align: center;
+  color: #000;
+  font-size: 14px;
 }
 .right {
   height: 919px;
   width: 44px;
-  background: aquamarine;
-
+  //   background: aquamarine;
 }
 .right_all {
   height: 16px;
@@ -286,13 +359,11 @@
 .search {
   height: 36px;
   width: 1105.83px;
-  background: blue;
-
+  //   background: blue;
 }
 .time {
   height: 36px;
   width: 139.17px;
-  background: yellow;
-
+  //   background: yellow;
 }
 </style>
