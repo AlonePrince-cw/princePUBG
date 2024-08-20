@@ -89,8 +89,15 @@
 
       <div class="tapTwo">
         <div class="tapTwo_a">
-          <div class="search">搜索</div>
-          <div class="time">时间</div>
+          <div class="search">
+            <div class="null_box">
+              <div>搜索和筛选</div>
+            </div>
+          </div>
+          <div class="time">
+            
+
+          </div>
         </div>
         <div class="tapTwo_b">
           <div class="classify">分类1</div>
@@ -206,10 +213,16 @@ export default {
   padding: 8px;
 }
 .middle {
-  height: 919px;
-  width: calc(100% - 100px);
-  border: 1px solid rgb(28, 30, 33);
-  background: rgba(0, 0, 0, 0);
+  padding: 16px;
+  background: rgb(245, 246, 247);
+  
+  .null_box{
+    background: #fff;
+    height: 44px;
+    font-size: 13px;
+    padding: 0 16px;
+    color: rgba(28, 43, 51, .65);
+  }
 }
 .tapOne {
   height: 60px;
@@ -337,9 +350,6 @@ export default {
 }
 .tapTwo_a {
   height: 36px;
-  padding: 8px;
-  margin-right: 8px;
-  margin-left: 8px;
   display: flex;
   justify-content: space-between;
 }
@@ -357,9 +367,13 @@ export default {
   margin-top: 4px;
 }
 .search {
-  height: 36px;
-  width: 1105.83px;
-  //   background: blue;
+  height: 44px;
+  width: 100%;
+  .null_box{
+  border-radius: 12px;
+    display: flex;
+    align-items: center;
+  }
 }
 .time {
   height: 36px;
