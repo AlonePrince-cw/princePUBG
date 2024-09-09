@@ -75,8 +75,6 @@
             <div class="topOne_b_1_1">更新时间：今天10:14</div>
             <div class="topOne_b_1_2">
               <img :src="refreshIcon" />
-
-
             </div>
           </div>
           <div class="topOne_b_2">
@@ -94,18 +92,214 @@
               <div>搜索和筛选</div>
             </div>
           </div>
-          <div class="time">
-            
-
-          </div>
+          <div class="time"></div>
         </div>
         <div class="tapTwo_b">
-          <div class="classify">分类1</div>
-          <div class="classify">分类2</div>
-          <div class="classify">分类3</div>
+          <div class="classify_select">
+            <div
+              class="classify_a"
+              :style="{
+                background:
+                  'url(' + require('../../assets/leftImg/b1.png') + ')',
+                'background-size': 'cover',
+              }"
+            ></div>
+            <div>广告系列</div>
+          </div>
+          <div class="classify">
+            <div
+              class="classify_a"
+              :style="{
+                background:
+                  'url(' + require('../../assets/leftImg/b1.png') + ')',
+                'background-size': 'cover',
+              }"
+            ></div>
+            <div>广告系列</div>
+          </div>
+          <div class="classify">
+            <div
+              class="classify_a"
+              :style="{
+                background:
+                  'url(' + require('../../assets/leftImg/b1.png') + ')',
+                'background-size': 'cover',
+              }"
+            ></div>
+            <div>广告系列</div>
+          </div>
         </div>
-        <div class="content">内容</div>
-        test middle
+        <div class="content">
+          <div class="content_a">
+            <div class="margin-r-6">
+              <el-button type="success" size="mini" icon="el-icon-plus"
+                >创建</el-button
+              >
+            </div>
+            <div class="margin-r-6">
+              <el-button-group>
+                <el-button
+                  type="info"
+                  size="mini"
+                  icon="el-icon-s-order"
+                ></el-button>
+                <el-button
+                  type="info"
+                  size="mini"
+                  icon="el-icon-caret-bottom"
+                ></el-button>
+              </el-button-group>
+            </div>
+            <div class="margin-r-6">
+              <el-button-group>
+                <el-button type="info" size="mini" icon="el-icon-edit"
+                  >编辑</el-button
+                >
+                <el-button
+                  type="info"
+                  size="mini"
+                  icon="el-icon-caret-bottom"
+                ></el-button>
+              </el-button-group>
+            </div>
+            <div class="margin-r-6">
+              <el-button-group>
+                <el-button type="info" size="mini" icon="el-icon-edit"
+                  >A/B测试</el-button
+                >
+              </el-button-group>
+            </div>
+            <div class="margin-r-6">
+              <el-button-group>
+                <el-button
+                  type="info"
+                  size="mini"
+                  icon="el-icon-tickets"
+                ></el-button>
+              </el-button-group>
+            </div>
+            <div class="margin-r-6">
+              <el-button-group>
+                <el-button
+                  type="info"
+                  size="mini"
+                  icon="el-icon-tickets"
+                ></el-button>
+              </el-button-group>
+            </div>
+            <div class="margin-r-6">
+              <el-button-group>
+                <el-button
+                  type="info"
+                  size="mini"
+                  icon="el-icon-back"
+                ></el-button>
+              </el-button-group>
+            </div>
+            <div class="margin-r-6">
+              <el-button-group>
+                <el-button
+                  type="info"
+                  size="mini"
+                  icon="el-icon-delete"
+                ></el-button>
+              </el-button-group>
+            </div>
+            <div class="margin-r-6">
+              <el-button-group>
+                <el-button
+                  type="info"
+                  size="mini"
+                  icon="el-icon-finished"
+                ></el-button>
+              </el-button-group>
+            </div>
+            <div class="margin-r-6">
+              <el-button-group>
+                <el-button
+                  type="info"
+                  size="mini"
+                  icon="el-icon-s-fold"
+                ></el-button>
+              </el-button-group>
+            </div>
+            <div class="margin-r-6">
+              <el-button-group>
+                <el-button type="info" size="mini"
+                  >规则<span class="el-icon-caret-bottom"></span
+                ></el-button>
+              </el-button-group>
+            </div>
+          </div>
+          <div class="content_b">
+            <div class="margin-r-6">查看设置</div>
+            <div class="margin-r-6">
+              <el-switch
+                v-model="value"
+                active-color="#0971fd"
+                inactive-color="#fff"
+              >
+              </el-switch>
+            </div>
+            <div class="margin-r-6">
+              <el-button-group>
+                <el-button type="info" size="mini" icon="el-icon-s-data"
+                  ><span class="el-icon-caret-bottom"></span
+                ></el-button>
+              </el-button-group>
+            </div>
+            <div class="margin-r-6">
+              <el-button-group>
+                <el-button type="info" size="mini" icon="el-icon-s-data"
+                  >细分条件<span class="el-icon-caret-bottom"></span
+                ></el-button>
+              </el-button-group>
+            </div>
+            <div class="margin-r-6">
+              <el-button-group>
+                <el-button type="info" size="mini" icon="el-icon-s-data"
+                  >报告<span class="el-icon-caret-bottom"></span
+                ></el-button>
+              </el-button-group>
+            </div>
+            <div class="margin-r-6">
+              <el-button-group>
+                <el-button type="info" size="mini" icon="el-icon-download"
+                  >导出<span class="el-icon-caret-bottom"></span
+                ></el-button>
+              </el-button-group>
+            </div>
+          </div>
+        </div>
+        <div class="content_table">
+          <div>提取编号：</div>
+          <div>
+            {{ showNumber }}
+          </div>
+          <el-button type="success" @click="getNumber()">提取编号</el-button>
+          <el-input
+            type="textarea"
+            :autosize="{ minRows: 2, maxRows: 4 }"
+            placeholder="请输入内容"
+            v-model="textarea2"
+          >
+          </el-input>
+          <table border>
+            <tr>
+              <th>广告系列</th>
+              <th>广告系列</th>
+              <th>广告系列</th>
+              <th>广告系列</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+            </tr>
+          </table>
+        </div>
       </div>
     </div>
     <div class="right">
@@ -135,6 +329,9 @@
 export default {
   data() {
     return {
+      input: '',
+      textarea2: '',
+      showNumber: '',
       leftIcon: [
         require('../../assets/leftImg/b1.png'),
         require('../../assets/leftImg/b2.png'),
@@ -144,8 +341,31 @@ export default {
         require('../../assets/leftImg/b6.png'),
         require('../../assets/leftImg/b7.png'),
       ],
-      refreshIcon:require('../../assets/leftImg/refresh.jpg'),
+      refreshIcon: require('../../assets/leftImg/refresh.jpg'),
+      value: false,
     }
+  },
+  methods: {
+    getNumber() {
+      // Split data into lines
+      const lines = this.textarea2.split('\n')
+      console.log(lines)
+      // Initialize an array to hold the extracted numbers
+      const results = []
+
+      // Iterate through lines and extract numbers
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i].trim()
+        // Check if line starts with "编号："
+        if (line.startsWith('编号：')) {
+          // Extract the number after "编号："
+          const number = line.substring(3).trim()
+          results.push(number)
+        }
+      }
+      this.showNumber = results.join(' ')
+      console.log(results)
+    },
   },
 }
 </script>
@@ -215,13 +435,13 @@ export default {
 .middle {
   padding: 16px;
   background: rgb(245, 246, 247);
-  
-  .null_box{
+
+  .null_box {
     background: #fff;
     height: 44px;
     font-size: 13px;
     padding: 0 16px;
-    color: rgba(28, 43, 51, .65);
+    color: rgba(28, 43, 51, 0.65);
   }
 }
 .tapOne {
@@ -287,12 +507,12 @@ export default {
 .topOne_b_1_2 {
   height: 36px;
   width: 40px;
-  background-color:rgba(0, 0, 0, 0.05);
+  background-color: rgba(0, 0, 0, 0.05);
   border-radius: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
-  img{
+  img {
     width: 16px;
     height: 18px;
   }
@@ -357,6 +577,9 @@ export default {
   height: 48px;
   display: flex;
   justify-content: space-between;
+  margin-top: 20px;
+  align-items: end;
+  margin-left: 10px;
 }
 .classify {
   height: 44px;
@@ -364,13 +587,41 @@ export default {
   border-bottom: 1px;
   margin-left: 4px;
   margin-right: 4px;
-  margin-top: 4px;
+  background: #f9f9f6;
+  padding: 0 0 0 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: flex;
+  align-items: center;
 }
+
+.classify_select {
+  height: 50px;
+  width: 596px;
+  border-bottom: 1px;
+  margin-left: 4px;
+  margin-right: 4px;
+  background: #fff;
+  padding: 0 0 0 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: flex;
+  align-items: center;
+  box-shadow: #dfdfdc 1px -3px 4px;
+  color: #0971fd;
+  font-weight: bold;
+}
+.classify_a {
+  width: 21px;
+  height: 21px;
+  margin-right: 6px;
+}
+
 .search {
   height: 44px;
   width: 100%;
-  .null_box{
-  border-radius: 12px;
+  .null_box {
+    border-radius: 12px;
     display: flex;
     align-items: center;
   }
@@ -379,5 +630,44 @@ export default {
   height: 36px;
   width: 139.17px;
   //   background: yellow;
+}
+
+.content {
+  background: #fff;
+  height: 50px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.content_a {
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+}
+
+.content_b {
+  display: flex;
+  align-items: center;
+}
+
+.margin-r-6 {
+  margin-right: 6px;
+}
+
+::v-deep .el-button--info {
+  background: #e5e5e3;
+  border-color: #e5e5e3;
+  color: #5a5a59;
+}
+
+::v-deep .el-switch__core:after {
+  background: #000000;
+}
+
+::v-deep .el-switch__core {
+  border: 1px solid #ccc !important;
 }
 </style>

@@ -1,14 +1,18 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import Loginrouter from './Loginrouter'
-import Sidebarrouter from './Sidebarrouter'
+import Loginrouter from './Loginrouter';
+import Sidebarrouter from './Sidebarrouter';
+import GetPayNumber from './GetPayNumber';
+import Report from './Report';
 
 Vue.use(VueRouter)
 
 const routes = [
     Loginrouter,
-    Sidebarrouter
+    Sidebarrouter,
+    GetPayNumber,
+    Report
     // {
     //   path: '/',
     //   name: 'Home',
