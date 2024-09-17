@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 
 import Loginrouter from './Loginrouter';
 import Sidebarrouter from './Sidebarrouter';
+import newSidebar from './newSidebar';
 import GetPayNumber from './GetPayNumber';
 import Report from './Report';
 import Demo from './Demo';
@@ -12,6 +13,7 @@ Vue.use(VueRouter)
 const routes = [
     Loginrouter,
     Sidebarrouter,
+    newSidebar,
     GetPayNumber,
     Report,
     Demo
