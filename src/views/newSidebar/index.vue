@@ -49,7 +49,7 @@
       <div class="middle">
         <div class="tapOne">
           <div class="topOne_a">
-            <div class="topOne_a_1">广告系列</div>
+            <div class="topOne_a_1">广告</div>
             <div class="topOne_a_2">
               <div class="span_text">
                 <div class="span_text_1">
@@ -162,7 +162,7 @@
             </div>
             <div class="header_2 rs_box" style="line-height: 36px">关/开</div>
             <div class="header_3 rs_box">
-              <div class="left_text">广告系列</div>
+              <div class="left_text">广告</div>
               <div class="icon_r"></div>
             </div>
             <div class="header_4 rs_box">
@@ -172,9 +172,9 @@
             <div class="header_5 rs_box">
               <div class="left_text">预算</div>
             </div>
-            <div class="header_5 rs_box">
+            <!-- <div class="header_5 rs_box">
               <div class="left_text">归因设置</div>
-            </div>
+            </div> -->
             <div class="header_5 rs_box link_box">
               <div class="left_text">链接（广告设置）</div>
             </div>
@@ -240,18 +240,18 @@
                   <div class="danri_text">单日</div>
                 </div>
               </div>
-              <div class="header_5 rs_box">
+              <!-- <div class="header_5 rs_box">
                 <div class="c_bb">
                   <div class="left_text" style="height: 16px">
                     点击后1天或观看后1天
                   </div>
                   <div class="danri_text"></div>
                 </div>
-              </div>
+              </div> -->
               <div class="header_5 rs_box link_box">
                 <div class="c_bb">
                   <div class="left_text" style="height: 16px">
-                    https://lihi.cc/4VCGO
+                    {{tabItem.adsLink}}
                   </div>
                   <div class="danri_text"></div>
                 </div>
@@ -319,6 +319,7 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                margin-left: 8px;
               "
             ></div>
             <div class="header_3 rs_box">
@@ -340,10 +341,10 @@
               class="header_5 rs_box"
               style="justify-content: flex-end; padding-left: 9px"
             ></div>
-            <div
+            <!-- <div
               class="header_5 rs_box"
               style="justify-content: flex-end; padding-left: 9px"
-            ></div>
+            ></div> -->
             <div
               class="header_5 rs_box link_box"
               style="justify-content: flex-end; padding-left: 9px"
@@ -600,6 +601,14 @@
             style="width: 160px; margin-right: 24px"
           ></el-input>
         </div>
+          <div class="aa_b">
+          <div class="label_name" v-if="tabInfoIndex == 0">请输入广告链接</div>
+          <el-input
+            v-model="tabInfo.adsLink"
+            placeholder="请输入广告链接"
+            style="width: 160px; margin-right: 24px"
+          ></el-input>
+        </div>
       </div>
     </div>
   </div>
@@ -628,6 +637,8 @@ export default {
           adsClick: '789',
           adsExhibit: '99999',
           adsText: '购物',
+      adsLink:"",
+
         },
       ],
       timeArray: [],
@@ -776,6 +787,7 @@ export default {
         adsClick: '',
         adsExhibit: '',
         adsText: '',
+        adsLink:''
       })
     },
     // 清除本地缓存
@@ -1265,7 +1277,7 @@ export default {
     width: 13%;
   }
   .header_8 {
-    width: 13%;
+    width: 15%;
   }
   .header_9 {
     width: 13%;
@@ -1663,13 +1675,12 @@ export default {
   width: 390px;
   align-items: center;
   display: flex;
-  justify-content: space-between;
 }
 .topOne_a_1 {
   height: 24px;
-  width: 72px;
   font-size: 18px;
   font-weight: 700;
+  margin-right: 16px;
 }
 .topOne_a_2 {
   width: 300px;
@@ -1900,10 +1911,9 @@ export default {
   border: 1px solid #ccc !important;
 }
 
-.link_box{
-min-width: 13% !important;
-width: auto !important;
-padding: 0 8px !important;
-
+.link_box {
+  min-width: 600px !important;
+  width: auto !important;
+  padding: 0 8px !important;
 }
 </style>
