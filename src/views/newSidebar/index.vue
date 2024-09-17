@@ -221,7 +221,27 @@
                 </div>
               </div>
               <div class="header_3 rs_box">
-                <div class="text_c">{{ tabItem.adsName }}</div>
+                <!-- <div class="text_c">{{ tabItem.adsName }}</div> -->
+                <div class="text_c" style="display: flex; align-items: center">
+                  <img
+                    :src="tabItem.adsImg"
+                    alt=""
+                    style="width: 46px; height: 46px; margin-right: 4px"
+                  />
+                  <div class="right_bo">
+                    <div
+                      class="r_text"
+                      style="
+                        font-size: 15px;
+                        font-weight: 400;
+                        color: rgb(28, 30, 33);
+                      "
+                    >
+                      {{ tabItem.adsName }}
+                    </div>
+                    <div class="r_text" style="height: 18px"></div>
+                  </div>
+                </div>
               </div>
               <div class="header_4 rs_box flex_start">
                 <div
@@ -251,7 +271,7 @@
               <div class="header_5 rs_box link_box">
                 <div class="c_bb">
                   <div class="left_text" style="height: 16px">
-                    {{tabItem.adsLink}}
+                    {{ tabItem.adsLink }}
                   </div>
                   <div class="danri_text"></div>
                 </div>
@@ -534,7 +554,7 @@
           <el-input
             v-model="tabInfo.adsName"
             placeholder="请输入广告系列"
-            style="width: 160px; margin-right: 24px"
+            style="width: 140px; margin-right: 24px"
           ></el-input>
         </div>
         <div class="aa_b">
@@ -542,7 +562,7 @@
           <el-input
             v-model="tabInfo.adsStatus"
             placeholder="请输入投放状态"
-            style="width: 160px; margin-right: 24px"
+            style="width: 140px; margin-right: 24px"
           ></el-input>
         </div>
         <div class="aa_b">
@@ -550,7 +570,7 @@
           <el-input
             v-model="tabInfo.adsBudget"
             placeholder="请输入预算"
-            style="width: 160px; margin-right: 24px"
+            style="width: 140px; margin-right: 24px"
           ></el-input>
         </div>
         <div class="aa_b">
@@ -558,7 +578,7 @@
           <el-input
             v-model="tabInfo.adsSpend"
             placeholder="请输入花费金额"
-            style="width: 160px; margin-right: 24px"
+            style="width: 140px; margin-right: 24px"
           ></el-input>
         </div>
         <div class="aa_b">
@@ -566,7 +586,7 @@
           <el-input
             v-model="tabInfo.adsEffectiveness"
             placeholder="请输入成效"
-            style="width: 160px; margin-right: 24px"
+            style="width: 140px; margin-right: 24px"
           ></el-input>
         </div>
         <div class="aa_b">
@@ -574,7 +594,7 @@
           <el-input
             v-model="tabInfo.adsResister"
             placeholder="请输入注册"
-            style="width: 160px; margin-right: 24px"
+            style="width: 140px; margin-right: 24px"
           ></el-input>
         </div>
         <div class="aa_b">
@@ -582,7 +602,7 @@
           <el-input
             v-model="tabInfo.adsClick"
             placeholder="请输入点击"
-            style="width: 160px; margin-right: 24px"
+            style="width: 140px; margin-right: 24px"
           ></el-input>
         </div>
         <div class="aa_b">
@@ -590,7 +610,7 @@
           <el-input
             v-model="tabInfo.adsExhibit"
             placeholder="请输入展示次数"
-            style="width: 160px; margin-right: 24px"
+            style="width: 140px; margin-right: 24px"
           ></el-input>
         </div>
         <div class="aa_b">
@@ -598,15 +618,23 @@
           <el-input
             v-model="tabInfo.adsText"
             placeholder="请输入成效类型"
-            style="width: 160px; margin-right: 24px"
+            style="width: 140px; margin-right: 24px"
           ></el-input>
         </div>
-          <div class="aa_b">
+        <div class="aa_b">
           <div class="label_name" v-if="tabInfoIndex == 0">请输入广告链接</div>
           <el-input
             v-model="tabInfo.adsLink"
             placeholder="请输入广告链接"
-            style="width: 160px; margin-right: 24px"
+            style="width: 140px; margin-right: 24px"
+          ></el-input>
+        </div>
+        <div class="aa_b">
+          <div class="label_name" v-if="tabInfoIndex == 0">请输入广告图片链接</div>
+          <el-input
+            v-model="tabInfo.adsImg"
+            placeholder="请输入广告图片链接"
+            style="width: 140px; margin-right: 24px"
           ></el-input>
         </div>
       </div>
@@ -637,8 +665,8 @@ export default {
           adsClick: '789',
           adsExhibit: '99999',
           adsText: '购物',
-      adsLink:"",
-
+          adsLink: 'https://120bet.com?ch=8fxkj&sdmode=4&fbPixelId=1252910919395187',
+          adsImg:'https://scontent-hkg1-2.xx.fbcdn.net/v/t15.13418-10/459314021_447720948278476_4719515260375949386_n.jpg?_nc_cat=102&ccb=1-7&_nc_ohc=uRSc8aYY-AgQ7kNvgFeq1SZ&_nc_ht=scontent-hkg1-2.xx&_nc_gid=ArhOf1Vuju2DjSr_uZ6qYJN&stp=c0.5000x0.5000f_dst-emg0_p46x46_q75&ur=ace027&_nc_sid=58080a&oh=00_AYAW2MQ6AaJoFAyI3uMu-h_k29NCYlBzlVH9CBj37a0cbg&oe=66EEECFB'
         },
       ],
       timeArray: [],
@@ -787,7 +815,8 @@ export default {
         adsClick: '',
         adsExhibit: '',
         adsText: '',
-        adsLink:''
+        adsLink: '',
+        adsImg:''
       })
     },
     // 清除本地缓存
@@ -851,7 +880,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 160px;
+  width: 140px;
   margin-right: 16px;
   margin-bottom: 16px;
   .label_name {
