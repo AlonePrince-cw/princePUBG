@@ -4,7 +4,6 @@
       class="content_table"
       style="padding: 32px; display: flex; justify-content: center"
     >
-      
       <div>
         <div style="margin-top: 132px; font-size: 14px; color: chocolate">
           把你的账户复制出来放到里面就可以了
@@ -18,7 +17,10 @@
         >
         </el-input>
       </div>
-      <div class="number_box" style="margin-bottom: 32px; width: 800px;margin-left: 48px;">
+      <div
+        class="number_box"
+        style="margin-bottom: 32px; width: 800px; margin-left: 48px"
+      >
         <div class="nom">
           <div style="margin: 32px; margin-left: 0">账户编号筛选器：</div>
           <div
@@ -37,7 +39,12 @@
           </div>
           <div
             ref="myDiv"
-            style="width: 500px; display: flex; justify-content: space-between;margin-bottom: 4px;"
+            style="
+              width: 500px;
+              display: flex;
+              justify-content: space-between;
+              margin-bottom: 4px;
+            "
             v-for="(item, index) in showNumber"
             :key="index"
           >
@@ -47,15 +54,17 @@
                 margin-right: 32px;
                 width: 300px;
                 user-select: none;
-
               "
             >
-              {{agentNameText}}- <span style="color: #000;font-weight: 900;">{{ item.sortNo }}</span>
+              {{ item.agentName }}-
+              <span style="color: #000; font-weight: 900">{{
+                item.sortNo
+              }}</span>
             </div>
             <div class="number">{{ item.id }}</div>
           </div>
         </div>
-        <div style="display: flex; margin-top: 32px;justify-content: center;">
+        <div style="display: flex; margin-top: 32px; justify-content: center">
           <div>
             <div>
               <el-button type="success" @click="getAllNumber()"
@@ -83,7 +92,6 @@ export default {
       input1: '',
       input2: '',
       allNumber: [],
-      agentNameText:'',
     }
   },
   mounted() {
@@ -186,45 +194,49 @@ export default {
       document.body.removeChild(textarea)
     },
     getAllNumber() {
-      let agentName = ''
-      let owner = ''
+      let resultArray = []
+      let ownerArray = []
       const text = `${this.textarea2}` // 将数据文本放在这里
       for (let i = 0; i < this.textarea2.split('\n').length; i++) {
         const line = this.textarea2.split('\n')[i].trim()
         if (
           line.startsWith('雨果') ||
-          line.startsWith('亿帆')||
-          line.startsWith('亿帆1')||
+          line.startsWith('亿帆') ||
+          line.startsWith('亿帆1') ||
           line.startsWith('亿帆2') ||
           line.startsWith('亿帆3') ||
           line.startsWith('钛动1') ||
           line.startsWith('钛动2') ||
           line.startsWith('钛动') ||
-          line.startsWith('猎豹')||
-          line.startsWith('猎豹1')||
-          line.startsWith('猎豹2')||
+          line.startsWith('猎豹') ||
+          line.startsWith('猎豹1') ||
+          line.startsWith('猎豹2') ||
           line.startsWith('猎豹3')
         ) {
-          const filterNumber = line.split('-').slice(0, -1);
-          let result = filterNumber.join('-');
-          agentName = result;
-          this.agentNameText = agentName;
+          const filterNumber = line.split('-').slice(0, -1)
+          let result = filterNumber.join('-')
+          resultArray.push(result)
         }
         if (line.startsWith('所有者：')) {
-          owner = line.split('：')[1].trim();
+          ownerArray.push(line.split('：')[1].trim())
         }
       }
-      const regexString = `${agentName}-(\\d+)\\n编号：(\\d+)\\n所有者：${owner}\\n(使用中|已停用)`
-      const regex = new RegExp(regexString, 'g')
       const dataArray = []
-      let match
-      while ((match = regex.exec(text)) !== null) {
-        dataArray.push({
-          sortNo: Number(match[1]),
-          id: match[2],
-          status: match[3],
-        })
-      }
+
+      resultArray.forEach((item,index) => {
+        const regexString = `${item}-(\\d+)\\n编号：(\\d+)\\n所有者：${ownerArray[index]}\\n(使用中|已停用)`
+        const regex = new RegExp(regexString, 'g')
+        let match
+        while ((match = regex.exec(text)) !== null) {
+          dataArray.push({
+            agentName: item,
+            sortNo: Number(match[1]),
+            id: match[2],
+            status: match[3],
+          })
+        }
+      })
+
       const filterArray = dataArray
         .filter((item) => {
           return item.status === '使用中'
@@ -247,11 +259,10 @@ export default {
   display: flex;
   align-items: center;
 }
-.nom{
-
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;}
+.nom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 </style>

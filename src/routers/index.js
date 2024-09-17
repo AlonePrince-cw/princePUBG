@@ -5,6 +5,8 @@ import Loginrouter from './Loginrouter';
 import Sidebarrouter from './Sidebarrouter';
 import newSidebar from './newSidebar';
 import GetPayNumber from './GetPayNumber';
+import myAdsReport from './myAdsReport';
+
 import Report from './Report';
 import Demo from './Demo';
 
@@ -16,6 +18,7 @@ const routes = [
     newSidebar,
     GetPayNumber,
     Report,
+    myAdsReport,
     Demo
     // {
     //   path: '/',

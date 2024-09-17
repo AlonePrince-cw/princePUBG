@@ -196,6 +196,12 @@
               <div class="icon_r"></div>
             </div>
           </div>
+            <el-progress
+            style="position: absolute; width: 300px"
+            :percentage="percentage"
+            v-if="showPercentage"
+            :show-text="false"
+          ></el-progress>
           <div v-if="showDiv">
             <div
               class="table_box"
@@ -587,6 +593,9 @@
 export default {
   data() {
     return {
+       percentage: 0,
+      showPercentage: true,
+      timer: null,
       yesterdayTime: '',
       showDiv: true,
       adsTopText: 'PZwg-0910+0033 (1059343465905202)',
@@ -615,11 +624,14 @@ export default {
   computed: {
     // 总花费
     totalCost() {
-      // 计算所有 adsSpend 的总和
-      return this.table_info.reduce(
-        (total, item) => total + Number(item.adsSpend),
-        0
-      )
+      // 计算总和，解决浮点数精度问题
+      const total = this.table_info.reduce((sum, item) => {
+        const spend = parseFloat(item.adsSpend) || 0;
+        return sum + spend;
+      }, 0);
+
+      // 保留两位小数
+      return parseFloat(total.toFixed(2));
     },
     // 总点击量
     totalClick() {
@@ -802,12 +814,52 @@ export default {
         this.showDiv = true
         clearTimeout(timer)
       }, 100)
+      this.startProgress()
+    },
+     startProgress() {
+      this.showPercentage = true
+      // 清除之前的定时器，如果有的话
+      if (this.timer) {
+        clearInterval(this.timer)
+      }
+
+      // 重置百分比为0%
+      this.percentage = 0
+
+      // 使用 Vue 的 $nextTick 确保 DOM 更新
+      this.$nextTick(() => {
+        const duration = 5000 // 总时间5000毫秒
+        const steps = 100 // 从0%到100%，共100步
+        const stepSize = 100 / steps // 每步增加的百分比
+        const interval = duration / steps // 每步之间的间隔时间
+
+        let currentPercentage = 0 // 从0%开始
+
+        // 启动新的定时器
+        this.timer = setInterval(() => {
+          if (currentPercentage >= 100) {
+            clearInterval(this.timer)
+            this.timer = null // 清空定时器ID
+            this.showPercentage = false;
+          } else {
+            currentPercentage += stepSize
+            this.percentage = Math.min(currentPercentage, 100) // 确保百分比不超过100
+          }
+        }, interval)
+      })
     },
   },
 }
 </script>
 
 <style lang="scss" scoped>
+::v-deep .el-progress-bar__inner {
+  height: 4px;
+  background: rgb(20, 97, 204) !important;
+}
+::v-deep .el-progress-bar__outer {
+  background: none !important;
+}
 .input {
   width: 100%;
   display: flex;
@@ -826,6 +878,9 @@ export default {
     width: 200px;
     margin-bottom: 8px;
   }
+}
+.table_box:hover {
+  background: #e5e5e5 !important;
 }
 .flex_center {
   display: flex;
