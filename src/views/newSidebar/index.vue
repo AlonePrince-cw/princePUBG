@@ -155,6 +155,7 @@
             </div>
           </div>
         </div>
+        <!-- <el-progress :percentage="percentage" v-if="showPercentage"></el-progress> -->
         <div class="bottom_table">
           <div class="table_header">
             <div class="header_1 rs_box one_checkbox">
@@ -205,7 +206,7 @@
               v-for="(tabItem, tabIndex) in table_info"
               :key="tabIndex"
               :style="{
-                background: tabIndex % 2 == 1 ? 'rgba(237, 245, 255)' : '#fff',
+                background: tabIndex % 2 == 1 ? '#f5f6f7' : '#fff',
               }"
             >
               <div class="header_1 rs_box one_checkbox">
@@ -226,7 +227,7 @@
                   <img
                     :src="tabItem.adsImg"
                     alt=""
-                    style="width: 46px; height: 46px; margin-right: 4px"
+                    style="width: 44px; height: 44px; margin-right: 4px"
                   />
                   <div class="right_bo">
                     <div
@@ -254,10 +255,13 @@
               </div>
               <div class="header_5 rs_box flex_end">
                 <div class="c_bb">
-                  <div class="left_text" style="height: 16px">
-                    ${{ formatNumberWithCommas(tabItem.adsBudget) }}
+                  <div
+                    class="left_text showeli"
+                    style="height: 18px; width: 113px"
+                  >
+                    使用广告系列预算
                   </div>
-                  <div class="danri_text">单日</div>
+                  <div class="danri_text"></div>
                 </div>
               </div>
               <!-- <div class="header_5 rs_box">
@@ -630,7 +634,9 @@
           ></el-input>
         </div>
         <div class="aa_b">
-          <div class="label_name" v-if="tabInfoIndex == 0">请输入广告图片链接</div>
+          <div class="label_name" v-if="tabInfoIndex == 0">
+            请输入广告图片链接
+          </div>
           <el-input
             v-model="tabInfo.adsImg"
             placeholder="请输入广告图片链接"
@@ -646,6 +652,8 @@
 export default {
   data() {
     return {
+      percentage: 0,
+showPercentage:false,
       yesterdayTime: '',
       showDiv: true,
       adsTopText: 'PZwg-0910+0033 (1059343465905202)',
@@ -665,8 +673,10 @@ export default {
           adsClick: '789',
           adsExhibit: '99999',
           adsText: '购物',
-          adsLink: 'https://120bet.com?ch=8fxkj&sdmode=4&fbPixelId=1252910919395187',
-          adsImg:'https://scontent-hkg1-2.xx.fbcdn.net/v/t15.13418-10/459314021_447720948278476_4719515260375949386_n.jpg?_nc_cat=102&ccb=1-7&_nc_ohc=uRSc8aYY-AgQ7kNvgFeq1SZ&_nc_ht=scontent-hkg1-2.xx&_nc_gid=ArhOf1Vuju2DjSr_uZ6qYJN&stp=c0.5000x0.5000f_dst-emg0_p46x46_q75&ur=ace027&_nc_sid=58080a&oh=00_AYAW2MQ6AaJoFAyI3uMu-h_k29NCYlBzlVH9CBj37a0cbg&oe=66EEECFB'
+          adsLink:
+            'https://120bet.com?ch=8fxkj&sdmode=4&fbPixelId=1252910919395187',
+          adsImg:
+            'https://scontent-hkg1-2.xx.fbcdn.net/v/t15.13418-10/459314021_447720948278476_4719515260375949386_n.jpg?_nc_cat=102&ccb=1-7&_nc_ohc=uRSc8aYY-AgQ7kNvgFeq1SZ&_nc_ht=scontent-hkg1-2.xx&_nc_gid=ArhOf1Vuju2DjSr_uZ6qYJN&stp=c0.5000x0.5000f_dst-emg0_p46x46_q75&ur=ace027&_nc_sid=58080a&oh=00_AYAW2MQ6AaJoFAyI3uMu-h_k29NCYlBzlVH9CBj37a0cbg&oe=66EEECFB',
         },
       ],
       timeArray: [],
@@ -735,6 +745,24 @@ export default {
     // }
   },
   methods: {
+
+    startProgress () {
+      this.showPercentage = true;
+      const duration = 150; // 100毫秒
+      const step = 1; // 步长
+      const interval = duration / (150 / step);
+
+      let currentPercentage = 0;
+      const timer = setInterval(() => {
+        if (currentPercentage >= 150) {
+          clearInterval(timer);
+        } else {
+          currentPercentage += step;
+          this.percentage = currentPercentage;
+          this.showPercentage = false;
+        }
+      }, interval);
+    },
     // 显示某个时间点数据
     showDate(item) {
       this.table_info = item.tableInfo
@@ -807,7 +835,7 @@ export default {
       this.table_info.push({
         id: this.table_info.length + 1,
         adsName: '',
-        adsStatus: '',
+        adsStatus: '投放中',
         adsBudget: '',
         adsSpend: '',
         adsEffectiveness: '',
@@ -815,8 +843,10 @@ export default {
         adsClick: '',
         adsExhibit: '',
         adsText: '',
-        adsLink: '',
-        adsImg:''
+        adsLink:
+          'https://120bet.com?ch=8fxkj&sdmode=4&fbPixelId=1252910919395187',
+        adsImg:
+          'https://scontent-hkg1-2.xx.fbcdn.net/v/t15.13418-10/459314021_447720948278476_4719515260375949386_n.jpg?_nc_cat=102&ccb=1-7&_nc_ohc=uRSc8aYY-AgQ7kNvgFeq1SZ&_nc_ht=scontent-hkg1-2.xx&_nc_gid=ArhOf1Vuju2DjSr_uZ6qYJN&stp=c0.5000x0.5000f_dst-emg0_p46x46_q75&ur=ace027&_nc_sid=58080a&oh=00_AYAW2MQ6AaJoFAyI3uMu-h_k29NCYlBzlVH9CBj37a0cbg&oe=66EEECFB',
       })
     },
     // 清除本地缓存
@@ -863,7 +893,8 @@ export default {
       let timer = setTimeout(() => {
         this.showDiv = true
         clearTimeout(timer)
-      }, 100)
+      }, 100);
+      this.startProgress();
     },
   },
 }
@@ -1238,6 +1269,9 @@ export default {
     height: 46px !important;
     // line-height: 46px !important;
   }
+}
+.table_box:hover {
+  background: #e5e5e5 !important;
 }
 .bottom_bb {
   background: #fff;
@@ -1710,6 +1744,11 @@ export default {
   font-size: 18px;
   font-weight: 700;
   margin-right: 16px;
+}
+.showeli {
+  overflow: hidden; //超出的文本隐藏
+  text-overflow: ellipsis; //溢出用省略号显示
+  white-space: nowrap; //溢出不换行
 }
 .topOne_a_2 {
   width: 300px;
