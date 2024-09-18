@@ -6,6 +6,7 @@ import Sidebarrouter from './Sidebarrouter';
 import newSidebar from './newSidebar';
 import GetPayNumber from './GetPayNumber';
 import myAdsReport from './myAdsReport';
+import hahah from './hahah';
 
 import Report from './Report';
 import Demo from './Demo';
@@ -19,6 +20,7 @@ const routes = [
     GetPayNumber,
     Report,
     myAdsReport,
+    hahah,
     Demo
     // {
     //   path: '/',
