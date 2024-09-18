@@ -175,9 +175,7 @@
             <!-- <div class="header_5 rs_box">
               <div class="left_text">归因设置</div>
             </div> -->
-            <div class="header_5 rs_box link_box">
-              <div class="left_text">链接（广告设置）</div>
-            </div>
+
             <div class="header_6 rs_box">
               <div class="left_text">花费金额</div>
               <div class="icon_r"></div>
@@ -189,6 +187,9 @@
             <div class="header_7 rs_box">
               <div class="left_text">完成注册数</div>
               <div class="icon_r"></div>
+            </div>
+            <div class="header_5 rs_box link_box">
+              <div class="left_text">链接（广告设置）</div>
             </div>
             <div class="header_8 rs_box">
               <div class="left_text">点击量（全部）</div>
@@ -278,14 +279,7 @@
                   <div class="danri_text"></div>
                 </div>
               </div> -->
-              <div class="header_5 rs_box link_box">
-                <div class="c_bb">
-                  <div class="left_text" style="height: 16px">
-                    {{ tabItem.adsLink }}
-                  </div>
-                  <div class="danri_text"></div>
-                </div>
-              </div>
+
               <div class="header_6 rs_box flex_end">
                 <div class="c_bb">
                   <div class="left_text" style="height: 16px">
@@ -317,6 +311,15 @@
                     <div class="top_b" v-if="tabItem.adsResister > 0">[2]</div>
                   </div>
                   <div class="top_c" style="height: 17px"></div>
+                </div>
+              </div>
+              <!-- 广告链接 -->
+              <div class="header_5 rs_box link_box">
+                <div class="c_bb">
+                  <div class="left_text" style="height: 16px">
+                    {{ tabItem.adsLink }}
+                  </div>
+                  <div class="danri_text"></div>
                 </div>
               </div>
               <div class="header_8 rs_box flex_end">
@@ -375,10 +378,7 @@
               class="header_5 rs_box"
               style="justify-content: flex-end; padding-left: 9px"
             ></div> -->
-            <div
-              class="header_5 rs_box link_box"
-              style="justify-content: flex-end; padding-left: 9px"
-            ></div>
+
             <div class="header_6 rs_box flex_end">
               <div class="left_text">
                 <div class="right_text">
@@ -443,13 +443,18 @@
                 <div class="top_c" style="height: 17px">共计</div>
               </div>
             </div>
+            <!-- 广告链接 -->
+            <div
+              class="header_5 rs_box link_box"
+              style="justify-content: flex-end; padding-left: 9px"
+            ></div>
             <div class="header_8 rs_box flex_end">
               <div class="left_text">
                 <div class="right_text">
                   <div class="right_text_c">
                     {{ formatNumberWithCommas(totalClick) }}
                   </div>
-                  <div class="right_tex_b">共计</div>
+                  <div class="right_tex_b">共计1</div>
                 </div>
               </div>
             </div>
@@ -669,7 +674,7 @@ export default {
       timer: null,
       yesterdayTime: '',
       showDiv: true,
-      adsTopText: 'PZwg-0910+0033 (1059343465905202)',
+      adsTopText: '6666-XXa (1059343465905202)',
       dataDeta: '',
       // 成效标签
       effectivenessTag: '购物',
@@ -701,12 +706,12 @@ export default {
     totalCost() {
       // 计算总和，解决浮点数精度问题
       const total = this.table_info.reduce((sum, item) => {
-        const spend = parseFloat(item.adsSpend) || 0;
-        return sum + spend;
-      }, 0);
+        const spend = parseFloat(item.adsSpend) || 0
+        return sum + spend
+      }, 0)
 
       // 保留两位小数
-      return parseFloat(total.toFixed(2));
+      return parseFloat(total.toFixed(2))
     },
     // 总点击量
     totalClick() {
@@ -747,7 +752,11 @@ export default {
       '月' +
       day.getDate() +
       '日'
-    this.yesterdayTime = s // 获取��天的日期
+    this.yesterdayTime = s; // 获取��天的日期
+    const storedData = localStorage.getItem('2024年09月17日');
+    console.log(storedData);
+    this.table_info = JSON.parse(storedData).table_info;
+    this.startProgress()
   },
   created() {
     // // 尝试从本地缓存读取数据
@@ -785,7 +794,7 @@ export default {
           if (currentPercentage >= 100) {
             clearInterval(this.timer)
             this.timer = null // 清空定时器ID
-            this.showPercentage = false;
+            this.showPercentage = false
           } else {
             currentPercentage += stepSize
             this.percentage = Math.min(currentPercentage, 100) // 确保百分比不超过100
@@ -933,7 +942,7 @@ export default {
 <style lang="scss" scoped>
 ::v-deep .el-progress-bar__inner {
   height: 4px;
-  background: rgb(20, 97, 204) !important;
+  background: #1877f2 !important;
 }
 ::v-deep .el-progress-bar__outer {
   background: none !important;

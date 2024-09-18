@@ -669,7 +669,7 @@ export default {
       timer: null,
       yesterdayTime: '',
       showDiv: true,
-      adsTopText: 'PZwg-0910+0033 (1059343465905202)',
+      adsTopText: 'PZwg-0910+0033 (888567256468469)',
       dataDeta: '',
       // 成效标签
       effectivenessTag: '购物',
@@ -750,7 +750,7 @@ export default {
     this.yesterdayTime = s // 获取��天的日期
   },
   created() {
-    // // 尝试从本地缓存读取数据
+    // 尝试从本地缓存读取数据
     // const cachedData = localStorage.getItem('table_info')
     // if (cachedData) {
     //   // 如果本地缓存中有数据，使用缓存的数据

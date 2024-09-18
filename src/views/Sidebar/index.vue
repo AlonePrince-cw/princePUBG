@@ -91,7 +91,7 @@
         <div class="top_label">
           <div class="top_label_1">
             <div class="left_icon"></div>
-            <div class="left_text">广告系列</div>
+            <div class="left_text" style="color: #1877f2;">广告系列</div>
           </div>
           <div class="top_label_1" style="height: 40px; margin-bottom: -8px">
             <div class="left_icon_1"></div>
@@ -208,7 +208,7 @@
               v-for="(tabItem, tabIndex) in table_info"
               :key="tabIndex"
               :style="{
-                background: tabIndex % 2 == 1 ? 'rgba(237, 245, 255)' : '#fff',
+                background: tabIndex % 2 == 1 ? '#f5f6f7' : '#fff',
               }"
             >
               <div class="header_1 rs_box one_checkbox">
@@ -855,7 +855,7 @@ export default {
 <style lang="scss" scoped>
 ::v-deep .el-progress-bar__inner {
   height: 4px;
-  background: rgb(20, 97, 204) !important;
+  background: #1877f2 !important;
 }
 ::v-deep .el-progress-bar__outer {
   background: none !important;

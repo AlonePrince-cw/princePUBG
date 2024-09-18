@@ -27,15 +27,14 @@
             style="
               margin: 32px;
               margin-left: 0;
-              color: red;
               text-align: center;
               font-size: 16px;
             "
           >
             你的账户只有
-            {{
+           <span style="color: red;font-size: 18px;margin: 0 4px;"> {{
               showNumber.length
-            }}个，支持账户从小到大排序，支持账户过滤已禁用账户
+            }}</span>个，支持账户从小到大排序，支持账户过滤已禁用账户
           </div>
           <div
             ref="myDiv"
@@ -216,9 +215,11 @@ export default {
           const filterNumber = line.split('-').slice(0, -1)
           let result = filterNumber.join('-')
           resultArray.push(result)
+         resultArray = [...new Set(resultArray)]
         }
         if (line.startsWith('所有者：')) {
           ownerArray.push(line.split('：')[1].trim())
+          // ownerArray = [...new Set(ownerArray)]
         }
       }
       const dataArray = []
@@ -236,7 +237,6 @@ export default {
           })
         }
       })
-
       const filterArray = dataArray
         .filter((item) => {
           return item.status === '使用中'
