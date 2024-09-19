@@ -1,9 +1,10 @@
 module.exports = {
   devServer: {
-    host: 'adsmanager.fecabook.com',
+    //host: 'all',
+    // allowedHosts: 'auto',
     hot: true,
     disableHostCheck: true,
-    port:80
+    port: 80,
   },
 }
 
