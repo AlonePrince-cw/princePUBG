@@ -544,6 +544,7 @@
             <div class="label_name">请输入广告系列</div>
             <el-input
               v-model="adsTopText"
+              @change="adsTopTextChanged"
               placeholder="请输入广告系列"
               style="width: 200px; margin-right: 24px"
             ></el-input>
@@ -728,7 +729,7 @@ export default {
       timer: null,
       yesterdayTime: '',
       showDiv: true,
-      adsTopText: '6666-XXa (1059343465905202)',
+      adsTopText: localStorage.getItem('adsSNumber') ? localStorage.getItem('adsSNumber'):'6666-XXa (1059343465905202)',
       dataDeta: '',
       // 成效标签
       effectivenessTag: '购物',
@@ -807,10 +808,16 @@ export default {
       day.getDate() +
       '日'
     this.yesterdayTime = s // 获取��天的日期
-    const storedData = localStorage.getItem('2024年09月17日')
-    console.log(storedData)
-    this.table_info = JSON.parse(storedData).table_info
+    const storedData = localStorage.getItem(s)
+    if (storedData) {
+      this.table_info = JSON.parse(storedData).table_info;
     this.startProgress()
+    } else {
+      this.$message({
+        type: 'warning',
+        message: `${s}缓存暂无数据`,
+      })
+    }
   },
   created() {
     // // 尝试从本地缓存读取数据
@@ -826,6 +833,10 @@ export default {
   methods: {
     adsTabChangeIndex(index) {
       this.adsIndexTable = index
+    },
+    adsTopTextChanged (e) {
+      console.log(e)
+      localStorage.setItem('adsSNumber', e)
     },
     startProgress() {
       this.showPercentage = true

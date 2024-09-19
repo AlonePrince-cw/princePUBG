@@ -454,7 +454,7 @@
                   <div class="right_text_c">
                     {{ formatNumberWithCommas(totalClick) }}
                   </div>
-                  <div class="right_tex_b">共计1</div>
+                  <div class="right_tex_b">共计</div>
                 </div>
               </div>
             </div>
@@ -674,7 +674,7 @@ export default {
       timer: null,
       yesterdayTime: '',
       showDiv: true,
-      adsTopText: '6666-XXa (1059343465905202)',
+      adsTopText: 'ppx-0bba(487642037500839)',
       dataDeta: '',
       // 成效标签
       effectivenessTag: '购物',
@@ -748,15 +748,30 @@ export default {
     let s =
       day.getFullYear() +
       '年' +
+      '0' +
       (day.getMonth() + 1) +
       '月' +
       day.getDate() +
       '日'
-    this.yesterdayTime = s; // 获取��天的日期
-    const storedData = localStorage.getItem('2024年09月17日');
-    console.log(storedData);
-    this.table_info = JSON.parse(storedData).table_info;
-    this.startProgress()
+    this.yesterdayTime = s // 获取��天的日期
+    const storedData = localStorage.getItem(s)
+    const adsTopLocalText = localStorage.getItem('adsTopText')
+    const left_img_url = localStorage.getItem('left_img')
+    if (storedData) {
+      this.table_info = JSON.parse(storedData).table_info
+      this.adsTopText = JSON.parse(adsTopLocalText).adsTopText
+      this.left_img = JSON.parse(left_img_url).left_img
+      this.startProgress()
+    } else {
+      this.$message({
+        type: 'warning',
+        message: `${s}缓存暂无数据`,
+      })
+    }
+    window.addEventListener('beforeunload', this.reload());
+  },
+   beforeDestroy() {
+    window.removeEventListener('beforeunload', this.reload());
   },
   created() {
     // // 尝试从本地缓存读取数据
@@ -915,6 +930,11 @@ export default {
         this.dataDeta,
         JSON.stringify({ table_info: this.table_info })
       )
+      localStorage.setItem(
+        'adsTopText',
+        JSON.stringify({ adsTopText: this.adsTopText })
+      )
+      localStorage.setItem('left_img', JSON.stringify({ left_img: this.left_img }))
       this.$message({
         type: 'success',
         message: `已存储为${this.dataDeta}数据`,
