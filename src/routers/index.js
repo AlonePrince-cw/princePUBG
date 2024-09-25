@@ -19,6 +19,7 @@ import halande from './halande';
 import dafei from './dafei';
 import qinzhe from './qinzhe';
 import pipi from './pipi';
+import newPop from './newPop';
 
 
 import cc from './pop';
@@ -30,6 +31,7 @@ Vue.use(VueRouter)
 
 const routes = [
     Loginrouter,
+    newPop,
     baibai,
     halande,
     dafei,
