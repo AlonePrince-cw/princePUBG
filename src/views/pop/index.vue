@@ -123,14 +123,7 @@
               {{ adsTItem.adsTItemName }}
             </div>
           </div>
-          <!-- <div class="top_label_1" style="height: 40px; margin-bottom: -8px">
-            <div class="left_icon_1"></div>
-            <div class="left_text">广告组</div>
-          </div>
-          <div class="top_label_1" style="height: 49px">
-            <div class="left_icon_2"></div>
-            <div class="left_text" style="color: rgb(20, 97, 204)">广告</div>
-          </div> -->
+       
         </div>
         <div class="btn_box">
           <div class="top_buttom">
@@ -202,9 +195,9 @@
             <div class="header_5 rs_box">
               <div class="left_text">预算</div>
             </div>
-            <!-- <div class="header_5 rs_box">
+            <div class="header_5 rs_box" v-if="adsIndexTable === 0">
               <div class="left_text">归因设置</div>
-            </div> -->
+            </div>
 
             <div class="header_6 rs_box">
               <div class="left_text">花费金额</div>
@@ -218,7 +211,7 @@
               <div class="left_text">完成注册数</div>
               <div class="icon_r"></div>
             </div>
-            <div class="header_5 rs_box link_box">
+            <div class="header_5 rs_box link_box" v-if="adsIndexTable === 2">
               <div class="left_text">链接（广告设置）</div>
             </div>
             <div class="header_8 rs_box">
@@ -291,7 +284,7 @@
                 </div>
               </div>
               <div class="header_5 rs_box flex_end">
-                <div class="c_bb">
+                <div class="c_bb" v-if="adsIndexTable !== 0">
                   <div
                     class="left_text showeli"
                     style="height: 18px; width: 113px"
@@ -300,15 +293,21 @@
                   </div>
                   <div class="danri_text"></div>
                 </div>
+                 <div class="c_bb" v-else>
+                  <div class="left_text" style="height: 16px">
+                    ${{ formatNumberWithCommas(tabItem.adsBudget) }}
+                  </div>
+                  <div class="danri_text">单日</div>
+                </div>
               </div>
-              <!-- <div class="header_5 rs_box">
+              <div class="header_5 rs_box" v-if="adsIndexTable === 0">
                 <div class="c_bb">
                   <div class="left_text" style="height: 16px">
                     点击后1天或观看后1天
                   </div>
                   <div class="danri_text"></div>
                 </div>
-              </div> -->
+              </div>
 
               <div class="header_6 rs_box flex_end">
                 <div class="c_bb">
@@ -344,7 +343,7 @@
                 </div>
               </div>
               <!-- 广告链接 -->
-              <div class="header_5 rs_box link_box">
+              <div class="header_5 rs_box link_box" v-if="adsIndexTable === 2">
                 <div class="c_bb">
                   <div class="left_text" style="height: 16px">
                     {{ tabItem.adsLink }}
@@ -382,8 +381,8 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                margin-left: 8px;
               "
+              :style="{'margin-left':adsIndexTable !== 0? '8px':''}"
             ></div>
             <div class="header_3 rs_box">
               <div class="left_text pilei">
@@ -404,10 +403,11 @@
               class="header_5 rs_box"
               style="justify-content: flex-end; padding-left: 9px"
             ></div>
-            <!-- <div
+            <div
               class="header_5 rs_box"
-              style="justify-content: flex-end; padding-left: 9px"
-            ></div> -->
+              style="justify-content: flex-end;"
+              v-if="adsIndexTable === 0"
+            ></div>
 
             <div class="header_6 rs_box flex_end">
               <div class="left_text">
@@ -477,6 +477,7 @@
             <div
               class="header_5 rs_box link_box"
               style="justify-content: flex-end; padding-left: 9px"
+               v-if="adsIndexTable === 2"
             ></div>
             <div class="header_8 rs_box flex_end">
               <div class="left_text">
@@ -831,7 +832,8 @@ export default {
     // }
   },
   methods: {
-    adsTabChangeIndex(index) {
+    adsTabChangeIndex (index) {
+      if(index === 1)return
       this.adsIndexTable = index
     },
     adsTopTextChanged (e) {

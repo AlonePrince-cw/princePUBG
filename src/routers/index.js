@@ -9,8 +9,18 @@ import myAdsReport from './myAdsReport';
 import xiwen from './xiwen';
 import duola from './duola';
 import carl from './carl';
+import zhazha from './zhazha';
+import zhazha1 from './zhazha1';
+import zhazha2 from './zhazha2';
+import ayi from './ayi';
+import baibai from './baibai';
+import baibai1 from './baibai1';
+import halande from './halande';
+import dafei from './dafei';
+import qinzhe from './qinzhe';
 
-import cc from './hahah';
+
+import cc from './pop';
 
 import Report from './Report';
 import Demo from './Demo';
@@ -19,12 +29,21 @@ Vue.use(VueRouter)
 
 const routes = [
     Loginrouter,
+    baibai,
+    halande,
+    dafei,
+    qinzhe,
+    baibai1,
     Sidebarrouter,
     newSidebar,
     GetPayNumber,
     Report,
     myAdsReport,
     cc,
+    ayi,
+    zhazha,
+    zhazha1,
+    zhazha2,
     xiwen,
     carl,
     duola,

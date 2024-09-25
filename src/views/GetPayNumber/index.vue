@@ -210,7 +210,11 @@ export default {
           line.startsWith('猎豹') ||
           line.startsWith('猎豹1') ||
           line.startsWith('猎豹2') ||
-          line.startsWith('猎豹3')
+          line.startsWith('猎豹3') ||
+          line.startsWith('飞书') ||
+          line.startsWith('飞书1') ||
+          line.startsWith('飞书2') ||
+          line.startsWith('飞书3') 
         ) {
           const filterNumber = line.split('-').slice(0, -1)
           let result = filterNumber.join('-')
