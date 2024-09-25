@@ -18,6 +18,7 @@ import baibai1 from './baibai1';
 import halande from './halande';
 import dafei from './dafei';
 import qinzhe from './qinzhe';
+import pipi from './pipi';
 
 
 import cc from './pop';
@@ -33,6 +34,7 @@ const routes = [
     halande,
     dafei,
     qinzhe,
+    pipi,
     baibai1,
     Sidebarrouter,
     newSidebar,

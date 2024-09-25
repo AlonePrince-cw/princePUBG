@@ -14,6 +14,7 @@ module.exports = {
       maskIcon: 'favicon.ico',
       msTileImage: 'favicon.ico'
     }
-  }
+  },
+ 
 }
 

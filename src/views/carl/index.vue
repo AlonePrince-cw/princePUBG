@@ -123,6 +123,7 @@
               {{ adsTItem.adsTItemName }}
             </div>
           </div>
+       
         </div>
         <div class="btn_box">
           <div class="top_buttom">
@@ -202,20 +203,6 @@
               <div class="left_text">花费金额</div>
               <div class="icon_r"></div>
             </div>
-
-            <div class="header_6 rs_box">
-              <div class="left_text">单次成效费用</div>
-              <div class="icon_r"></div>
-            </div>
-
-            <div class="header_6 rs_box" style="width: 22%;">
-              <div
-                class="left_text"
-              >
-                单次完成注册费用
-              </div>
-              <div class="icon_r"></div>
-            </div>
             <div class="header_7 rs_box">
               <div class="left_text">成效</div>
               <div class="icon_r"></div>
@@ -289,7 +276,8 @@
               </div>
               <div class="header_4 rs_box flex_start">
                 <div
-                  :class="tabItem.adsStatus != '投放中'? 'icon_r_x_o': 'icon_r_x'"
+                  class="icon_r_x"
+                  v-if="tabItem.adsStatus == '投放中'"
                 ></div>
                 <div class="left_text" style="margin-left: 8px">
                   {{ tabItem.adsStatus }}
@@ -305,7 +293,7 @@
                   </div>
                   <div class="danri_text"></div>
                 </div>
-                <div class="c_bb" v-else>
+                 <div class="c_bb" v-else>
                   <div class="left_text" style="height: 16px">
                     ${{ formatNumberWithCommas(tabItem.adsBudget) }}
                   </div>
@@ -329,39 +317,17 @@
                   <div class="danri_text"></div>
                 </div>
               </div>
-              <div class="header_6 rs_box flex_end">
-                <div class="c_bb">
-                  <div class="left_text" style="height: 16px">
-                    ${{ formatNumberWithCommas(tabItem.a) }}
-                  </div>
-                  <div class="danri_text"></div>
-                </div>
-              </div>
-              <div class="header_6 rs_box flex_end" style="width: 22%;">
-                <div class="c_bb">
-                  <div class="left_text" style="height: 16px">
-                    ${{ formatNumberWithCommas(tabItem.b) }}
-                  </div>
-                  <div class="danri_text"></div>
-                </div>
-              </div>
               <div class="header_7 rs_box flex_end">
                 <div class="left_text">
                   <div class="top_a">
                     <div class="top_d">
-                      {{
-                        tabItem.adsEffectiveness == 0
-                          ? '—'
-                          : formatNumberWithCommas(tabItem.adsEffectiveness)
-                      }}
+                      {{ formatNumberWithCommas(tabItem.adsEffectiveness) }}
                     </div>
                     <div class="top_b" v-if="tabItem.adsEffectiveness > 0">
                       [2]
                     </div>
                   </div>
-                  <div class="top_c" style="height: 17px">
-                    {{ tabItem.adsEffectiveness > 0 ? tabItem.adsText : ' ' }}
-                  </div>
+                  <div class="top_c">{{ tabItem.adsText }}</div>
                 </div>
               </div>
               <!-- 注册 -->
@@ -369,11 +335,7 @@
                 <div class="left_text">
                   <div class="top_a">
                     <div class="top_d">
-                      {{
-                        tabItem.adsResister == 0
-                          ? '—'
-                          : formatNumberWithCommas(tabItem.adsResister)
-                      }}
+                      {{ formatNumberWithCommas(tabItem.adsResister) }}
                     </div>
                     <div class="top_b" v-if="tabItem.adsResister > 0">[2]</div>
                   </div>
@@ -419,9 +381,8 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                margin-left: 6px;
               "
-              
+              :style="{'margin-left':adsIndexTable !== 0? '8px':''}"
             ></div>
             <div class="header_3 rs_box">
               <div class="left_text pilei">
@@ -444,7 +405,7 @@
             ></div>
             <div
               class="header_5 rs_box"
-              style="justify-content: flex-end"
+              style="justify-content: flex-end;"
               v-if="adsIndexTable === 0"
             ></div>
 
@@ -455,27 +416,6 @@
                     ${{ formatNumberWithCommas(totalCost) }}
                   </div>
                   <div class="right_tex">总花费</div>
-                </div>
-              </div>
-            </div>
-            <div class="header_6 rs_box flex_end">
-              <div class="left_text">
-                <div class="right_text">
-                  <div class="right_text_a">
-                    ${{ formatNumberWithCommas(totlaA) }}
-                  </div>
-                  <div class="right_tex">单次购物</div>
-                </div> 
-              </div>
-            </div>
-            <div class="header_6 rs_box flex_end" style="width: 22%;">
-              <div class="left_text">
-                <div class="right_text">
-                  <div class="right_text_a">
-                    <!-- ${{ formatNumberWithCommas(totlaB) }} -->
-                    $11.05
-                  </div>
-                  <div class="right_tex">每次动作</div>
                 </div>
               </div>
             </div>
@@ -490,11 +430,7 @@
                       color: rgb(28, 30, 33);
                     "
                   >
-                    {{
-                      Number(totalEffectiveness) != 0
-                        ? formatNumberWithCommas(totalEffectiveness)
-                        : ''
-                    }}
+                    {{ formatNumberWithCommas(totalEffectiveness) }}
                   </div>
                   <div
                     class="top_b"
@@ -504,7 +440,7 @@
                       color: rgb(75, 79, 86);
                     "
                   >
-                    {{ Number(totalEffectiveness) != 0 ? '[2]' : '—' }}
+                    [2]
                   </div>
                 </div>
                 <div class="top_c">{{ effectivenessTag }}</div>
@@ -521,11 +457,7 @@
                       color: rgb(28, 30, 33);
                     "
                   >
-                    {{
-                      Number(totalResister) != 0
-                        ? formatNumberWithCommas(totalResister)
-                        : ''
-                    }}
+                    {{ formatNumberWithCommas(totalResister) }}
                   </div>
                   <div
                     class="top_b"
@@ -535,7 +467,7 @@
                       color: rgb(75, 79, 86);
                     "
                   >
-                    {{ Number(totalResister) != 0 ? '[2]' : '—' }}
+                    [2]
                   </div>
                 </div>
                 <div class="top_c" style="height: 17px">共计</div>
@@ -545,7 +477,7 @@
             <div
               class="header_5 rs_box link_box"
               style="justify-content: flex-end; padding-left: 9px"
-              v-if="adsIndexTable === 2"
+               v-if="adsIndexTable === 2"
             ></div>
             <div class="header_8 rs_box flex_end">
               <div class="left_text">
@@ -798,9 +730,7 @@ export default {
       timer: null,
       yesterdayTime: '',
       showDiv: true,
-      adsTopText: localStorage.getItem('adsSNumber')
-        ? localStorage.getItem('adsSNumber')
-        : '6666-XXa (1059343465905202)',
+      adsTopText: localStorage.getItem('adsSNumber') ? localStorage.getItem('adsSNumber'):'ccg-lck1 (2200941223626624)',
       dataDeta: '',
       // 成效标签
       effectivenessTag: '购物',
@@ -808,39 +738,19 @@ export default {
       table_info: [
         {
           id: 1,
-          adsName: 'X003-FB-PWA-1',
+          adsName: '拌面120bet',
           adsStatus: '投放中',
-          adsBudget: '3000',
-          adsSpend: 2497.48,
-          adsEffectiveness: '124',
-          adsResister: '160',
-          adsClick: '1857',
-          adsExhibit: '117899',
-          a: '20.14',
-          b: '15.61',
+          adsBudget: '12345',
+          adsSpend: 8888,
+          adsEffectiveness: '999',
+          adsResister: '89',
+          adsClick: '789',
+          adsExhibit: '99999',
           adsText: '购物',
           adsLink:
             'https://120bet.com?ch=8fxkj&sdmode=4&fbPixelId=1252910919395187',
           adsImg:
-            'https://scontent-hkg1-2.xx.fbcdn.net/v/t15.13418-10/460682554_558886999902682_8079031271617377078_n.jpg?_nc_cat=102&ccb=1-7&_nc_ohc=f-Kx6ReIk5EQ7kNvgGL41V2&_nc_ht=scontent-hkg1-2.xx&stp=c0.5000x0.5000f_dst-emg0_p46x46_q75&ur=ace027&_nc_sid=58080a&oh=00_AYCKI17xwGTzkBkMF54LV9bjAMq27rcNMXVtNnVp70x0bQ&oe=66F74341',
-        },
-        {
-          id: 2,
-          adsName: 'X003-FB-PWA-1',
-          adsStatus: '已被拒',
-          adsBudget: '5000',
-          adsSpend: 4149.33,
-          a: '12.65',
-          b: '9.41',
-          adsEffectiveness: '328',
-          adsResister: '441',
-          adsClick: '3772',
-          adsExhibit: '279932',
-          adsText: '购物',
-          adsLink:
-            'https://120bet.com?ch=8fxkj&sdmode=4&fbPixelId=1252910919395187',
-          adsImg:
-            'https://scontent-hkg4-1.xx.fbcdn.net/v/t15.13418-10/460791377_564368805923743_1626929939083264620_n.jpg?_nc_cat=106&ccb=1-7&_nc_ohc=y8VFUvsLDkAQ7kNvgEh576Q&_nc_ht=scontent-hkg4-1.xx&stp=c0.5000x0.5000f_dst-emg0_p46x46_q75&ur=ace027&_nc_sid=58080a&oh=00_AYACsDT-roNxKAqB5Th6oKk4YepumsG-p23YVcWUcLVbDQ&oe=66F731B8',
+            'https://scontent-hkg1-2.xx.fbcdn.net/v/t15.13418-10/459314021_447720948278476_4719515260375949386_n.jpg?_nc_cat=102&ccb=1-7&_nc_ohc=uRSc8aYY-AgQ7kNvgFeq1SZ&_nc_ht=scontent-hkg1-2.xx&_nc_gid=ArhOf1Vuju2DjSr_uZ6qYJN&stp=c0.5000x0.5000f_dst-emg0_p46x46_q75&ur=ace027&_nc_sid=58080a&oh=00_AYAW2MQ6AaJoFAyI3uMu-h_k29NCYlBzlVH9CBj37a0cbg&oe=66EEECFB',
         },
       ],
       timeArray: [],
@@ -887,12 +797,6 @@ export default {
         0
       )
     },
-    totlaB() {
-      return (this.totalCost / this.totalResister).toFixed(2)
-    },
-    totlaA() {
-      return (this.totalCost / this.totalEffectiveness).toFixed(2)
-    },
   },
   mounted() {
     let day = new Date()
@@ -905,20 +809,16 @@ export default {
       day.getDate() +
       '日'
     this.yesterdayTime = s // 获取��天的日期
-    // const storedData = localStorage.getItem(s)
-    // if (storedData) {
-    //   this.table_info = JSON.parse(storedData).table_info
-    //   this.startProgress()
-    // } else {
-    //   this.$message({
-    //     type: 'warning',
-    //     message: `${s}缓存暂无数据`,
-    //   })
-    // }
-    this.adsIndexTable = localStorage.getItem('adsIndexTable')
-      ? localStorage.getItem('adsIndexTable')
-      : 0
-    console.log(this.adsIndexTable)
+    const storedData = localStorage.getItem(s)
+    if (storedData) {
+      this.table_info = JSON.parse(storedData).table_info;
+    this.startProgress()
+    } else {
+      this.$message({
+        type: 'warning',
+        message: `${s}缓存暂无数据`,
+      })
+    }
   },
   created() {
     // // 尝试从本地缓存读取数据
@@ -932,11 +832,11 @@ export default {
     // }
   },
   methods: {
-    adsTabChangeIndex(index) {
-      if (index === 1) return
+    adsTabChangeIndex (index) {
+      if(index === 1)return
       this.adsIndexTable = index
     },
-    adsTopTextChanged(e) {
+    adsTopTextChanged (e) {
       console.log(e)
       localStorage.setItem('adsSNumber', e)
     },
@@ -1085,7 +985,6 @@ export default {
         this.dataDeta,
         JSON.stringify({ table_info: this.table_info })
       )
-      localStorage.setItem('adsIndexTable', this.adsIndexTable)
       this.$message({
         type: 'success',
         message: `已存储为${this.dataDeta}数据`,
@@ -1335,12 +1234,6 @@ export default {
       margin-left: 4px;
     }
   }
-}
-.icon_r_x_o{
-   width: 12px;
-  height: 12px;
-  background: rgb(162, 12, 23);
-  border-radius: 50%;
 }
 .icon_r_x {
   // background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yC/r/cnkAE7QiAAY.png);
