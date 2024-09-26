@@ -1,5 +1,5 @@
 export default {
-    path: '/act=455784414514341247&business_id=1662805014572111&columns=name%2Cdelivery%2Crecommendations_guidance%2Ccampaign_name%2Cbid%2Cbudget%2Clast_significant_edit%2Cattribution_setting%2Creach%2Cimpressions%2Cquality_score_organic%2Cquality_score_ectr%2Cquality_score_ecvr%2Cspend%2Cend_time%2Cschedule%2Cclicks&attribution_windows=default&date=202',
+    path: '/adsmanager/manage/business_id=9987321445654561343&global_scope_id=166983179175800&nav_entry_point=am_local_scope_selector&date=2024-09-24_2024-09-25&act=1042297050797516&insights_date=2024-09-24_2024-09-25&selected_ad_ids=120212865619850150&breakdown_regrouping=true',
     component: () =>
-        import('@/views/comPage')
+        import('@/views/pop')
 }

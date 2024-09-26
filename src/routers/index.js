@@ -10,8 +10,6 @@ import xiwen from './xiwen';
 import duola from './duola';
 import carl from './carl';
 import zhazha from './zhazha';
-import zhazha1 from './zhazha1';
-import zhazha2 from './zhazha2';
 import ayi from './ayi';
 import baibai from './baibai';
 import baibai1 from './baibai1';
@@ -20,6 +18,9 @@ import dafei from './dafei';
 import qinzhe from './qinzhe';
 import pipi from './pipi';
 import newPop from './newPop';
+import jiuwan from './jiuwan';
+import baiyang from './baiyang';
+import akang from './akang';
 
 
 import cc from './pop';
@@ -31,14 +32,17 @@ Vue.use(VueRouter)
 
 const routes = [
     Loginrouter,
+    baiyang,
     newPop,
     baibai,
     halande,
+    jiuwan,
     dafei,
     qinzhe,
     pipi,
     baibai1,
     Sidebarrouter,
+    akang,
     newSidebar,
     GetPayNumber,
     Report,
@@ -46,8 +50,6 @@ const routes = [
     cc,
     ayi,
     zhazha,
-    zhazha1,
-    zhazha2,
     xiwen,
     carl,
     duola,

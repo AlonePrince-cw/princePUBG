@@ -85,28 +85,28 @@
             :key="adsIndex"
             @click="adsTabChangeIndex(adsIndex)"
             :style="{
-              height: adsIndexTable === adsIndex ? '49px' : '40px',
-              'margin-bottom': adsIndexTable !== adsIndex ? '-8px' : '',
+              height: adsIndexTable == adsIndex ? '49px' : '40px',
+              'margin-bottom': adsIndexTable != adsIndex ? '-8px' : '',
             }"
           >
             <div
               class="left_icon"
               :style="{
                 backgroundPositionY:
-                  (adsIndexTable === adsIndex
+                  (adsIndexTable == adsIndex
                     ? adsTItem.positionActiveY
                     : adsTItem.positionY) + 'px',
-                width: adsIndexTable === adsIndex ? '24px' : '20px',
-                height: adsIndexTable === adsIndex ? '24px' : '20px',
+                width: adsIndexTable == adsIndex ? '24px' : '20px',
+                height: adsIndexTable == adsIndex ? '24px' : '20px',
               }"
               :class="[
-                adsIndexTable === adsIndex ? adsTItem.activeIconClass : '',
+                adsIndexTable == adsIndex ? adsTItem.activeIconClass : '',
               ]"
             ></div>
             <div
               class="left_text"
               :style="{
-                color: adsIndexTable === adsIndex ? 'rgb(20, 97, 204)' : '',
+                color: adsIndexTable == adsIndex ? 'rgb(20, 97, 204)' : '',
               }"
             >
               {{ adsTItem.adsTItemName }}
@@ -170,7 +170,9 @@
             </div>
             <div class="header_2 rs_box" style="line-height: 36px">关/开</div>
             <div class="header_3 rs_box">
-              <div class="left_text">广告</div>
+              <div class="left_text">
+                {{ adsIndexTable == 0 ? '广告系列' : '广告' }}
+              </div>
               <div class="icon_r"></div>
             </div>
             <div class="header_4 rs_box">
@@ -180,7 +182,7 @@
             <div class="header_5 rs_box">
               <div class="left_text">预算</div>
             </div>
-            <div class="header_5 rs_box" v-if="adsIndexTable === 0">
+            <div class="header_5 rs_box" v-if="adsIndexTable == 0">
               <div class="left_text">归因设置</div>
             </div>
 
@@ -194,7 +196,11 @@
               <div class="icon_r"></div>
             </div>
 
-            <div class="header_6 rs_box" style="width: 22%" v-if="adsIndexTable != 2">
+            <div
+              class="header_6 rs_box"
+              style="width: 22%"
+              v-if="adsIndexTable != 2"
+            >
               <div class="left_text">单次完成注册费用</div>
               <div class="icon_r"></div>
             </div>
@@ -206,7 +212,7 @@
               <div class="left_text">完成注册数</div>
               <div class="icon_r"></div>
             </div>
-            <div class="header_5 rs_box link_box" v-if="adsIndexTable === 2">
+            <div class="header_5 rs_box link_box" v-if="adsIndexTable == 2">
               <div class="left_text">链接（广告设置）</div>
             </div>
             <div class="header_8 rs_box">
@@ -280,7 +286,7 @@
                 </div>
               </div>
               <div class="header_5 rs_box flex_end">
-                <div class="c_bb" v-if="adsIndexTable !== 0">
+                <div class="c_bb" v-if="adsIndexTable != 0">
                   <div
                     class="left_text showeli"
                     style="height: 18px; width: 113px"
@@ -296,7 +302,7 @@
                   <div class="danri_text">单日</div>
                 </div>
               </div>
-              <div class="header_5 rs_box" v-if="adsIndexTable === 0">
+              <div class="header_5 rs_box" v-if="adsIndexTable == 0">
                 <div class="c_bb">
                   <div class="left_text" style="height: 16px">
                     点击后1天或观看后1天
@@ -321,7 +327,11 @@
                   <div class="danri_text"></div>
                 </div>
               </div>
-              <div class="header_6 rs_box flex_end" style="width: 22%" v-if="adsIndexTable != 2">
+              <div
+                class="header_6 rs_box flex_end"
+                style="width: 22%"
+                v-if="adsIndexTable != 2"
+              >
                 <div class="c_bb">
                   <div class="left_text" style="height: 16px">
                     ${{ formatNumberWithCommas(tabItem.b) }}
@@ -365,7 +375,7 @@
                 </div>
               </div>
               <!-- 广告链接 -->
-              <div class="header_5 rs_box link_box" v-if="adsIndexTable === 2">
+              <div class="header_5 rs_box link_box" v-if="adsIndexTable == 2">
                 <div class="c_bb">
                   <div class="left_text" style="height: 16px">
                     {{ tabItem.adsLink }}
@@ -428,7 +438,7 @@
             <div
               class="header_5 rs_box"
               style="justify-content: flex-end"
-              v-if="adsIndexTable === 0"
+              v-if="adsIndexTable == 0"
             ></div>
 
             <div class="header_6 rs_box flex_end">
@@ -451,7 +461,11 @@
                 </div>
               </div>
             </div>
-            <div class="header_6 rs_box flex_end" style="width: 22%" v-if="adsIndexTable != 2">
+            <div
+              class="header_6 rs_box flex_end"
+              style="width: 22%"
+              v-if="adsIndexTable != 2"
+            >
               <div class="left_text">
                 <div class="right_text">
                   <div class="right_text_a">
@@ -528,7 +542,7 @@
             <div
               class="header_5 rs_box link_box"
               style="justify-content: flex-end; padding-left: 9px"
-              v-if="adsIndexTable === 2"
+              v-if="adsIndexTable == 2"
             ></div>
             <div class="header_8 rs_box flex_end">
               <div class="left_text">
@@ -612,6 +626,34 @@
               style="width: 200px; margin-right: 24px"
             ></el-input>
           </div>
+          <div
+            class="aa_b"
+            style="margin-top: 8px; margin-left: 16px; width: 180px"
+          >
+            <div class="label_name" style="height: 20px"></div>
+            <el-button type="primary">是否显示单次成效/注册</el-button>
+          </div>
+           <div
+            class="aa_b"
+            style="margin-top: 8px; margin-left: 16px; width: 120px"
+          >
+            <div class="label_name" style="height: 20px"></div>
+            <el-button type="primary">是否广告链接</el-button>
+          </div>
+            <div
+            class="aa_b"
+            style="margin-top: 8px; margin-left: 16px; width: 150px"
+          >
+            <div class="label_name" style="height: 20px"></div>
+            <el-button type="primary">是否显示展示次数</el-button>
+          </div>
+            <div
+            class="aa_b"
+            style="margin-top: 8px; margin-left: 16px; width: 200px"
+          >
+            <div class="label_name" style="height: 20px"></div>
+            <el-button type="primary">是否显示点击量</el-button>
+          </div>
         </div>
         <el-button type="success" @click="clickAddTr()" style="margin: 0 16px"
           >点击增加一行</el-button
@@ -679,6 +721,16 @@
             placeholder="请输入花费金额"
             type="number"
             style="width: 140px; margin-right: 24px"
+            @change="
+              () => {
+                tabInfo.a = (
+                  Number(tabInfo.adsSpend) / Number(tabInfo.adsEffectiveness)
+                ).toFixed(2)
+                tabInfo.b = (
+                  Number(tabInfo.adsSpend) / Number(tabInfo.adsResister)
+                ).toFixed(2)
+              }
+            "
           ></el-input>
         </div>
         <div class="aa_b">
@@ -688,6 +740,13 @@
             placeholder="请输入成效"
             type="number"
             style="width: 140px; margin-right: 24px"
+            @change="
+              () => {
+                tabInfo.a = (
+                  Number(tabInfo.adsSpend) / Number(tabInfo.adsEffectiveness)
+                ).toFixed(2)
+              }
+            "
           ></el-input>
         </div>
         <div class="aa_b">
@@ -697,6 +756,13 @@
             placeholder="请输入注册"
             type="number"
             style="width: 140px; margin-right: 24px"
+            @change="
+              () => {
+                tabInfo.b = (
+                  Number(tabInfo.adsSpend) / Number(tabInfo.adsResister)
+                ).toFixed(2)
+              }
+            "
           ></el-input>
         </div>
         <div class="aa_b">
@@ -742,6 +808,14 @@
             placeholder="请输入广告图片链接"
             style="width: 140px; margin-right: 24px"
           ></el-input>
+        </div>
+        <div class="aa_b" style="width: 60px; justify-content: flex-end">
+          <el-button
+            type="danger"
+            @click="deleteRow(tabInfoIndex)"
+            style="width: 60px; height: 36px; text-align: center"
+            >删除</el-button
+          >
         </div>
       </div>
     </div>
@@ -876,6 +950,12 @@ export default {
     totlaA() {
       return (this.totalCost / this.totalEffectiveness).toFixed(2)
     },
+    //  costPerResult() {
+    //   return this.table_info
+    // },
+    // singleRegistrationFee() {
+    //   return this.totalCost / this.totalResister
+    // },
   },
   mounted() {
     let day = new Date()
@@ -888,20 +968,22 @@ export default {
       day.getDate() +
       '日'
     this.yesterdayTime = s // 获取��天的日期
-    // const storedData = localStorage.getItem(s)
-    // if (storedData) {
-    //   this.table_info = JSON.parse(storedData).table_info
-    //   this.startProgress()
-    // } else {
-    //   this.$message({
-    //     type: 'warning',
-    //     message: `${s}缓存暂无数据`,
-    //   })
-    // }
-    this.adsIndexTable = localStorage.getItem('adsIndexTable')
-      ? localStorage.getItem('adsIndexTable')
-      : 0
-    console.log(this.adsIndexTable)
+    const storedData = localStorage.getItem(s)
+    if (storedData) {
+      this.table_info = JSON.parse(storedData).table_info
+      this.startProgress()
+    } else {
+      this.$message({
+        type: 'warning',
+        message: `${s}缓存暂无数据`,
+      })
+    }
+  
+      this.$nextTick(() => {
+        this.adsIndexTable = localStorage.getItem('adsIndexTable')
+          ? localStorage.getItem('adsIndexTable')
+          : 0;
+      })
   },
   created() {
     // // 尝试从本地缓存读取数据
@@ -920,7 +1002,6 @@ export default {
       this.adsIndexTable = index
     },
     adsTopTextChanged(e) {
-      console.log(e)
       localStorage.setItem('adsSNumber', e)
     },
     startProgress() {
@@ -1041,6 +1122,12 @@ export default {
           'https://scontent-hkg1-2.xx.fbcdn.net/v/t15.13418-10/459314021_447720948278476_4719515260375949386_n.jpg?_nc_cat=102&ccb=1-7&_nc_ohc=uRSc8aYY-AgQ7kNvgFeq1SZ&_nc_ht=scontent-hkg1-2.xx&_nc_gid=ArhOf1Vuju2DjSr_uZ6qYJN&stp=c0.5000x0.5000f_dst-emg0_p46x46_q75&ur=ace027&_nc_sid=58080a&oh=00_AYAW2MQ6AaJoFAyI3uMu-h_k29NCYlBzlVH9CBj37a0cbg&oe=66EEECFB',
       })
     },
+    // 删除一行数据
+    deleteRow(index) {
+      if (this.table_info.length === 1)
+        return this.$message.error('至少保留一条数据')
+      this.table_info.splice(index, 1)
+    },
     // 清除本地缓存
     clearStorage() {
       localStorage.clear()
@@ -1076,6 +1163,7 @@ export default {
     },
     formatNumberWithCommas(number) {
       // 将数字转换为字符串
+      if (!number) return
       let numStr = number.toString()
 
       // 使用正则表达式和 replace 方法插入逗号

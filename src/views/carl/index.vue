@@ -803,7 +803,7 @@ export default {
     day.setTime(day.getTime() - 24 * 60 * 60 * 1000)
     let s =
       day.getFullYear() +
-      '年' +
+      '年' + '0' +
       (day.getMonth() + 1) +
       '月' +
       day.getDate() +
