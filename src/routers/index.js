@@ -12,7 +12,6 @@ import carl from './carl';
 import zhazha from './zhazha';
 import ayi from './ayi';
 import baibai from './baibai';
-import baibai1 from './baibai1';
 import halande from './halande';
 import dafei from './dafei';
 import qinzhe from './qinzhe';
@@ -40,7 +39,6 @@ const routes = [
     dafei,
     qinzhe,
     pipi,
-    baibai1,
     Sidebarrouter,
     akang,
     newSidebar,
