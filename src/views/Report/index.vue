@@ -212,6 +212,16 @@ export default {
       input5: '',
       oldTable: [],
       tableData: [
+        // {
+        //   tableHeaderName: '账户名称',
+        //   tableHeaderValue: this.formatNumberWithCommas(89496),
+        //   tableHeaderBottom: '共计',
+        // },
+        //   {
+        //   tableHeaderName: '账户编号',
+        //   tableHeaderValue: this.formatNumberWithCommas(89496),
+        //   tableHeaderBottom: '共计',
+        // },
         {
           tableHeaderName: '展示次数',
           tableHeaderValue: this.formatNumberWithCommas(89496),
