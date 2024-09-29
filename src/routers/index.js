@@ -20,6 +20,7 @@ import newPop from './newPop';
 import jiuwan from './jiuwan';
 import baiyang from './baiyang';
 import akang from './akang';
+import xiaoxiong from './xiaoxiong';
 
 
 import cc from './pop';
@@ -39,6 +40,7 @@ const routes = [
     dafei,
     qinzhe,
     pipi,
+    xiaoxiong,
     Sidebarrouter,
     akang,
     newSidebar,

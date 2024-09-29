@@ -278,7 +278,7 @@
               <div class="header_4 rs_box flex_start">
                 <div
                   :class="
-                    tabItem.adsStatus != '投放中' ? 'icon_r_x_o' : 'icon_r_x'
+                    tabItem.adsStatus == '投放中' ? 'icon_r_x' : tabItem.adsStatus == '已关闭'? 'icon_r_x_o': tabItem.adsStatus == '未投放' ? 'icon_r_x_o_x': ''
                   "
                 ></div>
                 <div class="left_text" style="margin-left: 8px">
@@ -1435,6 +1435,12 @@ export default {
       margin-left: 4px;
     }
   }
+}
+.icon_r_x_o_x{
+ width: 12px;
+  height: 12px;
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 50%;
 }
 .icon_r_x_o {
   width: 12px;
