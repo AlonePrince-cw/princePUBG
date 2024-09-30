@@ -256,6 +256,7 @@
                 <!-- <div class="text_c">{{ tabItem.adsName }}</div> -->
                 <div class="text_c" style="display: flex; align-items: center">
                   <img
+                  v-if="adsIndexTable != 0"
                     :src="tabItem.adsImg"
                     alt=""
                     style="width: 44px; height: 44px; margin-right: 4px"
@@ -271,7 +272,7 @@
                     >
                       {{ tabItem.adsName }}
                     </div>
-                    <div class="r_text" style="height: 18px"></div>
+                    <!-- <div class="r_text" style="height: 18px"></div> -->
                   </div>
                 </div>
               </div>
@@ -408,12 +409,12 @@
               style="border-right: none"
             ></div>
             <div
+            :style="{'margin-left': adsIndexTable == 2 ? '8px' : '6px'}"
               class="header_2 rs_box"
               style="
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                margin-left: 6px;
               "
             ></div>
             <div class="header_3 rs_box">
