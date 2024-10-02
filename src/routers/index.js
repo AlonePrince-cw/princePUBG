@@ -21,6 +21,7 @@ import jiuwan from './jiuwan';
 import baiyang from './baiyang';
 import akang from './akang';
 import xiaoxiong from './xiaoxiong';
+import awen from './awen';
 
 
 import cc from './pop';
@@ -42,6 +43,7 @@ const routes = [
     pipi,
     xiaoxiong,
     Sidebarrouter,
+    awen,
     akang,
     newSidebar,
     GetPayNumber,

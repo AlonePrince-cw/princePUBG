@@ -16,7 +16,7 @@
               <div class="b_1"></div>
             </div>
             <div class="b b_bg">
-              <div class="b_2 "></div>
+              <div class="b_2"></div>
             </div>
             <div class="b">
               <div class="b_3"></div>
@@ -256,7 +256,7 @@
                 <!-- <div class="text_c">{{ tabItem.adsName }}</div> -->
                 <div class="text_c" style="display: flex; align-items: center">
                   <img
-                  v-if="adsIndexTable != 0"
+                    v-if="adsIndexTable != 0"
                     :src="tabItem.adsImg"
                     alt=""
                     style="width: 44px; height: 44px; margin-right: 4px"
@@ -279,7 +279,13 @@
               <div class="header_4 rs_box flex_start">
                 <div
                   :class="
-                    tabItem.adsStatus == '投放中' ? 'icon_r_x' : tabItem.adsStatus == '已关闭'? 'icon_r_x_o': tabItem.adsStatus == '未投放' ? 'icon_r_x_o_x': ''
+                    tabItem.adsStatus == '投放中'
+                      ? 'icon_r_x'
+                      : tabItem.adsStatus == '已关闭'
+                      ? 'icon_r_x_o'
+                      : tabItem.adsStatus == '未投放'
+                      ? 'icon_r_x_o_x'
+                      : ''
                   "
                 ></div>
                 <div class="left_text" style="margin-left: 8px">
@@ -305,8 +311,7 @@
               </div>
               <div class="header_5 rs_box" v-if="adsIndexTable == 0">
                 <div class="c_bb">
-                  <div class="left_text" style="height: 16px;
-                  ">
+                  <div class="left_text" style="height: 16px">
                     点击后1天或观看后1天
                   </div>
                   <div class="danri_text"></div>
@@ -410,7 +415,7 @@
               style="border-right: none"
             ></div>
             <div
-            :style="{'margin-left': adsIndexTable == 2 ? '8px' : '6px'}"
+              :style="{ 'margin-left': adsIndexTable == 2 ? '8px' : '6px' }"
               class="header_2 rs_box"
               style="
                 display: flex;
@@ -635,21 +640,21 @@
             <div class="label_name" style="height: 20px"></div>
             <el-button type="info">是否显示单次成效/注册</el-button>
           </div>
-           <div
+          <div
             class="aa_b"
             style="margin-top: 8px; margin-left: 16px; width: 120px"
           >
             <div class="label_name" style="height: 20px"></div>
             <el-button type="info">是否广告链接</el-button>
           </div>
-            <div
+          <div
             class="aa_b"
             style="margin-top: 8px; margin-left: 16px; width: 150px"
           >
             <div class="label_name" style="height: 20px"></div>
             <el-button type="info">是否显示展示次数</el-button>
           </div>
-            <div
+          <div
             class="aa_b"
             style="margin-top: 8px; margin-left: 16px; width: 200px"
           >
@@ -903,7 +908,8 @@ export default {
         // },
       ],
       timeArray: [],
-      left_img: 'https://scontent-hkg1-2.xx.fbcdn.net/v/t39.30808-1/348919421_274322178373930_1443363011266369264_n.jpg?stp=cp0_dst-jpg_s32x32&_nc_cat=102&ccb=1-7&_nc_sid=e13b7a&_nc_ohc=g-Xx6sd4cGMQ7kNvgGe_gbh&_nc_ht=scontent-hkg1-2.xx&_nc_gid=ALYzzMnF1-iUM87EkYmOIDD&oh=00_AYBhKZj8wU3vFNg6IlDZVkweJ0v8Q9Bn4a2MF414ACZH1w&oe=66FB1B01',
+      left_img:
+        'https://scontent-hkg1-2.xx.fbcdn.net/v/t39.30808-1/348919421_274322178373930_1443363011266369264_n.jpg?stp=cp0_dst-jpg_s32x32&_nc_cat=102&ccb=1-7&_nc_sid=e13b7a&_nc_ohc=g-Xx6sd4cGMQ7kNvgGe_gbh&_nc_ht=scontent-hkg1-2.xx&_nc_gid=ALYzzMnF1-iUM87EkYmOIDD&oh=00_AYBhKZj8wU3vFNg6IlDZVkweJ0v8Q9Bn4a2MF414ACZH1w&oe=66FB1B01',
     }
   },
   computed: {
@@ -965,14 +971,15 @@ export default {
     let s =
       day.getFullYear() +
       '年' +
-      ((day.getMonth() + 1)< 10 ? '0' + day.getMonth() + 1 : day.getMonth() + 1) +
+      (day.getMonth() + 1 < 10
+        ? '0' + day.getMonth() + 1
+        : day.getMonth() + 1) +
       '月' +
       day.getDate() +
       '日'
     this.yesterdayTime = s // 获取��天的日期
-    
+
     const storedData = localStorage.getItem(s)
-    console.log(s, storedData)
     if (storedData) {
       this.table_info = JSON.parse(storedData).table_info
       this.startProgress()
@@ -982,12 +989,12 @@ export default {
         message: `${s}缓存暂无数据`,
       })
     }
-  
-      this.$nextTick(() => {
-        this.adsIndexTable = localStorage.getItem('adsIndexTable')
-          ? localStorage.getItem('adsIndexTable')
-          : 0;
-      })
+
+    this.$nextTick(() => {
+      this.adsIndexTable = localStorage.getItem('adsIndexTable')
+        ? localStorage.getItem('adsIndexTable')
+        : 0
+    })
   },
   created() {
     // // 尝试从本地缓存读取数据
@@ -1071,13 +1078,12 @@ export default {
       const filteredData = Object.entries(data)
         .filter(([key]) => {
           // 仅保留日期格式的键
-          return /^\d{4}年\d{2}月\d{2}日$/.test(key)
+          return /^\d{4}年(0?\d{1,2})月(0?\d{1,2})日$/.test(key)
         })
         .map(([key, value]) => ({
           date: key,
           tableInfo: JSON.parse(value).table_info,
         }))
-
       // 按日期排序
       const sortedData = filteredData.sort((a, b) => {
         const dateA = new Date(a.date.replace(/年|月|日/g, '/'))
@@ -1086,8 +1092,24 @@ export default {
       })
       return sortedData
     },
+    removeLeadingZero(dateStr) {
+      // 使用正则表达式提取年、月、日
+      const regex = /(\d{4})年(\d{1,2})月(0?)(\d{1,2})日/
+      const match = dateStr.match(regex)
+
+      if (!match) {
+        return '无效日期格式'
+      }
+
+      const year = match[1] // 年
+      const month = match[2] // 月
+      const day = match[4] // 日（去掉前导零）
+
+      // 格式化为 "YYYY年MM月DD日"（月份保持两位数，日不加前导零）
+      return `${year}年${month}月${day}日`
+    },
     detaChange(e) {
-      this.dataDeta = e
+      this.dataDeta = this.removeLeadingZero(e)
     },
     fetchData() {
       // 模拟数据获取
@@ -1437,8 +1459,8 @@ export default {
     }
   }
 }
-.icon_r_x_o_x{
- width: 12px;
+.icon_r_x_o_x {
+  width: 12px;
   height: 12px;
   background: rgba(0, 0, 0, 0.15);
   border-radius: 50%;
