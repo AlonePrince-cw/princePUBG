@@ -305,7 +305,8 @@
               </div>
               <div class="header_5 rs_box" v-if="adsIndexTable == 0">
                 <div class="c_bb">
-                  <div class="left_text" style="height: 16px">
+                  <div class="left_text" style="height: 16px;
+                  ">
                     点击后1天或观看后1天
                   </div>
                   <div class="danri_text"></div>
@@ -964,8 +965,7 @@ export default {
     let s =
       day.getFullYear() +
       '年' +
-      '0' +
-      (day.getMonth() + 1) +
+      ((day.getMonth() + 1)< 10 ? '0' + day.getMonth() + 1 : day.getMonth() + 1) +
       '月' +
       day.getDate() +
       '日'
