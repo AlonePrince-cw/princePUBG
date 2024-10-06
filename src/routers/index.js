@@ -23,6 +23,8 @@ import akang from './akang';
 import xiaoxiong from './xiaoxiong';
 import awen from './awen';
 
+import CCGetPayNumber from './CCGetPayNumber';
+
 
 import cc from './pop';
 
@@ -47,6 +49,7 @@ const routes = [
     akang,
     newSidebar,
     GetPayNumber,
+    CCGetPayNumber,
     Report,
     myAdsReport,
     cc,

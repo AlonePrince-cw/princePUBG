@@ -32,9 +32,9 @@
             "
           >
             你的账户只有
-           <span style="color: red;font-size: 18px;margin: 0 4px;"> {{
-              showNumber.length
-            }}</span>个，支持账户从小到大排序，支持账户过滤已禁用账户
+            <span style="color: red; font-size: 18px; margin: 0 4px">
+              {{ showNumber.length }}</span
+            >个，支持账户从小到大排序，支持账户过滤已禁用账户
           </div>
           <div
             ref="myDiv"
@@ -63,11 +63,19 @@
             <div class="number">{{ item.id }}</div>
           </div>
         </div>
+          <div id="dataList"></div>
+          <p id="output"></p>
         <div style="display: flex; margin-top: 32px; justify-content: center">
           <div>
             <div>
-              <el-button type="success" @click="getAllNumber()"
+              <el-input style="width: 100px;margin-right: 16px;" type="number" v-model="rechargeAmount" placeholder="请输入充值金额"></el-input>
+
+              <el-button type="success" @click="getAllNumber(1)"
                 >提取所有编号并复制</el-button
+              >
+
+              <el-button type="success" @click="topUpAllNumber()"
+                >充值编号提取</el-button
               >
               <el-button type="warning" @click="clearInput()"
                 >一键清空输入框</el-button
@@ -91,6 +99,8 @@ export default {
       input1: '',
       input2: '',
       allNumber: [],
+      rechargeAmount: 200,
+      operationsName: 'POP',
     }
   },
   mounted() {
@@ -159,6 +169,31 @@ export default {
     clearInput() {
       this.textarea2 = ''
     },
+    formatData(data) {
+      return `${data.id}\t${this.rechargeAmount}\t${data.topUpName}\t${this.operationsName}`
+    },
+
+    copyToClipboard(text) {
+      const textArea = document.createElement('textarea')
+      textArea.value = text
+      document.body.appendChild(textArea)
+      textArea.select()
+      document.execCommand('copy')
+      document.body.removeChild(textArea)
+      this.$message({
+        type: 'success',
+        message: '文本已复制到剪贴板!',
+      })
+    },
+    // 将所有数据格式化为字符串
+    formatAllData(dataArray) {
+      return dataArray.map(this.formatData).join('\n')
+    },
+    topUpAllNumber() {
+      this.getAllNumber()
+      const allDataFormatted = this.formatAllData(this.showNumber)
+      this.copyToClipboard(allDataFormatted)
+    },
     copyNumber() {
       // 选择所有具有相同类名的div元素
       const viewDom = document.querySelectorAll('.number') // 替换为实际的类名选择器
@@ -192,7 +227,7 @@ export default {
       // 移除临时的textarea元素
       document.body.removeChild(textarea)
     },
-    getAllNumber() {
+    getAllNumber(type) {
       let resultArray = []
       let ownerArray = []
       const text = `${this.textarea2}` // 将数据文本放在这里
@@ -214,12 +249,12 @@ export default {
           line.startsWith('飞书') ||
           line.startsWith('飞书1') ||
           line.startsWith('飞书2') ||
-          line.startsWith('飞书3') 
+          line.startsWith('飞书3')
         ) {
           const filterNumber = line.split('-').slice(0, -1)
           let result = filterNumber.join('-')
           resultArray.push(result)
-         resultArray = [...new Set(resultArray)]
+          resultArray = [...new Set(resultArray)]
         }
         if (line.startsWith('所有者：')) {
           ownerArray.push(line.split('：')[1].trim())
@@ -227,13 +262,14 @@ export default {
         }
       }
       const dataArray = []
-
-      resultArray.forEach((item,index) => {
+      resultArray.forEach((item, index) => {
+        const topUpName = item.match(/^(.*?)-/)[1]
         const regexString = `${item}-(\\d+)\\n编号：(\\d+)\\n所有者：${ownerArray[index]}\\n(使用中|已停用)`
         const regex = new RegExp(regexString, 'g')
         let match
         while ((match = regex.exec(text)) !== null) {
           dataArray.push({
+            topUpName: topUpName,
             agentName: item,
             sortNo: Number(match[1]),
             id: match[2],
@@ -248,12 +284,13 @@ export default {
         .sort((a, b) => {
           return parseInt(a.sortNo) - parseInt(b.sortNo)
         })
-      this.showNumber = filterArray
-
-      let timer = setTimeout(() => {
-        this.copyNumber()
-        clearTimeout(timer)
-      }, 500)
+      this.showNumber = filterArray;
+      if (type == 1) {
+        let timer = setTimeout(() => {
+          this.copyNumber()
+          clearTimeout(timer)
+        }, 500)
+      }
     },
   },
 }
