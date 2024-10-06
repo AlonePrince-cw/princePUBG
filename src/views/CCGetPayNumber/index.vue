@@ -63,12 +63,17 @@
             <div class="number">{{ item.id }}</div>
           </div>
         </div>
-          <div id="dataList"></div>
-          <p id="output"></p>
+        <div id="dataList"></div>
+        <p id="output"></p>
         <div style="display: flex; margin-top: 32px; justify-content: center">
           <div>
             <div>
-              <el-input style="width: 100px;margin-right: 16px;" type="number" v-model="rechargeAmount" placeholder="请输入充值金额"></el-input>
+              <el-input
+                style="width: 100px; margin-right: 16px"
+                type="number"
+                v-model="rechargeAmount"
+                placeholder="请输入充值金额"
+              ></el-input>
 
               <el-button type="success" @click="getAllNumber(1)"
                 >提取所有编号并复制</el-button
@@ -261,8 +266,9 @@ export default {
           ownerArray = [...new Set(ownerArray)]
         }
       }
+      console.log(ownerArray)
       const dataArray = []
-      resultArray.forEach((item, index) => {
+      resultArray.map((item, index) => {
         const topUpName = item.match(/^(.*?)-/)[1]
         const regexString = `${item}-(\\d+)\\n编号：(\\d+)\\n所有者：${ownerArray[index]}\\n(使用中|已停用)`
         const regex = new RegExp(regexString, 'g')
@@ -284,13 +290,35 @@ export default {
         .sort((a, b) => {
           return parseInt(a.sortNo) - parseInt(b.sortNo)
         })
-      this.showNumber = filterArray;
+      this.showNumber = this.prioritizeByData(resultArray,filterArray)
       if (type == 1) {
         let timer = setTimeout(() => {
           this.copyNumber()
           clearTimeout(timer)
         }, 500)
       }
+    },
+    prioritizeByData (data, array) {
+      const priorityMap = new Map()
+      // Fill the priority map with the index from data
+      data.forEach((item, index) => {
+        priorityMap.set(item, index)
+      })
+
+      const sortedArray = array.sort((a, b) => {
+        const aPriority = priorityMap.get(a.agentName) ?? Infinity // Use Infinity for undefined
+        const bPriority = priorityMap.get(b.agentName) ?? Infinity
+
+        // First sort by priority
+        if (aPriority !== bPriority) {
+          return aPriority - bPriority
+        }
+
+        // If priority is the same, sort by sortNo
+        return a.sortNo - b.sortNo
+      })
+
+      return sortedArray
     },
   },
 }
