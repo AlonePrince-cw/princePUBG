@@ -74,6 +74,12 @@
                 v-model="rechargeAmount"
                 placeholder="请输入充值金额"
               ></el-input>
+               <el-input
+                style="width: 100px; margin-right: 16px"
+                type="text"
+                v-model="operationsName"
+                placeholder="请输入运营员名称"
+              ></el-input>
 
               <el-button type="success" @click="getAllNumber(1)"
                 >提取所有编号并复制</el-button

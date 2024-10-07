@@ -557,7 +557,7 @@
                   <div class="right_text_c">
                     {{ formatNumberWithCommas(totalClick) }}
                   </div>
-                  <div class="right_tex_b">共计1</div>
+                  <div class="right_tex_b">共计</div>
                 </div>
               </div>
             </div>
