@@ -82,11 +82,11 @@
               ></el-input>
 
               <el-button type="success" @click="getAllNumber(1)"
-                >提取所有编号并复制</el-button
+                >提取绑定像素编号</el-button
               >
 
               <el-button type="success" @click="topUpAllNumber()"
-                >充值编号提取</el-button
+                >提取充值编号</el-button
               >
               <el-button type="warning" @click="clearInput()"
                 >一键清空输入框</el-button

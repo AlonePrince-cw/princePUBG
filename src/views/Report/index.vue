@@ -42,7 +42,7 @@
               </div>
             </div>
           </div>
-          <div class="bottom_table"  v-if="showDiv">
+          <div class="bottom_table" v-if="showDiv">
             <div
               class="div_t_box"
               v-for="(item, index) in tableData"
@@ -56,6 +56,10 @@
                 <div class="left_img"></div>
                 <div
                   class="center_nama"
+                  :style="{
+                    'margin-left':
+                      item.tableHeaderName == '广告系列名称' ? '-22px' : '0',
+                  }"
                   :class="{ active: item.tableHeaderName === '频次' }"
                 >
                   {{ item.tableHeaderName }}
@@ -75,8 +79,15 @@
                       item.tableHeaderName === '购物次数' ||
                       item.tableHeaderName === '完成注册次数',
                   }"
+                  :style="{
+                    'margin-left':
+    item.tableHeaderName == '广告系列名称' ? '16px' : '0',
+  'color': item.tableHeaderName == '广告系列名称' ? 'rgb(10, 120, 190)' : '#000',
+                      'text-decoration': item.tableHeaderName == '广告系列名称' ? 'underline':'none'
+
+                  }"
                 >
-                  {{ item.tableHeaderValue }}
+                  {{ item.tableHeaderName == '广告系列名称'? adsXilieName: item.tableHeaderValue }}
                   <span
                     v-if="
                       item.tableHeaderName === '购物次数' ||
@@ -91,8 +102,21 @@
                 class="top_info_bottom"
                 :style="{ width: item.isCustomWidth + 'px' || '127px' }"
               >
-                <div style="display: flex; justify-content: flex-end">
+                <div
+                  style="display: flex; justify-content: flex-end"
+                  :style="{
+                    'justify-content':
+                      item.tableHeaderName == '广告系列名称'
+                        ? 'flex-start'
+                        : 'flex-end',
+                  }"
+                >
+                <div style="padding: 4px 16px 4px 32px;" v-if="item.tableHeaderName == '广告系列名称'">
+                  <div class="bottom_text">总成效</div>
+                  <div class="bottom_xx">已显示1/1行</div>
+                </div>
                   <div
+                  v-if="item.tableHeaderName != '广告系列名称'"
                     class="number"
                     :class="{
                       gouwucishu1:
@@ -149,7 +173,7 @@
         <!-- <img src="../../assets/photo_2024-09-10_15-38-14.jpg" style="width: 300px;height: 300px;margin-top: 32px;" /> -->
       </div>
     </div>
-    
+
     <div
       class="revise_input"
       style="display: flex; margin-top: 60px; margin-left: 32px"
@@ -158,6 +182,12 @@
         >刷新随机改变表格</el-button
       >
        <el-input
+        v-model="adsXilieName"
+        @change="adsXilieNameChange"
+        placeholder="请输入广告系列名称"
+        style="width: 240px; margin-right: 24px"
+      ></el-input>
+      <el-input
         v-model="input1"
         @change="input1Change"
         placeholder="请输入金额"
@@ -175,7 +205,7 @@
         placeholder="请输入点击量"
         style="width: 240px; margin-right: 24px"
       ></el-input>
-       <el-input
+      <el-input
         v-model="input3"
         @change="input3Change"
         placeholder="请输入注册次数"
@@ -194,8 +224,9 @@
         style="width: 240px; margin-right: 24px"
       ></el-input>
     </div>
-     <el-button type="success" style="margin: 0 16px" @click="reload()" >刷新页面</el-button
-      >
+    <el-button type="success" style="margin: 0 16px" @click="reload()"
+      >刷新页面</el-button
+    >
   </div>
 </template>
 
@@ -212,11 +243,12 @@ export default {
       input5: '',
       oldTable: [],
       tableData: [
-        // {
-        //   tableHeaderName: '账户名称',
-        //   tableHeaderValue: this.formatNumberWithCommas(89496),
-        //   tableHeaderBottom: '共计',
-        // },
+        {
+          tableHeaderName: '广告系列名称',
+          tableHeaderValue: 'Y04-FB-PWA-1',
+          tableHeaderBottom: '',
+          isCustomWidth: 200,
+        },
         //   {
         //   tableHeaderName: '账户编号',
         //   tableHeaderValue: this.formatNumberWithCommas(89496),
@@ -261,6 +293,7 @@ export default {
         },
       ],
       yesterdayTime: '',
+      adsXilieName: 'Y04-FB-PWA-1',
     }
   },
   mounted() {
@@ -278,12 +311,12 @@ export default {
   },
 
   methods: {
-    reload () { 
-      this.showDiv = false;
-      let timer = setTimeout(() => { 
-        this.showDiv = true;
+    reload() {
+      this.showDiv = false
+      let timer = setTimeout(() => {
+        this.showDiv = true
         clearTimeout(timer)
-      },50)
+      }, 50)
     },
     // 随机打乱数组：可以使用 Fisher-Yates 洗牌算法。
     // 随机抛弃一个对象：可以通过生成一个随机布尔值来决定是否抛弃一个对象，如果决定抛弃，则从打乱后的数组中随机删除一个对象。
@@ -364,6 +397,8 @@ export default {
         }
       })
     },
+    adsXilieNameChange () { 
+    },
     input5Change() {
       console.log(this.input5)
       // 查找并更新 tableHeaderName 为 '频次' 的项
@@ -374,10 +409,9 @@ export default {
               type: 'error',
               message: '你填错了!',
             })
-          }else {
+          } else {
             item.tableHeaderValue = this.input5
           }
-
         }
       })
     },
@@ -401,7 +435,7 @@ export default {
   height: 300px;
   font-weight: 700;
   font-size: 15px;
-  color: rgb(28, 30, 33)
+  color: rgb(28, 30, 33);
 }
 .tongji1 {
   padding-right: 4px !important;
@@ -411,6 +445,15 @@ export default {
 }
 .gouwucishu1 {
   margin-right: 5px;
+}
+.bottom_text{
+font-size: 14px;
+font-weight: 700;
+}
+.bottom_xx{
+color: rgba(28, 43, 51, 0.65);
+font-size: 12px;
+font-weight: 400;
 }
 // .gouwucishu1::after {
 //   content: '......';
