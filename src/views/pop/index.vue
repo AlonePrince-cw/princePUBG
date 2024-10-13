@@ -476,8 +476,7 @@
               <div class="left_text">
                 <div class="right_text">
                   <div class="right_text_a">
-                    <!-- ${{ formatNumberWithCommas(totlaB) }} -->
-                    $11.05
+                    ${{ formatNumberWithCommas(totlaB) }}
                   </div>
                   <div class="right_tex">每次动作</div>
                 </div>
@@ -909,7 +908,7 @@ export default {
       ],
       timeArray: [],
       left_img:
-        'https://scontent-hkg1-2.xx.fbcdn.net/v/t39.30808-1/348919421_274322178373930_1443363011266369264_n.jpg?stp=cp0_dst-jpg_s32x32&_nc_cat=102&ccb=1-7&_nc_sid=e13b7a&_nc_ohc=g-Xx6sd4cGMQ7kNvgGe_gbh&_nc_ht=scontent-hkg1-2.xx&_nc_gid=ALYzzMnF1-iUM87EkYmOIDD&oh=00_AYBhKZj8wU3vFNg6IlDZVkweJ0v8Q9Bn4a2MF414ACZH1w&oe=66FB1B01',
+        'https://scontent-hkg4-1.xx.fbcdn.net/v/t1.30497-1/83577589_556345944958992_2558068442594803712_n.png?stp=c81.0.275.275a_cp0_dst-png_s32x32&_nc_cat=1&ccb=1-7&_nc_sid=df5472&_nc_ohc=8fbJ9fn8OBkQ7kNvgGsaj4G&_nc_ht=scontent-hkg4-1.xx&_nc_gid=AuzAEYqNBg_wDFyES19W5l2&oh=00_AYBTqf-zaAkPVwQo71SUBHrt3taQJEdibnSyYRs-_VeOEA&oe=67313C66',
     }
   },
   computed: {
@@ -1145,7 +1144,7 @@ export default {
         adsLink:
           'https://120bet.com?ch=8fxkj&sdmode=4&fbPixelId=1252910919395187',
         adsImg:
-          'https://scontent-hkg1-2.xx.fbcdn.net/v/t15.13418-10/459314021_447720948278476_4719515260375949386_n.jpg?_nc_cat=102&ccb=1-7&_nc_ohc=uRSc8aYY-AgQ7kNvgFeq1SZ&_nc_ht=scontent-hkg1-2.xx&_nc_gid=ArhOf1Vuju2DjSr_uZ6qYJN&stp=c0.5000x0.5000f_dst-emg0_p46x46_q75&ur=ace027&_nc_sid=58080a&oh=00_AYAW2MQ6AaJoFAyI3uMu-h_k29NCYlBzlVH9CBj37a0cbg&oe=66EEECFB',
+          'https://scontent-hkg4-1.xx.fbcdn.net/v/t1.30497-1/83577589_556345944958992_2558068442594803712_n.png?stp=c81.0.275.275a_cp0_dst-png_s32x32&_nc_cat=1&ccb=1-7&_nc_sid=df5472&_nc_ohc=8fbJ9fn8OBkQ7kNvgGsaj4G&_nc_ht=scontent-hkg4-1.xx&_nc_gid=AuzAEYqNBg_wDFyES19W5l2&oh=00_AYBTqf-zaAkPVwQo71SUBHrt3taQJEdibnSyYRs-_VeOEA&oe=67313C66',
       })
     },
     // 删除一行数据
