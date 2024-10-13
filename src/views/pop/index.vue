@@ -328,7 +328,7 @@
               </div>
               <div class="header_6 rs_box flex_end" v-if="adsIndexTable != 2">
                 <div class="c_bb">
-                  <div class="left_text" style="height: 16px">
+                  <div class="left_text text_liner" style="height: 16px">
                     ${{ formatNumberWithCommas(tabItem.a) }}
                   </div>
                   <div class="danri_text"></div>
@@ -340,7 +340,7 @@
                 v-if="adsIndexTable != 2"
               >
                 <div class="c_bb">
-                  <div class="left_text" style="height: 16px">
+                  <div class="left_text text_liner" style="height: 16px">
                     ${{ formatNumberWithCommas(tabItem.b) }}
                   </div>
                   <div class="danri_text"></div>
@@ -349,7 +349,7 @@
               <div class="header_7 rs_box flex_end">
                 <div class="left_text">
                   <div class="top_a">
-                    <div class="top_d">
+                    <div class="top_d text_liner">
                       {{
                         tabItem.adsEffectiveness == 0
                           ? '—'
@@ -369,7 +369,7 @@
               <div class="header_7 rs_box flex_end">
                 <div class="left_text">
                   <div class="top_a">
-                    <div class="top_d">
+                    <div class="top_d text_liner">
                       {{
                         tabItem.adsResister == 0
                           ? '—'
@@ -461,7 +461,7 @@
             <div class="header_6 rs_box flex_end" v-if="adsIndexTable != 2">
               <div class="left_text">
                 <div class="right_text">
-                  <div class="right_text_a">
+                  <div class="right_text_a text_liner">
                     ${{ formatNumberWithCommas(totlaA) }}
                   </div>
                   <div class="right_tex">单次购物</div>
@@ -475,7 +475,7 @@
             >
               <div class="left_text">
                 <div class="right_text">
-                  <div class="right_text_a">
+                  <div class="right_text_a text_liner">
                     ${{ formatNumberWithCommas(totlaB) }}
                   </div>
                   <div class="right_tex">每次动作</div>
@@ -486,7 +486,7 @@
               <div class="left_text">
                 <div class="top_a">
                   <div
-                    class="top_d"
+                    class="top_d text_liner"
                     style="
                       font-weight: 700;
                       font-size: 15px;
@@ -517,7 +517,7 @@
               <div class="left_text">
                 <div class="top_a">
                   <div
-                    class="top_d"
+                    class="top_d text_liner"
                     style="
                       font-weight: 700;
                       font-size: 15px;
@@ -993,6 +993,8 @@ export default {
       this.adsIndexTable = localStorage.getItem('adsIndexTable')
         ? localStorage.getItem('adsIndexTable')
         : 0
+
+      console.log('this.adsIndexTable', this.adsIndexTable)
     })
   },
   created() {
@@ -1207,6 +1209,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.text_liner {
+  text-decoration: 1px dashed #333;
+  text-decoration-line: underline;
+}
 .div_1_report {
   width: 80px !important;
   border-radius: 6px 0 0 6px !important;
