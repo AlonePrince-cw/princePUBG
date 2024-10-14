@@ -204,7 +204,7 @@
               <div class="left_text">单次完成注册费用</div>
               <div class="icon_r"></div>
             </div>
-            <div class="header_7 rs_box">
+            <div class="header_16 rs_box header_7">
               <div class="left_text">成效</div>
               <div class="icon_r"></div>
             </div>
@@ -346,7 +346,7 @@
                   <div class="danri_text"></div>
                 </div>
               </div>
-              <div class="header_7 rs_box flex_end">
+              <div class="header_7 rs_box flex_end header_16">
                 <div class="left_text">
                   <div class="top_a">
                     <div class="top_d text_liner">
@@ -482,7 +482,7 @@
                 </div>
               </div>
             </div>
-            <div class="header_7 rs_box flex_end">
+            <div class="header_7 rs_box flex_end header_16">
               <div class="left_text">
                 <div class="top_a">
                   <div
@@ -990,11 +990,12 @@ export default {
     }
 
     this.$nextTick(() => {
+      this.effectivenessTag = localStorage.getItem('effectivenessTag')
+        ? localStorage.getItem('effectivenessTag')
+        : '购物'
       this.adsIndexTable = localStorage.getItem('adsIndexTable')
         ? localStorage.getItem('adsIndexTable')
         : 0
-
-      console.log('this.adsIndexTable', this.adsIndexTable)
     })
   },
   created() {
@@ -1183,6 +1184,7 @@ export default {
         JSON.stringify({ table_info: this.table_info })
       )
       localStorage.setItem('adsIndexTable', this.adsIndexTable)
+      localStorage.setItem('effectivenessTag', this.effectivenessTag)
       this.$message({
         type: 'success',
         message: `已存储为${this.dataDeta}数据`,
@@ -1209,6 +1211,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.header_16{
+width: 16% !important;
+}
 .text_liner {
   text-decoration: 1px dashed #333;
   text-decoration-line: underline;
@@ -2339,7 +2344,7 @@ export default {
 }
 
 .link_box {
-  min-width: 600px !important;
+  min-width: 550px !important;
   width: auto !important;
   padding: 0 8px !important;
 }
