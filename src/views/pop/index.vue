@@ -331,7 +331,7 @@
                   <div class="left_text" style="height: 16px;" :class="tabItem.a !='Infinity' ?'text_liner':''">
                    {{ isFinite(tabItem.a) ? '$':'' }}{{ isFinite(tabItem.a) ? formatNumberWithCommas(tabItem.a):'—' }}
                   </div>
-                  <div class="danri_text">{{tabItem.adsText  }}</div>
+                  <div class="danri_text">{{tabItem.oneAdsText  }}</div>
                 </div>
               </div>
               <div
@@ -362,7 +362,7 @@
                   </div>
                   <div class="top_c" style="height: 17px">
                     <!-- {{ tabItem.adsEffectiveness > 0 ? tabItem.adsText : ' ' }} -->
-                    {{tabItem.oneAdsText}}
+                    {{tabItem.adsText}}
                   </div>
                 </div>
               </div>
@@ -889,7 +889,7 @@ export default {
       showDiv: true,
       adsTopText: localStorage.getItem('adsSNumber')
         ? localStorage.getItem('adsSNumber')
-        : '6666-XXa (1059343465905202)',
+        : 'Yuri-899-10181457-POP (1060392375291233)',
       dataDeta: '',
       // 成效标签
       effectivenessTag: '购物',
