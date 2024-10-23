@@ -362,7 +362,7 @@
                   </div>
                   <div class="top_c" style="height: 17px">
                     <!-- {{ tabItem.adsEffectiveness > 0 ? tabItem.adsText : ' ' }} -->
-                    {{tabItem.adsText}}
+                    {{tabItem.oneAdsText}}
                   </div>
                 </div>
               </div>
@@ -468,7 +468,7 @@
                    <div class="right_text_a" :class="totlaA !='Infinity' ?'text_liner':'fonw300'">
                    {{ isFinite(totlaA) ? '$':'' }}{{ isFinite(totlaA) ? formatNumberWithCommas(totlaA):'—' }}
                   </div>
-                  <div class="right_tex" style="text-align: right;">{{effectivenessTag}}</div>
+                  <div class="right_tex" style="text-align: right;">{{ oneEffectivenessTag}}</div>
                 </div>
               </div>
             </div>
@@ -607,36 +607,47 @@
         <div style="display: flex">
           <div
             class="aa_b"
-            style="margin-top: 8px; margin-left: 16px; width: 200px"
+            style="margin-top: 8px; margin-left: 16px; width: 160px"
           >
             <div class="label_name">请输入左边头像地址</div>
             <el-input
               v-model="left_img"
               placeholder="请输入左边头像地址"
-              style="width: 200px; margin-right: 24px"
+              style="width: 160px; margin-right: 24px"
             ></el-input>
           </div>
           <div
             class="aa_b"
-            style="margin-top: 8px; margin-left: 16px; width: 200px"
+            style="margin-top: 8px; margin-left: 16px; width: 160px"
           >
-            <div class="label_name">请输入广告系列</div>
+            <div class="label_name">请输入广告账户名</div>
             <el-input
               v-model="adsTopText"
               @change="adsTopTextChanged"
-              placeholder="请输入广告系列"
-              style="width: 200px; margin-right: 24px"
+              placeholder="请输入广告账户名"
+              style="width: 160px; margin-right: 24px"
             ></el-input>
           </div>
           <div
             class="aa_b"
-            style="margin-top: 8px; margin-left: 16px; width: 200px"
+            style="margin-top: 8px; margin-left: 16px; width: 160px"
           >
-            <div class="label_name">请输入合计成效类型</div>
+            <div class="label_name">请输入单次成效费用类型</div>
+            <el-input
+              v-model="oneEffectivenessTag"
+              placeholder="请输入单次成效费用类型"
+              style="width: 160px; margin-right: 24px"
+            ></el-input>
+          </div>
+           <div
+            class="aa_b"
+            style="margin-top: 8px; margin-left: 16px; width: 160px"
+          >
+            <div class="label_name">请输入成效类型</div>
             <el-input
               v-model="effectivenessTag"
-              placeholder="请输入合计成效类型"
-              style="width: 200px; margin-right: 24px"
+              placeholder="请输入成效类型"
+              style="width: 160px; margin-right: 24px"
             ></el-input>
           </div>
           <div
@@ -662,7 +673,7 @@
           </div>
           <div
             class="aa_b"
-            style="margin-top: 8px; margin-left: 16px; width: 200px"
+            style="margin-top: 8px; margin-left: 16px; width: 160px"
           >
             <div class="label_name" style="height: 20px"></div>
             <el-button type="info">是否显示点击量</el-button>
@@ -707,7 +718,7 @@
           <el-input
             v-model="tabInfo.adsName"
             placeholder="请输入广告系列"
-            style="width: 140px; margin-right: 24px"
+            style="width: 110px; margin-right: 24px"
           ></el-input>
         </div>
         <div class="aa_b">
@@ -715,7 +726,7 @@
           <el-input
             v-model="tabInfo.adsStatus"
             placeholder="请输入投放状态"
-            style="width: 140px; margin-right: 24px"
+            style="width: 110px; margin-right: 24px"
           ></el-input>
         </div>
         <div class="aa_b">
@@ -724,7 +735,7 @@
             v-model="tabInfo.adsBudget"
             placeholder="请输入预算"
             type="number"
-            style="width: 140px; margin-right: 24px"
+            style="width: 110px; margin-right: 24px"
           ></el-input>
         </div>
         <div class="aa_b">
@@ -733,7 +744,7 @@
             v-model="tabInfo.adsSpend"
             placeholder="请输入花费金额"
             type="number"
-            style="width: 140px; margin-right: 24px"
+            style="width: 110px; margin-right: 24px"
             @change="
               () => {
                 tabInfo.a = (
@@ -752,7 +763,7 @@
             v-model="tabInfo.adsEffectiveness"
             placeholder="请输入成效"
             type="number"
-            style="width: 140px; margin-right: 24px"
+            style="width: 110px; margin-right: 24px"
             @change="
               () => {
                 tabInfo.a = (
@@ -768,7 +779,7 @@
             v-model="tabInfo.adsResister"
             placeholder="请输入注册"
             type="number"
-            style="width: 140px; margin-right: 24px"
+            style="width: 110px; margin-right: 24px"
             @change="
               () => {
                 tabInfo.b = (
@@ -784,7 +795,7 @@
             v-model="tabInfo.adsClick"
             placeholder="请输入点击"
             type="number"
-            style="width: 140px; margin-right: 24px"
+            style="width: 110px; margin-right: 24px"
           ></el-input>
         </div>
         <div class="aa_b">
@@ -793,15 +804,23 @@
             v-model="tabInfo.adsExhibit"
             placeholder="请输入展示次数"
             type="number"
-            style="width: 140px; margin-right: 24px"
+            style="width: 110px; margin-right: 24px"
           ></el-input>
         </div>
         <div class="aa_b">
+          <div class="label_name" v-if="tabInfoIndex == 0">请输入单次成效类型</div>
+          <el-input
+            v-model="tabInfo.oneAdsText"
+            placeholder="请输入单次成效类型"
+            style="width: 110px; margin-right: 24px"
+          ></el-input>
+        </div>
+         <div class="aa_b">
           <div class="label_name" v-if="tabInfoIndex == 0">请输入成效类型</div>
           <el-input
             v-model="tabInfo.adsText"
             placeholder="请输入成效类型"
-            style="width: 140px; margin-right: 24px"
+            style="width: 110px; margin-right: 24px"
           ></el-input>
         </div>
         <div class="aa_b">
@@ -809,7 +828,7 @@
           <el-input
             v-model="tabInfo.adsLink"
             placeholder="请输入广告链接"
-            style="width: 140px; margin-right: 24px"
+            style="width: 110px; margin-right: 24px"
           ></el-input>
         </div>
         <div class="aa_b">
@@ -819,7 +838,7 @@
           <el-input
             v-model="tabInfo.adsImg"
             placeholder="请输入广告图片链接"
-            style="width: 140px; margin-right: 24px"
+            style="width: 110px; margin-right: 24px"
           ></el-input>
         </div>
         <div class="aa_b" style="width: 60px; justify-content: flex-end">
@@ -874,6 +893,7 @@ export default {
       dataDeta: '',
       // 成效标签
       effectivenessTag: '购物',
+      oneEffectivenessTag:'购物',
       // 表格数据
       table_info: [
         {
@@ -889,6 +909,7 @@ export default {
           a: '20.14',
           b: '15.61',
           adsText: '购物',
+          oneAdsText: '购物',
           adsLink:
             'https://120bet.com?ch=8fxkj&sdmode=4&fbPixelId=1252910919395187',
           adsImg:
@@ -1000,6 +1021,10 @@ export default {
       this.effectivenessTag = localStorage.getItem('effectivenessTag')
         ? localStorage.getItem('effectivenessTag')
         : '购物'
+       this.oneEffectivenessTag = localStorage.getItem('oneEffectivenessTag')
+        ? localStorage.getItem('oneEffectivenessTag')
+        : '购物'
+      
       this.adsIndexTable = localStorage.getItem('adsIndexTable')
         ? localStorage.getItem('adsIndexTable')
         : 0
@@ -1151,6 +1176,7 @@ export default {
         adsClick: '',
         adsExhibit: '',
         adsText: '',
+        oneAdsText: '',
         adsLink:
           'https://120bet.com?ch=8fxkj&sdmode=4&fbPixelId=1252910919395187',
         adsImg:
@@ -1192,6 +1218,7 @@ export default {
       )
       localStorage.setItem('adsIndexTable', this.adsIndexTable)
       localStorage.setItem('effectivenessTag', this.effectivenessTag)
+      localStorage.setItem('oneEffectivenessTag', this.oneEffectivenessTag)
       this.$message({
         type: 'success',
         message: `已存储为${this.dataDeta}数据`,
@@ -1270,12 +1297,12 @@ font-weight: 300 !important;}
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 140px;
+  width: 110px;
   margin-right: 16px;
   margin-bottom: 16px;
   .label_name {
-    font-size: 14px;
-    width: 200px;
+    font-size: 12px;
+    width: 160px;
     margin-bottom: 8px;
   }
 }
