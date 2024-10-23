@@ -468,7 +468,7 @@
                    <div class="right_text_a" :class="totlaA !='Infinity' ?'text_liner':'fonw300'">
                    {{ isFinite(totlaA) ? '$':'' }}{{ isFinite(totlaA) ? formatNumberWithCommas(totlaA):'—' }}
                   </div>
-                  <div class="right_tex" style="text-align: right;">{{ oneEffectivenessTag}}</div>
+                  <div class="right_tex" style="text-align: right; text-align: right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width:110px;">{{ oneEffectivenessTag}}</div>
                 </div>
               </div>
             </div>
