@@ -87,14 +87,14 @@
 
                   }"
                 >
-                  {{ item.tableHeaderName == '广告系列名称'? adsXilieName: item.tableHeaderValue }}
+                  {{ item.tableHeaderName == '广告系列名称'? adsXilieName: item.tableHeaderValue == '0' ? '—': item.tableHeaderValue }}
                   <span
                     v-if="
                       item.tableHeaderName === '购物次数' ||
                       item.tableHeaderName === '完成注册次数'
                     "
                     style="font-size: 9px"
-                    >[2]</span
+                    >{{item.tableHeaderValue ==0?'': '[2]'}}</span
                   >
                 </div>
               </div>
@@ -124,7 +124,7 @@
                         item.tableHeaderName === '完成注册次数',
                     }"
                   >
-                    {{ item.tableHeaderValue }}
+                    {{ item.tableHeaderValue == 0 ? "" : item.tableHeaderValue }}
                   </div>
                   <div
                     v-if="
@@ -140,7 +140,7 @@
                       bottom: 26px;
                     "
                   >
-                    [2]
+                    {{item.tableHeaderValue ==0?'—': '[2]'}}
                   </div>
                 </div>
                 <div

@@ -328,10 +328,10 @@
               </div>
               <div class="header_6 rs_box flex_end" v-if="adsIndexTable != 2">
                 <div class="c_bb">
-                  <div class="left_text text_liner" style="height: 16px">
-                    ${{ formatNumberWithCommas(tabItem.a) }}
+                  <div class="left_text" style="height: 16px;" :class="tabItem.a !='Infinity' ?'text_liner':''">
+                   {{ isFinite(tabItem.a) ? '$':'' }}{{ isFinite(tabItem.a) ? formatNumberWithCommas(tabItem.a):'—' }}
                   </div>
-                  <div class="danri_text"></div>
+                  <div class="danri_text">{{tabItem.adsText  }}</div>
                 </div>
               </div>
               <div
@@ -340,8 +340,8 @@
                 v-if="adsIndexTable != 2"
               >
                 <div class="c_bb">
-                  <div class="left_text text_liner" style="height: 16px">
-                    ${{ formatNumberWithCommas(tabItem.b) }}
+                  <div class="left_text" style="height: 16px;" :class="tabItem.b !='Infinity' ?'text_liner':''">
+                   {{ isFinite(tabItem.b) ? '$':'' }}{{ isFinite(tabItem.b) ? formatNumberWithCommas(tabItem.b):'—' }}
                   </div>
                   <div class="danri_text"></div>
                 </div>
@@ -349,7 +349,7 @@
               <div class="header_7 rs_box flex_end header_16">
                 <div class="left_text">
                   <div class="top_a">
-                    <div class="top_d text_liner">
+                    <div class="top_d" :class="tabItem.adsEffectiveness > 0 ?'text_liner':''">
                       {{
                         tabItem.adsEffectiveness == 0
                           ? '—'
@@ -361,7 +361,8 @@
                     </div>
                   </div>
                   <div class="top_c" style="height: 17px">
-                    {{ tabItem.adsEffectiveness > 0 ? tabItem.adsText : ' ' }}
+                    <!-- {{ tabItem.adsEffectiveness > 0 ? tabItem.adsText : ' ' }} -->
+                    {{tabItem.adsText}}
                   </div>
                 </div>
               </div>
@@ -369,7 +370,7 @@
               <div class="header_7 rs_box flex_end">
                 <div class="left_text">
                   <div class="top_a">
-                    <div class="top_d text_liner">
+                    <div class="top_d" :class="tabItem.adsEffectiveness > 0 ?'text_liner':''">
                       {{
                         tabItem.adsResister == 0
                           ? '—'
@@ -384,7 +385,7 @@
               <!-- 广告链接 -->
               <div class="header_5 rs_box link_box" v-if="adsIndexTable == 2">
                 <div class="c_bb">
-                  <div class="left_text" style="height: 16px">
+                  <div class="left_text" style="height: 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;width: 550px;">
                     {{ tabItem.adsLink }}
                   </div>
                   <div class="danri_text"></div>
@@ -461,10 +462,13 @@
             <div class="header_6 rs_box flex_end" v-if="adsIndexTable != 2">
               <div class="left_text">
                 <div class="right_text">
-                  <div class="right_text_a text_liner">
+                  <!-- <div class="right_text_a text_liner">
                     ${{ formatNumberWithCommas(totlaA) }}
+                  </div> -->
+                   <div class="right_text_a" :class="totlaA !='Infinity' ?'text_liner':'fonw300'">
+                   {{ isFinite(totlaA) ? '$':'' }}{{ isFinite(totlaA) ? formatNumberWithCommas(totlaA):'—' }}
                   </div>
-                  <div class="right_tex">单次购物</div>
+                  <div class="right_tex" style="text-align: right;">{{effectivenessTag}}</div>
                 </div>
               </div>
             </div>
@@ -475,8 +479,11 @@
             >
               <div class="left_text">
                 <div class="right_text">
-                  <div class="right_text_a text_liner">
+                  <!-- <div class="right_text_a text_liner">
                     ${{ formatNumberWithCommas(totlaB) }}
+                  </div> -->
+                    <div class="right_text_a" :class="totlaB !='Infinity' ?'text_liner':'fonw300'">
+                   {{ isFinite(totlaB) ? '$':'' }}{{ isFinite(totlaB) ? formatNumberWithCommas(totlaB):'—' }}
                   </div>
                   <div class="right_tex">每次动作</div>
                 </div>
@@ -954,7 +961,7 @@ export default {
     totlaB() {
       return (this.totalCost / this.totalResister).toFixed(2)
     },
-    totlaA() {
+    totlaA () {
       return (this.totalCost / this.totalEffectiveness).toFixed(2)
     },
     //  costPerResult() {
@@ -1251,6 +1258,8 @@ width: 16% !important;
 ::v-deep .el-progress-bar__outer {
   background: none !important;
 }
+.fonw300{
+font-weight: 300 !important;}
 .input {
   width: 100%;
   display: flex;
