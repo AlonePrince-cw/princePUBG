@@ -331,7 +331,7 @@
                   <div class="left_text" style="height: 16px;" :class="tabItem.a !='Infinity' ?'text_liner':''">
                    {{ isFinite(tabItem.a) ? '$':'' }}{{ isFinite(tabItem.a) ? formatNumberWithCommas(tabItem.a):'—' }}
                   </div>
-                  <div class="danri_text">{{tabItem.oneAdsText  }}</div>
+                  <div class="danri_text" style="text-align: right; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; width: 110px;">{{tabItem.oneAdsText  }}</div>
                 </div>
               </div>
               <div
@@ -385,7 +385,7 @@
               <!-- 广告链接 -->
               <div class="header_5 rs_box link_box" v-if="adsIndexTable == 2">
                 <div class="c_bb">
-                  <div class="left_text" style="height: 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;width: 550px;">
+                  <div class="left_text" style="height: 17px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;width: 550px;">
                     {{ tabItem.adsLink }}
                   </div>
                   <div class="danri_text"></div>
@@ -909,30 +909,12 @@ export default {
           a: '20.14',
           b: '15.61',
           adsText: '购物',
-          oneAdsText: '购物',
+          oneAdsText: '单次购物',
           adsLink:
             'https://120bet.com?ch=8fxkj&sdmode=4&fbPixelId=1252910919395187',
           adsImg:
             'https://scontent-hkg1-2.xx.fbcdn.net/v/t15.13418-10/460682554_558886999902682_8079031271617377078_n.jpg?_nc_cat=102&ccb=1-7&_nc_ohc=f-Kx6ReIk5EQ7kNvgGL41V2&_nc_ht=scontent-hkg1-2.xx&stp=c0.5000x0.5000f_dst-emg0_p46x46_q75&ur=ace027&_nc_sid=58080a&oh=00_AYCKI17xwGTzkBkMF54LV9bjAMq27rcNMXVtNnVp70x0bQ&oe=66F74341',
         },
-        // {
-        //   id: 2,
-        //   adsName: 'X003-FB-PWA-1',
-        //   adsStatus: '已被拒',
-        //   adsBudget: '5000',
-        //   adsSpend: 4149.33,
-        //   a: '12.65',
-        //   b: '9.41',
-        //   adsEffectiveness: '328',
-        //   adsResister: '441',
-        //   adsClick: '3772',
-        //   adsExhibit: '279932',
-        //   adsText: '购物',
-        //   adsLink:
-        //     'https://120bet.com?ch=8fxkj&sdmode=4&fbPixelId=1252910919395187',
-        //   adsImg:
-        //     'https://scontent-hkg4-1.xx.fbcdn.net/v/t15.13418-10/460791377_564368805923743_1626929939083264620_n.jpg?_nc_cat=106&ccb=1-7&_nc_ohc=y8VFUvsLDkAQ7kNvgEh576Q&_nc_ht=scontent-hkg4-1.xx&stp=c0.5000x0.5000f_dst-emg0_p46x46_q75&ur=ace027&_nc_sid=58080a&oh=00_AYACsDT-roNxKAqB5Th6oKk4YepumsG-p23YVcWUcLVbDQ&oe=66F731B8',
-        // },
       ],
       timeArray: [],
       left_img:
