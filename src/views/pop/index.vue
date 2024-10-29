@@ -969,7 +969,7 @@ export default {
     return {
       startDateTime: '2024年10月28日',
       endDateTime: '2024年10月28日',
-      isMultipleDates: true, //是否是区间日期
+      isMultipleDates: false, //是否是区间日期
       adsTable: [
         {
           activeIconClass: 'ads_series',
