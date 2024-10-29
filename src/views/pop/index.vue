@@ -66,15 +66,23 @@
           </div>
         </div>
         <div class="aaa">
-          <div class="input_box">
+          <div class="input_box" :style="dynamicStyle">
             <div class="left_box">
               <div class="shure"></div>
               <!-- <div class="left_zhanshi">有展示</div> -->
               <div class="left_sour">搜索和筛选</div>
             </div>
           </div>
-          <div class="right_box">
-            <div class="mate">{{ yesterdayTime }}</div>
+          <div
+            class="right_box"
+            :style="{ width: isMultipleDates ? '300px' : '170px' }"
+          >
+            <div class="aaa_xx"></div>
+            <!-- 2024年10月23日 – 2024年10月28日 -->
+            <div class="mate" v-if="!isMultipleDates">{{ yesterdayTime }}</div>
+            <div class="mate" v-if="isMultipleDates">
+              {{ startDateTime }} - {{ endDateTime }}
+            </div>
             <div class="bottom_sour"></div>
           </div>
         </div>
@@ -328,10 +336,30 @@
               </div>
               <div class="header_6 rs_box flex_end" v-if="adsIndexTable != 2">
                 <div class="c_bb">
-                  <div class="left_text" style="height: 16px;" :class="tabItem.a !='Infinity' ?'text_liner':''">
-                   {{ isFinite(tabItem.a) ? '$':'' }}{{ isFinite(tabItem.a) ? formatNumberWithCommas(tabItem.a):'—' }}
+                  <div
+                    class="left_text"
+                    style="height: 16px"
+                    :class="tabItem.a != 'Infinity' ? 'text_liner' : ''"
+                  >
+                    {{ isFinite(tabItem.a) ? '$' : ''
+                    }}{{
+                      isFinite(tabItem.a)
+                        ? formatNumberWithCommas(tabItem.a)
+                        : '—'
+                    }}
                   </div>
-                  <div class="danri_text" style="text-align: right; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; width: 110px;">{{tabItem.oneAdsText  }}</div>
+                  <div
+                    class="danri_text"
+                    style="
+                      text-align: right;
+                      overflow: hidden;
+                      text-overflow: ellipsis;
+                      white-space: nowrap;
+                      width: 110px;
+                    "
+                  >
+                    {{ tabItem.oneAdsText }}
+                  </div>
                 </div>
               </div>
               <div
@@ -340,8 +368,17 @@
                 v-if="adsIndexTable != 2"
               >
                 <div class="c_bb">
-                  <div class="left_text" style="height: 16px;" :class="tabItem.b !='Infinity' ?'text_liner':''">
-                   {{ isFinite(tabItem.b) ? '$':'' }}{{ isFinite(tabItem.b) ? formatNumberWithCommas(tabItem.b):'—' }}
+                  <div
+                    class="left_text"
+                    style="height: 16px"
+                    :class="tabItem.b != 'Infinity' ? 'text_liner' : ''"
+                  >
+                    {{ isFinite(tabItem.b) ? '$' : ''
+                    }}{{
+                      isFinite(tabItem.b)
+                        ? formatNumberWithCommas(tabItem.b)
+                        : '—'
+                    }}
                   </div>
                   <div class="danri_text"></div>
                 </div>
@@ -349,7 +386,10 @@
               <div class="header_7 rs_box flex_end header_16">
                 <div class="left_text">
                   <div class="top_a">
-                    <div class="top_d" :class="tabItem.adsEffectiveness > 0 ?'text_liner':''">
+                    <div
+                      class="top_d"
+                      :class="tabItem.adsEffectiveness > 0 ? 'text_liner' : ''"
+                    >
                       {{
                         tabItem.adsEffectiveness == 0
                           ? '—'
@@ -362,7 +402,7 @@
                   </div>
                   <div class="top_c" style="height: 17px">
                     <!-- {{ tabItem.adsEffectiveness > 0 ? tabItem.adsText : ' ' }} -->
-                    {{tabItem.adsText}}
+                    {{ tabItem.adsText }}
                   </div>
                 </div>
               </div>
@@ -370,7 +410,10 @@
               <div class="header_7 rs_box flex_end">
                 <div class="left_text">
                   <div class="top_a">
-                    <div class="top_d" :class="tabItem.adsEffectiveness > 0 ?'text_liner':''">
+                    <div
+                      class="top_d"
+                      :class="tabItem.adsEffectiveness > 0 ? 'text_liner' : ''"
+                    >
                       {{
                         tabItem.adsResister == 0
                           ? '—'
@@ -385,7 +428,16 @@
               <!-- 广告链接 -->
               <div class="header_5 rs_box link_box" v-if="adsIndexTable == 2">
                 <div class="c_bb">
-                  <div class="left_text" style="height: 17px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;width: 550px;">
+                  <div
+                    class="left_text"
+                    style="
+                      height: 17px;
+                      white-space: nowrap;
+                      overflow: hidden;
+                      text-overflow: ellipsis;
+                      width: 550px;
+                    "
+                  >
                     {{ tabItem.adsLink }}
                   </div>
                   <div class="danri_text"></div>
@@ -465,10 +517,28 @@
                   <!-- <div class="right_text_a text_liner">
                     ${{ formatNumberWithCommas(totlaA) }}
                   </div> -->
-                   <div class="right_text_a" :class="totlaA !='Infinity' ?'text_liner':'fonw300'">
-                   {{ isFinite(totlaA) ? '$':'' }}{{ isFinite(totlaA) ? formatNumberWithCommas(totlaA):'—' }}
+                  <div
+                    class="right_text_a"
+                    :class="totlaA != 'Infinity' ? 'text_liner' : 'fonw300'"
+                  >
+                    {{ isFinite(totlaA) ? '$' : ''
+                    }}{{
+                      isFinite(totlaA) ? formatNumberWithCommas(totlaA) : '—'
+                    }}
                   </div>
-                  <div class="right_tex" style="text-align: right; text-align: right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width:110px;">{{ oneEffectivenessTag}}</div>
+                  <div
+                    class="right_tex"
+                    style="
+                      text-align: right;
+                      text-align: right;
+                      overflow: hidden;
+                      text-overflow: ellipsis;
+                      white-space: nowrap;
+                      width: 110px;
+                    "
+                  >
+                    {{ oneEffectivenessTag }}
+                  </div>
                 </div>
               </div>
             </div>
@@ -482,8 +552,14 @@
                   <!-- <div class="right_text_a text_liner">
                     ${{ formatNumberWithCommas(totlaB) }}
                   </div> -->
-                    <div class="right_text_a" :class="totlaB !='Infinity' ?'text_liner':'fonw300'">
-                   {{ isFinite(totlaB) ? '$':'' }}{{ isFinite(totlaB) ? formatNumberWithCommas(totlaB):'—' }}
+                  <div
+                    class="right_text_a"
+                    :class="totlaB != 'Infinity' ? 'text_liner' : 'fonw300'"
+                  >
+                    {{ isFinite(totlaB) ? '$' : ''
+                    }}{{
+                      isFinite(totlaB) ? formatNumberWithCommas(totlaB) : '—'
+                    }}
                   </div>
                   <div class="right_tex">每次动作</div>
                 </div>
@@ -639,7 +715,7 @@
               style="width: 160px; margin-right: 24px"
             ></el-input>
           </div>
-           <div
+          <div
             class="aa_b"
             style="margin-top: 8px; margin-left: 16px; width: 160px"
           >
@@ -652,31 +728,62 @@
           </div>
           <div
             class="aa_b"
-            style="margin-top: 8px; margin-left: 16px; width: 180px"
+            style="margin-top: 6px; width: 100px"
           >
             <div class="label_name" style="height: 20px"></div>
-            <el-button type="info">是否显示单次成效/注册</el-button>
+            <el-button type="info">显示单次成效/注册</el-button>
           </div>
           <div
             class="aa_b"
-            style="margin-top: 8px; margin-left: 16px; width: 120px"
+            style="margin-top: 6px; margin-left: 48px; width: 100px"
           >
             <div class="label_name" style="height: 20px"></div>
             <el-button type="info">是否广告链接</el-button>
           </div>
           <div
             class="aa_b"
-            style="margin-top: 8px; margin-left: 16px; width: 150px"
+            style="margin-top: 6px; margin-left: 16px; width: 150px"
           >
             <div class="label_name" style="height: 20px"></div>
             <el-button type="info">是否显示展示次数</el-button>
           </div>
           <div
             class="aa_b"
-            style="margin-top: 8px; margin-left: 16px; width: 160px"
+            style="margin-top: 6px; margin-left: 10px; width: 160px"
           >
             <div class="label_name" style="height: 20px"></div>
             <el-button type="info">是否显示点击量</el-button>
+          </div>
+          <div
+            class="aa_b"
+            style="margin-top: 6px; margin-left: -16px; width: 80px"
+          >
+            <div class="label_name" style="height: 20px"></div>
+            <el-button
+              type="primary"
+              @click="
+                () => {
+                  isMultipleDates = !isMultipleDates
+                }
+              "
+              >是否显示多日期量</el-button
+            >
+          </div>
+          <div class="aa_b" v-if="isMultipleDates" style="position: absolute;right: 140px;margin-top: 10px;">
+            <div class="label_name">开始日期</div>
+            <el-input
+              v-model="startDateTime"
+              placeholder="请输入开始日期"
+              style="width: 110px; margin-right: 24px"
+            ></el-input>
+          </div>
+          <div class="aa_b" v-if="isMultipleDates" style="position: absolute;right: 10px;margin-top: 10px;">
+            <div class="label_name">结束日期</div>
+            <el-input
+              v-model="endDateTime"
+              placeholder="请输入结束日期"
+              style="width: 110px; margin-right: 24px"
+            ></el-input>
           </div>
         </div>
         <el-button type="success" @click="clickAddTr()" style="margin: 0 16px"
@@ -808,14 +915,16 @@
           ></el-input>
         </div>
         <div class="aa_b">
-          <div class="label_name" v-if="tabInfoIndex == 0">请输入单次成效类型</div>
+          <div class="label_name" v-if="tabInfoIndex == 0">
+            请输入单次成效类型
+          </div>
           <el-input
             v-model="tabInfo.oneAdsText"
             placeholder="请输入单次成效类型"
             style="width: 110px; margin-right: 24px"
           ></el-input>
         </div>
-         <div class="aa_b">
+        <div class="aa_b">
           <div class="label_name" v-if="tabInfoIndex == 0">请输入成效类型</div>
           <el-input
             v-model="tabInfo.adsText"
@@ -858,6 +967,9 @@
 export default {
   data() {
     return {
+      startDateTime: '2024年10月28日',
+      endDateTime: '2024年10月28日',
+      isMultipleDates: true, //是否是区间日期
       adsTable: [
         {
           activeIconClass: 'ads_series',
@@ -893,7 +1005,7 @@ export default {
       dataDeta: '',
       // 成效标签
       effectivenessTag: '购物',
-      oneEffectivenessTag:'购物',
+      oneEffectivenessTag: '购物',
       // 表格数据
       table_info: [
         {
@@ -922,6 +1034,14 @@ export default {
     }
   },
   computed: {
+    dynamicStyle() {
+      return {
+        width: `calc(100% - ${this.isMultipleDates ? this.offset : '170'}px)`,
+      }
+    },
+    offset() {
+      return 300 // 这里可以动态改变
+    },
     // 总花费
     totalCost() {
       // 计算总和，解决浮点数精度问题
@@ -964,7 +1084,7 @@ export default {
     totlaB() {
       return (this.totalCost / this.totalResister).toFixed(2)
     },
-    totlaA () {
+    totlaA() {
       return (this.totalCost / this.totalEffectiveness).toFixed(2)
     },
     //  costPerResult() {
@@ -1003,10 +1123,14 @@ export default {
       this.effectivenessTag = localStorage.getItem('effectivenessTag')
         ? localStorage.getItem('effectivenessTag')
         : '购物'
-       this.oneEffectivenessTag = localStorage.getItem('oneEffectivenessTag')
+      this.oneEffectivenessTag = localStorage.getItem('oneEffectivenessTag')
         ? localStorage.getItem('oneEffectivenessTag')
         : '购物'
-      
+      this.startDateTime = localStorage.getItem('startDateTime') ?
+      localStorage.getItem('startDateTime'):this.startDateTime
+      this.endDateTime = localStorage.getItem('endDateTime') ?
+      localStorage.getItem('endDateTime'):this.endDateTime
+
       this.adsIndexTable = localStorage.getItem('adsIndexTable')
         ? localStorage.getItem('adsIndexTable')
         : 0
@@ -1201,6 +1325,8 @@ export default {
       localStorage.setItem('adsIndexTable', this.adsIndexTable)
       localStorage.setItem('effectivenessTag', this.effectivenessTag)
       localStorage.setItem('oneEffectivenessTag', this.oneEffectivenessTag)
+      localStorage.setItem('endDateTime', this.endDateTime)
+      localStorage.setItem('startDateTime', this.startDateTime)
       this.$message({
         type: 'success',
         message: `已存储为${this.dataDeta}数据`,
@@ -1227,8 +1353,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.header_16{
-width: 16% !important;
+.aaa_xx {
+  width: 16px;
+  height: 16px;
+  background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/y2/r/2qdc4_H3cyf.png);
+  background-position: -51px -188px;
+}
+.header_16 {
+  width: 16% !important;
 }
 .text_liner {
   text-decoration: 1px dashed #333;
@@ -1267,8 +1399,9 @@ width: 16% !important;
 ::v-deep .el-progress-bar__outer {
   background: none !important;
 }
-.fonw300{
-font-weight: 300 !important;}
+.fonw300 {
+  font-weight: 300 !important;
+}
 .input {
   width: 100%;
   display: flex;

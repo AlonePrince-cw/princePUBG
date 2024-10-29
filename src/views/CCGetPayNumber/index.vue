@@ -274,6 +274,7 @@ export default {
       }
       console.log(ownerArray)
       const dataArray = []
+      console.log(resultArray)
       resultArray.map((item, index) => {
         const topUpName = item.match(/^(.*?)-/)[1]
         const regexString = `${item}-(\\d+)\\n编号：(\\d+)\\n所有者：${ownerArray[index]}\\n(使用中|已停用)`
