@@ -233,7 +233,7 @@
             </div>
           </div>
           <el-progress
-            style="position: absolute; width: 300px"
+            style="position: absolute; width: 3000px"
             :percentage="percentage"
             v-if="showPercentage"
             :show-text="false"
@@ -1107,7 +1107,6 @@ export default {
       day.getDate() +
       '日'
     this.yesterdayTime = s // 获取��天的日期
-
     const storedData = localStorage.getItem(s)
     if (storedData) {
       this.table_info = JSON.parse(storedData).table_info
