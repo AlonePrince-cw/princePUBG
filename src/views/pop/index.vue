@@ -1632,15 +1632,10 @@ export default {
   border-radius: 50%;
 }
 .icon_r_x {
-  // background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yC/r/cnkAE7QiAAY.png);
-  // background-position: -21px -1282px;
-  // background-size: auto;
   width: 12px;
   height: 12px;
   background: rgb(99, 190, 9);
   border-radius: 50%;
-  // background-repeat: no-repeat;
-  // display: inline-block;
 }
 /* CSS代码 */
 .switch-box {
