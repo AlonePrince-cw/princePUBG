@@ -148,7 +148,9 @@
                 :key="index"
                 :style="{
                   width: item.tabHeaderWidth + 'px',
-                  height: adsIndex != 0 ? '46px' : '32px',
+                  height: adsIndex != 0 && adsIndex != maxTableInfo.length -1 ? '46px' : adsIndex == maxTableInfo.length -1?'64px': '32px',
+                  borderRight:
+                    item.typeBox == 'r_n' ? '' : '1px solid rgb(211, 211, 211)',
                 }"
               >
                 <!-- 重点逻辑 全是组件处理 -->
@@ -160,6 +162,16 @@
                   }"
                 >
                   {{ item.text }}
+                </div>
+                <!-- 上下文本 右上图标 -->
+                <div class="x_l" v-if="item.typeBox == 6 && adsIndex != 0">
+                  <div class="left_x_l">
+                    <div class="left_b_t">
+                      <div class="left_b_te">1个广告系列的成效</div>
+                      <div class="left_b_ic"></div>
+                    </div>
+                    <div class="pilei_bottom_text">排除已删除内容</div>
+                  </div>
                 </div>
                 <!-- 纯文本组件 -->
                 <div
@@ -237,7 +249,7 @@
                 ></div>
               </div>
             </div>
-           <!-- 表格最后的逻辑 -->
+            <!-- 表格最后的逻辑 -->
           </div>
         </div>
       </div>
@@ -410,15 +422,21 @@ export default {
               text: '12',
               tabHeaderWidth: 100,
               typeBox: 5,
-               des: '',
+              des: '',
               isUnderline: true,
               isMoney: false,
               isShowTop: true,
             },
-            { id: 12, text: '8882', tabHeaderWidth: 150, typeBox: 5,  des: '',
+            {
+              id: 12,
+              text: '8882',
+              tabHeaderWidth: 150,
+              typeBox: 5,
+              des: '',
               isUnderline: false,
               isMoney: false,
-              isShowTop: false, },
+              isShowTop: false,
+            },
           ],
           customColumnHeight: 46,
         },
@@ -513,17 +531,132 @@ export default {
               text: '12',
               tabHeaderWidth: 100,
               typeBox: 5,
-               des: '',
+              des: '',
               isUnderline: true,
               isMoney: false,
               isShowTop: true,
             },
-            { id: 12, text: '8882', tabHeaderWidth: 150, typeBox: 5,  des: '',
+            {
+              id: 12,
+              text: '8882',
+              tabHeaderWidth: 150,
+              typeBox: 5,
+              des: '',
               isUnderline: false,
               isMoney: false,
-              isShowTop: false, },
+              isShowTop: false,
+            },
           ],
           customColumnHeight: 46,
+        },
+        {
+          customTable: [
+            {
+              id: 1,
+              text: '',
+              tabHeaderWidth: 21,
+              typeBox: 'r_n',
+            },
+            {
+              id: 2,
+              text: '关/开',
+              tabHeaderWidth: 50,
+              typeBox: 'x',
+            },
+            {
+              id: 3,
+              text: 'X003-FB-PWA-1',
+              tabHeaderWidth: 200,
+              typeBox: 6,
+            },
+            {
+              id: 4,
+              text: '投放状态',
+              tabHeaderWidth: 151,
+              typeBox: 'r_n',
+            },
+            {
+              id: 5,
+              text: '5000',
+              tabHeaderWidth: 150,
+              typeBox: 'x',
+              des: '单日',
+              isUnderline: false,
+              isMoney: true,
+              isShowTop: true,
+            },
+            {
+              id: 6,
+              text: '134',
+              tabHeaderWidth: 150,
+              typeBox: 5,
+              des: '购物',
+              isUnderline: true,
+              isMoney: false,
+              isShowTop: true,
+            },
+            {
+              id: 7,
+              text: '99801',
+              tabHeaderWidth: 100,
+              typeBox: 5,
+              des: '',
+              isUnderline: false,
+              isMoney: false,
+              isShowTop: false,
+            },
+            {
+              id: 8,
+              text: '9891.11',
+              tabHeaderWidth: 100,
+              typeBox: 5,
+              des: '',
+              isUnderline: false,
+              isMoney: true,
+              isShowTop: false,
+            },
+            {
+              id: 9,
+              text: '98981',
+              tabHeaderWidth: 210,
+              typeBox: 5,
+              des: '单次购物',
+              isUnderline: true,
+              isMoney: true,
+              isShowTop: false,
+            },
+            {
+              id: 10,
+              text: '98981',
+              tabHeaderWidth: 210,
+              typeBox: 5,
+              des: '',
+              isUnderline: true,
+              isMoney: true,
+              isShowTop: false,
+            },
+            {
+              id: 11,
+              text: '12',
+              tabHeaderWidth: 100,
+              typeBox: 5,
+              des: '',
+              isUnderline: true,
+              isMoney: false,
+              isShowTop: true,
+            },
+            {
+              id: 12,
+              text: '8882',
+              tabHeaderWidth: 150,
+              typeBox: 5,
+              des: '',
+              isUnderline: false,
+              isMoney: false,
+              isShowTop: false,
+            },
+          ],
+          customColumnHeight: 64,
         },
       ],
 
@@ -621,6 +754,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+*{
+font-family: Roboto, Arial, sans-serif !important;
+}
 // 公用和全局样式
 .icon_active {
   background: rgba(24, 119, 242, 0.1);
@@ -713,9 +849,9 @@ export default {
   background: #e5e5e5 !important;
 }
 // 开关样式
-.switch_box{
-display: flex;
-align-items: center;
+.switch_box {
+  display: flex;
+  align-items: center;
 }
 /* Switch开关样式 */
 /* 必须是input为 checkbox class 添加 switch 才能实现以下效果 */
@@ -789,6 +925,34 @@ input[type='checkbox'].switch:checked::after {
 
   .is_checked {
     background-image: url('https://si.geilicdn.com/img-680e0000017db893cf290a22d4b2-unadjust_24_24.png');
+  }
+}
+.x_l {
+  .left_x_l {
+    display: flex;
+    flex-direction: column;
+    .left_b_t {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .left_b_te {
+        font-size: 15px;
+        font-weight: 700;
+        color: rgb(28, 30, 33);
+      }
+      .left_b_ic {
+        margin-left: 4px;
+        width: 12px;
+        height: 12px;
+        background: url(https://static.xx.fbcdn.net/rsrc.php/v3/yV/r/llvmClTohD1.png);
+        background-position: -39px -273px;
+      }
+    }
+    .pilei_bottom_text {
+      color: rgba(0, 0, 0, 0.5);
+      font-size: 13px;
+      font-weight: 400;
+    }
   }
 }
 // -------------------------------------------------
@@ -1268,7 +1432,7 @@ input[type='checkbox'].switch:checked::after {
         align-items: center;
         padding: 0 8px;
         height: 32px;
-        border-right: 1px solid rgb(211, 211, 211);
+        // border-right: 1px solid rgb(211, 211, 211);
         border-top: 1px solid rgb(211, 211, 211);
         .ads_column_text {
           font-weight: 700;
