@@ -134,129 +134,34 @@
           </div>
         </div>
         <!-- 内容表格 -->
-        <div class="table_content">
-          <div class="table_content_header">
-            <div
-              class="dynamic_table"
-              v-for="(adsItem, adsIndex) in maxTableInfo"
-              :key="adsIndex"
-              :style="{ height: adsItem.customColumnHeight + 'px' }"
-            >
-              <div
-                class="ads_column"
-                v-for="(item, index) in adsItem.customTable"
-                :key="index"
-                :style="{
-                  width: item.tabHeaderWidth + 'px',
-                  height:
-                    adsIndex != 0 && adsIndex != maxTableInfo.length - 1
-                      ? '46px'
-                      : adsIndex == maxTableInfo.length - 1
-                      ? '64px'
-                      : '32px',
-                  borderRight:
-                    item.typeBox == 'r_n' ? '' : '1px solid rgb(211, 211, 211)',
-                }"
+        <el-table :data="tableData" border style="width: 100%">
+          <el-table-column fixed type="index" align="center" label="序号" width="50"> </el-table-column>
+          <el-table-column  prop="date" label="接链接日期" width="150">
+          </el-table-column>
+          <el-table-column prop="pixel" label="像素" width="200">
+          </el-table-column>
+          <el-table-column prop="name" align="center" label="商务" width="120">
+          </el-table-column>
+          <el-table-column prop="groupName" label="群名" width="420">
+          </el-table-column>
+          <el-table-column prop="channelNumber" label="渠道号" width="200">
+          </el-table-column>
+          <el-table-column prop="kpi" label="KPI" width="50">
+          </el-table-column>
+          <el-table-column prop="link" label="链接" width="500">
+          </el-table-column>
+          <el-table-column fixed="right" label="操作" width="150" align="center">
+            <template slot-scope="scope">
+              <el-button
+                @click="handleClick(scope.row)"
+                type="text"
+                size="small"
+                >复制</el-button
               >
-                <!-- 重点逻辑 全是组件处理 -->
-                <div
-                  v-if="adsIndex == 0"
-                  class="ads_column_text"
-                  :style="{
-                    textAlign: item.id <= 2 ? 'center' : '',
-                  }"
-                >
-                  {{ item.text }}
-                </div>
-                <!-- 上下文本 右上图标 -->
-                <div class="x_l" v-if="item.typeBox == 6 && adsIndex != 0">
-                  <div class="left_x_l">
-                    <div class="left_b_t">
-                      <div class="left_b_te">1个广告系列的成效</div>
-                      <div class="left_b_ic"></div>
-                    </div>
-                    <div class="pilei_bottom_text">排除已删除内容</div>
-                  </div>
-                </div>
-                <!-- 纯文本组件 -->
-                <div
-                  class="ads_center_text"
-                  v-if="item.typeBox == 1 && adsIndex != 0"
-                >
-                  {{ item.text }}
-                </div>
-                <!-- 左图标右文本组件 -->
-                <div
-                  class="left_icon_right_text"
-                  v-if="item.typeBox == 4 && adsIndex != 0"
-                >
-                  <div
-                    class="ro_icon"
-                    :class="
-                      adsStatus == '投放中'
-                        ? 'icon_r_x'
-                        : adsStatus == '已关闭'
-                        ? 'icon_r_x_o'
-                        : adsStatus == '未投放'
-                        ? 'icon_r_x_o_x'
-                        : ''
-                    "
-                  ></div>
-                  <div class="ro_text" style="margin-left: 8px">
-                    {{ adsStatus }}
-                  </div>
-                </div>
-                <!-- 金额组件或数字组件 -->
-                <div class="t_b_c" v-if="item.typeBox == 5 && adsIndex != 0">
-                  <div class="m_box">
-                    <div
-                      class="m_text"
-                      :class="[item.isUnderline ? 'text_liner' : '']"
-                    >
-                      {{ item.isMoney ? '$' : ''
-                      }}{{ formatNumberWithCommas(item.text) }}
-                    </div>
-                    <div class="m_top_b" v-if="item.isShowTop">[2]</div>
-                  </div>
-                  <div class="m_text_b" :class="[item.isShowTop ? 'mr14' : '']">
-                    {{ item.des }}
-                  </div>
-                </div>
-                <!-- 复选框组件 -->
-                <div class="mkt-checkbox" v-if="item.typeBox == 2">
-                  <div class="check-icon">
-                    <input
-                      type="checkbox"
-                      name="check"
-                      id="check"
-                      v-model="ischecked"
-                      @change="handleChange"
-                    />
-                    <label for="check" class="notice"></label>
-                  </div>
-                </div>
-
-                <!-- 开关组件 -->
-                <div
-                  class="switch_box"
-                  v-if="item.typeBox == 3 && adsIndex != 0"
-                >
-                  <input type="checkbox" class="switch" />
-                </div>
-                <div
-                  class="ads_column_icon"
-                  v-if="
-                    item.id != 1 &&
-                    item.id != 2 &&
-                    item.id != 5 &&
-                    adsIndex == 0
-                  "
-                ></div>
-              </div>
-            </div>
-            <!-- 表格最后的逻辑 -->
-          </div>
-        </div>
+              <el-button type="text" size="small">编辑</el-button>
+            </template>
+          </el-table-column>
+        </el-table>
       </div>
     </div>
     <div class="ads_right_box">
@@ -278,390 +183,51 @@
 export default {
   data() {
     return {
-      ischecked: false,
-      adsStatus: '未投放',
-      // typeBox 1 纯文本组件 2 复选框组件 3 开关组件 4 左图标右文本组件 5 全靠右上下组件 6 全靠右上带数字分割符组件 7 全靠右上上下组件
-      maxTableInfo: [
+      tableData: [
         {
-          customTable: [
-            {
-              id: 1,
-              text: '',
-              tabHeaderWidth: 20,
-              typeBox: 2,
-            },
-            {
-              id: 2,
-              text: '关/开',
-              tabHeaderWidth: 50,
-            },
-            {
-              id: 3,
-              text: '广告系列',
-              tabHeaderWidth: 200,
-            },
-            {
-              id: 4,
-              text: '投放状态',
-              tabHeaderWidth: 150,
-            },
-            {
-              id: 5,
-              text: '预算',
-              tabHeaderWidth: 150,
-            },
-            {
-              id: 6,
-              text: '成效',
-              tabHeaderWidth: 150,
-            },
-            {
-              id: 7,
-              text: '展示次数',
-              tabHeaderWidth: 100,
-            },
-            {
-              id: 8,
-              text: '花费金额',
-              tabHeaderWidth: 100,
-            },
-            { id: 9, text: '单次成效费用', tabHeaderWidth: 210 },
-            {
-              id: 10,
-              text: '单次完成注册费用',
-              tabHeaderWidth: 210,
-            },
-            { id: 11, text: '完成注册数', tabHeaderWidth: 100 },
-            { id: 12, text: '点击量（全部）', tabHeaderWidth: 150 },
-          ],
-          customColumnHeight: 33,
+          date: '2024-11-04',
+          name: '拌面',
+          kpi:'',
+          groupName: 'F01-PWA-02【-3时区】',
+          channelNumber: 'F01-PWA-02',
+          link: 'https://9ky56t.vip?ch=kdj2m&sdmode=4&fbPixelId=761997855963993',
+          pixel: '761997855963993',
         },
         {
-          customTable: [
-            {
-              id: 1,
-              text: '',
-              tabHeaderWidth: 20,
-              typeBox: 2,
-            },
-            {
-              id: 2,
-              text: '关/开',
-              tabHeaderWidth: 50,
-              typeBox: 3,
-            },
-            {
-              id: 3,
-              text: 'X003-FB-PWA-1',
-              tabHeaderWidth: 200,
-              typeBox: 1,
-            },
-            {
-              id: 4,
-              text: '投放状态',
-              tabHeaderWidth: 150,
-              typeBox: 4,
-            },
-            {
-              id: 5,
-              text: '5000',
-              tabHeaderWidth: 150,
-              typeBox: 5,
-              des: '单日',
-              isUnderline: false,
-              isMoney: true,
-              isShowTop: true,
-            },
-            {
-              id: 6,
-              text: '134',
-              tabHeaderWidth: 150,
-              typeBox: 5,
-              des: '购物',
-              isUnderline: true,
-              isMoney: false,
-              isShowTop: true,
-            },
-            {
-              id: 7,
-              text: '99801',
-              tabHeaderWidth: 100,
-              typeBox: 5,
-              des: '',
-              isUnderline: false,
-              isMoney: false,
-              isShowTop: false,
-            },
-            {
-              id: 8,
-              text: '9891.11',
-              tabHeaderWidth: 100,
-              typeBox: 5,
-              des: '',
-              isUnderline: false,
-              isMoney: true,
-              isShowTop: false,
-            },
-            {
-              id: 9,
-              text: '98981',
-              tabHeaderWidth: 210,
-              typeBox: 5,
-              des: '单次购物',
-              isUnderline: true,
-              isMoney: true,
-              isShowTop: false,
-            },
-            {
-              id: 10,
-              text: '98981',
-              tabHeaderWidth: 210,
-              typeBox: 5,
-              des: '',
-              isUnderline: true,
-              isMoney: true,
-              isShowTop: false,
-            },
-            {
-              id: 11,
-              text: '12',
-              tabHeaderWidth: 100,
-              typeBox: 5,
-              des: '',
-              isUnderline: true,
-              isMoney: false,
-              isShowTop: true,
-            },
-            {
-              id: 12,
-              text: '8882',
-              tabHeaderWidth: 150,
-              typeBox: 5,
-              des: '',
-              isUnderline: false,
-              isMoney: false,
-              isShowTop: false,
-            },
-          ],
-          customColumnHeight: 46,
+          date: '2024-11-08',
+          name: '拌面',
+          kpi:'',
+          groupName: '拌面jill-渣-3点之前更新 马甲包',
+          channelNumber: 'ADS-7-包7-bmm',
+          link: '包',
+          pixel: 200333,
         },
         {
-          customTable: [
-            {
-              id: 1,
-              text: '',
-              tabHeaderWidth: 20,
-              typeBox: 2,
-            },
-            {
-              id: 2,
-              text: '关/开',
-              tabHeaderWidth: 50,
-              typeBox: 3,
-            },
-            {
-              id: 3,
-              text: 'X003-FB-PWA-1',
-              tabHeaderWidth: 200,
-              typeBox: 1,
-            },
-            {
-              id: 4,
-              text: '投放状态',
-              tabHeaderWidth: 150,
-              typeBox: 4,
-            },
-            {
-              id: 5,
-              text: '5000',
-              tabHeaderWidth: 150,
-              typeBox: 5,
-              des: '单日',
-              isUnderline: false,
-              isMoney: true,
-              isShowTop: true,
-            },
-            {
-              id: 6,
-              text: '134',
-              tabHeaderWidth: 150,
-              typeBox: 5,
-              des: '购物',
-              isUnderline: true,
-              isMoney: false,
-              isShowTop: true,
-            },
-            {
-              id: 7,
-              text: '99801',
-              tabHeaderWidth: 100,
-              typeBox: 5,
-              des: '',
-              isUnderline: false,
-              isMoney: false,
-              isShowTop: false,
-            },
-            {
-              id: 8,
-              text: '9891.11',
-              tabHeaderWidth: 100,
-              typeBox: 5,
-              des: '',
-              isUnderline: false,
-              isMoney: true,
-              isShowTop: false,
-            },
-            {
-              id: 9,
-              text: '98981',
-              tabHeaderWidth: 210,
-              typeBox: 5,
-              des: '单次购物',
-              isUnderline: true,
-              isMoney: true,
-              isShowTop: false,
-            },
-            {
-              id: 10,
-              text: '98981',
-              tabHeaderWidth: 210,
-              typeBox: 5,
-              des: '',
-              isUnderline: true,
-              isMoney: true,
-              isShowTop: false,
-            },
-            {
-              id: 11,
-              text: '12',
-              tabHeaderWidth: 100,
-              typeBox: 5,
-              des: '',
-              isUnderline: true,
-              isMoney: false,
-              isShowTop: true,
-            },
-            {
-              id: 12,
-              text: '8882',
-              tabHeaderWidth: 150,
-              typeBox: 5,
-              des: '',
-              isUnderline: false,
-              isMoney: false,
-              isShowTop: false,
-            },
-          ],
-          customColumnHeight: 46,
+          date: '2024-11-09',
+          name: '拌面',
+          kpi:'',
+          groupName: '拌面-GAN-巴西6%-nei',
+          channelNumber: '拌面-GAN-6线',
+          link: 'https://23mwea.com?ch=rz08t&sdmode=4&fbPixelId=1037555564823386',
+          pixel: '1037555564823386',
         },
         {
-          customTable: [
-            {
-              id: 1,
-              text: '',
-              tabHeaderWidth: 21,
-              typeBox: 'r_n',
-            },
-            {
-              id: 2,
-              text: '关/开',
-              tabHeaderWidth: 50,
-              typeBox: 'x',
-            },
-            {
-              id: 3,
-              text: 'X003-FB-PWA-1',
-              tabHeaderWidth: 200,
-              typeBox: 6,
-            },
-            {
-              id: 4,
-              text: '投放状态',
-              tabHeaderWidth: 151,
-              typeBox: 'r_n',
-            },
-            {
-              id: 5,
-              text: '5000',
-              tabHeaderWidth: 150,
-              typeBox: 'x',
-              des: '单日',
-              isUnderline: false,
-              isMoney: true,
-              isShowTop: true,
-            },
-            {
-              id: 6,
-              text: '134',
-              tabHeaderWidth: 150,
-              typeBox: 5,
-              des: '购物',
-              isUnderline: true,
-              isMoney: false,
-              isShowTop: true,
-            },
-            {
-              id: 7,
-              text: '99801',
-              tabHeaderWidth: 100,
-              typeBox: 5,
-              des: '',
-              isUnderline: false,
-              isMoney: false,
-              isShowTop: false,
-            },
-            {
-              id: 8,
-              text: '9891.11',
-              tabHeaderWidth: 100,
-              typeBox: 5,
-              des: '',
-              isUnderline: false,
-              isMoney: true,
-              isShowTop: false,
-            },
-            {
-              id: 9,
-              text: '98981',
-              tabHeaderWidth: 210,
-              typeBox: 5,
-              des: '单次购物',
-              isUnderline: true,
-              isMoney: true,
-              isShowTop: false,
-            },
-            {
-              id: 10,
-              text: '98981',
-              tabHeaderWidth: 210,
-              typeBox: 5,
-              des: '',
-              isUnderline: true,
-              isMoney: true,
-              isShowTop: false,
-            },
-            {
-              id: 11,
-              text: '12',
-              tabHeaderWidth: 100,
-              typeBox: 5,
-              des: '',
-              isUnderline: true,
-              isMoney: false,
-              isShowTop: true,
-            },
-            {
-              id: 12,
-              text: '8882',
-              tabHeaderWidth: 150,
-              typeBox: 5,
-              des: '',
-              isUnderline: false,
-              isMoney: false,
-              isShowTop: false,
-            },
-          ],
-          customColumnHeight: 64,
+          date: '2024-11-13',
+          name: '拌面',
+          kpi:'',
+          groupName: '拌面-GAN-巴西6%-nei',
+          channelNumber: '拌面-GAN-9线',
+          link: 'https://23mwea.com?ch=v3ws2&sdmode=4&fbPixelId=761997855963993',
+          pixel: '761997855963993',
+        },
+        {
+          date: '2016-05-03',
+          name: '拌面',
+          kpi:'',
+          groupName: '森59巴西5+1-L11-FB-PWA-6（五个人一起跑）',
+          channelNumber: 'L11-FB-PWA-6',
+          link: 'https://c28m2m.com?ch=zhg3k&sdmode=4&fbPixelId=1212381103169428',
+          pixel: '1212381103169428',
         },
       ],
 
@@ -738,6 +304,31 @@ export default {
   mounted() {},
   created() {},
   methods: {
+    handleClick(row) {
+      // 创建一个临时的textarea元素
+      const needCopyDom = document.createElement('textarea')
+      needCopyDom.value = row.link
+      document.body.appendChild(needCopyDom)
+      needCopyDom.select()
+      needCopyDom.setSelectionRange(0, 99999) // For mobile devices
+
+      try {
+        // 执行复制操作
+        document.execCommand('copy')
+        this.$message({
+          type: 'success',
+          message: '文本已复制到剪贴板!',
+        })
+      } catch (err) {
+        this.$message({
+          type: 'error',
+          message: '复制失败!',
+        })
+      }
+
+      // 移除临时的textarea元素
+      document.body.removeChild(needCopyDom)
+    },
     //复选框切换
     handleChange() {
       console.log('复选框切换')
@@ -1408,56 +999,4 @@ input[type='checkbox'].switch:checked::after {
 }
 
 // 中间表格样式
-.table_content {
-  width: 100%;
-  .table_content_header {
-    background: #fff;
-    color: rgb(28, 30, 33);
-    font-family: Roboto, Arial, sans-serif;
-    width: 100%;
-    .select_box {
-      // 固定宽高
-      width: 50px;
-      height: 32px;
-    }
-    .switch_text {
-      width: 50px;
-      height: 32px;
-      line-height: 32px;
-      font-weight: 700;
-      font-size: 15px;
-      color: rgb(28, 30, 33);
-    }
-    .dynamic_table {
-      width: 100%;
-      display: flex;
-      .ads_column {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 8px;
-        height: 32px;
-        // border-right: 1px solid rgb(211, 211, 211);
-        border-top: 1px solid rgb(211, 211, 211);
-        .ads_column_text {
-          font-weight: 700;
-          font-size: 15px;
-          color: rgb(28, 30, 33);
-        }
-        .ads_column_icon {
-          background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yC/r/dn_YRdbADMl.png);
-          background-position: -43px -82px;
-          background-size: auto;
-          width: 12px;
-          height: 12px;
-          background-repeat: no-repeat;
-          display: inline-block;
-        }
-      }
-      .ads_column_content {
-        display: flex;
-      }
-    }
-  }
-}
 </style>

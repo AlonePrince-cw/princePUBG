@@ -22,6 +22,7 @@ import baiyang from './baiyang';
 import akang from './akang';
 import xiaoxiong from './xiaoxiong';
 import awen from './awen';
+import linkInfo from './linkInfo';
 
 import CCGetPayNumber from './CCGetPayNumber';
 
@@ -36,6 +37,7 @@ Vue.use(VueRouter)
 const routes = [
     Loginrouter,
     baiyang,
+    linkInfo,
     newPop,
     baibai,
     halande,
