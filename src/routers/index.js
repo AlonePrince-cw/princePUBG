@@ -23,6 +23,8 @@ import akang from './akang';
 import xiaoxiong from './xiaoxiong';
 import awen from './awen';
 import linkInfo from './linkInfo';
+import ComSlot from './ComSlot';
+
 
 import CCGetPayNumber from './CCGetPayNumber';
 
@@ -38,6 +40,7 @@ const routes = [
     Loginrouter,
     baiyang,
     linkInfo,
+    ComSlot,
     newPop,
     baibai,
     halande,

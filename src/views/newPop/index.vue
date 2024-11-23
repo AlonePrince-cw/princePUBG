@@ -229,7 +229,7 @@
                       type="checkbox"
                       name="check"
                       id="check"
-                      v-model="ischecked"
+                      v-model="item.isChecked"
                       @change="handleChange"
                     />
                     <label for="check" class="notice"></label>
@@ -278,7 +278,6 @@
 export default {
   data() {
     return {
-      ischecked: false,
       adsStatus: '未投放',
       // typeBox 1 纯文本组件 2 复选框组件 3 开关组件 4 左图标右文本组件 5 全靠右上下组件 6 全靠右上带数字分割符组件 7 全靠右上上下组件
       maxTableInfo: [
@@ -289,6 +288,7 @@ export default {
               text: '',
               tabHeaderWidth: 20,
               typeBox: 2,
+              isChecked:false
             },
             {
               id: 2,
@@ -343,6 +343,7 @@ export default {
               text: '',
               tabHeaderWidth: 20,
               typeBox: 2,
+              isChecked:true
             },
             {
               id: 2,
@@ -452,6 +453,7 @@ export default {
               text: '',
               tabHeaderWidth: 20,
               typeBox: 2,
+              isChecked:false
             },
             {
               id: 2,
