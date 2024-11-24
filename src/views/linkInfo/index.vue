@@ -269,7 +269,7 @@ export default {
           channelNumber: 'F17-PWA-01',
           link: 'https://abcwaak.com?ch=pn756&sdmode=4&fbPixelId=761997855963993',
           pixel: '761997855963993',
-          budget: 200,
+          budget: 400,
           is_top: false,
           timeZone: '-3',
           report:
