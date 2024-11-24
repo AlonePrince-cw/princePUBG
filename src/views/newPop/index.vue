@@ -230,7 +230,7 @@
                       name="check"
                       id="check"
                       v-model="item.isChecked"
-                      @change="handleChange"
+                      @change="handleChange($event, item)"
                     />
                     <label for="check" class="notice"></label>
                   </div>
@@ -741,8 +741,8 @@ export default {
   created() {},
   methods: {
     //复选框切换
-    handleChange() {
-      console.log('复选框切换')
+    handleChange(event,item) {
+      console.log('复选框切换', event, item);
     },
     // 切换当前表头索引
     changeCurrentIndex(index) {
