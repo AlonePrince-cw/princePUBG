@@ -255,7 +255,7 @@ export default {
           channelNumber: 'FB18-F05-02',
           link: 'https://kkttppp.com?ch=9tm02&sdmode=4&fbPixelId=1742684496533110',
           pixel: '1742684496533110',
-          budget: 1000,
+          budget: 500,
           is_top: false,
           timeZone: '-3',
           report:
@@ -297,7 +297,7 @@ export default {
           channelNumber: '拌面-GAN-9线',
           link: 'https://23mwea.com?ch=v3ws2&sdmode=4&fbPixelId=761997855963993',
           pixel: '761997855963993',
-          budget: 2000,
+          budget: 1500,
           is_top: false,
           timeZone: '-3',
           report:
@@ -311,7 +311,7 @@ export default {
           channelNumber: '拌面-GAN-11线',
           link: 'https://23mwea.com?ch=32fbe&sdmode=4&fbPixelId=761997855963993',
           pixel: '761997855963993',
-          budget: 2000,
+          budget: 1500,
           is_top: false,
           timeZone: '-3',
           report:
@@ -325,7 +325,7 @@ export default {
           channelNumber: 'GAN-L05-02',
           link: 'https://1fmwea.com?ch=v2nk7&sdmode=4&fbPixelId=8068063119977982',
           pixel: '8068063119977982',
-          budget: 200,
+          budget: 500,
           is_top: false,
           timeZone: '-3',
           report:
