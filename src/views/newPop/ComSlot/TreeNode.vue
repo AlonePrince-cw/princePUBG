@@ -11,9 +11,9 @@
           <div class="center_text">{{ item.name }}</div>
         </div>
         <div class="right_icon">
-          <span v-if="hasChildren" class="toggle-icon">{{
+          <!-- <span v-if="hasChildren" class="toggle-icon">{{
             isOpen ? '[-]' : '[+]'
-          }}</span>
+          }}</span> -->
         </div>
       </div>
     </div>
@@ -61,7 +61,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .xilie {
   display: flex;
   align-items: center;
@@ -70,11 +70,13 @@ export default {
   height: 46px;
 }
 
-
 .toggle-icon {
   font-weight: bold;
 }
-
+.file_x:hover{
+  background: rgb(225, 237, 247)
+;
+}
 .file_x {
   cursor: pointer;
   padding: 0 16px;

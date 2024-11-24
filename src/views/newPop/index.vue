@@ -91,11 +91,14 @@
             </div>
             <div class="top_buttom_2">
               <div class="icon_2"></div>
-              <div class="btn_text_hui">复制</div>
+              <div class="btn_text_hui btn_text_black">复制</div>
             </div>
-            <div class="top_buttom_2">
-              <div class="icon_3"></div>
-              <div class="btn_text_hui">编辑</div>
+            <div class="top_buttom_2" @click="handleEdit">
+              <div class="icon_3" v-if="!editLoading"></div>
+              <div class="btn_text_hui btn_text_black" v-if="!editLoading">
+                编辑
+              </div>
+              <div class="donut" v-else></div>
             </div>
             <div class="line_box"></div>
             <div class="top_buttom_4">
@@ -224,7 +227,7 @@
                 </div>
                 <!-- 复选框组件 -->
                 <div class="mkt-checkbox" v-if="item.typeBox == 2">
-                  <div class="check-icon">
+                  <!-- <div class="check-icon">
                     <input
                       type="checkbox"
                       name="check"
@@ -233,7 +236,8 @@
                       @change="handleChange($event, item)"
                     />
                     <label for="check" class="notice"></label>
-                  </div>
+                  </div> -->
+                  <div @click="handleCCcheck(item)" :class="[item.isChecked ? 'checkbox_select_active':'checkbox_select']"></div>
                 </div>
 
                 <!-- 开关组件 -->
@@ -241,8 +245,16 @@
                   class="switch_box"
                   v-if="item.typeBox == 3 && adsIndex != 0"
                 >
-                  <input type="checkbox" class="switch" />
+                  <!-- <input type="checkbox" class="switch" /> -->
+                  <div
+                    class="cc_check"
+                    :class="[!item.isChecked ? 'cc_check' : 'cc_check_no']"
+                    @click="handleCCcheck(item)"
+                  >
+                    <div class="cc_y"></div>
+                  </div>
                 </div>
+                <!-- 表头显示的排序图标 -->
                 <div
                   class="ads_column_icon"
                   v-if="
@@ -271,13 +283,20 @@
         ></div>
       </div>
     </div>
+    <div class="mask_right_box" v-if="maskSlot">
+      <RightBox @closeMask="closeMask" />
+    </div>
   </div>
 </template>
 
 <script>
+import RightBox from './ComSlot/rightBox.vue'
 export default {
+  components: { RightBox },
   data() {
     return {
+      maskSlot: true,
+      editLoading: false,
       adsStatus: '未投放',
       // typeBox 1 纯文本组件 2 复选框组件 3 开关组件 4 左图标右文本组件 5 全靠右上下组件 6 全靠右上带数字分割符组件 7 全靠右上上下组件
       maxTableInfo: [
@@ -288,7 +307,7 @@ export default {
               text: '',
               tabHeaderWidth: 20,
               typeBox: 2,
-              isChecked:false
+              isChecked: false,
             },
             {
               id: 2,
@@ -343,7 +362,7 @@ export default {
               text: '',
               tabHeaderWidth: 20,
               typeBox: 2,
-              isChecked:true
+              isChecked: true,
             },
             {
               id: 2,
@@ -453,7 +472,7 @@ export default {
               text: '',
               tabHeaderWidth: 20,
               typeBox: 2,
-              isChecked:false
+              isChecked: false,
             },
             {
               id: 2,
@@ -740,9 +759,21 @@ export default {
   mounted() {},
   created() {},
   methods: {
-    //复选框切换
-    handleChange(event,item) {
-      console.log('复选框切换', event, item);
+    handleCCcheck(item) {
+      item.isChecked = !item.isChecked;
+      this.$forceUpdate()
+    },
+    closeMask() {
+      this.maskSlot = false
+    },
+    //编辑
+    handleEdit() {
+      this.editLoading = true
+      let timer = setTimeout(() => {
+        this.editLoading = false
+        this.maskSlot = true
+        clearTimeout(timer)
+      }, 1500)
     },
     // 切换当前表头索引
     changeCurrentIndex(index) {
@@ -765,6 +796,74 @@ export default {
   font-family: Roboto, Arial, sans-serif !important;
 }
 // 公用和全局样式
+@keyframes donut-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.donut {
+  display: inline-block;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-left-color: rgb(10, 120, 190);
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  animation: donut-spin 1.2s linear infinite;
+}
+.checkbox_select {
+  width: 22px;
+  height: 22px;
+  border: 1px solid rgb(203, 210, 217);
+  border-radius: 4px;
+}
+.checkbox_select_active {
+  border-radius: 4px;
+  height: 22px;
+  width: 22px;
+  display: inline-block;
+  background-image: url('https://si.geilicdn.com/img-680e0000017db893cf290a22d4b2-unadjust_24_24.png');
+  background-repeat: no-repeat;
+  background-size: 22px 22px;
+}
+.cc_check_no {
+  width: 36px;
+  height: 20px;
+  background: #fff !important;
+  border: 1px solid rgb(203, 210, 217);
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start !important;
+  padding-left: 2px;
+  .cc_y {
+    width: 18px !important;
+    height: 18px !important;
+    background: #000 !important;
+    border-radius: 50%;
+  }
+}
+.cc_check {
+  width: 36px;
+  height: 20px;
+  background: rgb(225, 237, 247);
+  border: 1px solid rgb(203, 210, 217);
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  .cc_y {
+    width: 20px;
+    height: 20px;
+    background: rgb(10, 120, 190);
+    border-radius: 50%;
+  }
+}
+
 .icon_active {
   background: rgba(24, 119, 242, 0.1);
   border-radius: 6px;
@@ -963,11 +1062,23 @@ input[type='checkbox'].switch:checked::after {
   }
 }
 // -------------------------------------------------
+// 二级页面遮罩
+.mask_right_box {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 70%;
+  height: 100%;
+  background: #fff;
+  overflow: hidden;
+}
+
 .ads_content {
   width: 100%;
   height: 100%;
   background: rgb(245, 246, 247);
   display: flex;
+  position: relative;
 }
 
 .ads_left_box {
@@ -1328,6 +1439,7 @@ input[type='checkbox'].switch:checked::after {
         align-items: center;
         justify-content: center;
         margin-left: 8px;
+        cursor: pointer;
 
         .icon_2 {
           width: 16px;
@@ -1339,15 +1451,18 @@ input[type='checkbox'].switch:checked::after {
           width: 16px;
           height: 16px;
           background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/y_/r/wZHjRGmJ_xq.png);
-          background-position: 0px -1016px;
+          background-position: 0px -1032px;
         }
         .btn_text_hui {
-          font-size: 14px;
+          font-size: 13px;
           font-weight: 400;
           height: 16px;
           color: rgba(0, 0, 0, 0.45);
           // line-height: 16px;
           margin-left: 8px;
+        }
+        .btn_text_black {
+          color: #000 !important;
         }
       }
       .top_buttom_1 {
