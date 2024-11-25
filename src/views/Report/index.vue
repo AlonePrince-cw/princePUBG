@@ -406,14 +406,14 @@
         style="width: 100px; margin-right: 24px"
       ></el-input>
       <el-input
-        v-model="item.shouchongjine"
-        @change="shouchongjineChange(index)"
+        v-model="item.shouchongrenshu"
+        @change="shouchongrenshuChange(index)"
         placeholder="请输入首充人数"
         style="width: 100px; margin-right: 24px"
       ></el-input>
       <el-input
         v-model="item.shouchongjine"
-        @change="shouchongjineChange"
+        @change="shouchongjine"
         placeholder="请输入首充金额"
         style="width: 100px; margin-right: 24px"
       ></el-input>
@@ -705,7 +705,7 @@ export default {
       this.tableData2[index].zhucechongzhibi = Number(this.tableData2[index].shouchongrenshu) / Number(this.tableData2[index].zhucerenshu)
       this.$forceUpdate()
     },
-    shouchongjineChange (index) { 
+    shouchongrenshuChange (index) { 
       this.tableData2[index].zhucechongzhibi = Number(this.tableData2[index].shouchongrenshu) / Number(this.tableData2[index].zhucerenshu)
 
      }
