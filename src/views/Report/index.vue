@@ -81,20 +81,31 @@
                   }"
                   :style="{
                     'margin-left':
-    item.tableHeaderName == '广告系列名称' ? '16px' : '0',
-  'color': item.tableHeaderName == '广告系列名称' ? 'rgb(10, 120, 190)' : '#000',
-                      'text-decoration': item.tableHeaderName == '广告系列名称' ? 'underline':'none'
-
+                      item.tableHeaderName == '广告系列名称' ? '16px' : '0',
+                    color:
+                      item.tableHeaderName == '广告系列名称'
+                        ? 'rgb(10, 120, 190)'
+                        : '#000',
+                    'text-decoration':
+                      item.tableHeaderName == '广告系列名称'
+                        ? 'underline'
+                        : 'none',
                   }"
                 >
-                  {{ item.tableHeaderName == '广告系列名称'? adsXilieName: item.tableHeaderValue == '0' ? '—': item.tableHeaderValue }}
+                  {{
+                    item.tableHeaderName == '广告系列名称'
+                      ? adsXilieName
+                      : item.tableHeaderValue == '0'
+                      ? '—'
+                      : item.tableHeaderValue
+                  }}
                   <span
                     v-if="
                       item.tableHeaderName === '购物次数' ||
                       item.tableHeaderName === '完成注册次数'
                     "
                     style="font-size: 9px"
-                    >{{item.tableHeaderValue ==0?'': '[2]'}}</span
+                    >{{ item.tableHeaderValue == 0 ? '' : '[2]' }}</span
                   >
                 </div>
               </div>
@@ -111,12 +122,15 @@
                         : 'flex-end',
                   }"
                 >
-                <div style="padding: 4px 16px 4px 32px;" v-if="item.tableHeaderName == '广告系列名称'">
-                  <div class="bottom_text">总成效</div>
-                  <div class="bottom_xx">已显示1/1行</div>
-                </div>
                   <div
-                  v-if="item.tableHeaderName != '广告系列名称'"
+                    style="padding: 4px 16px 4px 32px"
+                    v-if="item.tableHeaderName == '广告系列名称'"
+                  >
+                    <div class="bottom_text">总成效</div>
+                    <div class="bottom_xx">已显示1/1行</div>
+                  </div>
+                  <div
+                    v-if="item.tableHeaderName != '广告系列名称'"
                     class="number"
                     :class="{
                       gouwucishu1:
@@ -124,7 +138,9 @@
                         item.tableHeaderName === '完成注册次数',
                     }"
                   >
-                    {{ item.tableHeaderValue == 0 ? "" : item.tableHeaderValue }}
+                    {{
+                      item.tableHeaderValue == 0 ? '' : item.tableHeaderValue
+                    }}
                   </div>
                   <div
                     v-if="
@@ -140,7 +156,7 @@
                       bottom: 26px;
                     "
                   >
-                    {{item.tableHeaderValue ==0?'—': '[2]'}}
+                    {{ item.tableHeaderValue == 0 ? '—' : '[2]' }}
                   </div>
                 </div>
                 <div
@@ -170,7 +186,139 @@
           </div>
         </div>
         <div class="table_box_mo"></div>
-        <!-- <img src="../../assets/photo_2024-09-10_15-38-14.jpg" style="width: 300px;height: 300px;margin-top: 32px;" /> -->
+        <!-- <img src="../../assets/photo_2024-09-10_15-38-14.jpg" style="width: 150px;height: 150px;margin-top: 32px;" /> -->
+
+        <div class="Vo_jehu">
+          <div class="top_box">
+            {{fujianTimes}}
+          </div>
+          <el-table
+            :data="tableData2"
+            style="width: 100%"
+            border
+            :default-sort="{ prop: 'date', order: 'descending' }"
+          >
+            <el-table-column
+              prop="shishitongji"
+              align="center"
+              label="实时统计"
+              width="120"
+            >
+              <template slot-scope="scope">
+                <span style="color: rgb(10, 120, 190); font-size: 14px">{{
+                  scope.row.shishitongji
+                }}</span>
+              </template>
+            </el-table-column>
+            <el-table-column
+              prop="quad"
+              align="center"
+              label="渠道"
+              width="120"
+            >
+            </el-table-column>
+            <el-table-column
+              prop="fangwenrenshu"
+              align="center"
+              label="访问人数"
+              sortable
+              width="120"
+            >
+            </el-table-column>
+            <el-table-column
+              prop="zhucerenshu"
+              align="center"
+              label="注册人数"
+              sortable
+              width="120"
+            >
+            </el-table-column>
+            <el-table-column
+              prop="zhukov"
+              align="center"
+              label="注册率"
+              sortable
+              width="100"
+            >
+              <template slot-scope="scope">
+                <span class=""
+                  >{{ formatNumber(Number(scope.row.zhukov) * 100) }}%</span
+                >
+              </template>
+            </el-table-column>
+            <el-table-column
+              prop="dengjirenshu"
+              align="center"
+              label="登录人数"
+              sortable
+              width="120"
+            >
+            </el-table-column>
+            <el-table-column
+              prop="shouchongrenshu"
+              align="center"
+              label="首充人数"
+              sortable
+              width="80"
+            >
+            </el-table-column>
+            <el-table-column
+              prop="zhucechongzhibi"
+              align="center"
+              label="注册充值比"
+              sortable
+              width="120"
+            >
+              <template slot-scope="scope">
+                <span class=""
+                  >{{
+                    formatNumber(Number(scope.row.zhucechongzhibi) * 100)
+                  }}%</span
+                >
+              </template>
+            </el-table-column>
+            <el-table-column
+              prop="shouchongjine"
+              align="center"
+              label="首充金额"
+              sortable
+              width="100"
+            >
+              <template slot-scope="scope">
+                <span class="">{{
+                  formatNumber(scope.row.shouchongjine)
+                }}</span>
+              </template>
+            </el-table-column>
+            <el-table-column
+              prop="chongzhirenshu"
+              align="center"
+              label="充值人数"
+              sortable
+              width="80"
+            >
+            </el-table-column>
+            <el-table-column
+              prop="chongzhicishu"
+              align="center"
+              label="充值次数"
+              sortable
+              width="120"
+            >
+            </el-table-column>
+            <el-table-column
+              prop="chongzhijine"
+              align="center"
+              label="充值金额"
+              sortable
+              width="120"
+            >
+              <template slot-scope="scope">
+                <span class="">{{ formatNumber(scope.row.chongzhijine) }}</span>
+              </template>
+            </el-table-column>
+          </el-table>
+        </div>
       </div>
     </div>
 
@@ -181,7 +329,7 @@
       <el-button type="success" style="margin: 0 16px" @click="reloadTable()"
         >刷新随机改变表格</el-button
       >
-       <el-input
+      <el-input
         v-model="adsXilieName"
         @change="adsXilieNameChange"
         placeholder="请输入广告系列名称"
@@ -227,6 +375,70 @@
     <el-button type="success" style="margin: 0 16px" @click="reload()"
       >刷新页面</el-button
     >
+     <el-input
+        v-model="fujianTimes"
+        placeholder="请输入时间区间"
+        style="width: 300px; margin-right: 24px"
+      ></el-input>
+    <div class="revise_input revise_input_no"  v-for="(item, index) in tableData2" :key="index">
+       <el-input
+        v-model="item.quad"
+        @change="quadChange"
+        placeholder="请输入渠道"
+        style="width: 100px; margin-right: 24px"
+      ></el-input>
+      <el-input
+        v-model="item.fangwenrenshu"
+        @change="fangedChange(index)"
+        placeholder="请输入访问人数"
+        style="width: 100px; margin-right: 24px"
+      ></el-input>
+      <el-input
+        v-model="item.zhucerenshu"
+        @change="zhucerenshuChange(index)"
+        placeholder="请输入注册人数"
+        style="width: 100px; margin-right: 24px"
+      ></el-input>
+      <el-input
+        v-model="item.dengjirenshu"
+        @change="dengjirenshuChange"
+        placeholder="请输入登录人数"
+        style="width: 100px; margin-right: 24px"
+      ></el-input>
+      <el-input
+        v-model="item.shouchongjine"
+        @change="shouchongjineChange(index)"
+        placeholder="请输入首充人数"
+        style="width: 100px; margin-right: 24px"
+      ></el-input>
+      <el-input
+        v-model="item.shouchongjine"
+        @change="shouchongjineChange"
+        placeholder="请输入首充金额"
+        style="width: 100px; margin-right: 24px"
+      ></el-input>
+      <el-input
+        v-model="item.chongzhirenshu"
+        @change="chongzhirenshuChange(index)"
+        placeholder="请输入充值人数"
+        style="width: 100px; margin-right: 24px"
+      ></el-input>
+      <el-input
+        v-model="item.chongzhicishu"
+        @change="chongzhicishuChange"
+        placeholder="请输入充值次数"
+        style="width: 100px; margin-right: 24px"
+      ></el-input>
+      <el-input
+        v-model="item.chongzhijine"
+        @change="chongzhijineChange"
+        placeholder="请输入充值金额"
+        style="width: 100px; margin-right: 24px"
+      ></el-input>
+    </div>
+    <el-button type="success" style="margin: 0 16px" @click="addTable()"
+      >增加一行</el-button
+    >
   </div>
 </template>
 
@@ -234,6 +446,7 @@
 export default {
   data() {
     return {
+      fujianTimes:'2024-11-24 03:00:00 - 2024-11-25 02:59:59 (GMT+0:00)',
       showDiv: true,
       input: '',
       input1: '',
@@ -242,6 +455,50 @@ export default {
       input4: '',
       input5: '',
       oldTable: [],
+      tableData2: [
+        {
+          shishitongji: '实时统计',
+          quad: 'F10-FB-PWA-01【-3时区】',
+          fangwenrenshu: '329',
+          zhucerenshu: '243',
+          zhukov: '0.85',
+          dengjirenshu: '123',
+          shouchongrenshu: '165',
+          zhucechongzhibi: '0.85',
+          shouchongjine: '233',
+          chongzhirenshu: '123',
+          chongzhicishu: '10',
+          chongzhijine: '233',
+        },
+        {
+          shishitongji: '实时统计',
+          quad: 'F10-FB-PWA-01【-3时区】',
+          fangwenrenshu: '329',
+          zhucerenshu: '243',
+          zhukov: '0.85',
+          dengjirenshu: '123',
+          shouchongrenshu: '165',
+          zhucechongzhibi: '0.85',
+          shouchongjine: '233',
+          chongzhirenshu: '123',
+          chongzhicishu: '10',
+          chongzhijine: '233',
+        },
+        {
+          shishitongji: '实时统计',
+          quad: 'F10-FB-PWA-01【-3时区】',
+          fangwenrenshu: '329',
+          zhucerenshu: '243',
+          zhukov: '0.85',
+          dengjirenshu: '123',
+          shouchongrenshu: '165',
+          zhucechongzhibi: '0.85',
+          shouchongjine: '233',
+          chongzhirenshu: '123',
+          chongzhicishu: '10',
+          chongzhijine: '233',
+        },
+      ],
       tableData: [
         {
           tableHeaderName: '广告系列名称',
@@ -311,6 +568,20 @@ export default {
   },
 
   methods: {
+    formatNumber(num) {
+      // 确保是数字并转换成字符串
+      let numStr = Number(num).toFixed(2) // 保证两位小数
+      let parts = numStr.split('.') // 分割整数部分和小数部分
+
+      // 整数部分添加千分位逗号
+      parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+
+      return parts.join('.') // 重新合并整数部分和小数部分
+    },
+    formatter(row, column) {
+      console.log(row, column)
+      return row.address
+    },
     reload() {
       this.showDiv = false
       let timer = setTimeout(() => {
@@ -397,8 +668,7 @@ export default {
         }
       })
     },
-    adsXilieNameChange () { 
-    },
+    adsXilieNameChange() {},
     input5Change() {
       console.log(this.input5)
       // 查找并更新 tableHeaderName 为 '频次' 的项
@@ -422,11 +692,51 @@ export default {
       // 使用正则表达式和 replace 方法插入逗号
       return numStr.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
     },
+
+    zhucerenshuChange (index) { 
+      this.tableData2[index].zhukov = Number(this.tableData2[index].zhucerenshu) / Number(this.tableData2[index].fangwenrenshu) 
+      this.$forceUpdate()
+    },
+    fangedChange (index) {
+      this.tableData2[index].zhukov = Number(this.tableData2[index].zhucerenshu) / Number(this.tableData2[index].fangwenrenshu)
+      this.$forceUpdate()
+    },
+    chongzhirenshuChange (index) { 
+      this.tableData2[index].zhucechongzhibi = Number(this.tableData2[index].shouchongrenshu) / Number(this.tableData2[index].zhucerenshu)
+      this.$forceUpdate()
+    },
+    shouchongjineChange (index) { 
+      this.tableData2[index].zhucechongzhibi = Number(this.tableData2[index].shouchongrenshu) / Number(this.tableData2[index].zhucerenshu)
+
+     }
   },
 }
 </script>
 
 <style scoped lang="scss">
+.revise_input {
+  display: flex;
+  margin-top: 60px;
+  margin-left: 32px;
+}
+.revise_input_no{
+margin-top: 16px;
+}
+.Vo_jehu {
+  margin-top: 100px;
+  background: #fff;
+  width: 100%;
+  min-height: 400px;
+  padding-top: 8px;
+  .top_box {
+    background: rgba(225, 230, 236, 0.6);
+    height: 38px;
+    padding: 0 16px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 38px;
+  }
+}
 .table_box_mo {
   position: absolute;
   top: 0px;
@@ -446,14 +756,14 @@ export default {
 .gouwucishu1 {
   margin-right: 5px;
 }
-.bottom_text{
-font-size: 14px;
-font-weight: 700;
+.bottom_text {
+  font-size: 14px;
+  font-weight: 700;
 }
-.bottom_xx{
-color: rgba(28, 43, 51, 0.65);
-font-size: 12px;
-font-weight: 400;
+.bottom_xx {
+  color: rgba(28, 43, 51, 0.65);
+  font-size: 12px;
+  font-weight: 400;
 }
 // .gouwucishu1::after {
 //   content: '......';
@@ -539,7 +849,7 @@ font-weight: 400;
   margin-right: 8px;
 }
 .centner {
-  height: 600px;
+  height: 1000px;
   background: #f2f2f2;
   padding-top: 48px;
   display: flex;
