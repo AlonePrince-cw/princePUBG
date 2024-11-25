@@ -583,6 +583,7 @@ export default {
 .switch_box {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 /* Switch开关样式 */
 /* 必须是input为 checkbox class 添加 switch 才能实现以下效果 */

@@ -78,7 +78,7 @@
         </div>
       </div>
       <div class="top_max_box">
-        <div class="top_max1">
+        <div class="top_max1" v-if="false">
           <div class="top_max1_t_icon">
             <div class="top_max1_t_icon_l"></div>
             <div class="top_max1_t_icon_t">广告系列名称</div>
@@ -88,6 +88,70 @@
             <div class="right_max2_btn">创建模板</div>
           </div>
         </div>
+
+        <!-- 广告 -->
+        <template>
+          <div class="gg_right_box">
+            <div class="l_gg_right_box">
+              <div class="top_max1 top_max_guano" style="margin-top: 16px">
+                <div class="top_max1_t_icon">
+                  <div class="top_max1_t_icon_l"></div>
+                  <div class="top_max1_t_icon_t">广告</div>
+                </div>
+                <div class="top_max2_t_icon">
+                  <div class="left_max2_input">广告组名称</div>
+                  <div class="right_max2_btn">创建模板</div>
+                </div>
+              </div>
+              <div class="top_max1 top_max_guano" style="margin-top: 16px">
+                <div class="top_max1_t_icon ju_sb">
+                  <div class="top_max1_t_icon_t top_max1_t_icon_no">
+                    合创广告
+                  </div>
+                  <div class="top_max1_t_icon_r">
+                    <div class="top_max1_t_icon_r_l_t">关</div>
+                    <div class="top_max1_t_icon_r_l">
+                      <div class="top_max1_t_icon_r_l_text"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="top4_t">
+                  与创作者、品牌和其他商企合作投放广告。这些广告会在标题中同时展示两个身份。<span
+                    class="div_show_more_text"
+                    >详细了解</span
+                  >
+                </div>
+              </div>
+              <div class="top_max1 top_max_guano" style="margin-top: 16px">
+                <div class="top_max1_t_icon">
+                  <div class="top_max1_t_icon_l"></div>
+                  <div class="top_max1_t_icon_t">身份</div>
+                </div>
+                <div class="top4_t">
+                  选择将与这条广告关联的 Facebook 公共主页和 Instagram 账户。
+                </div>
+                <div class="div_text3">
+                  <div class="div_text3_box">
+                    <div class="div_text3_1">*</div>
+                    <div class="div_text3_top">Facebook 公共主页</div>
+                    <div class="div_text3_box_icon"></div>
+                  </div>
+                </div>
+                <div class="div_select">
+              <div class="left_text left_text_d_flex">
+                <img class="n_img" src="https://scontent-hkg4-1.xx.fbcdn.net/v/t39.30808-1/463407696_122114165570531414_1528360974430912850_n.jpg?stp=c0.67.928.928a_cp0_dst-jpg_s50x50_tt6&_nc_cat=106&ccb=1-7&_nc_sid=6738e8&_nc_ohc=dOMLTE29wMcQ7kNvgFhGULy&_nc_zt=24&_nc_ht=scontent-hkg4-1.xx&_nc_gid=AUphsE-CyyMgnGYZ_eT9kc7&oh=00_AYBQJj8eLp3-sGo9xMvOZWS1MWVy6b1L7y5_BTp5_-bGKg&oe=6749078C" />
+                <div class="left_text_t">Abraham Declan Colin</div>
+              </div>
+              <div class="right__icon"></div>
+            </div>
+              </div>
+            </div>
+            <div class="gg_right_box_bottom">
+              <div class="r_box"></div>
+            </div>
+          </div>
+        </template>
+
         <template>
           <!-- 广告组 -->
           <div class="top_max1" style="margin-top: 16px">
@@ -333,7 +397,7 @@
                 <div class="left_text">搜索现有受众</div>
               </div>
             </div>
-             <div class="div_text3">
+            <div class="div_text3">
               <div class="div_text3_box">
                 <div class="div_text3_top">语言</div>
                 <div class="div_text3_box_icon"></div>
@@ -625,6 +689,31 @@ export default {
     overflow: hidden;
     overflow-y: auto;
     height: 720px;
+    .top_max_guano {
+      width: 412px !important;
+      .top_max1_t_icon_no {
+        margin-left: 0px !important;
+      }
+    }
+    .gg_right_box {
+      display: flex;
+      justify-content: space-between;
+
+      .l_gg_right_box {
+      }
+      .gg_right_box_bottom {
+        width: 500px;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .r_box {
+          width: 90%;
+          height: 200px;
+          background: #000;
+        }
+      }
+    }
     .top_max1 {
       width: 583px;
       padding: 16px;
@@ -688,10 +777,38 @@ export default {
           }
         }
       }
-
+      .top_max1_t_icon_r {
+        display: flex;
+        .top_max1_t_icon_r_l_t {
+          color: rgb(28, 43, 51);
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+            Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+            'Segoe UI Symbol';
+          font-size: 14px;
+          font-weight: 400;
+        }
+        .top_max1_t_icon_r_l {
+          width: 36px;
+          height: 20px;
+          border: 1px solid rgb(203, 210, 217);
+          border-radius: 16px;
+          background: #fff;
+          margin-left: 8px;
+          display: flex;
+          align-items: center;
+          padding-left: 2px;
+          .top_max1_t_icon_r_l_text {
+            width: 16px;
+            height: 16px;
+            background: #000;
+            border-radius: 50%;
+          }
+        }
+      }
       .div_2top {
         display: flex;
         justify-content: space-between;
+
         .right_check_box {
           display: flex;
           align-items: center;
@@ -806,15 +923,29 @@ export default {
           height: 12px;
         }
       }
-             .left_search {
-              background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yF/r/nE-IqUyaDyq.png);
-              background-position-x: -150px;
-              background-position-y: -1271px;
-              background-repeat: no-repeat;
-              background-size: auto;
-              width: 16px;
-              height: 16px;
+      .left_search {
+        background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yF/r/nE-IqUyaDyq.png);
+        background-position-x: -150px;
+        background-position-y: -1271px;
+        background-repeat: no-repeat;
+        background-size: auto;
+        width: 16px;
+        height: 16px;
+        margin-right: 8px;
+      }
+           .left_text_d_flex{
+              display: flex;
+              align-items: center;
+              .n_img{
+              width: 16px;height: 16px;border-radius: 50%;
               margin-right: 8px;
+              }
+              .left_text_t{
+                color: rgb(28, 43, 51);
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+font-size: 14px;
+font-weight: 400;
+              }
             }
       .div_text3 {
         margin-top: 16px;
@@ -878,7 +1009,7 @@ export default {
             -webkit-mask-position-y: -194px;
             height: 16px;
           }
-     
+
           .left_box {
             display: flex;
             align-items: center;
@@ -888,13 +1019,14 @@ export default {
             width: 50%;
             padding: 7px 11px;
             border-radius: 4px 0 0 4px;
-          
+
             .left_text {
               color: rgba(28, 43, 51, 0.6);
               font-weight: 400;
               font-size: 14px;
               margin-left: 8px;
             }
+       
             .left_icon {
               background-color: rgba(40, 57, 67, 0.6);
               color: rgba(40, 57, 67, 0.6);
@@ -994,6 +1126,9 @@ export default {
           font-weight: 700;
         }
       }
+      .ju_sb {
+        justify-content: space-between !important;
+      }
       .top_max1_t_icon {
         display: flex;
         align-items: center;
@@ -1005,6 +1140,8 @@ export default {
           font-weight: 700;
           margin-left: 8px;
         }
+        .top_max1_t_icon_r {
+        }
       }
       .div_s_bg {
         background: rgb(241, 244, 247);
@@ -1012,7 +1149,7 @@ export default {
       .mb24px {
         margin-bottom: 24px;
       }
-      .div_select_start{
+      .div_select_start {
         justify-content: flex-start !important;
       }
       .div_select {

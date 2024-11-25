@@ -726,10 +726,7 @@
               style="width: 160px; margin-right: 24px"
             ></el-input>
           </div>
-          <div
-            class="aa_b"
-            style="margin-top: 6px; width: 100px"
-          >
+          <div class="aa_b" style="margin-top: 6px; width: 100px">
             <div class="label_name" style="height: 20px"></div>
             <el-button type="info">显示单次成效/注册</el-button>
           </div>
@@ -769,7 +766,11 @@
               >是否显示多日期量</el-button
             >
           </div>
-          <div class="aa_b" v-if="isMultipleDates" style="position: absolute;right: 140px;margin-top: 10px;">
+          <div
+            class="aa_b"
+            v-if="isMultipleDates"
+            style="position: absolute; right: 140px; margin-top: 10px"
+          >
             <div class="label_name">开始日期</div>
             <el-input
               v-model="startDateTime"
@@ -777,7 +778,11 @@
               style="width: 110px; margin-right: 24px"
             ></el-input>
           </div>
-          <div class="aa_b" v-if="isMultipleDates" style="position: absolute;right: 10px;margin-top: 10px;">
+          <div
+            class="aa_b"
+            v-if="isMultipleDates"
+            style="position: absolute; right: 10px; margin-top: 10px"
+          >
             <div class="label_name">结束日期</div>
             <el-input
               v-model="endDateTime"
@@ -1022,8 +1027,7 @@ export default {
           b: '15.61',
           adsText: '购物',
           oneAdsText: '单次购物',
-          adsLink:
-            'https://120bet.com?ch=8fxkj&sdmode=4&fbPixelId=1252910919395187',
+          adsLink: '',
           adsImg:
             'https://scontent-hkg1-2.xx.fbcdn.net/v/t15.13418-10/460682554_558886999902682_8079031271617377078_n.jpg?_nc_cat=102&ccb=1-7&_nc_ohc=f-Kx6ReIk5EQ7kNvgGL41V2&_nc_ht=scontent-hkg1-2.xx&stp=c0.5000x0.5000f_dst-emg0_p46x46_q75&ur=ace027&_nc_sid=58080a&oh=00_AYCKI17xwGTzkBkMF54LV9bjAMq27rcNMXVtNnVp70x0bQ&oe=66F74341',
         },
@@ -1125,10 +1129,12 @@ export default {
       this.oneEffectivenessTag = localStorage.getItem('oneEffectivenessTag')
         ? localStorage.getItem('oneEffectivenessTag')
         : '购物'
-      this.startDateTime = localStorage.getItem('startDateTime') ?
-      localStorage.getItem('startDateTime'):this.startDateTime
-      this.endDateTime = localStorage.getItem('endDateTime') ?
-      localStorage.getItem('endDateTime'):this.endDateTime
+      this.startDateTime = localStorage.getItem('startDateTime')
+        ? localStorage.getItem('startDateTime')
+        : this.startDateTime
+      this.endDateTime = localStorage.getItem('endDateTime')
+        ? localStorage.getItem('endDateTime')
+        : this.endDateTime
 
       this.adsIndexTable = localStorage.getItem('adsIndexTable')
         ? localStorage.getItem('adsIndexTable')
