@@ -138,12 +138,373 @@
                   </div>
                 </div>
                 <div class="div_select">
-              <div class="left_text left_text_d_flex">
-                <img class="n_img" src="https://scontent-hkg4-1.xx.fbcdn.net/v/t39.30808-1/463407696_122114165570531414_1528360974430912850_n.jpg?stp=c0.67.928.928a_cp0_dst-jpg_s50x50_tt6&_nc_cat=106&ccb=1-7&_nc_sid=6738e8&_nc_ohc=dOMLTE29wMcQ7kNvgFhGULy&_nc_zt=24&_nc_ht=scontent-hkg4-1.xx&_nc_gid=AUphsE-CyyMgnGYZ_eT9kc7&oh=00_AYBQJj8eLp3-sGo9xMvOZWS1MWVy6b1L7y5_BTp5_-bGKg&oe=6749078C" />
-                <div class="left_text_t">Abraham Declan Colin</div>
+                  <div class="left_text left_text_d_flex">
+                    <img
+                      class="n_img"
+                      src="https://scontent-hkg1-1.xx.fbcdn.net/v/t39.30808-1/467673716_122120570228545356_4175974165207804366_n.jpg?stp=cp0_dst-jpg_s50x50&_nc_cat=109&ccb=1-7&_nc_sid=6738e8&_nc_ohc=rvGrDHzvOSQQ7kNvgHuaYBE&_nc_zt=24&_nc_ht=scontent-hkg1-1.xx&_nc_gid=APCri8cYcF1nzwE_wnxNGku&oh=00_AYAnMzeStNvS95HGa3cAEsP6vB-vsx5RAr0S_vpqUBFbXA&oe=674A5EA0"
+                    />
+                    <div class="left_text_t">Abraham Declan Colin</div>
+                  </div>
+                  <div class="right__icon"></div>
+                </div>
+                <div class="div_text3">
+                  <div class="div_text3_box">
+                    <div class="div_text3_top">Instagram 帐户</div>
+                    <div class="div_text3_box_icon"></div>
+                  </div>
+                </div>
+                <div class="right_b">
+                  <div class="div_select div_select_w262">
+                    <div class="left_text left_text_d_flex">
+                      <div class="left_bIcon"></div>
+                      <div class="left_text_t">使用 Facebook 公共主页</div>
+                    </div>
+                    <div class="right__icon"></div>
+                  </div>
+                  <div class="text_b">或</div>
+                  <div class="text_btn">绑定账户</div>
+                </div>
               </div>
-              <div class="right__icon"></div>
-            </div>
+
+              <div class="top_max1 top_max_guano" style="margin-top: 16px">
+                <div class="top_max1_t_icon">
+                  <div class="top_max1_t_icon_l"></div>
+                  <div class="top_max1_t_icon_t">广告设置</div>
+                </div>
+                <div class="div_select">
+                  <div class="left_text left_text_d_flex">
+                    <div class="left_text_t">创建广告</div>
+                  </div>
+                  <div class="right__icon"></div>
+                </div>
+                <div class="big_leftB">
+                  <div class="big_top">
+                    <div class="big_top_left"></div>
+                    <div class="big_top_right">
+                      利用进阶赋能型目录广告创建目录并提升销量
+                    </div>
+                  </div>
+                  <div class="big_bottom">
+                    <div class="top4_t">
+                      根据<span class="div_show_more_text">people</span
+                      >独特的兴趣、意图和操作，使用目录自动向其推广相关商品或服务。<span
+                        class="div_show_more_text"
+                        >详细了解</span
+                      >
+                    </div>
+                    <div class="group_line"></div>
+                  </div>
+                  <div class="text_btn_box">
+                    <div class="text_btn start——btn">开始</div>
+                    <div class="top4_t">
+                      <span class="div_show_more_text">稍后提醒我</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="c_y_ly g_y">创意来源</div>
+                <div class="c_y_ly2 c_y_ly">
+                  选择你希望为广告提供素材的方式。
+                </div>
+                <div class="c_y_type">
+                  <div class="c_y_type_top">
+                    <div class="c_y_type_left">
+                      <div class="c_y_type_left_l"></div>
+                    </div>
+                    <div class="c_y_type_left_text c_y_ly">手动上传</div>
+                  </div>
+                  <div class="c_y_type_b c_y_ly2">手动上传图片或视频。</div>
+                </div>
+                <div class="c_y_type">
+                  <div class="c_y_type_top">
+                    <div class="c_y_type_left bg_c">
+                      <!-- <div class="c_y_type_left_l"></div> -->
+                    </div>
+                    <div class="c_y_type_left_text c_y_ly cl_c">
+                      进阶赋能型目录广告
+                    </div>
+                    <div class="c_y_type_right"></div>
+                  </div>
+                  <div class="c_y_type_b c_y_ly2 cl_c">
+                    自动使用目录中的素材。我们会向每位受众展示他们最有可能互动的目录商品。
+                    <span class="div_show_more_text c_y_ly2"
+                      >进阶赋能型目录广告</span
+                    >
+                  </div>
+                </div>
+                <div class="c_y_ly g_y">格式</div>
+                <div class="c_y_ly2 c_y_ly">选择广告所呈现的样式。</div>
+                <div class="c_y_type">
+                  <div class="c_y_type_top">
+                    <div class="c_y_type_left"></div>
+                    <div class="c_y_type_left_text c_y_ly">灵活</div>
+                  </div>
+                  <div class="c_y_type_b c_y_ly2">
+                    我们将展示预计可能表现最佳的广告格式
+                  </div>
+                </div>
+
+                <div class="c_y_type">
+                  <div class="c_y_type_top">
+                    <div class="c_y_type_left">
+                      <div class="c_y_type_left_l"></div>
+                    </div>
+                    <div class="c_y_type_left_text c_y_ly">单图片或视频</div>
+                  </div>
+                  <div class="c_y_type_b c_y_ly2">
+                    单图片、单视频，或用多张图片创建的幻灯片
+                  </div>
+                </div>
+
+                <div class="c_y_type">
+                  <div class="c_y_type_top">
+                    <div class="c_y_type_left"></div>
+                    <div class="c_y_type_left_text c_y_ly">轮播</div>
+                  </div>
+                  <div class="c_y_type_b c_y_ly2">
+                    2 张（个）或更多可滚动的图片或视频
+                  </div>
+                </div>
+
+                <div class="c_y_type">
+                  <div class="c_y_type_top">
+                    <div class="c_y_type_left"></div>
+                    <div class="c_y_type_left_text c_y_ly">精品栏</div>
+                  </div>
+                  <div class="c_y_type_b c_y_ly2">
+                    用全屏移动体验呈现一组商品
+                  </div>
+                </div>
+                <div class="group_line"></div>
+                <div class="div_show_more">
+                  <div class="div_show_more_text">显示更多选项</div>
+                  <div class="div_show_more_icon"></div>
+                </div>
+              </div>
+              <div class="top_max1 top_max_guano" style="margin-top: 16px">
+                <div class="top_max1_t_icon">
+                  <div class="top_max1_t_icon_l"></div>
+                  <div class="top_max1_t_icon_t">广告创意</div>
+                </div>
+                <div class="div_text">
+                  选择并优化你的广告文字、素材和美化方式。
+                </div>
+                <div class="chg_yi">
+                  <div class="chg_yi_left">创意设置</div>
+                  <div class="top4_t">
+                    <span class="div_show_more_text">编辑</span>
+                  </div>
+                </div>
+                <div class="wan_luo chg_yi_left">网站链接(0)</div>
+                <div class="su_cai">
+                  <div class="su_left">
+                    <div class="div_text3_box">
+                      <div class="div_text3_1">*</div>
+                      <div class="div_text3_top">素材</div>
+                      <div class="div_text3_box_icon"></div>
+                    </div>
+                    <div class="btt_text">18个版位</div>
+                  </div>
+                  <div class="su_right">
+                    <div class="edit_btn">
+                      <div class="edit_btn_text">编辑素材</div>
+                      <div class="edit_btn_icon"></div>
+                    </div>
+                    <div class="del_btn">
+                      <div class="del_btn_icon"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="big_leftB big_leftB_y">
+                  <div class="div_flex">
+                    <div class="big_top">
+                      <div class="big_top__icon"></div>
+                    </div>
+                    <div class="top4_t top4_t_l4px">
+                      视频中的文字可能会因显示位置而被主页图标或行动号召按钮遮盖。你可以先查看哪些地方适合摆放文字，再选择更改视频。
+                    </div>
+                  </div>
+                  <div class="top4_t mt_ml">
+                    <span class="div_show_more_text">了解详情</span>
+                  </div>
+                </div>
+
+                <div class="img_box_li">
+                  <div class="left_img">
+                    <div class="img_box_a">
+                      <img
+                        src="https://scontent-hkg1-2.xx.fbcdn.net/v/t45.1600-4/467416385_120214948731190127_5321562059506160343_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=890911&_nc_ohc=kH1Qv9rjXIkQ7kNvgF9iA3h&_nc_zt=1&_nc_ht=scontent-hkg1-2.xx&_nc_gid=A09aCcJwsaV51WT-f0CbRFD&oh=00_AYAHfBWxOn3cnb04dl02hdPrsOOOLSQPj_eDwA-kzfh2wA&oe=674AAC3D"
+                        alt=""
+                      />
+                    </div>
+                    <div class="center_content">
+                      <div class="center_content_text">
+                        动态、视频和 Reels 插播广告位、搜索结果
+                      </div>
+                      <div class="btt_text">11个版位</div>
+                    </div>
+                  </div>
+                  <div class="right_img"></div>
+                </div>
+
+                <div class="img_box_li">
+                  <div class="left_img">
+                    <div class="img_box_a bg_no">
+                      <img
+                        src="https://scontent-hkg1-2.xx.fbcdn.net/v/t45.1600-4/467416385_120214948731190127_5321562059506160343_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=890911&_nc_ohc=kH1Qv9rjXIkQ7kNvgF9iA3h&_nc_zt=1&_nc_ht=scontent-hkg1-2.xx&_nc_gid=A09aCcJwsaV51WT-f0CbRFD&oh=00_AYAHfBWxOn3cnb04dl02hdPrsOOOLSQPj_eDwA-kzfh2wA&oe=674AAC3D"
+                        alt=""
+                      />
+                    </div>
+                    <div class="center_content">
+                      <div class="center_content_text">快拍和 Reels</div>
+                      <div class="btt_text">5个版位</div>
+                    </div>
+                  </div>
+                  <div class="right_img"></div>
+                </div>
+                <div class="img_box_li">
+                  <div class="left_img">
+                    <div class="img_box_a min_img">
+                      <img
+                        src="https://scontent-hkg1-2.xx.fbcdn.net/v/t45.1600-4/467416385_120214948731190127_5321562059506160343_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=890911&_nc_ohc=kH1Qv9rjXIkQ7kNvgF9iA3h&_nc_zt=1&_nc_ht=scontent-hkg1-2.xx&_nc_gid=A09aCcJwsaV51WT-f0CbRFD&oh=00_AYAHfBWxOn3cnb04dl02hdPrsOOOLSQPj_eDwA-kzfh2wA&oe=674AAC3D"
+                        alt=""
+                      />
+                    </div>
+                    <div class="center_content">
+                      <div class="center_content_text">右边栏、搜索结果</div>
+                      <div class="btt_text">2个版位</div>
+                    </div>
+                  </div>
+                  <div class="right_img"></div>
+                </div>
+                <div class="div_text3">
+                  <div class="div_text3_box">
+                    <div class="div_text3_top">正文</div>
+                    <div class="div_text3_box_icon"></div>
+                  </div>
+                  <div class="div_select">
+                    <div class="left_text">向大家介绍广告内容</div>
+                  </div>
+                </div>
+                <div class="add_div_text3">
+                  <div class="add_icon"></div>
+                  <div class="add_text">添加文案选项</div>
+                </div>
+                <div class="div_text3">
+                  <div class="div_text3_box">
+                    <div class="div_text3_top">广告标题</div>
+                    <div class="div_text3_box_icon"></div>
+                  </div>
+                  <div class="div_select">
+                    <div class="left_text">请输入简短标题</div>
+                  </div>
+                </div>
+                <div class="add_div_text3">
+                  <div class="add_icon"></div>
+                  <div class="add_text">添加标题选项</div>
+                </div>
+                <div class="div_text3">
+                  <div class="div_text3_box">
+                    <div class="div_text3_top">描述</div>
+                    <div class="div_text3_box_icon"></div>
+                  </div>
+                  <div class="div_select other——box">
+                    <div class="left_text">添加其他详情</div>
+                  </div>
+                </div>
+                <div class="ggx_right_box">
+                  针对每位<span class="color_ggx">用户</span>显示最适合的文案
+                </div>
+                <div class="ggx_right_box1">已启用</div>
+                <div class="div_text3">
+                  <div class="div_text3_box">
+                    <div class="div_text3_top">行动号召</div>
+                    <div class="div_text3_box_icon"></div>
+                  </div>
+                </div>
+                <div class="div_select">
+                  <div class="left_text left_text_d_flex">
+                    <div class="left_text_t">玩游戏</div>
+                  </div>
+                  <div class="right__icon"></div>
+                </div>
+                <div class="c_y_ly g_y">信息标签</div>
+                <div class="top4_t bo_q">
+                  使用信息标签来突显最吸引人的信息，例如公共主页获赞数或包邮。
+                </div>
+                <div class="div_show_more_text">详细了解</div>
+                <div class="top4_t bo_q mt_mb_16">已选择0个信息标签</div>
+                <div class="top4_t bo_q">11个可选信息标签</div>
+                <div class="add_div_text3">
+                  <div class="add_text">启用信息标签</div>
+                </div>
+
+                <div class="top_max1_t_icon ju_sb mt16">
+                  <div class="top_max1_t_icon_t top_max1_t_icon_no banc——text">
+                    突显优惠码
+                  </div>
+                  <div class="top_max1_t_icon_r">
+                    <div class="top_max1_t_icon_r_l_t">关</div>
+                    <div class="top_max1_t_icon_r_l">
+                      <div class="top_max1_t_icon_r_l_text"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="top4_t abner">
+                  Meta 会在你的广告中突显优惠码，以便促进转化。<span
+                    class="div_show_more_text"
+                    >详细了解</span
+                  >
+                </div>
+              </div>
+              <div class="top_max1 top_max_guano" style="margin-top: 16px">
+                <div class="top_max1_t_icon no_item_center">
+                  <div class="top_max1_t_icon_t no_mar">进阶赋能型素材</div>
+                  <div class="top_max1_t_icon_2"></div>
+                </div>
+                <div class="top4_t abner">
+                  让我们自动优化你的创意素材，以便为查看广告的<span
+                    class="div_show_more_text"
+                    >用户</span
+                  >定制个性化体验。这有助于改善广告表现。
+                </div>
+                <div class="div_text3">
+                  <div class="div_text3_box">
+                    <div class="div_text3_top">美化（1/5）</div>
+                    <div class="div_text3_box_icon"></div>
+                  </div>
+                </div>
+                <div class="big_leftB big_leftB_x">
+                  <div class="big_top">
+                    <div class="big_top_X"></div>
+                    <div class="big_top_right lisp_x">
+                      添加4项进阶赋能型素材美化有助于将单次成效费用降低3%<span
+                        class="lisp_x_icon"
+                      ></span>
+                    </div>
+                  </div>
+                  <div class="big_bottom">
+                    <div class="top4_t">
+                      让我们自动优化你的创意，以便为查看广告的用户定制个性化体验。
+                    </div>
+                  </div>
+                  <div class="text_btn_box">
+                    <div class="text_btn padd_16">添加素材美化</div>
+                  </div>
+                </div>
+                <div class="zui_box">
+                  <div class="zui_box_t">
+                    <div class="zui_box_t_text">
+                      <span class="one_text">已关闭：</span>视觉润色, 文案改进,
+                      增强行动号召和其他1项
+                    </div>
+                    <div class="zui_box_t_text">
+                      <span class="one_text">已开启：</span>相关评论
+                    </div>
+                  </div>
+                  <div class="zui_box_b">
+                    <div class="text_btn start——btn">编辑</div>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="gg_right_box_bottom">
@@ -630,6 +991,15 @@ export default {
     color: rgb(28, 43, 51);
     margin-left: 4px;
   }
+  .btt_text {
+    margin-top: 8px;
+    color: rgba(28, 43, 51, 0.65);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+      Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+      'Segoe UI Symbol';
+    font-size: 12px;
+    font-weight: 400;
+  }
   .footer_box {
     width: 98%;
     padding: 12px;
@@ -683,6 +1053,73 @@ export default {
         }
       }
     }
+  }
+  .su_cai {
+    margin-top: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .su_left {
+      .btt_text {
+        margin-top: 8px;
+        color: rgba(28, 43, 51, 0.65);
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+          Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+          'Segoe UI Symbol';
+        font-size: 12px;
+        font-weight: 400;
+      }
+    }
+    .su_right {
+      display: flex;
+      align-items: center;
+      .del_btn {
+        border: 1px solid rgb(203, 210, 217);
+        padding: 9px 12px;
+        border-radius: 4px;
+        margin-left: 4px;
+        .del_btn_icon {
+          background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yg/r/IkFqefhQFHd.png);
+          background-position-x: -272px;
+          background-position-y: -1892px;
+          height: 16px;
+          width: 16px;
+        }
+      }
+      .edit_btn {
+        display: flex;
+        align-items: center;
+        border: 1px solid rgb(203, 210, 217);
+        border-radius: 4px;
+        cursor: pointer;
+        padding: 8px 12px 8px 16px;
+        .edit_btn_text {
+          color: rgb(28, 43, 51);
+          cursor: pointer;
+          font-family: 'Optimistic Display', system-ui, sans-serif;
+          font-size: 14px;
+          font-weight: 500;
+        }
+        .edit_btn_icon {
+          margin-left: 12px;
+          background-color: rgb(28, 43, 51);
+          color: rgb(28, 43, 51);
+          height: 16px;
+          mask-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yV/r/L-LpLWhHnK3.png);
+          width: 16px;
+          -webkit-mask-position-x: 0px;
+          -webkit-mask-position-y: -427px;
+        }
+      }
+    }
+  }
+  .div_text3_top {
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .div_text3_box {
+    display: flex;
+    align-items: center;
   }
   .top_max_box {
     padding: 16px;
@@ -805,6 +1242,27 @@ export default {
           }
         }
       }
+      .abner {
+        font-size: 14px !important;
+        letter-spacing: 1px;
+        margin-bottom: 16px;
+      }
+      .mt16 {
+        margin-top: 16px;
+      }
+      .banc——text {
+        font-size: 15px !important;
+      }
+      .mt_mb_16 {
+        margin-top: 16px !important;
+        margin-bottom: 16px;
+      }
+      .bo_q {
+        font-size: 14px !important;
+        letter-spacing: 1px;
+        margin-top: 8px;
+        color: rgb(28, 43, 51) !important;
+      }
       .div_2top {
         display: flex;
         justify-content: space-between;
@@ -842,6 +1300,23 @@ export default {
       }
       .color_text {
         color: rgb(10, 120, 190);
+      }
+      .chg_yi_left {
+        color: rgb(28, 43, 51);
+        cursor: default;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+          Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+          'Segoe UI Symbol';
+        font-size: 14px;
+        font-weight: 700;
+      }
+      .chg_yi {
+        display: flex;
+        justify-content: space-between;
+        margin: 24px 0 8px 0;
+      }
+      .wan_luo {
+        font-weight: 400 !important;
       }
       .div_text {
         color: rgb(28, 43, 51);
@@ -904,6 +1379,73 @@ export default {
         line-height: 36px;
         margin-left: 12px;
       }
+      .start——btn {
+        width: 58px !important;
+        height: 34px !important;
+        margin-left: 24px;
+        margin-right: 16px;
+      }
+      .text_btn_box {
+        display: flex;
+        align-items: center;
+      }
+      .other——box {
+        height: 80px !important;
+        align-items: flex-start !important;
+      }
+      .ggx_right_box1 {
+        margin-top: 8px;
+      }
+      .ggx_right_box {
+        margin-top: 16px;
+        color: rgb(28, 43, 51);
+        font-family: 'Optimistic Display', system-ui, sans-serif;
+        font-size: 15px;
+        font-weight: 700;
+        .color_ggx {
+          color: rgb(10, 120, 190);
+        }
+      }
+      .add_div_text3 {
+        border: 1px solid rgb(203, 210, 217);
+        border-radius: 4px;
+        text-align: center;
+        color: rgb(28, 43, 51);
+        cursor: pointer;
+        font-family: 'Optimistic Display', system-ui, sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 34px;
+        width: 134px;
+        height: 34px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 16px;
+        .add_icon {
+          background-color: rgb(28, 43, 51);
+          color: rgb(28, 43, 51);
+          height: 16px;
+          mask-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yY/r/muYt7uBOIxe.png);
+          width: 16px;
+          -webkit-mask-position-x: 0px;
+          -webkit-mask-position-y: -646px;
+          margin-right: 8px;
+        }
+      }
+      .text_btn {
+        width: 86px;
+        height: 34px;
+        border: 1px solid rgb(203, 210, 217);
+        border-radius: 4px;
+        text-align: center;
+        color: rgb(28, 43, 51);
+        cursor: pointer;
+        font-family: 'Optimistic Display', system-ui, sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 34px;
+      }
       .div_show_more {
         display: flex;
         align-items: center;
@@ -933,34 +1475,56 @@ export default {
         height: 16px;
         margin-right: 8px;
       }
-           .left_text_d_flex{
-              display: flex;
-              align-items: center;
-              .n_img{
-              width: 16px;height: 16px;border-radius: 50%;
-              margin-right: 8px;
-              }
-              .left_text_t{
-                color: rgb(28, 43, 51);
-                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-font-size: 14px;
-font-weight: 400;
-              }
-            }
+      .left_text_d_flex {
+        display: flex;
+        align-items: center;
+        .left_bIcon {
+          background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yY/r/muYt7uBOIxe.png);
+          background-position-x: -34px;
+          background-position-y: -451px;
+          background-repeat: no-repeat;
+          background-size: auto;
+          height: 12px;
+          width: 12px;
+          margin-right: 8px;
+        }
+        .n_img {
+          width: 16px;
+          height: 16px;
+          border-radius: 50%;
+          margin-right: 8px;
+        }
+        .left_text_t {
+          color: rgb(28, 43, 51);
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+            Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+            'Segoe UI Symbol';
+          font-size: 14px;
+          font-weight: 400;
+        }
+      }
+      .right_b {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .text_b {
+          color: rgba(28, 43, 51, 0.65);
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+            Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+            'Segoe UI Symbol';
+          font-size: 14px;
+          font-weight: 400;
+        }
+      }
+
       .div_text3 {
         margin-top: 16px;
         color: rgb(28, 43, 51);
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
           Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
           'Segoe UI Symbol';
-        .div_text3_top {
-          font-size: 14px;
-          font-weight: 700;
-        }
-        .div_text3_box {
-          display: flex;
-          align-items: center;
-        }
+
         .div_bahn3 {
           margin-top: 8px;
         }
@@ -1026,7 +1590,7 @@ font-weight: 400;
               font-size: 14px;
               margin-left: 8px;
             }
-       
+
             .left_icon {
               background-color: rgba(40, 57, 67, 0.6);
               color: rgba(40, 57, 67, 0.6);
@@ -1152,6 +1716,256 @@ font-weight: 400;
       .div_select_start {
         justify-content: flex-start !important;
       }
+      .div_select_w262 {
+        width: 262px !important;
+      }
+      .c_y_type {
+        // display: flex;
+        margin-bottom: 16px;
+        .cl_c {
+          color: rgba(28, 43, 51, 0.6) !important;
+        }
+        .bg_c {
+          background: rgb(241, 244, 247);
+        }
+        .c_y_type_right {
+          margin-left: 4px;
+          background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yY/r/muYt7uBOIxe.png);
+          background-position-x: -34px;
+          background-position-y: -425px;
+          background-repeat: no-repeat;
+          background-size: auto;
+          height: 12px;
+          width: 12px;
+        }
+        .c_y_type_top {
+          display: flex;
+          align-items: center;
+          .c_y_type_left_text {
+            margin-left: 8px;
+            font-weight: 400 !important;
+          }
+          .c_y_type_left {
+            width: 24px;
+            height: 24px;
+            border: 1px solid rgb(203, 210, 217);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .c_y_type_left_l {
+              width: 12px;
+              height: 12px;
+              background-color: rgb(10, 120, 190);
+              border-radius: 50%;
+            }
+          }
+        }
+      }
+      .g_y {
+        margin-top: 24px;
+      }
+      .c_y_ly {
+        color: rgb(28, 43, 51);
+        cursor: default;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+          Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+          'Segoe UI Symbol';
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .c_y_ly2 {
+        font-size: 12px !important;
+        font-weight: 400 !important;
+        margin: 8px 0 !important;
+      }
+      .c_y_type_b {
+        padding-left: 32px;
+        margin: 0 !important;
+      }
+      .img_box_li {
+        margin-top: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .center_content_text {
+          color: rgb(28, 43, 51);
+          cursor: pointer;
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+            Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+            'Segoe UI Symbol';
+          font-size: 14px;
+          font-weight: 700;
+          width: 240px;
+        }
+        .left_img {
+          display: flex;
+          align-items: center;
+          .img_box_a {
+            width: 48px;
+            height: 48px;
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 8px;
+          }
+          img {
+            width: 27px;
+            height: 48px;
+          }
+          .bg_no {
+            background: none !important;
+            img {
+              border-radius: 4px;
+            }
+          }
+          .min_img {
+            height: 25px !important;
+            img {
+              width: 14px !important;
+              height: 25px !important;
+            }
+          }
+        }
+        .right_img {
+          height: 16px;
+          width: 16px;
+          background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yZ/r/kyq61n7ov7d.png);
+          background-position-x: 0px;
+          background-position-y: -609px;
+        }
+      }
+      .big_leftB {
+        padding: 12px;
+        background-color: rgb(255, 255, 255);
+        border-bottom-color: rgb(123, 100, 192);
+        border-left-color: rgb(123, 100, 192);
+        border-left-style: solid;
+        border-right-color: rgb(123, 100, 192);
+        border-top-color: rgb(123, 100, 192);
+        border-left-width: 4px;
+        border-radius: 4px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
+          rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+        color: rgb(28, 30, 33);
+        font-family: Roboto, Arial, sans-serif;
+        font-size: 13px;
+      }
+      .top4_t_l4px {
+        margin-left: 9px !important;
+        letter-spacing: 1px;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+          Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+          'Segoe UI Symbol' !important;
+      }
+      .big_top__icon {
+        mask-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yk/r/-GyEkqKwLX8.png);
+        background-color: rgb(210, 120, 5);
+        color: rgb(210, 120, 5);
+        width: 16px;
+        -webkit-mask-position-x: -21px;
+        -webkit-mask-position-y: -160px;
+        height: 16px;
+        margin-top: 4px;
+      }
+      .div_flex {
+        display: flex;
+      }
+      .mt_ml {
+        margin-top: 16px;
+        margin-left: 24px;
+      }
+      .big_leftB_y {
+        border-bottom-color: rgb(210, 120, 5) !important;
+        border-left-color: rgb(210, 120, 5) !important;
+        border-right-color: rgb(210, 120, 5) !important;
+        border-top-color: rgb(210, 120, 5) !important;
+        font-size: 14px !important;
+        margin-top: 16px;
+      }
+      .big_leftB_x {
+        border-bottom-color: rgb(77, 187, 166) !important;
+        border-left-color: rgb(77, 187, 166) !important;
+        border-right-color: rgb(77, 187, 166) !important;
+        border-top-color: rgb(77, 187, 166) !important;
+        font-size: 14px !important;
+        margin-top: 16px;
+      }
+      .lisp_x {
+        letter-spacing: 0.5px;
+      }
+      .zui_box{
+        margin-top: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .zui_box_t{
+          .zui_box_t_text{
+            margin-bottom: 8px;
+            color: rgb(28, 43, 51);
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+font-size: 12px;
+font-weight: 400;
+            .one_text{
+              font-weight: 700;
+              margin-right: 4px;
+            }
+          }
+        
+        }
+      }
+      .lisp_x_icon {
+        background-color: rgb(40, 57, 67);
+        color: rgb(40, 57, 67);
+        mask-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/y2/r/2qdc4_H3cyf.png);
+        height: 12px;
+        width: 12px;
+        -webkit-mask-position-x: -39px;
+        -webkit-mask-position-y: -273px;
+        display: inline-block;
+        margin-left: 4px;
+      }
+      .padd_16 {
+        padding: 0 16px;
+        margin-left: 24px;
+        margin-top: 8px;
+      }
+      .big_top_right {
+        color: rgb(28, 43, 51);
+        font-family: 'Optimistic Display', system-ui, sans-serif;
+        font-size: 15px;
+        font-weight: 700;
+      }
+      .big_bottom {
+        margin-top: 8px;
+        padding-left: 24px;
+      }
+      .big_top {
+        display: flex;
+        .big_top_left {
+          margin-right: 8px;
+          background-color: rgb(123, 100, 192);
+          color: rgb(123, 100, 192);
+          mask-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yk/r/-GyEkqKwLX8.png);
+          height: 16px;
+          width: 16px;
+          -webkit-mask-position-x: 0px;
+          -webkit-mask-position-y: -433px;
+        }
+        .big_top_X {
+          margin-right: 8px;
+          background-color: rgb(77, 187, 166);
+          color: rgb(77, 187, 166);
+          mask-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yo/r/7AwdGGThoJt.png);
+          height: 16px;
+          width: 18px;
+          -webkit-mask-position-x: -17px;
+          -webkit-mask-position-y: -129px;
+        }
+      }
       .div_select {
         margin-top: 8px;
         border: 1px solid rgb(203, 210, 217);
@@ -1194,6 +2008,12 @@ font-weight: 400;
           color: rgb(28, 43, 51);
         }
       }
+    }
+    .no_item_center {
+      align-items: flex-start !important;
+    }
+    .no_mar {
+      margin-left: 0px !important;
     }
     .top_max1_t_icon_l {
       mask-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yk/r/-GyEkqKwLX8.png);
