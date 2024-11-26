@@ -506,14 +506,318 @@
                   </div>
                 </div>
               </div>
+
+              <div class="top_max1 top_max_guano" style="margin-top: 16px">
+                <div class="top_max1_t_icon">
+                  <div class="top_max1_t_icon_l"></div>
+                  <div class="top_max1_t_icon_t">广告创意</div>
+                </div>
+                <div class="div_text ls_text">
+                  告诉我们用户轻触或点击你的广告后即刻前往的位置。<span
+                    class="color_text"
+                    >详细了解</span
+                  >
+                </div>
+
+                <div class="g_div_arr_c">
+                  <div class="div_y">
+                    <div class="div_x_y c_y_type_left">
+                      <div class="div_yy c_y_type_left_l"></div>
+                    </div>
+                    <div class="div_LL">
+                      <div class="div_LL_icon"></div>
+                      <div class="div_LL_icon_r">
+                        <div class="oo_div">网站</div>
+                        <div class="oo_div_x oo_div">把用户送往你的网站。</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="div_xx_a">
+                    <div class="div_text3_box">
+                      <div class="div_text3_1">*</div>
+                      <div class="div_text3_top">网址</div>
+                      <div class="div_text3_box_icon"></div>
+                    </div>
+                    <div class="div_input_url">
+                      <div class="div_select div_select_xx">
+                        <div class="left_text over_hi">
+                          https://9ky56t.vip/?ch=kdj2m&sdmode=4&fbPixelId=761997855963993
+                        </div>
+                      </div>
+                      <div class="add_div_text3 add_div_text_xx">
+                        <div class="add_icon_xx"></div>
+                        <div class="add_text">预览网址</div>
+                      </div>
+                    </div>
+                    <div class="top4_t">
+                      <span class="div_show_more_text">创建网址参数</span>
+                    </div>
+                    <div class="div_text3">
+                      <div class="div_text3_box">
+                        <div class="div_text3_top">显示链接</div>
+                      </div>
+                      <div class="div_select">
+                        <div class="left_text">
+                          输入你希望在广告中展示的链接
+                        </div>
+                      </div>
+                    </div>
+                    <div class="div_text3">
+                      <div class="div_text3_box">
+                        <div class="div_text3_top">浏览器附加组件</div>
+                      </div>
+                      <div class="top4_t ls_text mt4">
+                        用户会在轻触广告后看到你的网站。你可以在浏览器中添加其他联系方式，帮助用户与你建立联结。
+                      </div>
+                    </div>
+                    <div class="div_y mt8">
+                      <div class="div_x_y c_y_type_left">
+                        <div class="div_yy c_y_type_left_l"></div>
+                      </div>
+                      <div class="div_LL">
+                        <div class="div_LL_icon_a div_LL_icon"></div>
+                        <div class="div_LL_icon_r">
+                          <div class="oo_div">无</div>
+                          <div class="oo_div_x oo_div">不添加按钮。</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="div_y mt8">
+                      <div class="div_x_y c_y_type_left"></div>
+                      <div class="div_LL">
+                        <div class="div_LL_icon div_LL_icon_b"></div>
+                        <div class="div_LL_icon_r">
+                          <div class="oo_div">通话</div>
+                          <div class="oo_div_x oo_div">
+                            在你的网站上添加通话按钮。
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="div_y mt8">
+                      <div class="div_x_y c_y_type_left"></div>
+                      <div class="div_LL">
+                        <div class="div_LL_icon div_LL_icon_c"></div>
+                        <div class="div_LL_icon_r">
+                          <div class="oo_div">WhatsApp</div>
+                          <div class="oo_div_x oo_div">
+                            在你的网站上添加 WhatsApp 按钮。
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="div_y mt8">
+                    <div class="div_x_y c_y_type_left"></div>
+                    <div class="div_LL">
+                      <div class="div_LL_icon div_LL_icon_d"></div>
+                      <div class="div_LL_icon_r">
+                        <div class="oo_div">即时体验</div>
+                        <div class="oo_div_x oo_div">
+                          把用户送往专为移动端优化的极速体验。
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="div_y mt8">
+                    <div class="div_x_y c_y_type_left"></div>
+                    <div class="div_LL">
+                      <div class="div_LL_icon div_LL_icon_e"></div>
+                      <div class="div_LL_icon_r">
+                        <div class="oo_div">Facebook 活动</div>
+                        <div class="oo_div_x oo_div">
+                          把用户送往 Facebook 公共主页中的活动页面。
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="gg_right_box_bottom">
-              <div class="r_box"></div>
+              <div class="r_box">
+                <div class="r-top_fn">
+                  <div class="r-top_fn_l">
+                    <div class="switch_box">
+                      <div class="cc_check">
+                        <div class="cc_y"></div>
+                      </div>
+                    </div>
+                    <div class="r-top_fn_t">广告预览</div>
+                  </div>
+                  <div class="r-top_fn_r">
+                    <div class="add_div_text3 add_div_text3_pp">
+                      <div class="add_icon_gao"></div>
+                      <div class="add_text">高级预览</div>
+                    </div>
+                    <div class="su_right su_right36">
+                      <div class="edit_btn">
+                        <div class="edit_btn_text_w"></div>
+                        <div class="edit_btn_icon"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="height38">
+                  <div class="gg_right_box_bottom_l box_bottom_l">
+                    <div class="gg_right_box_bottom_l_1"></div>
+                  </div>
+                  <div class="gg_right_box_bottom_l">
+                    <div class="gg_right_box_bottom_l_2"></div>
+                  </div>
+                  <div class="gg_right_box_bottom_l">
+                    <div class="gg_right_box_bottom_l_3"></div>
+                  </div>
+                  <div class="gg_right_box_bottom_l">
+                    <div class="gg_right_box_bottom_l_4"></div>
+                  </div>
+
+                  <div class="gg_right_bottom_l">
+                    <div class="one_box_1"></div>
+                    <div class="one_box_2">2</div>
+                  </div>
+                </div>
+
+                <div class="boot_btn">
+                  <div class="big_leftB big_bottom_f">
+                    <div class="big_top">
+                      <div class="big_top_left"></div>
+                      <div class="big_top_right">
+                        你可以在预览中查看更多广告版本了
+                      </div>
+                    </div>
+                    <div class="big_bottom_iii"></div>
+                  </div>
+                </div>
+
+                <div class="video_img">
+                  <div class="video_img_l">
+                    <div class="video_img_l_top">
+                      <div class="left_video_box">
+                        <img
+                          class="top_average_img"
+                          src="https://scontent-hkg1-1.xx.fbcdn.net/v/t39.30808-1/467673716_122120570228545356_4175974165207804366_n.jpg?stp=dst-jpg_s200x200&_nc_cat=109&ccb=1-7&_nc_sid=3dd92b&_nc_ohc=rvGrDHzvOSQQ7kNvgHuaYBE&_nc_zt=24&_nc_ht=scontent-hkg1-1.xx&_nc_gid=ANlQTT2BoUUC-OsxkdYmH8i&oh=00_AYBZDZrzRqEj0pbHd3fxIz_VE-DG1uoelMiAywFRdY-t4Q&oe=674BE860"
+                        />
+                        <div class="top_average_name_text">
+                          <div class="top_average_name">Atlas Damian Daxuz</div>
+                          <div class="top_average_name_text1">
+                            <div class="top_average_name_text2">赞助内容</div>
+                            <div class="top_average_name_text2 mlr_4">·</div>
+                            <img
+                              class="top_average_name_icon"
+                              src="../../../assets/everyone.png"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="right_video_box">
+                        <div class="right_video_box_icon"></div>
+                        <div class="right_video_box_icon2"></div>
+                      </div>
+                    </div>
+                    <div class="center_img">
+                      <div class="juz_img">
+                        <img
+                          class="ju_img"
+                          src="../../../assets/playButton.png"
+                        />
+                      </div>
+                      <video
+                        class="_ox1 xl1xv1r"
+                        data-video-width="320"
+                        data-video-height="400"
+                        data-interactable="|mousedown||click|"
+                        src="https://scontent-hkg1-2.xx.fbcdn.net/o1/v/t2/f2/m69/AQOb1pxtHSvXijJzSZZkT8jRLKNO_mk_47qImIXGRIs_ZhTgVnEb23--p2tMWULIB1royX_5jx7AymO_jJw0RzuK.mp4?efg=eyJ4cHZfYXNzZXRfaWQiOjU0NzQwNDUzODI2NTk1NSwidmVuY29kZV90YWciOiJ4cHZfcHJvZ3Jlc3NpdmUuRkFDRUJPT0suLkMzLjcyMC5kYXNoX2gyNjQtYmFzaWMtZ2VuMl83MjBwIn0&amp;_nc_ht=scontent-hkg1-2.xx.fbcdn.net&amp;_nc_cat=107&amp;strext=1&amp;vs=a81bf364fb50f250&amp;_nc_vs=HBksFQIYOnBhc3N0aHJvdWdoX2V2ZXJzdG9yZS9HQkNkNHh0T2d0czZjM0VFQUFJeGVZVS00aTFxYm1kakFBQUYVAALIAQAVAhg6cGFzc3Rocm91Z2hfZXZlcnN0b3JlL0dHLXM0aHV2OGV2MXFDSUNBTUJ1OG5CNmJfd3JickZxQUFBRhUCAsgBACgAGAAbAogHdXNlX29pbAExEnByb2dyZXNzaXZlX3JlY2lwZQExFQAAJsaF6tCR9_gBFQIoAkMzLBdARQzMzMzMzRgZZGFzaF9oMjY0LWJhc2ljLWdlbjJfNzIwcBEAdQIA&amp;ccb=9-4&amp;oh=00_AYCpGuw0fzYfd_9BwmzUMgWQQXGi5wRYTGEuYlTSDCu9cA&amp;oe=6747CAAE&amp;_nc_sid=1d576d"
+                      ></video>
+
+                      <div class="video_img_l_bottom">
+                        <div class="lave_img">
+                          <img
+                            class="aa_img"
+                            src="https://scontent-hkg1-2.xx.fbcdn.net/v/t15.13418-10/468099776_1372758370556132_6772809313961961271_n.jpg?stp=dst-jpg_tt6&_nc_cat=107&ccb=1-7&_nc_sid=ace027&_nc_ohc=3cLvtr69lwkQ7kNvgHkMoK8&_nc_zt=23&_nc_ht=scontent-hkg1-2.xx&_nc_gid=ANlQTT2BoUUC-OsxkdYmH8i&oh=00_AYBOHpcuPErO4-i6AuLtGyjRuPoy1aw0B9polSMowRT_aA&oe=674BC7F7"
+                            alt=""
+                          />
+                          <div class="tit_img">
+                            <div class="tit_img_text">F18VIP.COM</div>
+                            <div class="tit_img_text_2">
+                              FB18.COM oferece o melhor dos populares jogos.
+                              Venha comigo, torne-se o próximo milionário
+                            </div>
+                          </div>
+                        </div>
+                        <div class="right_btn_g">玩游戏</div>
+                      </div>
+                      <div class="video_line"></div>
+                      <div class="video_img_l_bottom22">
+                        <div class="video_line_2"></div>
+                      </div>
+                      <div class="right_bb_btn_g">
+                        <div class="btn11">
+                          <div class="btn11_icon"></div>
+                          <div class="btn11_text">赞</div>
+                        </div>
+                        <div class="btn11">
+                          <div class="btn22_icon"></div>
+                          <div class="btn11_text">评论</div>
+                        </div>
+                        <div class="btn11">
+                          <div class="btn33_icon"></div>
+                          <div class="btn11_text">分享</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="video_img_r video_img_l">
+                    <div class="video_img_r_top">
+                      <img
+                        class="x1agz8ms x1vqgdyp img"
+                        alt=""
+                        src="../../../assets/header-background-2x.png"
+                      />
+                      <div class="left_video_box po_abc">
+                        <img
+                          class="top_average_img"
+                          src="https://scontent-hkg1-1.xx.fbcdn.net/v/t39.30808-1/467673716_122120570228545356_4175974165207804366_n.jpg?stp=dst-jpg_s200x200&_nc_cat=109&ccb=1-7&_nc_sid=3dd92b&_nc_ohc=rvGrDHzvOSQQ7kNvgHuaYBE&_nc_zt=24&_nc_ht=scontent-hkg1-1.xx&_nc_gid=ANlQTT2BoUUC-OsxkdYmH8i&oh=00_AYBZDZrzRqEj0pbHd3fxIz_VE-DG1uoelMiAywFRdY-t4Q&oe=674BE860"
+                        />
+                        <div class="top_average_name_text">
+                          <div class="top_average_name">Atlas Damian Daxuz</div>
+                          <div class="top_average_name_text1">
+                            <div class="top_average_name_text2">赞助内容</div>
+                            <div class="top_average_name_text2 mlr_4">·</div>
+                            <img
+                              class="top_average_name_icon"
+                              src="../../../assets/everyone.png"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <video autoplay="" class="x1lliihq x1n2onr6 xl1xv1r xjnjwiz" data-reactid="1938609809956768" id="video" loop="" playsinline=""><source src="https://scontent-hkg1-2.xx.fbcdn.net/o1/v/t2/f2/m69/AQOb1pxtHSvXijJzSZZkT8jRLKNO_mk_47qImIXGRIs_ZhTgVnEb23--p2tMWULIB1royX_5jx7AymO_jJw0RzuK.mp4?efg=eyJ4cHZfYXNzZXRfaWQiOjU0NzQwNDUzODI2NTk1NSwidmVuY29kZV90YWciOiJ4cHZfcHJvZ3Jlc3NpdmUuRkFDRUJPT0suLkMzLjcyMC5kYXNoX2gyNjQtYmFzaWMtZ2VuMl83MjBwIn0&amp;_nc_ht=scontent-hkg1-2.xx.fbcdn.net&amp;_nc_cat=107&amp;strext=1&amp;vs=a81bf364fb50f250&amp;_nc_vs=HBksFQIYOnBhc3N0aHJvdWdoX2V2ZXJzdG9yZS9HQkNkNHh0T2d0czZjM0VFQUFJeGVZVS00aTFxYm1kakFBQUYVAALIAQAVAhg6cGFzc3Rocm91Z2hfZXZlcnN0b3JlL0dHLXM0aHV2OGV2MXFDSUNBTUJ1OG5CNmJfd3JickZxQUFBRhUCAsgBACgAGAAbAogHdXNlX29pbAExEnByb2dyZXNzaXZlX3JlY2lwZQExFQAAJsaF6tCR9_gBFQIoAkMzLBdARQzMzMzMzRgZZGFzaF9oMjY0LWJhc2ljLWdlbjJfNzIwcBEAdQIA&amp;ccb=9-4&amp;oh=00_AYCpGuw0fzYfd_9BwmzUMgWQQXGi5wRYTGEuYlTSDCu9cA&amp;oe=6747CAAE&amp;_nc_sid=1d576d" type="video/mp4"><track default="" kind="captions"></video>
+                    </div>
+                    <div class="center_text">
+                      <div class="center_text_left">玩游戏</div>
+                      <div class="center_text_icon"><i class="x1kpxq89 xsmyaan img" alt="" data-visualcompletion="css-img" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yg/r/IkFqefhQFHd.png&quot;); background-position: -272px -1909px; background-size: auto; width: 16px; height: 16px; background-repeat: no-repeat; display: inline-block;"></i></div>
+                    </div>
+                     <div class="video_img_l_bottom22" style="padding-top: 0px;">
+                        <div class="video_line_2"></div>
+                      </div>
+
+                      <div class="btn_b">
+                        <div class="left_btn_oox">
+                          <div class="left_btn_oox1"></div>
+                          <div class="left_btn_oox2"></div>
+                          <div class="left_btn_oox3"></div>
+                        </div>
+                        <div class="left_btn_oox4"></div>
+                      </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </template>
 
-        <template>
+        <template v-if="false">
           <!-- 广告组 -->
           <div class="top_max1" style="margin-top: 16px">
             <div class="top_max1_t_icon">
@@ -981,6 +1285,556 @@ export default {
   .div_text3_1 {
     margin-right: 4px;
   }
+  .div_input_url {
+    display: flex;
+    align-items: center;
+  }
+  .add_div_text_xx {
+    width: 106px !important;
+    margin-top: 0px !important;
+  }
+  .over_hi {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 223px !important;
+    color: rgb(28, 43, 51);
+  }
+  .big_leftB {
+    padding: 12px;
+    background-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(123, 100, 192);
+    border-left-color: rgb(123, 100, 192);
+    border-left-style: solid;
+    border-right-color: rgb(123, 100, 192);
+    border-top-color: rgb(123, 100, 192);
+    border-left-width: 4px;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
+      rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    color: rgb(28, 30, 33);
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 13px;
+  }
+  .add_div_text_xx:hover {
+    background: rgb(237, 242, 247) !important;
+  }
+  .div_select_xx {
+    width: calc(100% - 106px) !important;
+    margin-right: 8px !important;
+  }
+  .add_icon_xx {
+    background-color: rgb(28, 43, 51);
+    color: rgb(28, 43, 51);
+    mask-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yG/r/jg3IY981y5G.png);
+    -webkit-mask-position-x: -17px;
+    -webkit-mask-position-y: -186px;
+    width: 16px;
+    height: 16px;
+  }
+  .su_right {
+    display: flex;
+    align-items: center;
+    .del_btn {
+      border: 1px solid rgb(203, 210, 217);
+      padding: 9px 12px;
+      border-radius: 4px;
+      margin-left: 4px;
+      .del_btn_icon {
+        background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yg/r/IkFqefhQFHd.png);
+        background-position-x: -272px;
+        background-position-y: -1892px;
+        height: 16px;
+        width: 16px;
+      }
+    }
+    .edit_btn {
+      display: flex;
+      align-items: center;
+      border: 1px solid rgb(203, 210, 217);
+      border-radius: 4px;
+      cursor: pointer;
+      padding: 8px 12px 8px 16px;
+      .edit_btn_text {
+        color: rgb(28, 43, 51);
+        cursor: pointer;
+        font-family: 'Optimistic Display', system-ui, sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+      }
+      .edit_btn_icon {
+        margin-left: 12px;
+        background-color: rgb(28, 43, 51);
+        color: rgb(28, 43, 51);
+        height: 16px;
+        mask-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yV/r/L-LpLWhHnK3.png);
+        width: 16px;
+        -webkit-mask-position-x: 0px;
+        -webkit-mask-position-y: -427px;
+      }
+    }
+  }
+  .div_xx_a {
+    margin-top: 16px;
+
+    padding-left: 32px;
+  }
+  .g_div_arr_c {
+    margin-top: 16px;
+    .div_y {
+      display: flex;
+      align-items: center;
+      .div_x_y {
+        margin-right: 16px;
+      }
+      .oo_div {
+        color: rgb(28, 43, 51);
+        cursor: pointer;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+          Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+          'Segoe UI Symbol';
+        font-size: 14px;
+        font-weight: 400;
+      }
+      .oo_div_x {
+        font-size: 12px !important;
+      }
+      .div_LL {
+        display: flex;
+        align-items: center;
+        .div_LL_icon {
+          margin-right: 16px;
+          background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yZ/r/kyq61n7ov7d.png);
+          background-position-x: 0px;
+          background-position-y: -847px;
+          height: 16px;
+          width: 16px;
+        }
+        .div_LL_icon_a {
+          background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yJ/r/9S_iO-KG7tx.png) !important;
+          background-position-x: 0px !important;
+          background-position-y: -152px !important;
+        }
+        .div_LL_icon_b {
+          background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yJ/r/9S_iO-KG7tx.png) !important;
+          background-position-x: 0px !important;
+          background-position-y: -186px !important;
+        }
+
+        .div_LL_icon_c {
+          background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yJ/r/9S_iO-KG7tx.png) !important;
+          background-position-x: 0px !important;
+          background-position-y: -84px !important;
+        }
+
+        .div_LL_icon_d {
+          background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yk/r/-GyEkqKwLX8.png) !important;
+          background-position-x: 0px !important;
+          background-position-y: -348px !important;
+        }
+
+        .div_LL_icon_e {
+          background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yv/r/cX7DKT2CkS9.png) !important;
+          background-position-x: -247px !important;
+          background-position-y: -956px !important;
+        }
+      }
+    }
+  }
+  .xl1xv1r {
+    width: 231px;
+    height: 407px;
+  }
+  .c_y_type_left {
+    width: 24px;
+    height: 24px;
+    border: 1px solid rgb(203, 210, 217);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .c_y_type_left_l {
+      width: 12px;
+      height: 12px;
+      background-color: rgb(10, 120, 190);
+      border-radius: 50%;
+    }
+  }
+  .mt4 {
+    margin-top: 4px;
+  }
+  .mt8 {
+    margin-top: 8px;
+  }
+  .boot_btn {
+    margin-top: 8px;
+    padding: 0 8px;
+  }
+  .mlr_4 {
+    margin-left: 4px;
+    margin-right: 4px;
+  }
+  .video_line {
+    width: 100%;
+    height: 0.5px;
+    background: rgba(0, 0, 0, 0.08);
+  }
+  .btn_b{
+  display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    background: #fff;
+    justify-content: space-between;
+    .left_btn_oox{
+      
+    display: flex;
+    align-items: center;
+    .left_btn_oox1{
+    background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yg/r/IkFqefhQFHd.png);
+background-position-x: -325px;
+background-position-y: -1612px;
+height: 24px;
+width: 24px;
+    transform: scale(70%, 70%);
+    }
+
+    .left_btn_oox2{
+    background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yg/r/IkFqefhQFHd.png);
+background-position-x: -200px;
+background-position-y: -1612px;
+    height: 24px;
+width: 24px;
+    transform: scale(70%, 70%);
+    }
+    .left_btn_oox3{
+    background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yg/r/IkFqefhQFHd.png);
+background-position-x: -250px;
+background-position-y: -1612px;
+    height: 24px;
+width: 24px;transform: scale(70%, 70%);
+    }
+    }
+    .left_btn_oox4{
+    height: 24px;
+width: 24px;
+    background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yg/r/IkFqefhQFHd.png);
+background-position-x: -100px;
+background-position-y: -1637px;
+    transform: scale(70%, 70%);
+    }
+  }
+  .right_bb_btn_g {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    background: #fff;
+    justify-content: space-around;
+    .btn11 {
+      display: flex;
+      align-items: center;
+      .btn11_icon {
+        background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/F1pMinsTdjF.png);
+        background-position-x: -63px;
+        background-position-y: -207px;
+        width: 18px;
+        height: 18px;
+        transform: scale(70%, 70%);
+      }
+      .btn22_icon {
+        width: 18px;
+        height: 18px;
+        transform: scale(70%, 70%);
+        background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yg/r/IkFqefhQFHd.png);
+        background-position-x: -357px;
+        background-position-y: -1359px;
+      }
+      .btn33_icon {
+        width: 18px;
+        transform: scale(70%, 70%);
+        height: 18px;
+        background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yg/r/IkFqefhQFHd.png);
+        background-position-x: -273px;
+        background-position-y: -1767px;
+      }
+
+      .btn11_text {
+        color: rgb(97, 103, 112);
+        font-family: Roboto, Arial, sans-serif;
+        font-size: 9px;
+        font-weight: 600;
+      }
+    }
+  }
+  .video_line_2 {
+    width: 100%;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.08);
+  }
+  .video_img_l_bottom22 {
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+    background: #fff;
+    padding-bottom: 0px;
+  }
+  .video_img_l_bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 54px;
+    padding: 0 4px;
+    background-color: rgb(247, 248, 250);
+    .right_btn_g {
+      width: 48px;
+      border-radius: 4px;
+      height: 25px;
+      color: #000;
+      font-size: 10px;
+      letter-spacing: 0.5px;
+      font-family: Roboto, Arial, sans-serif;
+      background-color: rgb(226, 229, 233);
+      line-height: 25px;
+      text-align: center;
+    }
+    .lave_img {
+      display: flex;
+      align-items: center;
+      .aa_img {
+        width: 28px;
+        height: 28px;
+        border-radius: 4px;
+      }
+      .tit_img {
+        margin-left: 8px;
+        .tit_img_text {
+          color: rgb(70, 73, 80);
+          font-family: Roboto, Arial, sans-serif;
+          font-size: 8px;
+        }
+        .tit_img_text_2 {
+          color: rgb(65, 72, 85);
+          font-family: Roboto, Arial, sans-serif;
+          font-size: 11px;
+          font-weight: 500;
+          width: 111px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          overflow: hidden;
+          -webkit-box-orient: vertical;
+        }
+      }
+    }
+  }
+  .x1n2onr6 {
+  margin-top: -4px;
+  }
+  .center_text{
+    margin-top: -2px;
+  padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 26px;
+    background: #fff;
+    .center_text_left{
+    color: rgb(38, 38, 38);
+font-family: "Freight Sans Bold", Helvetica, Arial, sans-serif;
+font-size: 12px;
+font-weight: 700;
+    transform: scale(80%, 80%);
+    }
+    .center_text_icon{
+    transform: scale(70%, 70%);
+    
+    }
+  }
+  .po_abc{
+    position: absolute;
+    left: 8px;
+    top: 32px;
+    z-index: 999;
+    .top_average_img{
+      transform: scale(70%, 70%);
+    }
+    .top_average_name_text{
+      margin-left: 0px !important;
+    }
+    .top_average_name{
+    color: #fff !important;
+    transform: scale(90%, 90%);
+    }
+    .top_average_name_text2{
+    transform: scale(90%, 90%);
+    }
+  }
+  .left_video_box {
+          display: flex;
+
+          .top_average_img {
+            height: 28px;
+            width: 28px;
+            border-radius: 50%;
+          }
+        }
+  .video_img {
+    display: flex;
+    padding: 0 8px;
+    justify-content: space-between;
+    .video_img_r {
+      .video_img_r_top {
+        position: relative;
+        .x1vqgdyp {
+          width: 100%;
+          height: 27px;
+        }
+      }
+    }
+    .top_average_name_text {
+      margin-left: 8px;
+      .top_average_name {
+        color: rgb(29, 33, 41);
+        font-family: Roboto, Arial, sans-serif;
+        font-size: 10px;
+        font-weight: 700;
+      }
+      .top_average_name_text1 {
+        display: flex;
+        align-items: center;
+        .top_average_name_text2 {
+          color: rgb(144, 148, 156);
+          font-family: Roboto, Arial, sans-serif;
+          font-size: 9px;
+        }
+        .top_average_name_icon {
+          height: 7px;
+          width: 7px;
+        }
+      }
+    }
+    .video_img_l {
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
+        rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+      background-color: rgba(0, 0, 0, 0.03);
+      border-radius: 4px;
+      // height: 408px;
+      width: 230px;
+      padding: 0 4px;
+      margin-top: 64px;
+      .center_img {
+        position: relative;
+        width: 100%;
+        .juz_img {
+          position: absolute;
+          left: calc(50% - 25px);
+          top: calc(50% - 45px);
+          .ju_img {
+            width: 46px;
+            height: 46px;
+          }
+        }
+      }
+      .video_img_l_top {
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 35px;
+        padding: 4px 8px;
+
+        .right_video_box {
+          display: flex;
+          align-items: center;
+          .right_video_box_icon {
+            background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/ys/r/zQ7tm5y8cV3.png);
+            background-position-x: -31px;
+            background-position-y: -451px;
+            height: 14px;
+            background-repeat: no-repeat;
+            background-size: auto;
+            width: 20px;
+          }
+          .right_video_box_icon2 {
+            background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yg/r/IkFqefhQFHd.png);
+            background-position-x: -148px;
+            background-position-y: -1683px;
+            height: 20px;
+            width: 20px;
+            background-repeat: no-repeat;
+            background-size: auto;
+            -moz-transform: rotate(-90deg);
+            -webkit-transform: rotate(-90deg);
+          }
+        }
+        
+      }
+    }
+  }
+  .big_bottom_f {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .big_bottom_iii {
+    background-color: rgb(28, 43, 51);
+    color: rgb(28, 43, 51);
+    mask-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/y2/r/2qdc4_H3cyf.png);
+    height: 16px;
+    width: 16px;
+    -webkit-mask-position-x: -51px;
+    -webkit-mask-position-y: -205px;
+  }
+  .ls_text {
+    letter-spacing: 1px;
+  }
+  .big_top_right {
+    color: rgb(28, 43, 51);
+    font-family: 'Optimistic Display', system-ui, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+  }
+  .add_div_text3_pp {
+    width: 106px !important;
+    height: 34px !important;
+    margin-top: 0rem !important;
+  }
+  .add_div_text3 {
+    border: 1px solid rgb(203, 210, 217);
+    border-radius: 4px;
+    text-align: center;
+    color: rgb(28, 43, 51);
+    cursor: pointer;
+    font-family: 'Optimistic Display', system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 34px;
+    width: 134px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 16px;
+    .add_icon {
+      background-color: rgb(28, 43, 51);
+      color: rgb(28, 43, 51);
+      mask-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yY/r/muYt7uBOIxe.png);
+      height: 16px;
+      width: 16px;
+      -webkit-mask-position-x: 0px;
+      -webkit-mask-position-y: -646px;
+      margin-right: 8px;
+    }
+    .add_icon_gao {
+      height: 16px;
+      width: 16px;
+      mask-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yh/r/pR0H_cyD6Lw.png);
+      background-color: rgb(28, 43, 51);
+      color: rgb(28, 43, 51);
+      -webkit-mask-position-x: -88px;
+      -webkit-mask-position-y: -276px;
+      margin-right: 8px;
+    }
+  }
   .div_text3_box_icon {
     -webkit-mask-position-x: -39px;
     -webkit-mask-position-y: -273px;
@@ -1070,47 +1924,28 @@ export default {
         font-weight: 400;
       }
     }
-    .su_right {
-      display: flex;
-      align-items: center;
-      .del_btn {
-        border: 1px solid rgb(203, 210, 217);
-        padding: 9px 12px;
-        border-radius: 4px;
-        margin-left: 4px;
-        .del_btn_icon {
-          background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yg/r/IkFqefhQFHd.png);
-          background-position-x: -272px;
-          background-position-y: -1892px;
-          height: 16px;
-          width: 16px;
-        }
-      }
-      .edit_btn {
-        display: flex;
-        align-items: center;
-        border: 1px solid rgb(203, 210, 217);
-        border-radius: 4px;
-        cursor: pointer;
-        padding: 8px 12px 8px 16px;
-        .edit_btn_text {
-          color: rgb(28, 43, 51);
-          cursor: pointer;
-          font-family: 'Optimistic Display', system-ui, sans-serif;
-          font-size: 14px;
-          font-weight: 500;
-        }
-        .edit_btn_icon {
-          margin-left: 12px;
-          background-color: rgb(28, 43, 51);
-          color: rgb(28, 43, 51);
-          height: 16px;
-          mask-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yV/r/L-LpLWhHnK3.png);
-          width: 16px;
-          -webkit-mask-position-x: 0px;
-          -webkit-mask-position-y: -427px;
-        }
-      }
+  }
+  .big_top {
+    display: flex;
+    .big_top_left {
+      margin-right: 8px;
+      background-color: rgb(123, 100, 192);
+      color: rgb(123, 100, 192);
+      mask-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yk/r/-GyEkqKwLX8.png);
+      height: 16px;
+      width: 16px;
+      -webkit-mask-position-x: 0px;
+      -webkit-mask-position-y: -433px;
+    }
+    .big_top_X {
+      margin-right: 8px;
+      background-color: rgb(77, 187, 166);
+      color: rgb(77, 187, 166);
+      mask-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yo/r/7AwdGGThoJt.png);
+      height: 16px;
+      width: 18px;
+      -webkit-mask-position-x: -17px;
+      -webkit-mask-position-y: -129px;
     }
   }
   .div_text3_top {
@@ -1127,7 +1962,7 @@ export default {
     overflow-y: auto;
     height: 720px;
     .top_max_guano {
-      width: 412px !important;
+      width: 388px !important;
       .top_max1_t_icon_no {
         margin-left: 0px !important;
       }
@@ -1139,15 +1974,166 @@ export default {
       .l_gg_right_box {
       }
       .gg_right_box_bottom {
-        width: 500px;
-        height: 200px;
+        width: 526px;
+        height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
         .r_box {
-          width: 90%;
-          height: 200px;
-          background: #000;
+          width: 96%;
+          height: 100%;
+          background: rgb(247, 247, 247);
+          border-radius: 4px;
+          padding-bottom: 64px;
+          .height38 {
+            height: 38px;
+            width: 100%;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            .gg_right_bottom_l {
+              display: flex;
+              align-items: center;
+              position: absolute;
+              right: 16px;
+              .one_box_2 {
+                background-color: rgb(255, 246, 220);
+                height: 16px;
+                width: 16px;
+                color: rgb(175, 80, 0);
+                margin-left: 8px;
+
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',
+                  Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+                  'Segoe UI Emoji', 'Segoe UI Symbol';
+                font-size: 12px;
+                font-weight: 700;
+                border-radius: 50%;
+                text-align: center;
+              }
+              .one_box_1 {
+                background-color: rgb(210, 120, 5);
+                color: rgb(210, 120, 5);
+                mask-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/y2/r/2qdc4_H3cyf.png);
+                height: 16px;
+                width: 16px;
+                -webkit-mask-position-x: 0px;
+                -webkit-mask-position-y: -205px;
+              }
+            }
+            .box_bottom_l {
+              background-color: rgb(225, 237, 247);
+              border-radius: 4px;
+            }
+            .gg_right_box_bottom_l {
+              width: 40px;
+              height: 30px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+              margin-right: 8px;
+              .gg_right_box_bottom_l_1 {
+                width: 16px;
+                height: 16px;
+                background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yg/r/IkFqefhQFHd.png);
+                background-position-x: -68px;
+                background-position-y: -1824px;
+              }
+              .gg_right_box_bottom_l_2 {
+                width: 16px;
+                height: 16px;
+                background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yg/r/IkFqefhQFHd.png);
+                background-position-x: -357px;
+                background-position-y: -1875px;
+              }
+              .gg_right_box_bottom_l_3 {
+                width: 16px;
+                height: 16px;
+                background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yg/r/IkFqefhQFHd.png);
+                background-position-x: -136px;
+                background-position-y: -1875px;
+              }
+              .gg_right_box_bottom_l_4 {
+                width: 16px;
+                height: 16px;
+                -moz-transform: rotate(-90deg);
+                -webkit-transform: rotate(-90deg);
+                background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yg/r/IkFqefhQFHd.png);
+                background-position-x: -136px;
+                background-position-y: -1875px;
+              }
+            }
+          }
+          .r-top_fn {
+            height: 54px;
+            background: #fff;
+            border-radius: 4px 4px 0 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 8px;
+            border-bottom: 1px solid rgb(203, 210, 217);
+
+            .r-top_fn_l {
+              display: flex;
+              align-items: center;
+            }
+            .r-top_fn_r {
+              display: flex;
+              align-items: center;
+            }
+            .su_right36 {
+              height: 36px !important;
+              width: 62px !important;
+              margin-left: 8px;
+              .edit_btn {
+                padding: 9px 6px 9px 9px;
+              }
+            }
+            .edit_btn_text_w {
+              mask-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/F1pMinsTdjF.png);
+              background-color: rgb(28, 43, 51);
+              color: rgb(28, 43, 51);
+              height: 16px;
+              width: 16px;
+              -webkit-mask-position-x: -150px;
+              -webkit-mask-position-y: -207px;
+            }
+            .switch_box {
+              display: flex;
+              align-items: center;
+              cursor: pointer;
+            }
+            .cc_check {
+              width: 36px;
+              height: 20px;
+              background: rgb(225, 237, 247);
+              border: 1px solid rgb(203, 210, 217);
+              border-radius: 24px;
+              display: flex;
+              align-items: center;
+              justify-content: flex-end;
+              .cc_y {
+                width: 20px;
+                height: 20px;
+                background: rgb(10, 120, 190);
+                border-radius: 50%;
+              }
+            }
+            .r-top_fn_t {
+              color: rgb(28, 43, 51);
+              cursor: pointer;
+              font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+                Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+                'Segoe UI Emoji', 'Segoe UI Symbol';
+              font-size: 14px;
+              font-weight: 400;
+              margin-left: 8px;
+            }
+          }
         }
       }
     }
@@ -1406,33 +2392,7 @@ export default {
           color: rgb(10, 120, 190);
         }
       }
-      .add_div_text3 {
-        border: 1px solid rgb(203, 210, 217);
-        border-radius: 4px;
-        text-align: center;
-        color: rgb(28, 43, 51);
-        cursor: pointer;
-        font-family: 'Optimistic Display', system-ui, sans-serif;
-        font-size: 14px;
-        font-weight: 500;
-        line-height: 34px;
-        width: 134px;
-        height: 34px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: 16px;
-        .add_icon {
-          background-color: rgb(28, 43, 51);
-          color: rgb(28, 43, 51);
-          height: 16px;
-          mask-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yY/r/muYt7uBOIxe.png);
-          width: 16px;
-          -webkit-mask-position-x: 0px;
-          -webkit-mask-position-y: -646px;
-          margin-right: 8px;
-        }
-      }
+
       .text_btn {
         width: 86px;
         height: 34px;
@@ -1717,7 +2677,7 @@ export default {
         justify-content: flex-start !important;
       }
       .div_select_w262 {
-        width: 262px !important;
+        width: 218px !important;
       }
       .c_y_type {
         // display: flex;
@@ -1744,21 +2704,6 @@ export default {
           .c_y_type_left_text {
             margin-left: 8px;
             font-weight: 400 !important;
-          }
-          .c_y_type_left {
-            width: 24px;
-            height: 24px;
-            border: 1px solid rgb(203, 210, 217);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            .c_y_type_left_l {
-              width: 12px;
-              height: 12px;
-              background-color: rgb(10, 120, 190);
-              border-radius: 50%;
-            }
           }
         }
       }
@@ -1897,24 +2842,25 @@ export default {
       .lisp_x {
         letter-spacing: 0.5px;
       }
-      .zui_box{
+      .zui_box {
         margin-top: 16px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        .zui_box_t{
-          .zui_box_t_text{
+        .zui_box_t {
+          .zui_box_t_text {
             margin-bottom: 8px;
             color: rgb(28, 43, 51);
-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-font-size: 12px;
-font-weight: 400;
-            .one_text{
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+              Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+              'Segoe UI Emoji', 'Segoe UI Symbol';
+            font-size: 12px;
+            font-weight: 400;
+            .one_text {
               font-weight: 700;
               margin-right: 4px;
             }
           }
-        
         }
       }
       .lisp_x_icon {
@@ -1933,39 +2879,12 @@ font-weight: 400;
         margin-left: 24px;
         margin-top: 8px;
       }
-      .big_top_right {
-        color: rgb(28, 43, 51);
-        font-family: 'Optimistic Display', system-ui, sans-serif;
-        font-size: 15px;
-        font-weight: 700;
-      }
+
       .big_bottom {
         margin-top: 8px;
         padding-left: 24px;
       }
-      .big_top {
-        display: flex;
-        .big_top_left {
-          margin-right: 8px;
-          background-color: rgb(123, 100, 192);
-          color: rgb(123, 100, 192);
-          mask-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yk/r/-GyEkqKwLX8.png);
-          height: 16px;
-          width: 16px;
-          -webkit-mask-position-x: 0px;
-          -webkit-mask-position-y: -433px;
-        }
-        .big_top_X {
-          margin-right: 8px;
-          background-color: rgb(77, 187, 166);
-          color: rgb(77, 187, 166);
-          mask-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yo/r/7AwdGGThoJt.png);
-          height: 16px;
-          width: 18px;
-          -webkit-mask-position-x: -17px;
-          -webkit-mask-position-y: -129px;
-        }
-      }
+
       .div_select {
         margin-top: 8px;
         border: 1px solid rgb(203, 210, 217);
@@ -2334,7 +3253,7 @@ font-weight: 400;
       justify-content: center;
     }
     .s_box {
-      width: 314px;
+      width: 272px;
       height: 36px;
       border: 1px solid rgb(198, 201, 204);
       border-radius: 4px;
