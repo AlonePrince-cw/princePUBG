@@ -885,6 +885,7 @@
             "
           ></el-input>
         </div>
+        
         <div class="aa_b">
           <div class="label_name" v-if="tabInfoIndex == 0">请输入注册</div>
           <el-input

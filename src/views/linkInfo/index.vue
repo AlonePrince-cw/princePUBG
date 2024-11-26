@@ -241,7 +241,7 @@ export default {
           channelNumber: 'FB18-F01-02',
           link: 'https://9ky56t.vip?ch=kdj2m&sdmode=4&fbPixelId=761997855963993',
           pixel: '761997855963993',
-          budget: 2500,
+          budget: 2000,
           is_top: false,
           timeZone: '-3',
           report:
@@ -256,20 +256,6 @@ export default {
           link: 'https://kkttppp.com?ch=9tm02&sdmode=4&fbPixelId=1742684496533110',
           pixel: '1742684496533110',
           budget: 500,
-          is_top: false,
-          timeZone: '-3',
-          report:
-            'https://docs.google.com/spreadsheets/d/1h9XNGpHs14kBKdndBn1XmMRK8DS9dZeT-jFE92h-31w/edit?hl=zh-cn&gid=527612904#gid=527612904',
-        },
-        {
-          date: '2024-11-04',
-          name: '青雉',
-          kpi: '',
-          groupName: 'FB18-龙马-F17-PWA-01',
-          channelNumber: 'F17-PWA-01',
-          link: 'https://abcwaak.com?ch=pn756&sdmode=4&fbPixelId=761997855963993',
-          pixel: '761997855963993',
-          budget: 400,
           is_top: false,
           timeZone: '-3',
           report:
@@ -297,7 +283,7 @@ export default {
           channelNumber: '拌面-GAN-9线',
           link: 'https://23mwea.com?ch=v3ws2&sdmode=4&fbPixelId=761997855963993',
           pixel: '761997855963993',
-          budget: 1000,
+          budget: 800,
           is_top: false,
           timeZone: '-3',
           report:
@@ -311,7 +297,7 @@ export default {
           channelNumber: '拌面-GAN-11线',
           link: 'https://23mwea.com?ch=32fbe&sdmode=4&fbPixelId=761997855963993',
           pixel: '761997855963993',
-          budget: 2000,
+          budget: 1500,
           is_top: false,
           timeZone: '-3',
           report:
@@ -325,11 +311,39 @@ export default {
           channelNumber: 'GAN-L05-02',
           link: 'https://1fmwea.com?ch=v2nk7&sdmode=4&fbPixelId=8068063119977982',
           pixel: '8068063119977982',
-          budget: 500,
+          budget: 300,
           is_top: false,
           timeZone: '-3',
           report:
             'https://docs.google.com/spreadsheets/d/1wP7Bweqiw8IUF1gwOU0FY4wKh2nZJLZtHZjXtbUzUz0/edit?hl=zh-cn&gid=0#gid=0',
+        },
+        {
+          date: '2024-11-25',
+          name: '青雉',
+          kpi: '',
+          groupName: '巴西+0时区柒喜高净值-7+1内部表格',
+          channelNumber: '柒喜高净值147-36 28R',
+          link: 'https://873nhs.com?ch=dojfg&sdmode=4&fbPixelId=1742684496533110',
+          pixel: '1742684496533110',
+          budget: 500,
+          is_top: false,
+          timeZone: '0时区',
+          report:
+            'https://docs.google.com/spreadsheets/d/1IBC3FA9NmQ7ie611jvWpF-zhUsAFuyNomCd76KgkOyw/edit?gid=0#gid=0',
+        },
+        {
+          date: '2024-11-26',
+          name: '周周',
+          kpi: '',
+          groupName: 'AA031-FB-pwa-8%服务费 -3时区',
+          channelNumber: 'AA031-FB-pwa3',
+          link: 'https://vip.ccc768guinkkk.com?ch=t2t53&sdmode=4&fbPixelId=761997855963993',
+          pixel: '761997855963993',
+          budget: 500,
+          is_top: false,
+          timeZone: '-3时区',
+          report:
+            'https://docs.google.com/spreadsheets/d/1R4anW-kwbZ6HN5g2YfkSyAJaVrdGAYcIYRmOPzn9gEM/edit?usp=sharing',
         },
         {
           date: '2024-11-18',
