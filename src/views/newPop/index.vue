@@ -138,7 +138,8 @@
         </div>
         <!-- 内容表格 -->
         <div class="table_content">
-          <div class="table_content_header">
+          <el-skeleton v-if="showTableFlag" :rows="3" animated />
+          <div v-else class="table_content_header">
             <div
               class="dynamic_table"
               v-for="(adsItem, adsIndex) in maxTableInfo"
@@ -148,6 +149,7 @@
               <div
                 class="ads_column"
                 v-for="(item, index) in adsItem.customTable"
+                :class="[adsIndex == maxTableInfo.length-1 && index == 0 && currentIndex == 2 && item.id == 13 ? 'w24' : '']"
                 :key="index"
                 :style="{
                   width: item.tabHeaderWidth + 'px',
@@ -175,7 +177,7 @@
                 <div class="x_l" v-if="item.typeBox == 6 && adsIndex != 0">
                   <div class="left_x_l">
                     <div class="left_b_t">
-                      <div class="left_b_te">1个广告系列的成效</div>
+                      <div class="left_b_te">{{ maxTableInfo.length -2 }}个广告系列的成效</div>
                       <div class="left_b_ic"></div>
                     </div>
                     <div class="pilei_bottom_text">排除已删除内容</div>
@@ -193,20 +195,28 @@
                   class="left_icon_right_text"
                   v-if="item.typeBox == 4 && adsIndex != 0"
                 >
+                  <!--adsStatus: 1 未投放 2 投放中 3 账户已停用 4 已关闭 -->
                   <div
-                    class="ro_icon"
                     :class="
-                      adsStatus == '投放中'
-                        ? 'icon_r_x'
-                        : adsStatus == '已关闭'
-                        ? 'icon_r_x_o'
-                        : adsStatus == '未投放'
-                        ? 'icon_r_x_o_x'
+                      item.adsStatus == 2
+                        ? 'icon_r_x ro_icon'
+                        : item.adsStatus == 4
+                        ? 'icon_r_x_o ro_icon'
+                        : item.adsStatus == 1
+                        ? 'icon_r_x_o_x ro_icon'
                         : ''
                     "
                   ></div>
                   <div class="ro_text" style="margin-left: 8px">
-                    {{ adsStatus }}
+                    {{
+                      item.adsStatus == 1
+                        ? '未投放'
+                        : item.adsStatus == 2
+                        ? '投放中'
+                        : item.adsStatus == 3
+                        ? '账户已停用'
+                        : '已关闭'
+                    }}
                   </div>
                 </div>
                 <!-- 金额组件或数字组件 -->
@@ -237,7 +247,14 @@
                     />
                     <label for="check" class="notice"></label>
                   </div> -->
-                  <div @click="handleCCcheck(item)" :class="[item.isChecked ? 'checkbox_select_active':'checkbox_select']"></div>
+                  <div
+                    @click="handleCCcheck(item)"
+                    :class="[
+                      item.isChecked
+                        ? 'checkbox_select_active'
+                        : 'checkbox_select',
+                    ]"
+                  ></div>
                 </div>
 
                 <!-- 开关组件 -->
@@ -249,7 +266,7 @@
                   <div
                     class="cc_check"
                     :class="[!item.isChecked ? 'cc_check' : 'cc_check_no']"
-                    @click="handleCCcheck(item)"
+                    @click="handleSwitch(adsItem.customTable,item)"
                   >
                     <div class="cc_y"></div>
                   </div>
@@ -267,6 +284,100 @@
               </div>
             </div>
             <!-- 表格最后的逻辑 -->
+          </div>
+        </div>
+      </div>
+      <div class="mock_data" v-if="showMockDom">
+        <div class="table_data">
+          <div
+            class="table_data_box"
+            v-for="(item, index) in mockData"
+            :key="index"
+          >
+            <el-switch
+              class="switch_box_c"
+              v-model="item.switchValue"
+              active-color="#13ce66"
+              inactive-color="#ff4949"
+            >
+            </el-switch>
+            <div class="adsName_text">
+              <el-input
+                v-model="item.adsXlName"
+                @change="xlChange(index)"
+                placeholder="广告系列名"
+              ></el-input>
+            </div>
+            <div class="stat_type">
+              <el-select
+                v-model="item.statusValue"
+                @change="statusChange(index)"
+                placeholder="请选择"
+              >
+                <el-option
+                  v-for="item in item.deliveryStatus"
+                  :key="item.value"
+                  :label="item.label"
+                  :value="item.value"
+                >
+                </el-option>
+              </el-select>
+            </div>
+            <div class="budget_text adsName_text">
+              <el-input
+                v-model="item.budgetText"
+                @change="budgetChange(index)"
+                placeholder="预算"
+              ></el-input>
+            </div>
+            <div class="effectiveness_text adsName_text">
+              <el-input
+                @change="effectivenessChange(index)"
+                v-model="item.effectivenessText"
+                placeholder="成效"
+              ></el-input>
+            </div>
+            <div class="exhibit_text adsName_text">
+              <el-input
+                v-model="item.exhibitText"
+                @change="exhibitChange(index)"
+                placeholder="展示"
+              ></el-input>
+            </div>
+            <div class="spend_text adsName_text">
+              <el-input
+                v-model="item.spendText"
+                @change="spendChange(index)"
+                placeholder="花费金额"
+              ></el-input>
+            </div>
+            <div class="register_text adsName_text">
+              <el-input
+                v-model="item.registerText"
+                @change="registerChange(index)"
+                placeholder="完成注册数"
+              ></el-input>
+            </div>
+            <div class="click_text adsName_text">
+              <el-input
+                v-model="item.clickText"
+                @change="clickChange(index)"
+                placeholder="点击"
+              ></el-input>
+            </div>
+            <div class="attribution_text adsName_text">
+              <el-input
+                v-model="item.attributionText"
+                disabled
+                placeholder="投放链接"
+              ></el-input>
+            </div>
+            <!-- <div class="singleResult_Text adsName_text">
+              <el-input v-model="singleResultText" placeholder="单次成效费用"></el-input>
+            </div>
+             <div class="singleRegilt_Text adsName_text">
+              <el-input v-model="singleRegiltText" placeholder="单次注册费用"></el-input>
+            </div> -->
           </div>
         </div>
       </div>
@@ -295,9 +406,85 @@ export default {
   components: { RightBox },
   data() {
     return {
-      maskSlot: true,
+      showTableFlag: false,
+showMockDom:true,
+      effectivenessTotal: '',
+      exhibitTotal: '',
+      spendTotal: '',
+      registerTotal: '',
+      mockData: [
+        {
+          switchValue: true,
+          registerText: '',
+          clickText: '',
+          attributionText: '',
+          adsXlName: 'X003-FB-PWA-1',
+          statusValue: '',
+          budgetText: '',
+          exhibitText: '',
+          spendText: '',
+          effectivenessText: '',
+          deliveryStatus: [
+            {
+              value: '1',
+              label: '未投放',
+            },
+            {
+              value: '2',
+              label: '投放中',
+            },
+            {
+              value: '3',
+              label: '账户已停用',
+            },
+            {
+              value: '4',
+              label: '已关闭',
+            },
+            {
+              value: '5',
+              label: '北京烤鸭',
+            },
+          ],
+        },
+        {
+          switchValue: true,
+          registerText: '',
+          clickText: '',
+          attributionText: '',
+          adsXlName: 'X003-FB-PWA-1',
+          statusValue: '',
+          budgetText: '',
+          exhibitText: '',
+          spendText: '',
+          effectivenessText: '',
+          deliveryStatus: [
+            {
+              value: '1',
+              label: '未投放',
+            },
+            {
+              value: '2',
+              label: '投放中',
+            },
+            {
+              value: '3',
+              label: '账户已停用',
+            },
+            {
+              value: '4',
+              label: '已关闭',
+            },
+            {
+              value: '5',
+              label: '北京烤鸭',
+            },
+          ],
+        },
+      ],
+
+      maskSlot: false,
       editLoading: false,
-      adsStatus: '未投放',
       // typeBox 1 纯文本组件 2 复选框组件 3 开关组件 4 左图标右文本组件 5 全靠右上下组件 6 全靠右上带数字分割符组件 7 全靠右上上下组件
       maxTableInfo: [
         {
@@ -327,7 +514,7 @@ export default {
             {
               id: 5,
               text: '预算',
-              tabHeaderWidth: 150,
+              tabHeaderWidth: 120,
             },
             {
               id: 6,
@@ -344,14 +531,16 @@ export default {
               text: '花费金额',
               tabHeaderWidth: 100,
             },
-            { id: 9, text: '单次成效费用', tabHeaderWidth: 210 },
+            
+            { id: 9, text: '单次成效费用', tabHeaderWidth: 180 },
             {
               id: 10,
               text: '单次完成注册费用',
-              tabHeaderWidth: 210,
+              tabHeaderWidth: 160,
             },
             { id: 11, text: '完成注册数', tabHeaderWidth: 100 },
             { id: 12, text: '点击量（全部）', tabHeaderWidth: 150 },
+            // { id: 13, text: '链接（广告设置）', tabHeaderWidth: 340 },
           ],
           customColumnHeight: 33,
         },
@@ -381,11 +570,12 @@ export default {
               text: '投放状态',
               tabHeaderWidth: 150,
               typeBox: 4,
+              adsStatus: '2',
             },
             {
               id: 5,
               text: '5000',
-              tabHeaderWidth: 150,
+              tabHeaderWidth: 120,
               typeBox: 5,
               des: '单日',
               isUnderline: false,
@@ -425,7 +615,7 @@ export default {
             {
               id: 9,
               text: '98981',
-              tabHeaderWidth: 210,
+              tabHeaderWidth: 180,
               typeBox: 5,
               des: '单次购物',
               isUnderline: true,
@@ -435,7 +625,7 @@ export default {
             {
               id: 10,
               text: '98981',
-              tabHeaderWidth: 210,
+              tabHeaderWidth: 160,
               typeBox: 5,
               des: '',
               isUnderline: true,
@@ -462,6 +652,16 @@ export default {
               isMoney: false,
               isShowTop: false,
             },
+            // {
+            //   id: 13,
+            //   text: '123',
+            //   tabHeaderWidth: 340,
+            //   typeBox: 5,
+            //   des: '',
+            //   isUnderline: false,
+            //   isMoney: false,
+            //   isShowTop: false,
+            // },
           ],
           customColumnHeight: 46,
         },
@@ -472,7 +672,7 @@ export default {
               text: '',
               tabHeaderWidth: 20,
               typeBox: 2,
-              isChecked: false,
+              isChecked: true,
             },
             {
               id: 2,
@@ -491,11 +691,12 @@ export default {
               text: '投放状态',
               tabHeaderWidth: 150,
               typeBox: 4,
+              adsStatus: '2',
             },
             {
               id: 5,
               text: '5000',
-              tabHeaderWidth: 150,
+              tabHeaderWidth: 120,
               typeBox: 5,
               des: '单日',
               isUnderline: false,
@@ -535,7 +736,7 @@ export default {
             {
               id: 9,
               text: '98981',
-              tabHeaderWidth: 210,
+              tabHeaderWidth: 180,
               typeBox: 5,
               des: '单次购物',
               isUnderline: true,
@@ -545,7 +746,7 @@ export default {
             {
               id: 10,
               text: '98981',
-              tabHeaderWidth: 210,
+              tabHeaderWidth: 160,
               typeBox: 5,
               des: '',
               isUnderline: true,
@@ -572,6 +773,16 @@ export default {
               isMoney: false,
               isShowTop: false,
             },
+            // {
+            //   id: 13,
+            //   text: '123',
+            //   tabHeaderWidth: 340,
+            //   typeBox: 5,
+            //   des: '',
+            //   isUnderline: false,
+            //   isMoney: false,
+            //   isShowTop: false,
+            // },
           ],
           customColumnHeight: 46,
         },
@@ -604,7 +815,7 @@ export default {
             {
               id: 5,
               text: '5000',
-              tabHeaderWidth: 150,
+              tabHeaderWidth: 120,
               typeBox: 'x',
               des: '单日',
               isUnderline: false,
@@ -644,7 +855,7 @@ export default {
             {
               id: 9,
               text: '98981',
-              tabHeaderWidth: 210,
+              tabHeaderWidth: 180,
               typeBox: 5,
               des: '单次购物',
               isUnderline: true,
@@ -654,7 +865,7 @@ export default {
             {
               id: 10,
               text: '98981',
-              tabHeaderWidth: 210,
+              tabHeaderWidth: 160,
               typeBox: 5,
               des: '',
               isUnderline: true,
@@ -681,6 +892,16 @@ export default {
               isMoney: false,
               isShowTop: false,
             },
+            // {
+            //   id: 13,
+            //   text: '123',
+            //   tabHeaderWidth: 340,
+            //   typeBox: 5,
+            //   des: '',
+            //   isUnderline: false,
+            //   isMoney: false,
+            //   isShowTop: false,
+            // },
           ],
           customColumnHeight: 64,
         },
@@ -755,20 +976,127 @@ export default {
         'https://scontent-hkg4-1.xx.fbcdn.net/v/t1.30497-1/83577589_556345944958992_2558068442594803712_n.png?stp=c81.0.275.275a_cp0_dst-png_s32x32&_nc_cat=1&ccb=1-7&_nc_sid=df5472&_nc_ohc=8fbJ9fn8OBkQ7kNvgGsaj4G&_nc_ht=scontent-hkg4-1.xx&_nc_gid=AuzAEYqNBg_wDFyES19W5l2&oh=00_AYBTqf-zaAkPVwQo71SUBHrt3taQJEdibnSyYRs-_VeOEA&oe=67313C66',
     }
   },
-  computed: {},
+  computed: {
+    middleItems() {
+      // 返回去除首尾的部分
+      return this.maxTableInfo.slice(1, this.maxTableInfo.length - 1)
+    },
+  },
   mounted() {},
   created() {},
   methods: {
-    handleCCcheck(item) {
+    xlChange(index) {
+      this.maxTableInfo[index + 1].customTable[2].text =
+        this.mockData[index].adsXlName
+    },
+    statusChange(index) {
+      this.maxTableInfo[index + 1].customTable[3].adsStatus =
+        this.mockData[index].statusValue
+    },
+    budgetChange(index) {
+      this.maxTableInfo[index + 1].customTable[4].text =
+        this.mockData[index].budgetText
+    },
+    effectivenessChange (index) {
+      this.effectivenessTotal=''
+      this.maxTableInfo[index + 1].customTable[5].text =
+        this.mockData[index].effectivenessText
+      this.maxTableInfo[index + 1].customTable[8].text = (
+        Number(this.maxTableInfo[index + 1].customTable[7].text) /
+        Number(this.maxTableInfo[index + 1].customTable[5].text)
+      ).toFixed(2)
+      this.maxTableInfo.forEach((item, index) => {
+        if(index === 0 || index === this.maxTableInfo.length - 1) return
+         this.effectivenessTotal = Number(this.effectivenessTotal) + Number(item.customTable[5].text)
+      })
+      this.maxTableInfo[this.maxTableInfo.length - 1].customTable[5].text = this.effectivenessTotal
+      console.log('dada',(Number(this.spendTotal)/(this.effectivenessTotal)).toFixed(2))
+      this.maxTableInfo[this.maxTableInfo.length - 1].customTable[8].text = (Number(this.spendTotal)/(this.effectivenessTotal)).toFixed(2)
+    },
+    exhibitChange (index) {
+      this.exhibitTotal=''
+      this.maxTableInfo[index + 1].customTable[6].text =
+        this.mockData[index].exhibitText
+      
+      this.maxTableInfo.forEach((item, index) => {
+        if(index === 0 || index === this.maxTableInfo.length - 1) return
+         this.exhibitTotal = Number(this.exhibitTotal) + Number(item.customTable[6].text)
+      })
+      this.maxTableInfo[this.maxTableInfo.length - 1].customTable[6].text = this.exhibitTotal
+    },
+    spendChange (index) {
+      this.spendTotal= ''
+      this.maxTableInfo[index + 1].customTable[7].text =
+        this.mockData[index].spendText
+      this.maxTableInfo[index + 1].customTable[9].text = (
+        Number(this.maxTableInfo[index + 1].customTable[7].text) /
+        Number(this.maxTableInfo[index + 1].customTable[10].text)
+      ).toFixed(2)
+      this.maxTableInfo[index + 1].customTable[8].text = (
+        Number(this.maxTableInfo[index + 1].customTable[7].text) /
+        Number(this.maxTableInfo[index + 1].customTable[5].text)
+      ).toFixed(2)
+
+      this.maxTableInfo.forEach((item, index) => {
+        if(index === 0 || index === this.maxTableInfo.length - 1) return
+         this.spendTotal = Number(this.spendTotal) + Number(item.customTable[7].text)
+      })
+      this.maxTableInfo[this.maxTableInfo.length - 1].customTable[7].text = this.spendTotal
+      this.maxTableInfo[this.maxTableInfo.length - 1].customTable[8].text = (Number(this.spendTotal)/(this.effectivenessTotal)).toFixed(2)
+    },
+    registerChange (index) {
+      this.registerTotal= ''
+      this.maxTableInfo[index + 1].customTable[10].text =
+        this.mockData[index].registerText
+      this.maxTableInfo[index + 1].customTable[9].text = (
+        Number(this.maxTableInfo[index + 1].customTable[7].text) /
+        Number(this.maxTableInfo[index + 1].customTable[10].text)
+      ).toFixed(2)
+
+       this.maxTableInfo.forEach((item, index) => {
+        if(index === 0 || index === this.maxTableInfo.length - 1) return
+         this.registerTotal = Number(this.registerTotal) + Number(item.customTable[10].text)
+       })
+      
+      this.maxTableInfo[this.maxTableInfo.length - 1].customTable[10].text = this.registerTotal
+      console.log(this.registerTotal,this.effectivenessTotal)
+      this.maxTableInfo[this.maxTableInfo.length - 1].customTable[9].text = (Number(this.spendTotal)/(this.registerTotal)).toFixed(2)
+    },
+    clickChange(index) {
+      this.maxTableInfo[index + 1].customTable[11].text =
+        this.mockData[index].clickText
+    },
+    formatNumberWithCommas(number) {
+      // 将数字转换为字符串
+      if (!number) return
+      let numStr = number.toString()
+
+      // 使用正则表达式和 replace 方法插入逗号
+      return numStr.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+    },
+
+    handleCCcheck (item) {
+      item.isChecked = !item.isChecked
+      this.$forceUpdate()
+    },
+    handleSwitch (table, item) {
+      console.log(table, item)
       item.isChecked = !item.isChecked;
+      if (item.isChecked) {
+       table[3].adsStatus = '4'
+      }else {
+       table[3].adsStatus = '2'
+      }
       this.$forceUpdate()
     },
     closeMask() {
-      this.maskSlot = false
+      this.maskSlot = false;
+      this.showMockDom = true
     },
     //编辑
     handleEdit() {
       this.editLoading = true
+      this.showMockDom = false
       let timer = setTimeout(() => {
         this.editLoading = false
         this.maskSlot = true
@@ -777,24 +1105,26 @@ export default {
     },
     // 切换当前表头索引
     changeCurrentIndex(index) {
-      this.currentIndex = index
-    },
-    // 将数字转换为字符串
-    formatNumberWithCommas(number) {
-      if (!number) return
-      let numStr = number.toString()
-
-      // 使用正则表达式和 replace 方法插入逗号
-      return numStr.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+      this.currentIndex = index;
+      this.showTableFlag = true
+      let timer = setTimeout(() => { 
+        this.showTableFlag = false
+        clearTimeout(timer)
+      }, 1000)
+      if (index == 1) {
+        this.maxTableInfo[0].customTable[2].text = '广告组'
+      } else if (index == 2) {
+        this.maxTableInfo[0].customTable[2].text = '广告'
+        // this.maxTableInfo[0].customTable[0]
+      } else { 
+        this.maxTableInfo[0].customTable[2].text = '广告系列'
+      }
     },
   },
 }
 </script>
 
 <style lang="scss" scoped>
-* {
-  // font-family: Roboto, Arial, sans-serif !important;
-}
 // 公用和全局样式
 @keyframes donut-spin {
   0% {
@@ -805,7 +1135,39 @@ export default {
     transform: rotate(360deg);
   }
 }
+.mock_data {
+  position: absolute;
+  bottom: 100px;
+  left: 0;
+  width: 100%;
 
+  .table_data {
+    .table_data_box {
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
+
+      .switch_box_c {
+        width: 50px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .adsName_text {
+        width: 150px;
+        height: 40px;
+        margin-left: 16px;
+      }
+
+      .stat_type {
+        margin-left: 16px;
+        width: 140px;
+        height: 40px;
+      }
+    }
+  }
+}
 .donut {
   display: inline-block;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -890,7 +1252,9 @@ export default {
 .ads_center_text {
   font-size: 15px;
   font-weight: 400;
-  color: rgb(28, 30, 33);
+  color: rgb(20, 97, 204);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 .left_icon_right_text {
   display: flex;
@@ -902,9 +1266,11 @@ export default {
   border-radius: 50%;
 }
 .ro_text {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 400 !important;
-  color: rgb(28, 30, 33) !important;
+  color: rgb(28, 43, 51) !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 .icon_r_x_o_x {
   background: rgba(0, 0, 0, 0.15);
@@ -1137,6 +1503,7 @@ input[type='checkbox'].switch:checked::after {
 .ads_middle_box {
   padding: 16px;
   width: calc(100% - 132px);
+  position: relative;
   .middle_box_one {
     display: flex;
     justify-content: space-between;
@@ -1525,7 +1892,9 @@ input[type='checkbox'].switch:checked::after {
     }
   }
 }
-
+.w24{
+  width:24px !important;
+}
 // 中间表格样式
 .table_content {
   width: 100%;
@@ -1534,6 +1903,7 @@ input[type='checkbox'].switch:checked::after {
     color: rgb(28, 30, 33);
     font-family: Roboto, Arial, sans-serif;
     width: 100%;
+    padding-bottom: 200px;
     .select_box {
       // 固定宽高
       width: 50px;
@@ -1561,7 +1931,7 @@ input[type='checkbox'].switch:checked::after {
         .ads_column_text {
           font-weight: 700;
           font-size: 14px;
-          color: rgb(28, 43, 51);;
+          color: rgb(28, 43, 51);
         }
         .ads_column_icon {
           background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yC/r/dn_YRdbADMl.png);

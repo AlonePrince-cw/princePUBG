@@ -544,7 +544,7 @@
                           https://9ky56t.vip/?ch=kdj2m&sdmode=4&fbPixelId=761997855963993
                         </div>
                       </div>
-                      <div class="add_div_text3 add_div_text_xx">
+                      <div class="add_div_text3 add_div_text_xx" @click="jumpUrl()">
                         <div class="add_icon_xx"></div>
                         <div class="add_text">预览网址</div>
                       </div>
@@ -1259,6 +1259,9 @@ export default {
     closeMask() {
       this.$emit('closeMask')
     },
+    jumpUrl () {
+      window.open('https://9ky56t.vip/?ch=kdj2m&sdmode=4&fbPixelId=761997855963993')
+     }
   },
 }
 </script>
@@ -1958,6 +1961,7 @@ font-weight: 700;
   }
   .top_max_box {
     padding: 16px;
+    padding-top: 0px;
     overflow: hidden;
     overflow-y: auto;
     height: 720px;
@@ -1972,13 +1976,20 @@ font-weight: 700;
       justify-content: space-between;
 
       .l_gg_right_box {
+        overflow: scroll;
+        height: 1000px;
+
       }
+      .l_gg_right_box::-webkit-scrollbar {
+  display: none;           /* 隐藏 Webkit 浏览器（如 Chrome, Safari）的滚动条 */
+}
       .gg_right_box_bottom {
         width: 526px;
         height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
+        margin-top: 16px;
         .r_box {
           width: 96%;
           height: 100%;
