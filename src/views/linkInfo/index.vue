@@ -255,7 +255,7 @@ export default {
           channelNumber: 'FB18-F05-02',
           link: 'https://kkttppp.com?ch=9tm02&sdmode=4&fbPixelId=1742684496533110',
           pixel: '1742684496533110',
-          budget: 500,
+          budget: 700,
           is_top: false,
           timeZone: '-3',
           report:
@@ -269,7 +269,7 @@ export default {
           channelNumber: '拌面-GAN-6线',
           link: 'https://23mwea.com?ch=rz08t&sdmode=4&fbPixelId=1037555564823386',
           pixel: '1037555564823386',
-          budget: 2000,
+          budget: 1800,
           is_top: false,
           timeZone: '-3',
           report:
@@ -297,21 +297,7 @@ export default {
           channelNumber: '拌面-GAN-11线',
           link: 'https://23mwea.com?ch=32fbe&sdmode=4&fbPixelId=761997855963993',
           pixel: '761997855963993',
-          budget: 1500,
-          is_top: false,
-          timeZone: '-3',
-          report:
-            'https://docs.google.com/spreadsheets/d/1wP7Bweqiw8IUF1gwOU0FY4wKh2nZJLZtHZjXtbUzUz0/edit?hl=zh-cn&gid=0#gid=0',
-        },
-        {
-          date: '2024-11-18',
-          name: '拌面',
-          kpi: '',
-          groupName: '拌面-GAN-巴西6%-nei',
-          channelNumber: 'GAN-L05-02',
-          link: 'https://1fmwea.com?ch=v2nk7&sdmode=4&fbPixelId=8068063119977982',
-          pixel: '8068063119977982',
-          budget: 300,
+          budget: 1400,
           is_top: false,
           timeZone: '-3',
           report:
@@ -345,20 +331,7 @@ export default {
           report:
             'https://docs.google.com/spreadsheets/d/1R4anW-kwbZ6HN5g2YfkSyAJaVrdGAYcIYRmOPzn9gEM/edit?usp=sharing',
         },
-        {
-          date: '2024-11-18',
-          name: '圆圆',
-          kpi: '',
-          groupName: '巴西 S11。5+1-内部',
-          channelNumber: 'T018-FB-PWA-1【-3时区】',
-          link: 'https://dtqnwh.com?ch=x7ezp&sdmode=4&fbPixelId=8068063119977982',
-          pixel: '8068063119977982',
-          budget: 0,
-          is_top: false,
-          timeZone: '-3',
-          report:
-            'https://docs.google.com/spreadsheets/d/1mvqmQOl9zMg96SluLY9Q3PTJq_zSIgfierI2-v6lbU0/edit?gid=0#gid=0',
-        }, {
+         {
           date: '2024-11-20',
           name: '圆圆',
           kpi: '',

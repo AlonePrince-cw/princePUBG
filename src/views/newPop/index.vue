@@ -793,7 +793,7 @@ export default {
 
 <style lang="scss" scoped>
 * {
-  font-family: Roboto, Arial, sans-serif !important;
+  // font-family: Roboto, Arial, sans-serif !important;
 }
 // 公用和全局样式
 @keyframes donut-spin {
@@ -923,17 +923,18 @@ export default {
   justify-content: center;
   align-items: flex-end;
   .m_text_b {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 400;
-    color: rgba(0, 0, 0, 0.5);
+    // color: rgba(0, 0, 0, 0.5);
+    color: rgba(28, 43, 51, 0.65);
     height: 16px;
   }
   .m_box {
     display: flex;
     .m_text {
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 400;
-      color: rgb(28, 30, 33);
+      color: rgb(28, 43, 51);
     }
 
     .m_top_b {
@@ -1559,8 +1560,8 @@ input[type='checkbox'].switch:checked::after {
         border-top: 1px solid rgb(211, 211, 211);
         .ads_column_text {
           font-weight: 700;
-          font-size: 15px;
-          color: rgb(28, 30, 33);
+          font-size: 14px;
+          color: rgb(28, 43, 51);;
         }
         .ads_column_icon {
           background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yC/r/dn_YRdbADMl.png);
