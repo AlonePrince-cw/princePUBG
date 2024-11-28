@@ -144,7 +144,7 @@
               class="dynamic_table"
               v-for="(adsItem, adsIndex) in maxTableInfo"
               :key="adsIndex"
-              :style="{ height: adsItem.customColumnHeight + 'px' }"
+              :style="{ height: adsItem.customColumnHeight + 'px', backgroundColor: isDividedBy2MultipleOf2(adsIndex) ?'rgb(245, 246, 247)':'' }"
             >
               <div
                 class="ads_column"
@@ -158,7 +158,8 @@
                       ? '46px'
                       : adsIndex == maxTableInfo.length - 1
                       ? '64px'
-                      : '32px',
+        : '32px',
+                      borderTop:adsIndex == 0 || adsIndex == 1 || adsIndex === maxTableInfo.length -1 ? '1px solid rgb(211, 211, 211)':'',
                   borderRight:
                     item.typeBox == 'r_n' ? '' : '1px solid rgb(211, 211, 211)',
                 }"
@@ -1062,6 +1063,10 @@ showMockDom:true,
       console.log(this.registerTotal,this.effectivenessTotal)
       this.maxTableInfo[this.maxTableInfo.length - 1].customTable[9].text = (Number(this.spendTotal)/(this.registerTotal)).toFixed(2)
     },
+    isDividedBy2MultipleOf2 (num) {
+      if(num === 0) return false
+      return num % 2 == 0
+    },
     clickChange(index) {
       this.maxTableInfo[index + 1].customTable[11].text =
         this.mockData[index].clickText
@@ -1167,6 +1172,9 @@ showMockDom:true,
       }
     }
   }
+}
+*{
+caret-color: rgba(0, 0, 0, 0)
 }
 .donut {
   display: inline-block;
@@ -1926,8 +1934,7 @@ input[type='checkbox'].switch:checked::after {
         align-items: center;
         padding: 0 8px;
         height: 32px;
-        // border-right: 1px solid rgb(211, 211, 211);
-        border-top: 1px solid rgb(211, 211, 211);
+        // border-top: 1px solid rgb(211, 211, 211);
         .ads_column_text {
           font-weight: 700;
           font-size: 14px;
