@@ -81,6 +81,10 @@
             >
               {{ item.text }}
             </div>
+            <div class="abs_box" v-if="selectNumberDom != 0">
+              <div class="abs_box_text">选中 {{ selectNumberDom }} 项</div>
+              <div class="abs_box_del"></div>
+            </div>
           </div>
         </div>
         <div class="btn_box">
@@ -144,12 +148,24 @@
               class="dynamic_table"
               v-for="(adsItem, adsIndex) in maxTableInfo"
               :key="adsIndex"
-              :style="{ height: adsItem.customColumnHeight + 'px', backgroundColor: isDividedBy2MultipleOf2(adsIndex) ?'rgb(245, 246, 247)':'' }"
+              :style="{
+                height: adsItem.customColumnHeight + 'px',
+                backgroundColor: isDividedBy2MultipleOf2(adsIndex)
+                  ? 'rgb(245, 246, 247)'
+                  : '',
+              }"
             >
               <div
                 class="ads_column"
                 v-for="(item, index) in adsItem.customTable"
-                :class="[adsIndex == maxTableInfo.length-1 && index == 0 && currentIndex == 2 && item.id == 13 ? 'w24' : '']"
+                :class="[
+                  adsIndex == maxTableInfo.length - 1 &&
+                  index == 0 &&
+                  currentIndex == 2 &&
+                  item.id == 13
+                    ? 'w24'
+                    : '',
+                ]"
                 :key="index"
                 :style="{
                   width: item.tabHeaderWidth + 'px',
@@ -158,8 +174,13 @@
                       ? '46px'
                       : adsIndex == maxTableInfo.length - 1
                       ? '64px'
-        : '32px',
-                      borderTop:adsIndex == 0 || adsIndex == 1 || adsIndex === maxTableInfo.length -1 ? '1px solid rgb(211, 211, 211)':'',
+                      : '32px',
+                  borderTop:
+                    adsIndex == 0 ||
+                    adsIndex == 1 ||
+                    adsIndex === maxTableInfo.length - 1
+                      ? '1px solid rgb(211, 211, 211)'
+                      : '',
                   borderRight:
                     item.typeBox == 'r_n' ? '' : '1px solid rgb(211, 211, 211)',
                 }"
@@ -178,7 +199,9 @@
                 <div class="x_l" v-if="item.typeBox == 6 && adsIndex != 0">
                   <div class="left_x_l">
                     <div class="left_b_t">
-                      <div class="left_b_te">{{ maxTableInfo.length -2 }}个广告系列的成效</div>
+                      <div class="left_b_te">
+                        {{ maxTableInfo.length - 2 }}个广告系列的成效
+                      </div>
                       <div class="left_b_ic"></div>
                     </div>
                     <div class="pilei_bottom_text">排除已删除内容</div>
@@ -189,7 +212,32 @@
                   class="ads_center_text"
                   v-if="item.typeBox == 1 && adsIndex != 0"
                 >
-                  {{ item.text }}
+                  <!-- {{ item.text }} -->
+                  <div class="leftImg">
+                    <div class="left_img" v-if="currentIndex == 2">
+                      <img
+                        src="https://scontent-hkg1-2.xx.fbcdn.net/v/t15.13418-10/466001645_973158561286570_6234017568940427726_n.jpg?_nc_cat=103&ccb=1-7&_nc_ohc=bLhNxFmWJ18Q7kNvgHxLz8c&_nc_zt=23&_nc_ht=scontent-hkg1-2.xx&_nc_gid=ACc9lX2wspb9-hcoW_PPFSN&stp=c0.5000x0.5000f_dst-emg0_p46x46_q75_tt6&ur=ace027&_nc_sid=58080a&oh=00_AYBYyEz5Y7w6gZO6UEcDobjrtub5KLB83sXxymmxauTJmA&oe=674E6C1C"
+                        alt=""
+                      />
+                    </div>
+                    <div class="cen_fn">
+                      <div class="cen_fn_text">{{ item.text }}</div>
+                      <div class="cen_fn_x">
+                        <div class="cen_fn_x_1">
+                          <div class="cen_fn_x_1_icon"></div>
+                          <!-- <div class="cen_fn_x_1_text">查看成效分析</div> -->
+                        </div>
+                        <div class="cen_fn_x_1">
+                          <div class="cen_fn_x_2_icon"></div>
+                          <div class="cen_fn_x_1_text">编辑</div>
+                        </div>
+                        <div class="cen_fn_x_1">
+                          <div class="cen_fn_x_3_icon"></div>
+                          <!-- <div class="cen_fn_x_1_text">置顶</div> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <!-- 左图标右文本组件 -->
                 <div
@@ -227,12 +275,23 @@
                       class="m_text"
                       :class="[item.isUnderline ? 'text_liner' : '']"
                     >
-                      {{ item.isMoney ? '$' : ''
-                      }}{{ formatNumberWithCommas(item.text) }}
+                      <span v-if="currentIndex > 0 && index == 4" class=""
+                        >使用广告系列预算</span
+                      >
+                      <span v-else>
+                        {{ item.isMoney ? '$' : ''
+                        }}{{ formatNumberWithCommas(item.text) }}</span
+                      >
                     </div>
-                    <div class="m_top_b" v-if="item.isShowTop">[2]</div>
+                    <div class="m_top_b" v-if="item.isShowTop">
+                      <span v-if="currentIndex == 0 || index != 4">[2]</span>
+                    </div>
                   </div>
-                  <div class="m_text_b" :class="[item.isShowTop ? 'mr14' : '']">
+                  <div
+                    v-if="currentIndex == 0 || index != 4"
+                    class="m_text_b"
+                    :class="[item.isShowTop ? 'mr14' : '']"
+                  >
                     {{ item.des }}
                   </div>
                 </div>
@@ -267,7 +326,7 @@
                   <div
                     class="cc_check"
                     :class="[!item.isChecked ? 'cc_check' : 'cc_check_no']"
-                    @click="handleSwitch(adsItem.customTable,item)"
+                    @click="handleSwitch(adsItem.customTable, item)"
                   >
                     <div class="cc_y"></div>
                   </div>
@@ -380,6 +439,19 @@
               <el-input v-model="singleRegiltText" placeholder="单次注册费用"></el-input>
             </div> -->
           </div>
+          <div class="attribution_text adsName_text">
+            <el-input
+              v-model="attributionUrl"
+              placeholder="预览链接"
+            ></el-input>
+          </div>
+           <div class="attribution_text adsName_text">
+            <el-input
+              v-model="videoUrl"
+              placeholder="视频地址"
+            ></el-input>
+          </div>
+
         </div>
       </div>
     </div>
@@ -396,7 +468,7 @@
       </div>
     </div>
     <div class="mask_right_box" v-if="maskSlot">
-      <RightBox @closeMask="closeMask" />
+      <RightBox @closeMask="closeMask" :attributionUrl="attributionUrl" :videoUrl="videoUrl" />
     </div>
   </div>
 </template>
@@ -407,8 +479,11 @@ export default {
   components: { RightBox },
   data() {
     return {
+      attributionUrl: '',
+      videoUrl: '',
+      selectNumberDom: '',
       showTableFlag: false,
-showMockDom:true,
+      showMockDom: false,
       effectivenessTotal: '',
       exhibitTotal: '',
       spendTotal: '',
@@ -484,7 +559,7 @@ showMockDom:true,
         },
       ],
 
-      maskSlot: false,
+      maskSlot: true,
       editLoading: false,
       // typeBox 1 纯文本组件 2 复选框组件 3 开关组件 4 左图标右文本组件 5 全靠右上下组件 6 全靠右上带数字分割符组件 7 全靠右上上下组件
       maxTableInfo: [
@@ -532,7 +607,7 @@ showMockDom:true,
               text: '花费金额',
               tabHeaderWidth: 100,
             },
-            
+
             { id: 9, text: '单次成效费用', tabHeaderWidth: 180 },
             {
               id: 10,
@@ -552,7 +627,7 @@ showMockDom:true,
               text: '',
               tabHeaderWidth: 20,
               typeBox: 2,
-              isChecked: true,
+              isChecked: false,
             },
             {
               id: 2,
@@ -673,7 +748,7 @@ showMockDom:true,
               text: '',
               tabHeaderWidth: 20,
               typeBox: 2,
-              isChecked: true,
+              isChecked: false,
             },
             {
               id: 2,
@@ -683,7 +758,7 @@ showMockDom:true,
             },
             {
               id: 3,
-              text: 'X003-FB-PWA-1',
+              text: 'X003-FB-PWA-2',
               tabHeaderWidth: 200,
               typeBox: 1,
             },
@@ -998,8 +1073,8 @@ showMockDom:true,
       this.maxTableInfo[index + 1].customTable[4].text =
         this.mockData[index].budgetText
     },
-    effectivenessChange (index) {
-      this.effectivenessTotal=''
+    effectivenessChange(index) {
+      this.effectivenessTotal = ''
       this.maxTableInfo[index + 1].customTable[5].text =
         this.mockData[index].effectivenessText
       this.maxTableInfo[index + 1].customTable[8].text = (
@@ -1007,26 +1082,35 @@ showMockDom:true,
         Number(this.maxTableInfo[index + 1].customTable[5].text)
       ).toFixed(2)
       this.maxTableInfo.forEach((item, index) => {
-        if(index === 0 || index === this.maxTableInfo.length - 1) return
-         this.effectivenessTotal = Number(this.effectivenessTotal) + Number(item.customTable[5].text)
+        if (index === 0 || index === this.maxTableInfo.length - 1) return
+        this.effectivenessTotal =
+          Number(this.effectivenessTotal) + Number(item.customTable[5].text)
       })
-      this.maxTableInfo[this.maxTableInfo.length - 1].customTable[5].text = this.effectivenessTotal
-      console.log('dada',(Number(this.spendTotal)/(this.effectivenessTotal)).toFixed(2))
-      this.maxTableInfo[this.maxTableInfo.length - 1].customTable[8].text = (Number(this.spendTotal)/(this.effectivenessTotal)).toFixed(2)
+      this.maxTableInfo[this.maxTableInfo.length - 1].customTable[5].text =
+        this.effectivenessTotal
+      console.log(
+        'dada',
+        (Number(this.spendTotal) / this.effectivenessTotal).toFixed(2)
+      )
+      this.maxTableInfo[this.maxTableInfo.length - 1].customTable[8].text = (
+        Number(this.spendTotal) / this.effectivenessTotal
+      ).toFixed(2)
     },
-    exhibitChange (index) {
-      this.exhibitTotal=''
+    exhibitChange(index) {
+      this.exhibitTotal = ''
       this.maxTableInfo[index + 1].customTable[6].text =
         this.mockData[index].exhibitText
-      
+
       this.maxTableInfo.forEach((item, index) => {
-        if(index === 0 || index === this.maxTableInfo.length - 1) return
-         this.exhibitTotal = Number(this.exhibitTotal) + Number(item.customTable[6].text)
+        if (index === 0 || index === this.maxTableInfo.length - 1) return
+        this.exhibitTotal =
+          Number(this.exhibitTotal) + Number(item.customTable[6].text)
       })
-      this.maxTableInfo[this.maxTableInfo.length - 1].customTable[6].text = this.exhibitTotal
+      this.maxTableInfo[this.maxTableInfo.length - 1].customTable[6].text =
+        this.exhibitTotal
     },
-    spendChange (index) {
-      this.spendTotal= ''
+    spendChange(index) {
+      this.spendTotal = ''
       this.maxTableInfo[index + 1].customTable[7].text =
         this.mockData[index].spendText
       this.maxTableInfo[index + 1].customTable[9].text = (
@@ -1039,14 +1123,18 @@ showMockDom:true,
       ).toFixed(2)
 
       this.maxTableInfo.forEach((item, index) => {
-        if(index === 0 || index === this.maxTableInfo.length - 1) return
-         this.spendTotal = Number(this.spendTotal) + Number(item.customTable[7].text)
+        if (index === 0 || index === this.maxTableInfo.length - 1) return
+        this.spendTotal =
+          Number(this.spendTotal) + Number(item.customTable[7].text)
       })
-      this.maxTableInfo[this.maxTableInfo.length - 1].customTable[7].text = this.spendTotal
-      this.maxTableInfo[this.maxTableInfo.length - 1].customTable[8].text = (Number(this.spendTotal)/(this.effectivenessTotal)).toFixed(2)
+      this.maxTableInfo[this.maxTableInfo.length - 1].customTable[7].text =
+        this.spendTotal
+      this.maxTableInfo[this.maxTableInfo.length - 1].customTable[8].text = (
+        Number(this.spendTotal) / this.effectivenessTotal
+      ).toFixed(2)
     },
-    registerChange (index) {
-      this.registerTotal= ''
+    registerChange(index) {
+      this.registerTotal = ''
       this.maxTableInfo[index + 1].customTable[10].text =
         this.mockData[index].registerText
       this.maxTableInfo[index + 1].customTable[9].text = (
@@ -1054,17 +1142,21 @@ showMockDom:true,
         Number(this.maxTableInfo[index + 1].customTable[10].text)
       ).toFixed(2)
 
-       this.maxTableInfo.forEach((item, index) => {
-        if(index === 0 || index === this.maxTableInfo.length - 1) return
-         this.registerTotal = Number(this.registerTotal) + Number(item.customTable[10].text)
-       })
-      
-      this.maxTableInfo[this.maxTableInfo.length - 1].customTable[10].text = this.registerTotal
-      console.log(this.registerTotal,this.effectivenessTotal)
-      this.maxTableInfo[this.maxTableInfo.length - 1].customTable[9].text = (Number(this.spendTotal)/(this.registerTotal)).toFixed(2)
+      this.maxTableInfo.forEach((item, index) => {
+        if (index === 0 || index === this.maxTableInfo.length - 1) return
+        this.registerTotal =
+          Number(this.registerTotal) + Number(item.customTable[10].text)
+      })
+
+      this.maxTableInfo[this.maxTableInfo.length - 1].customTable[10].text =
+        this.registerTotal
+      console.log(this.registerTotal, this.effectivenessTotal)
+      this.maxTableInfo[this.maxTableInfo.length - 1].customTable[9].text = (
+        Number(this.spendTotal) / this.registerTotal
+      ).toFixed(2)
     },
-    isDividedBy2MultipleOf2 (num) {
-      if(num === 0) return false
+    isDividedBy2MultipleOf2(num) {
+      if (num === 0) return false
       return num % 2 == 0
     },
     clickChange(index) {
@@ -1080,22 +1172,31 @@ showMockDom:true,
       return numStr.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
     },
 
-    handleCCcheck (item) {
+    handleCCcheck(item) {
+      this.selectNumberDom = ''
       item.isChecked = !item.isChecked
+      this.maxTableInfo.filter((item, index) => {
+        if (index === 0 || index === this.maxTableInfo.length - 1) return
+        this.selectNumberDom =
+          Number(this.selectNumberDom) +
+          Number(
+            item.customTable.filter((iten) => iten.isChecked == true).length
+          )
+      })
       this.$forceUpdate()
     },
-    handleSwitch (table, item) {
+    handleSwitch(table, item) {
       console.log(table, item)
-      item.isChecked = !item.isChecked;
+      item.isChecked = !item.isChecked
       if (item.isChecked) {
-       table[3].adsStatus = '4'
-      }else {
-       table[3].adsStatus = '2'
+        table[3].adsStatus = '4'
+      } else {
+        table[3].adsStatus = '2'
       }
       this.$forceUpdate()
     },
     closeMask() {
-      this.maskSlot = false;
+      this.maskSlot = false
       this.showMockDom = true
     },
     //编辑
@@ -1110,9 +1211,10 @@ showMockDom:true,
     },
     // 切换当前表头索引
     changeCurrentIndex(index) {
-      this.currentIndex = index;
+      this.selectNumberDom = ''
+      this.currentIndex = index
       this.showTableFlag = true
-      let timer = setTimeout(() => { 
+      let timer = setTimeout(() => {
         this.showTableFlag = false
         clearTimeout(timer)
       }, 1000)
@@ -1120,10 +1222,17 @@ showMockDom:true,
         this.maxTableInfo[0].customTable[2].text = '广告组'
       } else if (index == 2) {
         this.maxTableInfo[0].customTable[2].text = '广告'
-        // this.maxTableInfo[0].customTable[0]
-      } else { 
+      } else {
         this.maxTableInfo[0].customTable[2].text = '广告系列'
       }
+      this.maxTableInfo.filter((item, index) => {
+        if (index === 0 || index === this.maxTableInfo.length - 1) return
+        this.selectNumberDom =
+          Number(this.selectNumberDom) +
+          Number(
+            item.customTable.filter((iten) => iten.isChecked == true).length
+          )
+      })
     },
   },
 }
@@ -1145,7 +1254,11 @@ showMockDom:true,
   bottom: 100px;
   left: 0;
   width: 100%;
-
+  .adsName_text {
+    width: 150px;
+    height: 40px;
+    margin-left: 16px;
+  }
   .table_data {
     .table_data_box {
       display: flex;
@@ -1159,11 +1272,6 @@ showMockDom:true,
         align-items: center;
         justify-content: center;
       }
-      .adsName_text {
-        width: 150px;
-        height: 40px;
-        margin-left: 16px;
-      }
 
       .stat_type {
         margin-left: 16px;
@@ -1173,8 +1281,8 @@ showMockDom:true,
     }
   }
 }
-*{
-caret-color: rgba(0, 0, 0, 0)
+* {
+  caret-color: rgba(0, 0, 0, 0);
 }
 .donut {
   display: inline-block;
@@ -1258,12 +1366,78 @@ caret-color: rgba(0, 0, 0, 0)
   margin-left: 4px !important;
 }
 .ads_center_text {
+  .leftImg {
+    .cen_fn {
+      .cen_fn_x:hover {
+        opacity: 1 !important;
+      }
+    }
+  }
+}
+.ads_center_text {
   font-size: 15px;
   font-weight: 400;
   color: rgb(20, 97, 204);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
     Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+
+  .leftImg {
+    display: flex;
+    .left_img {
+      width: 46px;
+      height: 46px;
+    }
+    .cen_fn {
+      display: flex;
+      flex-direction: column;
+      margin-left: 8px;
+      .cen_fn_x {
+        display: flex;
+        align-items: center;
+        opacity: 0;
+
+        .cen_fn_x_1 {
+          display: flex;
+          align-items: center;
+          margin-top: 4px;
+          margin-right: 16px;
+          // transform: scale(90%, 90%);
+          .cen_fn_x_1_text {
+            color: rgb(28, 30, 33);
+            cursor: pointer;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+              Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+              'Segoe UI Emoji', 'Segoe UI Symbol';
+            font-size: 11px;
+            margin-left: 4px;
+          }
+          .cen_fn_x_1_icon {
+            background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/y3/r/DeKP7dAAazZ.png);
+            background-position-x: -272px;
+            background-position-y: -266px;
+            height: 12px;
+            width: 12px;
+          }
+          .cen_fn_x_2_icon {
+            height: 12px;
+            width: 12px;
+            background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/y3/r/DeKP7dAAazZ.png);
+            background-position-x: -267px;
+            background-position-y: -367px;
+          }
+          .cen_fn_x_3_icon {
+            height: 12px;
+            width: 12px;
+            background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/y3/r/DeKP7dAAazZ.png);
+            background-position-x: -13px;
+            background-position-y: -384px;
+          }
+        }
+      }
+    }
+  }
 }
+
 .left_icon_right_text {
   display: flex;
   align-items: center;
@@ -1679,6 +1853,7 @@ input[type='checkbox'].switch:checked::after {
     .table_header {
       display: flex;
       .table_header_box {
+        position: relative;
         display: flex;
         width: 360px;
         height: 40px;
@@ -1687,6 +1862,31 @@ input[type='checkbox'].switch:checked::after {
         border-radius: 8px 8px 0 0;
         align-items: center;
         padding: 0 16px;
+        .abs_box {
+          position: absolute;
+          right: 16px;
+          min-width: 60px;
+          height: 28px;
+          border-radius: 4px;
+          background: rgb(10, 120, 190);
+          font-family: Roboto, Arial, sans-serif;
+          font-size: 12px;
+          line-height: 28px;
+          color: #fff;
+          padding: 0 8px;
+          display: flex;
+          align-items: center;
+          .abs_box_del {
+            background-color: rgb(255, 255, 255);
+            color: rgb(255, 255, 255);
+            mask-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/ys/r/zQ7tm5y8cV3.png);
+            width: 12px;
+            -webkit-mask-position-x: -34px;
+            -webkit-mask-position-y: -453px;
+            height: 12px;
+            margin-left: 8px;
+          }
+        }
         .table_header_left_icon {
           background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yC/r/cnkAE7QiAAY.png);
           background-size: auto;
@@ -1900,12 +2100,25 @@ input[type='checkbox'].switch:checked::after {
     }
   }
 }
-.w24{
-  width:24px !important;
+.w24 {
+  width: 24px !important;
 }
 // 中间表格样式
+.table_content ::v-deep {
+  .el-skeleton__item {
+    height: 40px;
+  }
+  .el-skeleton__first-line,
+  .el-skeleton__paragraph {
+    margin-top: 2px;
+  }
+  .el-skeleton__p.is-first {
+    width: 68%;
+  }
+}
 .table_content {
   width: 100%;
+
   .table_content_header {
     background: #fff;
     color: rgb(28, 30, 33);

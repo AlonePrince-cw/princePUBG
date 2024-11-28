@@ -40,24 +40,126 @@
             <div class="left_icon"></div>
           </div>
           <div class="step">
-            <div class="step_one">
-              <div class="step_one_icon"></div>
+            <div class="step_one step_on">
+              <div class="step_one_icon">
+                <!-- <svg
+                  viewBox="0 0 48 48"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="1em"
+                  fill="rgb(10, 120, 190)"
+                  class="x4s1yf2 xlup9mm x1kky2od"
+                >
+                  <g>
+                    <path
+                      d="m19.95 8.76-.18-.53a4 4 0 0 0-3.79-2.74H6.5c-1.66 0-3 1.34-3 3v30c0 2.21 1.79 4 4 4h33c2.21 0 4-1.79 4-4V15.5c0-2.21-1.79-4-4-4H23.74c-1.72 0-3.25-1.1-3.79-2.74z"
+                      stroke="rgb(10, 120, 190)"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="3px"
+                      fill="rgb(10, 120, 190)"
+                    ></path>
+                  </g>
+                </svg> -->
+                <svg
+                  viewBox="0 0 48 48"
+                  width="1em"
+                  height="1em"
+                  fill="currentColor"
+                  class="x4s1yf2 xlup9mm x1kky2od"
+                >
+                  <g>
+                    <path
+                      d="m19.95 8.76-.18-.53a4 4 0 0 0-3.79-2.74H6.5c-1.66 0-3 1.34-3 3v30c0 2.21 1.79 4 4 4h33c2.21 0 4-1.79 4-4V15.5c0-2.21-1.79-4-4-4H23.74c-1.72 0-3.25-1.1-3.79-2.74z"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="3px"
+                      fill="none"
+                    ></path>
+                  </g>
+                </svg>
+              </div>
               <div class="step_one_text step_one_box">FB18-F01-02</div>
             </div>
             <div class="step_arrow"></div>
-            <div class="step_two">
-              <div class="step_two_icon"></div>
-              <div class="step_one_text">219个广告组</div>
+            <div class="step_one step_on">
+              <div class="step_one_icon">
+                <svg
+                  viewBox="0 0 16 16"
+                  width="1em"
+                  height="1em"
+                  fill="currentColor"
+                  class="x4s1yf2 xlup9mm x1kky2od"
+                >
+                  <g data-name="Layer 2">
+                    <g>
+                      <g data-name="16">
+                        <rect
+                          class="xbh8q5q xi5qq39"
+                          x="9.5"
+                          y="0.5"
+                          width="6"
+                          height="6"
+                          rx="1"
+                        ></rect>
+                        <rect
+                          class="xbh8q5q xi5qq39"
+                          x="0.5"
+                          y="0.5"
+                          width="6"
+                          height="6"
+                          rx="1"
+                        ></rect>
+                        <rect
+                          class="xbh8q5q xi5qq39"
+                          x="9.5"
+                          y="9.5"
+                          width="6"
+                          height="6"
+                          rx="1"
+                          transform="rotate(90 12.5 12.5)"
+                        ></rect>
+                        <rect
+                          class="xbh8q5q xi5qq39"
+                          x="0.5"
+                          y="9.5"
+                          width="6"
+                          height="6"
+                          rx="1"
+                          transform="rotate(90 3.5 12.5)"
+                        ></rect>
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+              </div>
+              <div class="step_one_text step_one_box">219个广告组</div>
             </div>
             <div class="step_arrow"></div>
-            <div class="step_three">
-              <div class="step_three_icon"></div>
+            <div class="step_one">
+              <div class="step_one_icon">
+                <svg
+                  viewBox="0 0 16 16"
+                  width="1em"
+                  height="1em"
+                  fill="currentColor"
+                  class="x1qsmy5i xlup9mm x1kky2od"
+                >
+                  <g data-name="Layer 2">
+                    <path
+                      d="M13.25 1H2.75A1.76 1.76 0 0 0 1 2.75v10.5A1.76 1.76 0 0 0 2.75 15h10.5A1.76 1.76 0 0 0 15 13.25V2.75A1.76 1.76 0 0 0 13.25 1zM4.5 5.5a1 1 0 1 1 1-1 1 1 0 0 1-1 1zm8-.5h-5a.5.5 0 0 1 0-1h5a.5.5 0 0 1 0 1z"
+                      data-name="16"
+                    ></path>
+                  </g>
+                </svg>
+              </div>
               <div class="step_one_text">219个广告</div>
             </div>
           </div>
         </div>
         <div class="right_top_right">
-          <div class="right_text">帐户已停用</div>
+          <div class="right_text">投放中</div>
           <div class="line"></div>
           <div class="right_check">
             <div class="right_check_icon"></div>
@@ -541,10 +643,13 @@
                     <div class="div_input_url">
                       <div class="div_select div_select_xx">
                         <div class="left_text over_hi">
-                          https://9ky56t.vip/?ch=kdj2m&sdmode=4&fbPixelId=761997855963993
+                         {{attributionUrl}}
                         </div>
                       </div>
-                      <div class="add_div_text3 add_div_text_xx" @click="jumpUrl()">
+                      <div
+                        class="add_div_text3 add_div_text_xx"
+                        @click="jumpUrl()"
+                      >
                         <div class="add_icon_xx"></div>
                         <div class="add_text">预览网址</div>
                       </div>
@@ -728,7 +833,7 @@
                         data-video-width="320"
                         data-video-height="400"
                         data-interactable="|mousedown||click|"
-                        src="https://scontent-hkg1-2.xx.fbcdn.net/o1/v/t2/f2/m69/AQOb1pxtHSvXijJzSZZkT8jRLKNO_mk_47qImIXGRIs_ZhTgVnEb23--p2tMWULIB1royX_5jx7AymO_jJw0RzuK.mp4?efg=eyJ4cHZfYXNzZXRfaWQiOjU0NzQwNDUzODI2NTk1NSwidmVuY29kZV90YWciOiJ4cHZfcHJvZ3Jlc3NpdmUuRkFDRUJPT0suLkMzLjcyMC5kYXNoX2gyNjQtYmFzaWMtZ2VuMl83MjBwIn0&amp;_nc_ht=scontent-hkg1-2.xx.fbcdn.net&amp;_nc_cat=107&amp;strext=1&amp;vs=a81bf364fb50f250&amp;_nc_vs=HBksFQIYOnBhc3N0aHJvdWdoX2V2ZXJzdG9yZS9HQkNkNHh0T2d0czZjM0VFQUFJeGVZVS00aTFxYm1kakFBQUYVAALIAQAVAhg6cGFzc3Rocm91Z2hfZXZlcnN0b3JlL0dHLXM0aHV2OGV2MXFDSUNBTUJ1OG5CNmJfd3JickZxQUFBRhUCAsgBACgAGAAbAogHdXNlX29pbAExEnByb2dyZXNzaXZlX3JlY2lwZQExFQAAJsaF6tCR9_gBFQIoAkMzLBdARQzMzMzMzRgZZGFzaF9oMjY0LWJhc2ljLWdlbjJfNzIwcBEAdQIA&amp;ccb=9-4&amp;oh=00_AYCpGuw0fzYfd_9BwmzUMgWQQXGi5wRYTGEuYlTSDCu9cA&amp;oe=6747CAAE&amp;_nc_sid=1d576d"
+                        :src="videoUrl"
                       ></video>
 
                       <div class="video_img_l_bottom">
@@ -792,24 +897,51 @@
                           </div>
                         </div>
                       </div>
-                      <video autoplay="" class="x1lliihq x1n2onr6 xl1xv1r xjnjwiz" data-reactid="1938609809956768" id="video" loop="" playsinline=""><source src="https://scontent-hkg1-2.xx.fbcdn.net/o1/v/t2/f2/m69/AQOb1pxtHSvXijJzSZZkT8jRLKNO_mk_47qImIXGRIs_ZhTgVnEb23--p2tMWULIB1royX_5jx7AymO_jJw0RzuK.mp4?efg=eyJ4cHZfYXNzZXRfaWQiOjU0NzQwNDUzODI2NTk1NSwidmVuY29kZV90YWciOiJ4cHZfcHJvZ3Jlc3NpdmUuRkFDRUJPT0suLkMzLjcyMC5kYXNoX2gyNjQtYmFzaWMtZ2VuMl83MjBwIn0&amp;_nc_ht=scontent-hkg1-2.xx.fbcdn.net&amp;_nc_cat=107&amp;strext=1&amp;vs=a81bf364fb50f250&amp;_nc_vs=HBksFQIYOnBhc3N0aHJvdWdoX2V2ZXJzdG9yZS9HQkNkNHh0T2d0czZjM0VFQUFJeGVZVS00aTFxYm1kakFBQUYVAALIAQAVAhg6cGFzc3Rocm91Z2hfZXZlcnN0b3JlL0dHLXM0aHV2OGV2MXFDSUNBTUJ1OG5CNmJfd3JickZxQUFBRhUCAsgBACgAGAAbAogHdXNlX29pbAExEnByb2dyZXNzaXZlX3JlY2lwZQExFQAAJsaF6tCR9_gBFQIoAkMzLBdARQzMzMzMzRgZZGFzaF9oMjY0LWJhc2ljLWdlbjJfNzIwcBEAdQIA&amp;ccb=9-4&amp;oh=00_AYCpGuw0fzYfd_9BwmzUMgWQQXGi5wRYTGEuYlTSDCu9cA&amp;oe=6747CAAE&amp;_nc_sid=1d576d" type="video/mp4"><track default="" kind="captions"></video>
+                      <video
+                        autoplay=""
+                        class="x1lliihq x1n2onr6 xl1xv1r xjnjwiz"
+                        id="video"
+                        loop=""
+                        playsinline=""
+                      >
+                        <source
+                          :src="videoUrl"
+                          type="video/mp4"
+                        />
+                        <track default="" kind="captions" />
+                      </video>
                     </div>
                     <div class="center_text">
                       <div class="center_text_left">玩游戏</div>
-                      <div class="center_text_icon"><i class="x1kpxq89 xsmyaan img" alt="" data-visualcompletion="css-img" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yg/r/IkFqefhQFHd.png&quot;); background-position: -272px -1909px; background-size: auto; width: 16px; height: 16px; background-repeat: no-repeat; display: inline-block;"></i></div>
+                      <div class="center_text_icon">
+                        <i
+                          class="x1kpxq89 xsmyaan img"
+                          alt=""
+                          data-visualcompletion="css-img"
+                          style="
+                            background-image: url('https://static.xx.fbcdn.net/rsrc.php/v3/yg/r/IkFqefhQFHd.png');
+                            background-position: -272px -1909px;
+                            background-size: auto;
+                            width: 16px;
+                            height: 16px;
+                            background-repeat: no-repeat;
+                            display: inline-block;
+                          "
+                        ></i>
+                      </div>
                     </div>
-                     <div class="video_img_l_bottom22" style="padding-top: 0px;">
-                        <div class="video_line_2"></div>
-                      </div>
+                    <div class="video_img_l_bottom22" style="padding-top: 0px">
+                      <div class="video_line_2"></div>
+                    </div>
 
-                      <div class="btn_b">
-                        <div class="left_btn_oox">
-                          <div class="left_btn_oox1"></div>
-                          <div class="left_btn_oox2"></div>
-                          <div class="left_btn_oox3"></div>
-                        </div>
-                        <div class="left_btn_oox4"></div>
+                    <div class="btn_b">
+                      <div class="left_btn_oox">
+                        <div class="left_btn_oox1"></div>
+                        <div class="left_btn_oox2"></div>
+                        <div class="left_btn_oox3"></div>
                       </div>
+                      <div class="left_btn_oox4"></div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1175,10 +1307,20 @@
 </template>
 
 <script>
-import TreeNode from './TreeNode.vue'
+import TreeNode from './TreeNode'
 export default {
   components: {
     TreeNode,
+  },
+  props: {
+    attributionUrl: {
+      type: String,
+      default: '',
+    },
+    videoUrl: {
+      type: String,
+      default: '',
+    },
   },
   data() {
     return {
@@ -1259,9 +1401,9 @@ export default {
     closeMask() {
       this.$emit('closeMask')
     },
-    jumpUrl () {
-      window.open('https://9ky56t.vip/?ch=kdj2m&sdmode=4&fbPixelId=761997855963993')
-     }
+    jumpUrl() {
+      window.open(this.$props.attributionUrl,'_blank')
+    },
   },
 }
 </script>
@@ -1269,6 +1411,15 @@ export default {
 <style lang="scss" scoped>
 .ml4 {
   margin-left: 8px;
+}
+.xbh8q5q {
+  fill: none;
+}
+.xi5qq39 {
+  stroke: #000;
+}
+.x1qsmy5i {
+  color: rgba(10, 120, 190, 1);
 }
 .content-box__right {
   width: 990px;
@@ -1481,48 +1632,48 @@ export default {
     height: 0.5px;
     background: rgba(0, 0, 0, 0.08);
   }
-  .btn_b{
-  display: flex;
+  .btn_b {
+    display: flex;
     align-items: center;
     padding: 8px 16px;
     background: #fff;
     justify-content: space-between;
-    .left_btn_oox{
-      
-    display: flex;
-    align-items: center;
-    .left_btn_oox1{
-    background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yg/r/IkFqefhQFHd.png);
-background-position-x: -325px;
-background-position-y: -1612px;
-height: 24px;
-width: 24px;
-    transform: scale(70%, 70%);
-    }
+    .left_btn_oox {
+      display: flex;
+      align-items: center;
+      .left_btn_oox1 {
+        background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yg/r/IkFqefhQFHd.png);
+        background-position-x: -325px;
+        background-position-y: -1612px;
+        height: 24px;
+        width: 24px;
+        transform: scale(70%, 70%);
+      }
 
-    .left_btn_oox2{
-    background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yg/r/IkFqefhQFHd.png);
-background-position-x: -200px;
-background-position-y: -1612px;
-    height: 24px;
-width: 24px;
-    transform: scale(70%, 70%);
+      .left_btn_oox2 {
+        background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yg/r/IkFqefhQFHd.png);
+        background-position-x: -200px;
+        background-position-y: -1612px;
+        height: 24px;
+        width: 24px;
+        transform: scale(70%, 70%);
+      }
+      .left_btn_oox3 {
+        background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yg/r/IkFqefhQFHd.png);
+        background-position-x: -250px;
+        background-position-y: -1612px;
+        height: 24px;
+        width: 24px;
+        transform: scale(70%, 70%);
+      }
     }
-    .left_btn_oox3{
-    background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yg/r/IkFqefhQFHd.png);
-background-position-x: -250px;
-background-position-y: -1612px;
-    height: 24px;
-width: 24px;transform: scale(70%, 70%);
-    }
-    }
-    .left_btn_oox4{
-    height: 24px;
-width: 24px;
-    background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yg/r/IkFqefhQFHd.png);
-background-position-x: -100px;
-background-position-y: -1637px;
-    transform: scale(70%, 70%);
+    .left_btn_oox4 {
+      height: 24px;
+      width: 24px;
+      background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yg/r/IkFqefhQFHd.png);
+      background-position-x: -100px;
+      background-position-y: -1637px;
+      transform: scale(70%, 70%);
     }
   }
   .right_bb_btn_g {
@@ -1605,6 +1756,7 @@ background-position-y: -1637px;
         width: 28px;
         height: 28px;
         border-radius: 4px;
+        object-fit: cover;
       }
       .tit_img {
         margin-left: 8px;
@@ -1630,56 +1782,55 @@ background-position-y: -1637px;
     }
   }
   .x1n2onr6 {
-  margin-top: -4px;
+    margin-top: -4px;
   }
-  .center_text{
+  .center_text {
     margin-top: -2px;
-  padding: 0 10px;
+    padding: 0 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 26px;
     background: #fff;
-    .center_text_left{
-    color: rgb(38, 38, 38);
-font-family: "Freight Sans Bold", Helvetica, Arial, sans-serif;
-font-size: 12px;
-font-weight: 700;
-    transform: scale(80%, 80%);
+    .center_text_left {
+      color: rgb(38, 38, 38);
+      font-family: 'Freight Sans Bold', Helvetica, Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      transform: scale(80%, 80%);
     }
-    .center_text_icon{
-    transform: scale(70%, 70%);
-    
+    .center_text_icon {
+      transform: scale(70%, 70%);
     }
   }
-  .po_abc{
+  .po_abc {
     position: absolute;
     left: 8px;
     top: 32px;
     z-index: 999;
-    .top_average_img{
+    .top_average_img {
       transform: scale(70%, 70%);
     }
-    .top_average_name_text{
+    .top_average_name_text {
       margin-left: 0px !important;
     }
-    .top_average_name{
-    color: #fff !important;
-    transform: scale(90%, 90%);
+    .top_average_name {
+      color: #fff !important;
+      transform: scale(90%, 90%);
     }
-    .top_average_name_text2{
-    transform: scale(90%, 90%);
+    .top_average_name_text2 {
+      transform: scale(90%, 90%);
     }
   }
   .left_video_box {
-          display: flex;
+    display: flex;
 
-          .top_average_img {
-            height: 28px;
-            width: 28px;
-            border-radius: 50%;
-          }
-        }
+    .top_average_img {
+      height: 28px;
+      width: 28px;
+      border-radius: 50%;
+    }
+  }
   .video_img {
     display: flex;
     padding: 0 8px;
@@ -1769,7 +1920,6 @@ font-weight: 700;
             -webkit-transform: rotate(-90deg);
           }
         }
-        
       }
     }
   }
@@ -1964,7 +2114,7 @@ font-weight: 700;
     padding-top: 0px;
     overflow: hidden;
     overflow-y: auto;
-    height: 720px;
+    height: 730px;
     .top_max_guano {
       width: 388px !important;
       .top_max1_t_icon_no {
@@ -1978,11 +2128,10 @@ font-weight: 700;
       .l_gg_right_box {
         overflow: scroll;
         height: 1000px;
-
       }
       .l_gg_right_box::-webkit-scrollbar {
-  display: none;           /* 隐藏 Webkit 浏览器（如 Chrome, Safari）的滚动条 */
-}
+        display: none; /* 隐藏 Webkit 浏览器（如 Chrome, Safari）的滚动条 */
+      }
       .gg_right_box_bottom {
         width: 526px;
         height: 100%;
@@ -3060,20 +3209,35 @@ font-weight: 700;
         width: 100%;
         display: flex;
         align-items: center;
+        .step_on {
+          background: none !important;
+        }
+        .step_one {
+          display: flex;
+          align-items: center;
+          background: rgb(225, 237, 247);
+          padding: 4px;
+          border-radius: 4px;
+        }
         .step_one_icon {
+          margin-right: 4px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .step_two_icon {
+        }
+        .step_three_icon {
         }
         .step_one_text {
-          // color: rgb(10, 120, 190);
-          color: rgba(28, 43, 51, 0.65);
+          color: rgb(10, 120, 190);
+          // color: rgba(28, 43, 51, 0.65);
           cursor: pointer;
           font-size: 15px;
           font-weight: 400;
         }
         .step_one_box {
-          background: rgb(225, 237, 247);
-          padding: 4px;
-          border-radius: 4px;
-          color: rgb(10, 120, 190);
+          color: rgba(28, 43, 51, 0.65);
           font-family: 'Optimistic Display', system-ui, sans-serif;
           font-size: 15px;
         }
@@ -3089,13 +3253,13 @@ font-weight: 700;
     background: #fff;
     .left_edit_mr {
       margin-right: 16px;
+      background: rgb(225, 237, 247);
     }
     .left_edit {
       display: flex;
       align-items: center;
       width: 76px;
       height: 36px;
-      background: rgb(225, 237, 247);
       border: 0px solid rgba(0, 0, 0, 0.4);
       border-radius: 4px;
       justify-content: center;
