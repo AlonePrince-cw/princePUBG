@@ -898,7 +898,7 @@
                         </div>
                       </div>
                       <video
-                        autoplay=""
+                        autoplay
                         class="x1lliihq x1n2onr6 xl1xv1r xjnjwiz"
                         id="video"
                         loop=""
