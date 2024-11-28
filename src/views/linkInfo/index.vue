@@ -241,7 +241,7 @@ export default {
           channelNumber: 'FB18-F01-02',
           link: 'https://9ky56t.vip?ch=kdj2m&sdmode=4&fbPixelId=761997855963993',
           pixel: '761997855963993',
-          budget: 2000,
+          budget: 1800,
           is_top: false,
           timeZone: '-3',
           report:
@@ -255,7 +255,7 @@ export default {
           channelNumber: 'FB18-F05-02',
           link: 'https://kkttppp.com?ch=9tm02&sdmode=4&fbPixelId=1742684496533110',
           pixel: '1742684496533110',
-          budget: 700,
+          budget: 500,
           is_top: false,
           timeZone: '-3',
           report:
@@ -283,7 +283,7 @@ export default {
           channelNumber: '拌面-GAN-9线',
           link: 'https://23mwea.com?ch=v3ws2&sdmode=4&fbPixelId=761997855963993',
           pixel: '761997855963993',
-          budget: 800,
+          budget: 1000,
           is_top: false,
           timeZone: '-3',
           report:
@@ -297,7 +297,7 @@ export default {
           channelNumber: '拌面-GAN-11线',
           link: 'https://23mwea.com?ch=32fbe&sdmode=4&fbPixelId=761997855963993',
           pixel: '761997855963993',
-          budget: 1400,
+          budget: 1200,
           is_top: false,
           timeZone: '-3',
           report:
@@ -311,9 +311,23 @@ export default {
           channelNumber: '柒喜高净值147-36 28R',
           link: 'https://873nhs.com?ch=dojfg&sdmode=4&fbPixelId=1742684496533110',
           pixel: '1742684496533110',
-          budget: 500,
+          budget: 0,
           is_top: false,
           timeZone: '0时区',
+          report:
+            'https://docs.google.com/spreadsheets/d/1IBC3FA9NmQ7ie611jvWpF-zhUsAFuyNomCd76KgkOyw/edit?gid=0#gid=0',
+        },
+        {
+          date: '2024-11-28',
+          name: '圆圆',
+          kpi: '',
+          groupName: '【vip4】-3时区渣渣高净值-7+1',
+          channelNumber: '147*15',
+          link: 'https://00lzq78.com?ch=43032&fbPixelId=761997855963993',
+          pixel: '761997855963993',
+          budget: 0,
+          is_top: false,
+          timeZone: '-3时区',
           report:
             'https://docs.google.com/spreadsheets/d/1IBC3FA9NmQ7ie611jvWpF-zhUsAFuyNomCd76KgkOyw/edit?gid=0#gid=0',
         },
@@ -325,7 +339,7 @@ export default {
           channelNumber: 'AA031-FB-pwa3',
           link: 'https://vip.ccc768guinkkk.com?ch=t2t53&sdmode=4&fbPixelId=761997855963993',
           pixel: '761997855963993',
-          budget: 500,
+          budget: 0,
           is_top: false,
           timeZone: '-3时区',
           report:
