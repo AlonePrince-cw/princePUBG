@@ -30,3 +30,11 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### ipconfig/flushdns 刷新全局代理
 
+
+### vpn模式提交不上
+###  打开“设置 -> 网络和Internet -> 代理”，记录下当前的端口号。
+###  git config --global http.proxy 127.0.0.1:10792
+###  git config --global https.proxy 127.0.0.1:10792
+###  git config --global -l
+
+
