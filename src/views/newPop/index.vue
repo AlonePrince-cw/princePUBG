@@ -26,7 +26,7 @@
         <div class="box_top_left">
           <div class="box_top_title">广告</div>
           <div class="box_top_select">
-            <div class="select_box">Yuri-899-10181457-POP</div>
+            <div class="select_box text_over">{{accountName}}</div>
             <div class="select_box_icon"></div>
           </div>
         </div>
@@ -49,7 +49,7 @@
         <div class="middle_box_search">搜索和筛选</div>
         <div class="middle_box_date">
           <div class="middle_box_date_icon"></div>
-          <div class="middle_box_date_text">2019年10月21日</div>
+          <div class="middle_box_date_text">{{yesterdayTime}}</div>
           <div class="middle_box_date_icon2"></div>
         </div>
       </div>
@@ -158,14 +158,6 @@
               <div
                 class="ads_column"
                 v-for="(item, index) in adsItem.customTable"
-                :class="[
-                  adsIndex == maxTableInfo.length - 1 &&
-                  index == 0 &&
-                  currentIndex == 2 &&
-                  item.id == 13
-                    ? 'w24'
-                    : '',
-                ]"
                 :key="index"
                 :style="{
                   width: item.tabHeaderWidth + 'px',
@@ -215,10 +207,7 @@
                   <!-- {{ item.text }} -->
                   <div class="leftImg">
                     <div class="left_img" v-if="currentIndex == 2">
-                      <img
-                        src="https://scontent-hkg1-2.xx.fbcdn.net/v/t15.13418-10/466001645_973158561286570_6234017568940427726_n.jpg?_nc_cat=103&ccb=1-7&_nc_ohc=bLhNxFmWJ18Q7kNvgHxLz8c&_nc_zt=23&_nc_ht=scontent-hkg1-2.xx&_nc_gid=ACc9lX2wspb9-hcoW_PPFSN&stp=c0.5000x0.5000f_dst-emg0_p46x46_q75_tt6&ur=ace027&_nc_sid=58080a&oh=00_AYBYyEz5Y7w6gZO6UEcDobjrtub5KLB83sXxymmxauTJmA&oe=674E6C1C"
-                        alt=""
-                      />
+                      <img :src="item.adsImg" alt="" />
                     </div>
                     <div class="cen_fn">
                       <div class="cen_fn_text">{{ item.text }}</div>
@@ -275,10 +264,16 @@
                       class="m_text"
                       :class="[item.isUnderline ? 'text_liner' : '']"
                     >
-                      <span v-if="currentIndex > 0 && index == 4" class=""
-                        >使用广告系列预算</span
+                      <span v-if="currentIndex > 0 && index == 4" class="">{{
+                        currentIndex == 1
+                          ? '使用广告系列预算'
+                          : '使用广告系列...'
+                      }}</span>
+                      <span
+                        v-else
+                        :class="[item.id == 13 ? 'text_over' : '']"
+                        :title="item.id == 13 ? item.text : ''"
                       >
-                      <span v-else>
                         {{ item.isMoney ? '$' : ''
                         }}{{ formatNumberWithCommas(item.text) }}</span
                       >
@@ -425,33 +420,53 @@
                 placeholder="点击"
               ></el-input>
             </div>
-            <div class="attribution_text adsName_text">
+            <div class="attribution_text adsName_text" v-if="currentIndex == 2">
+              <el-input
+                v-model="item.adsImgUrl"
+                @change="adsImgUrlChange(index)"
+                placeholder="广告头像"
+              ></el-input>
+            </div>
+            <div class="attribution_text adsName_text" v-if="currentIndex == 2">
               <el-input
                 v-model="item.attributionText"
-                disabled
+                @change="attributionChange(index)"
                 placeholder="投放链接"
               ></el-input>
             </div>
-            <!-- <div class="singleResult_Text adsName_text">
-              <el-input v-model="singleResultText" placeholder="单次成效费用"></el-input>
-            </div>
-             <div class="singleRegilt_Text adsName_text">
-              <el-input v-model="singleRegiltText" placeholder="单次注册费用"></el-input>
-            </div> -->
           </div>
+          <div class="xi_tong">
+            <el-button type="success" @click="clickAddTr()" style="margin: 0 0 16px 0"
+          >添加</el-button
+        >
+          </div>
+         <div class="xi_tong">
           <div class="attribution_text adsName_text">
+            <el-input
+              v-model="accountName"
+              placeholder="账户名"
+            ></el-input>
+          </div>
+           <div class="attribution_text adsName_text">
             <el-input
               v-model="attributionUrl"
               placeholder="预览链接"
             ></el-input>
           </div>
-           <div class="attribution_text adsName_text">
-            <el-input
-              v-model="videoUrl"
-              placeholder="视频地址"
-            ></el-input>
+          <div class="attribution_text adsName_text">
+            <el-input v-model="videoUrl" placeholder="视频地址"></el-input>
           </div>
-
+          <div class="data_date_text adsName_text">
+            <el-date-picker
+          v-model="dataDate"
+          type="date"
+          placeholder="选择日期"
+          value-format="yyyy年MM月dd日"
+          @change="dateChange($event)"
+        >
+        </el-date-picker>
+          </div>
+         </div>
         </div>
       </div>
     </div>
@@ -468,7 +483,11 @@
       </div>
     </div>
     <div class="mask_right_box" v-if="maskSlot">
-      <RightBox @closeMask="closeMask" :attributionUrl="attributionUrl" :videoUrl="videoUrl" />
+      <RightBox
+        @closeMask="closeMask"
+        :attributionUrl="attributionUrl"
+        :videoUrl="videoUrl"
+      />
     </div>
   </div>
 </template>
@@ -479,15 +498,21 @@ export default {
   components: { RightBox },
   data() {
     return {
+        aac: [
+          {}, {}, {}, {}
+        ],
+      dataDate: '',
+
       attributionUrl: '',
       videoUrl: '',
       selectNumberDom: '',
       showTableFlag: false,
-      showMockDom: false,
+      showMockDom: true,
       effectivenessTotal: '',
       exhibitTotal: '',
       spendTotal: '',
       registerTotal: '',
+      adsImgUrl: '',
       mockData: [
         {
           switchValue: true,
@@ -532,6 +557,7 @@ export default {
           statusValue: '',
           budgetText: '',
           exhibitText: '',
+          adsImgUrl: '',
           spendText: '',
           effectivenessText: '',
           deliveryStatus: [
@@ -558,8 +584,9 @@ export default {
           ],
         },
       ],
-
-      maskSlot: true,
+      accountName: 'Yuri-899-10181457-POP',
+        yesterdayTime:'',
+      maskSlot: false,
       editLoading: false,
       // typeBox 1 纯文本组件 2 复选框组件 3 开关组件 4 左图标右文本组件 5 全靠右上下组件 6 全靠右上带数字分割符组件 7 全靠右上上下组件
       maxTableInfo: [
@@ -615,7 +642,7 @@ export default {
               tabHeaderWidth: 160,
             },
             { id: 11, text: '完成注册数', tabHeaderWidth: 100 },
-            { id: 12, text: '点击量（全部）', tabHeaderWidth: 150 },
+            { id: 12, text: '点击量（全部）', tabHeaderWidth: 253 },
             // { id: 13, text: '链接（广告设置）', tabHeaderWidth: 340 },
           ],
           customColumnHeight: 33,
@@ -640,6 +667,8 @@ export default {
               text: 'X003-FB-PWA-1',
               tabHeaderWidth: 200,
               typeBox: 1,
+              adsImg:
+                'https://scontent-hkg4-1.xx.fbcdn.net/v/t15.13418-10/469207028_1142760284133488_2069691284372399490_n.jpg?_nc_cat=106&ccb=1-7&_nc_ohc=Gx6z4D9LlkMQ7kNvgHUfEpi&_nc_zt=23&_nc_ht=scontent-hkg4-1.xx&_nc_gid=AMIodRAxBqSq7e7VAgUVwgn&stp=c0.5000x0.5000f_dst-emg0_p46x46_q75&ur=ace027&_nc_sid=58080a&oh=00_AYAV88Ya4-txq9AH9Grf9jwSdjOowxBw-qY6M04qfHRD5g&oe=6754FE38',
             },
             {
               id: 4,
@@ -663,7 +692,7 @@ export default {
               text: '134',
               tabHeaderWidth: 150,
               typeBox: 5,
-              des: '购物',
+              des: '网站购物',
               isUnderline: true,
               isMoney: false,
               isShowTop: true,
@@ -721,7 +750,7 @@ export default {
             {
               id: 12,
               text: '8882',
-              tabHeaderWidth: 150,
+              tabHeaderWidth: 253,
               typeBox: 5,
               des: '',
               isUnderline: false,
@@ -761,6 +790,8 @@ export default {
               text: 'X003-FB-PWA-2',
               tabHeaderWidth: 200,
               typeBox: 1,
+              adsImg:
+                'https://scontent-hkg4-1.xx.fbcdn.net/v/t15.13418-10/469207028_1142760284133488_2069691284372399490_n.jpg?_nc_cat=106&ccb=1-7&_nc_ohc=Gx6z4D9LlkMQ7kNvgHUfEpi&_nc_zt=23&_nc_ht=scontent-hkg4-1.xx&_nc_gid=AMIodRAxBqSq7e7VAgUVwgn&stp=c0.5000x0.5000f_dst-emg0_p46x46_q75&ur=ace027&_nc_sid=58080a&oh=00_AYAV88Ya4-txq9AH9Grf9jwSdjOowxBw-qY6M04qfHRD5g&oe=6754FE38',
             },
             {
               id: 4,
@@ -784,7 +815,7 @@ export default {
               text: '134',
               tabHeaderWidth: 150,
               typeBox: 5,
-              des: '购物',
+              des: '网站购物',
               isUnderline: true,
               isMoney: false,
               isShowTop: true,
@@ -842,7 +873,7 @@ export default {
             {
               id: 12,
               text: '8882',
-              tabHeaderWidth: 150,
+              tabHeaderWidth: 253,
               typeBox: 5,
               des: '',
               isUnderline: false,
@@ -903,7 +934,7 @@ export default {
               text: '134',
               tabHeaderWidth: 150,
               typeBox: 5,
-              des: '购物',
+              des: '网站购物',
               isUnderline: true,
               isMoney: false,
               isShowTop: true,
@@ -961,7 +992,7 @@ export default {
             {
               id: 12,
               text: '8882',
-              tabHeaderWidth: 150,
+              tabHeaderWidth: 253,
               typeBox: 5,
               des: '',
               isUnderline: false,
@@ -1058,9 +1089,43 @@ export default {
       return this.maxTableInfo.slice(1, this.maxTableInfo.length - 1)
     },
   },
-  mounted() {},
+  mounted () {
+     let day = new Date()
+    day.setTime(day.getTime() - 24 * 60 * 60 * 1000)
+    let s =
+      day.getFullYear() +
+      '年' +
+      (day.getMonth() + 1 < 10
+        ? '0' + day.getMonth() + 1
+        : day.getMonth() + 1) +
+      '月' +
+      day.getDate() +
+      '日'
+    this.yesterdayTime = s // 获取��天的日期
+
+    
+  },
   created() {},
   methods: {
+    removeLeadingZero(dateStr) {
+      // 使用正则表达式提取年、月、日
+      const regex = /(\d{4})年(\d{1,2})月(0?)(\d{1,2})日/
+      const match = dateStr.match(regex)
+
+      if (!match) {
+        return '无效日期格式'
+      }
+
+      const year = match[1] // 年
+      const month = match[2] // 月
+      const day = match[4] // 日（去掉前导零）
+
+      // 格式化为 "YYYY年MM月DD日"（月份保持两位数，日不加前导零）
+      return `${year}年${month}月${day}日`
+    },
+    dateChange (e) { 
+      this.dataDate = this.removeLeadingZero(e)
+    },
     xlChange(index) {
       this.maxTableInfo[index + 1].customTable[2].text =
         this.mockData[index].adsXlName
@@ -1163,6 +1228,25 @@ export default {
       this.maxTableInfo[index + 1].customTable[11].text =
         this.mockData[index].clickText
     },
+    adsImgUrlChange(index) {
+      this.maxTableInfo[index + 1].customTable[2].adsImg =
+        this.mockData[index].adsImgUrl
+    },
+    attributionChange(index) {
+      // this.maxTableInfo[index + 1].customTable[3].attribution =
+      //   this.mockData[index].attributionText
+      this.maxTableInfo.map((iten, key) => {
+        if (key > 0 && key < this.maxTableInfo.length - 1) {
+          console.log(
+            'dada',
+            index,
+            iten.customTable[iten.customTable.length - 1].text
+          )
+          iten.customTable[iten.customTable.length - 1].text =
+            this.mockData[index].attributionText
+        }
+      })
+    },
     formatNumberWithCommas(number) {
       // 将数字转换为字符串
       if (!number) return
@@ -1220,10 +1304,62 @@ export default {
       }, 1000)
       if (index == 1) {
         this.maxTableInfo[0].customTable[2].text = '广告组'
+        this.maxTableInfo.map((item) => {
+          if (item.customTable[item.customTable.length - 1].id == 13) {
+            item.customTable.pop()
+          }
+          item.customTable[item.customTable.length - 1].tabHeaderWidth = 253
+        })
+        this.maxTableInfo[this.maxTableInfo.length - 1].customTable[0].tabHeaderWidth = 21
       } else if (index == 2) {
         this.maxTableInfo[0].customTable[2].text = '广告'
+        this.maxTableInfo[
+          this.maxTableInfo.length - 1
+        ].customTable[0].tabHeaderWidth = '25'
+        
+        this.maxTableInfo.map((item, index) => {
+          item.customTable[item.customTable.length - 1].tabHeaderWidth = 150
+          if (index == 0) {
+            item.customTable.push({
+              id: 13,
+              text: '链接（广告设置）',
+              tabHeaderWidth: 340,
+              isChecked: false,
+            })
+          } else if (index == this.maxTableInfo.length - 1) {
+            item.customTable.push({
+              id: 13,
+              text: '',
+              tabHeaderWidth: 340,
+              typeBox: 5,
+              des: '',
+              isUnderline: false,
+              isMoney: false,
+              isShowTop: false,
+            })
+          } else {
+            item.customTable.push({
+              id: 13,
+              text: '123',
+              tabHeaderWidth: 340,
+              typeBox: 5,
+              des: '',
+              isUnderline: false,
+              isMoney: false,
+              isShowTop: false,
+            })
+          }
+        })
       } else {
         this.maxTableInfo[0].customTable[2].text = '广告系列'
+        this.maxTableInfo.map((item) => {
+          if (item.customTable[item.customTable.length - 1].id == 13) {
+            item.customTable.pop()
+          }
+          item.customTable[item.customTable.length - 1].tabHeaderWidth = 253
+        })
+        this.maxTableInfo[this.maxTableInfo.length - 1].customTable[0].tabHeaderWidth = 21
+        this.$forceUpdate()
       }
       this.maxTableInfo.filter((item, index) => {
         if (index === 0 || index === this.maxTableInfo.length - 1) return
@@ -1234,6 +1370,8 @@ export default {
           )
       })
     },
+    clickAddTr () { 
+    }
   },
 }
 </script>
@@ -1249,6 +1387,14 @@ export default {
     transform: rotate(360deg);
   }
 }
+.text_over {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+  width: 290px;
+}
+
 .mock_data {
   position: absolute;
   bottom: 100px;
@@ -1284,6 +1430,7 @@ export default {
 * {
   caret-color: rgba(0, 0, 0, 0);
 }
+
 .donut {
   display: inline-block;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -1341,7 +1488,10 @@ export default {
     border-radius: 50%;
   }
 }
-
+.xi_tong{
+  display: flex;
+  align-items: center;
+}
 .icon_active {
   background: rgba(24, 119, 242, 0.1);
   border-radius: 6px;
@@ -1699,7 +1849,7 @@ input[type='checkbox'].switch:checked::after {
         margin-right: 16px;
       }
       .box_top_select {
-        width: 300px;
+        width: 276px;
         height: 36px;
         background-color: rgb(255, 255, 255);
         border: 1px solid rgba(0, 0, 0, 0.15);
