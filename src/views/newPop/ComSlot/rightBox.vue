@@ -643,7 +643,7 @@
                     <div class="div_input_url">
                       <div class="div_select div_select_xx">
                         <div class="left_text over_hi">
-                          {{ attributionUrl }}
+                         {{attributionUrl}}
                         </div>
                       </div>
                       <div
@@ -904,7 +904,10 @@
                         loop=""
                         playsinline=""
                       >
-                        <source :src="videoUrl" type="video/mp4" />
+                        <source
+                          :src="videoUrl"
+                          type="video/mp4"
+                        />
                         <track default="" kind="captions" />
                       </video>
                     </div>
@@ -1399,7 +1402,7 @@ export default {
       this.$emit('closeMask')
     },
     jumpUrl() {
-      window.open(this.$props.attributionUrl, '_blank')
+      window.open(this.$props.attributionUrl,'_blank')
     },
   },
 }

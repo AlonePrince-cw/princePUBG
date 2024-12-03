@@ -24,6 +24,7 @@ import xiaoxiong from './xiaoxiong';
 import awen from './awen';
 import linkInfo from './linkInfo';
 import ComSlot from './ComSlot';
+import adsDataPage from './adsDataPage';
 
 
 import CCGetPayNumber from './CCGetPayNumber';
@@ -37,6 +38,7 @@ import Demo from './Demo';
 Vue.use(VueRouter)
 
 const routes = [
+    adsDataPage,
     Loginrouter,
     baiyang,
     linkInfo,

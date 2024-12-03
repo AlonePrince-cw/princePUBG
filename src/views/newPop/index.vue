@@ -498,21 +498,9 @@ export default {
   components: { RightBox },
   data() {
     return {
-        aac: [
-          {}, {}, {}, {}
-        ],
       dataDate: '',
-
-      attributionUrl: '',
-      videoUrl: '',
-      selectNumberDom: '',
       showTableFlag: false,
       showMockDom: true,
-      effectivenessTotal: '',
-      exhibitTotal: '',
-      spendTotal: '',
-      registerTotal: '',
-      adsImgUrl: '',
       mockData: [
         {
           switchValue: true,
@@ -1371,6 +1359,40 @@ export default {
       })
     },
     clickAddTr () { 
+      this.mockData.push({
+          switchValue: true,
+          registerText: '',
+          clickText: '',
+          attributionText: '',
+          adsXlName: 'X003-FB-PWA-1',
+          statusValue: '',
+          budgetText: '',
+          exhibitText: '',
+          spendText: '',
+          effectivenessText: '',
+          deliveryStatus: [
+            {
+              value: '1',
+              label: '未投放',
+            },
+            {
+              value: '2',
+              label: '投放中',
+            },
+            {
+              value: '3',
+              label: '账户已停用',
+            },
+            {
+              value: '4',
+              label: '已关闭',
+            },
+            {
+              value: '5',
+              label: '北京烤鸭',
+            },
+          ],
+      })
     }
   },
 }
