@@ -3,7 +3,7 @@
     <div class="ads_left_box">
       <div class="ads_left_box_top">
         <img class="img_box_logo" src="../../assets/3.png" />
-        <img class="img_box" :src="left_img" />
+        <img class="img_box" :src="BMIMG" />
       </div>
       <div class="ads_left_box_bottom">
         <div class="left_box_bottom">
@@ -447,15 +447,6 @@
               placeholder="账户名"
             ></el-input>
           </div>
-           <div class="attribution_text adsName_text">
-            <el-input
-              v-model="attributionUrl"
-              placeholder="预览链接"
-            ></el-input>
-          </div>
-          <div class="attribution_text adsName_text">
-            <el-input v-model="videoUrl" placeholder="视频地址"></el-input>
-          </div>
           <div class="data_date_text adsName_text">
             <el-date-picker
           v-model="dataDate"
@@ -485,8 +476,6 @@
     <div class="mask_right_box" v-if="maskSlot">
       <RightBox
         @closeMask="closeMask"
-        :attributionUrl="attributionUrl"
-        :videoUrl="videoUrl"
       />
     </div>
   </div>
@@ -502,8 +491,6 @@ export default {
       showTableFlag: false,
       showMockDom: true,
       selectNumberDom: '',
-      videoUrl: '',
-      attributionUrl:'',
       mockData: [
         {
           switchValue: true,
@@ -576,7 +563,7 @@ export default {
         },
       ],
       accountName: 'Yuri-899-10181457-POP',
-        yesterdayTime:'',
+      yesterdayTime:'',
       maskSlot: false,
       editLoading: false,
       // typeBox 1 纯文本组件 2 复选框组件 3 开关组件 4 左图标右文本组件 5 全靠右上下组件 6 全靠右上带数字分割符组件 7 全靠右上上下组件
@@ -1070,8 +1057,7 @@ export default {
           activeBGPosition: '0px -33px',
         },
       ],
-      left_img:
-        'https://scontent-hkg4-1.xx.fbcdn.net/v/t1.30497-1/83577589_556345944958992_2558068442594803712_n.png?stp=c81.0.275.275a_cp0_dst-png_s32x32&_nc_cat=1&ccb=1-7&_nc_sid=df5472&_nc_ohc=8fbJ9fn8OBkQ7kNvgGsaj4G&_nc_ht=scontent-hkg4-1.xx&_nc_gid=AuzAEYqNBg_wDFyES19W5l2&oh=00_AYBTqf-zaAkPVwQo71SUBHrt3taQJEdibnSyYRs-_VeOEA&oe=67313C66',
+      BMIMG:'',
     }
   },
   computed: {

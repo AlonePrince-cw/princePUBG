@@ -24,18 +24,27 @@
       </div>
       <div class="s_box_inner_2"></div>
       <div class="s_box_inner_3">
-        <!-- <tree-node
-          v-for="(node, index) in treeData"
-          :key="index"
-          :item="node"
-          :level="0"
-        >
-        </tree-node> -->
         <div class="file_x">
-          <div class="xilie">
+          <div
+            class="xilie"
+            v-for="(treeItem, treeIndex) in treeData"
+            :key="treeIndex"
+            :class="[
+              treeItem.adsType == 2
+                ? 'zu_class'
+                : treeItem.adsType == 3
+                ? 'gang_gao_class'
+                : '',
+              treeCurrentIndex == treeIndex ? 'tree_active' : '',
+            ]"
+            @click="handleXIlieClick(treeItem, treeIndex)"
+          >
+            <div class="active_line" v-if="treeCurrentIndex == treeIndex"></div>
             <div class="file_l">
               <div class="left_x_icon">
+                <!-- 系列svg 未选中 -->
                 <svg
+                  v-if="treeCurrentIndex != treeIndex && treeItem.adsType == 1"
                   viewBox="0 0 48 48"
                   width="1em"
                   height="1em"
@@ -53,24 +62,10 @@
                     ></path>
                   </g>
                 </svg>
-              </div>
-              <div class="center_text">FB18-F01-02</div>
-            </div>
-            <div class="right_icon"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="content-box__right">
-      <div class="right_top_box_44">
-        <div class="left_top_left">
-          <div class="left_icon_bor">
-            <div class="left_icon"></div>
-          </div>
-          <div class="step">
-            <div class="step_one step_on">
-              <div class="step_one_icon">
-                <!-- <svg
+
+                <!-- 系列svg 选中 -->
+                <svg
+                v-if="treeCurrentIndex == treeIndex && treeItem.adsType == 1"
                   viewBox="0 0 48 48"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -88,8 +83,118 @@
                       fill="rgb(10, 120, 190)"
                     ></path>
                   </g>
-                </svg> -->
+                </svg>
+                <svg v-if="treeCurrentIndex == treeIndex && treeItem.adsType == 2" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" class="x1qsmy5i xlup9mm x1kky2od"><g data-name="Layer 2"><g><g data-name="16"><rect class="xi5qq39" x="9.5" y="0.5" width="6" height="6" rx="1"></rect><path d="M5.5 0h-4A1.5 1.5 0 0 0 0 1.5v4A1.5 1.5 0 0 0 1.5 7h4A1.5 1.5 0 0 0 7 5.5v-4A1.5 1.5 0 0 0 5.5 0zM14.5 9h-4A1.5 1.5 0 0 0 9 10.5v4a1.5 1.5 0 0 0 1.5 1.5h4a1.5 1.5 0 0 0 1.5-1.5v-4A1.5 1.5 0 0 0 14.5 9z"></path><rect class="xi5qq39" x="0.5" y="9.5" width="6" height="6" rx="1" transform="rotate(90 3.5 12.5)"></rect></g></g></g></svg>
                 <svg
+                 v-if="treeCurrentIndex != treeIndex && treeItem.adsType == 2"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                  height="1em"
+                  fill="currentColor"
+                  class="x4s1yf2 xlup9mm x1kky2od"
+                >
+                  <g data-name="Layer 2">
+                    <g>
+                      <g data-name="16">
+                        <rect
+                          class="xbh8q5q xi5qq39"
+                          x="9.5"
+                          y="0.5"
+                          width="6"
+                          height="6"
+                          rx="1"
+                        ></rect>
+                        <rect
+                          class="xbh8q5q xi5qq39"
+                          x="0.5"
+                          y="0.5"
+                          width="6"
+                          height="6"
+                          rx="1"
+                        ></rect>
+                        <rect
+                          class="xbh8q5q xi5qq39"
+                          x="9.5"
+                          y="9.5"
+                          width="6"
+                          height="6"
+                          rx="1"
+                          transform="rotate(90 12.5 12.5)"
+                        ></rect>
+                        <rect
+                          class="xbh8q5q xi5qq39"
+                          x="0.5"
+                          y="9.5"
+                          width="6"
+                          height="6"
+                          rx="1"
+                          transform="rotate(90 3.5 12.5)"
+                        ></rect>
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+                <svg v-if="treeCurrentIndex != treeIndex && treeItem.adsType == 3" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" class="x4s1yf2 xlup9mm x1kky2od"><g data-name="Layer 2"><g data-name="16"><rect x="1.5" y="1.5" width="13" height="13" rx="1.25" stroke="currentColor" fill="none"></rect><circle cx="4.5" cy="4.5" r="1"></circle><path stroke-linecap="round" stroke="currentColor" fill="none" d="M7.5 4.5 12.5 4.5"></path></g></g></svg>
+                 <svg
+                 v-if="treeCurrentIndex == treeIndex && treeItem.adsType == 3"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                  height="1em"
+                  fill="currentColor"
+                  class="x1qsmy5i xlup9mm x1kky2od"
+                >
+                  <g data-name="Layer 2">
+                    <path
+                      d="M13.25 1H2.75A1.76 1.76 0 0 0 1 2.75v10.5A1.76 1.76 0 0 0 2.75 15h10.5A1.76 1.76 0 0 0 15 13.25V2.75A1.76 1.76 0 0 0 13.25 1zM4.5 5.5a1 1 0 1 1 1-1 1 1 0 0 1-1 1zm8-.5h-5a.5.5 0 0 1 0-1h5a.5.5 0 0 1 0 1z"
+                      data-name="16"
+                    ></path>
+                  </g>
+                </svg>
+              </div>
+              <div class="center_text">
+                {{ treeItem.label }}
+              </div>
+            </div>
+            <div class="right_icon"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content-box__right">
+      <div class="right_top_box_44">
+        <div class="left_top_left">
+          <div class="left_icon_bor">
+            <div class="left_icon"></div>
+          </div>
+          <div class="step">
+            <!-- 广告系列 -->
+            <div
+              class="step_one step_on"
+              :class="[treeCurrentType == 1 ? 'step_active' : '']"
+            >
+              <div class="step_one_icon">
+                <svg
+                v-if="treeCurrentType == 1"
+                  viewBox="0 0 48 48"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="1em"
+                  fill="rgb(10, 120, 190)"
+                  class="x4s1yf2 xlup9mm x1kky2od"
+                >
+                  <g>
+                    <path
+                      d="m19.95 8.76-.18-.53a4 4 0 0 0-3.79-2.74H6.5c-1.66 0-3 1.34-3 3v30c0 2.21 1.79 4 4 4h33c2.21 0 4-1.79 4-4V15.5c0-2.21-1.79-4-4-4H23.74c-1.72 0-3.25-1.1-3.79-2.74z"
+                      stroke="rgb(10, 120, 190)"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="3px"
+                      fill="rgb(10, 120, 190)"
+                    ></path>
+                  </g>
+                </svg>
+                <svg
+                v-if="treeCurrentType != 1"
                   viewBox="0 0 48 48"
                   width="1em"
                   height="1em"
@@ -107,13 +212,23 @@
                     ></path>
                   </g>
                 </svg>
+
+                
               </div>
-              <div class="step_one_text step_one_box">FB18-F01-02</div>
+              <div class="step_one_text step_one_box">
+                {{ currentBileName }}
+              </div>
             </div>
             <div class="step_arrow"></div>
-            <div class="step_one step_on">
+            <!-- 广告组 -->
+            <div
+              class="step_one step_on"
+              :class="[treeCurrentType == 2 ? 'step_active' : '']"
+            >
               <div class="step_one_icon">
+                <svg v-if="treeCurrentType == 2" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" class="x1qsmy5i xlup9mm x1kky2od"><g data-name="Layer 2"><g><g data-name="16"><rect class="xi5qq39" x="9.5" y="0.5" width="6" height="6" rx="1"></rect><path d="M5.5 0h-4A1.5 1.5 0 0 0 0 1.5v4A1.5 1.5 0 0 0 1.5 7h4A1.5 1.5 0 0 0 7 5.5v-4A1.5 1.5 0 0 0 5.5 0zM14.5 9h-4A1.5 1.5 0 0 0 9 10.5v4a1.5 1.5 0 0 0 1.5 1.5h4a1.5 1.5 0 0 0 1.5-1.5v-4A1.5 1.5 0 0 0 14.5 9z"></path><rect class="xi5qq39" x="0.5" y="9.5" width="6" height="6" rx="1" transform="rotate(90 3.5 12.5)"></rect></g></g></g></svg>
                 <svg
+                v-if="treeCurrentType != 2"
                   viewBox="0 0 16 16"
                   width="1em"
                   height="1em"
@@ -162,12 +277,18 @@
                   </g>
                 </svg>
               </div>
-              <div class="step_one_text step_one_box">219个广告组</div>
+              <div class="step_one_text step_one_box">{{ currentZuName }}</div>
             </div>
             <div class="step_arrow"></div>
-            <div class="step_one">
+            <!-- 广告 -->
+            <div
+              class="step_one"
+              :class="[treeCurrentType == 3 ? 'step_active' : '']"
+            >
               <div class="step_one_icon">
+                <svg v-if="treeCurrentType != 3" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" class="x4s1yf2 xlup9mm x1kky2od"><g data-name="Layer 2"><g data-name="16"><rect x="1.5" y="1.5" width="13" height="13" rx="1.25" stroke="currentColor" fill="none"></rect><circle cx="4.5" cy="4.5" r="1"></circle><path stroke-linecap="round" stroke="currentColor" fill="none" d="M7.5 4.5 12.5 4.5"></path></g></g></svg>
                 <svg
+                v-if="treeCurrentType == 3"
                   viewBox="0 0 16 16"
                   width="1em"
                   height="1em"
@@ -181,8 +302,9 @@
                     ></path>
                   </g>
                 </svg>
+
               </div>
-              <div class="step_one_text">219个广告</div>
+              <div class="step_one_text step_one_box">{{ currentGangGaoName }}</div>
             </div>
           </div>
         </div>
@@ -220,7 +342,7 @@
         </div>
 
         <!-- 广告 -->
-        <template>
+        <template v-if="treeCurrentType == 3">
           <div class="gg_right_box">
             <div class="l_gg_right_box">
               <div class="top_max1 top_max_guano" style="margin-top: 16px">
@@ -271,9 +393,9 @@
                   <div class="left_text left_text_d_flex">
                     <img
                       class="n_img"
-                      src="https://scontent-hkg1-1.xx.fbcdn.net/v/t39.30808-1/467673716_122120570228545356_4175974165207804366_n.jpg?stp=cp0_dst-jpg_s50x50&_nc_cat=109&ccb=1-7&_nc_sid=6738e8&_nc_ohc=rvGrDHzvOSQQ7kNvgHuaYBE&_nc_zt=24&_nc_ht=scontent-hkg1-1.xx&_nc_gid=APCri8cYcF1nzwE_wnxNGku&oh=00_AYAnMzeStNvS95HGa3cAEsP6vB-vsx5RAr0S_vpqUBFbXA&oe=674A5EA0"
+                      :src="pageAvatarUrl"
                     />
-                    <div class="left_text_t">Abraham Declan Colin</div>
+                    <div class="left_text_t">{{pageName}}</div>
                   </div>
                   <div class="right__icon"></div>
                 </div>
@@ -462,7 +584,7 @@
                   <div class="left_img">
                     <div class="img_box_a">
                       <img
-                        src="https://scontent-hkg1-2.xx.fbcdn.net/v/t45.1600-4/467416385_120214948731190127_5321562059506160343_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=890911&_nc_ohc=kH1Qv9rjXIkQ7kNvgF9iA3h&_nc_zt=1&_nc_ht=scontent-hkg1-2.xx&_nc_gid=A09aCcJwsaV51WT-f0CbRFD&oh=00_AYAHfBWxOn3cnb04dl02hdPrsOOOLSQPj_eDwA-kzfh2wA&oe=674AAC3D"
+                        :src="adPicturesUrl"
                         alt=""
                       />
                     </div>
@@ -480,7 +602,7 @@
                   <div class="left_img">
                     <div class="img_box_a bg_no">
                       <img
-                        src="https://scontent-hkg1-2.xx.fbcdn.net/v/t45.1600-4/467416385_120214948731190127_5321562059506160343_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=890911&_nc_ohc=kH1Qv9rjXIkQ7kNvgF9iA3h&_nc_zt=1&_nc_ht=scontent-hkg1-2.xx&_nc_gid=A09aCcJwsaV51WT-f0CbRFD&oh=00_AYAHfBWxOn3cnb04dl02hdPrsOOOLSQPj_eDwA-kzfh2wA&oe=674AAC3D"
+                        :src="adPicturesUrl"
                         alt=""
                       />
                     </div>
@@ -495,7 +617,7 @@
                   <div class="left_img">
                     <div class="img_box_a min_img">
                       <img
-                        src="https://scontent-hkg1-2.xx.fbcdn.net/v/t45.1600-4/467416385_120214948731190127_5321562059506160343_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=890911&_nc_ohc=kH1Qv9rjXIkQ7kNvgF9iA3h&_nc_zt=1&_nc_ht=scontent-hkg1-2.xx&_nc_gid=A09aCcJwsaV51WT-f0CbRFD&oh=00_AYAHfBWxOn3cnb04dl02hdPrsOOOLSQPj_eDwA-kzfh2wA&oe=674AAC3D"
+                        :src="adPicturesUrl"
                         alt=""
                       />
                     </div>
@@ -830,10 +952,10 @@
                       <div class="left_video_box">
                         <img
                           class="top_average_img"
-                          src="https://scontent-hkg1-1.xx.fbcdn.net/v/t39.30808-1/467673716_122120570228545356_4175974165207804366_n.jpg?stp=dst-jpg_s200x200&_nc_cat=109&ccb=1-7&_nc_sid=3dd92b&_nc_ohc=rvGrDHzvOSQQ7kNvgHuaYBE&_nc_zt=24&_nc_ht=scontent-hkg1-1.xx&_nc_gid=ANlQTT2BoUUC-OsxkdYmH8i&oh=00_AYBZDZrzRqEj0pbHd3fxIz_VE-DG1uoelMiAywFRdY-t4Q&oe=674BE860"
+                          :src="pageAvatarUrl"
                         />
                         <div class="top_average_name_text">
-                          <div class="top_average_name">Atlas Damian Daxuz</div>
+                          <div class="top_average_name">{{pageName}}</div>
                           <div class="top_average_name_text1">
                             <div class="top_average_name_text2">赞助内容</div>
                             <div class="top_average_name_text2 mlr_4">·</div>
@@ -868,14 +990,13 @@
                         <div class="lave_img">
                           <img
                             class="aa_img"
-                            src="https://scontent-hkg1-2.xx.fbcdn.net/v/t15.13418-10/468099776_1372758370556132_6772809313961961271_n.jpg?stp=dst-jpg_tt6&_nc_cat=107&ccb=1-7&_nc_sid=ace027&_nc_ohc=3cLvtr69lwkQ7kNvgHkMoK8&_nc_zt=23&_nc_ht=scontent-hkg1-2.xx&_nc_gid=ANlQTT2BoUUC-OsxkdYmH8i&oh=00_AYBOHpcuPErO4-i6AuLtGyjRuPoy1aw0B9polSMowRT_aA&oe=674BC7F7"
+                            :src="adPicturesUrl"
                             alt=""
                           />
                           <div class="tit_img">
-                            <div class="tit_img_text">F18VIP.COM</div>
+                            <div class="tit_img_text">{{LinkWebsite}}</div>
                             <div class="tit_img_text_2">
-                              FB18.COM oferece o melhor dos populares jogos.
-                              Venha comigo, torne-se o próximo milionário
+                              {{LinkDetails}}
                             </div>
                           </div>
                         </div>
@@ -911,10 +1032,10 @@
                       <div class="left_video_box po_abc">
                         <img
                           class="top_average_img"
-                          src="https://scontent-hkg1-1.xx.fbcdn.net/v/t39.30808-1/467673716_122120570228545356_4175974165207804366_n.jpg?stp=dst-jpg_s200x200&_nc_cat=109&ccb=1-7&_nc_sid=3dd92b&_nc_ohc=rvGrDHzvOSQQ7kNvgHuaYBE&_nc_zt=24&_nc_ht=scontent-hkg1-1.xx&_nc_gid=ANlQTT2BoUUC-OsxkdYmH8i&oh=00_AYBZDZrzRqEj0pbHd3fxIz_VE-DG1uoelMiAywFRdY-t4Q&oe=674BE860"
+                          :src="pageAvatarUrl"
                         />
                         <div class="top_average_name_text">
-                          <div class="top_average_name">Atlas Damian Daxuz</div>
+                          <div class="top_average_name">{{pageName}}</div>
                           <div class="top_average_name_text1">
                             <div class="top_average_name_text2">赞助内容</div>
                             <div class="top_average_name_text2 mlr_4">·</div>
@@ -974,7 +1095,7 @@
           </div>
         </template>
 
-        <template v-if="false">
+        <template v-if="treeCurrentType == 2">
           <!-- 广告组 -->
           <div class="top_max1" style="margin-top: 16px">
             <div class="top_max1_t_icon">
@@ -1024,7 +1145,7 @@
               </div>
               <div class="div_select div_s_bg">
                 <div class="left_text">
-                  牛 购物VO-F18-2线 Gan-9、11线 青雉F18-01
+                  {{dataset}}
                 </div>
                 <div
                   class="right__icon"
@@ -1039,7 +1160,7 @@
                 <div class="div_text3_box_icon"></div>
               </div>
               <div class="div_select div_s_bg">
-                <div class="left_text">购物</div>
+                <div class="left_text">{{conversionEvent}}</div>
                 <div
                   class="right__icon"
                   :class="[isGroupInfo ? 'right__icon_hui' : '']"
@@ -1194,7 +1315,7 @@
               <div class="div_bahn3 div_bahn">包含的地区：</div>
               <div class="div_bahn">
                 <div class="div_bahn1"></div>
-                <div class="div_bahn2">巴西</div>
+                <div class="div_bahn2">{{area}}</div>
               </div>
             </div>
             <div class="group_line"></div>
@@ -1229,7 +1350,7 @@
           </div>
         </template>
         <!-- 广告系列 -->
-        <template v-if="false">
+        <template v-if="treeCurrentType == 1">
           <div class="top_max1" style="margin-top: 16px">
             <div class="top_max1_t_icon">
               <div class="top_max1_t_icon_l"></div>
@@ -1334,53 +1455,11 @@
 <script>
 export default {
   components: {},
-  props: {
-    attributionUrl: {
-      type: String,
-      default: '',
-    },
-    videoUrl: {
-      type: String,
-      default: '',
-    },
-  },
   data() {
     return {
       isGroupInfo: true,
       // 树形数据
-      treeData: [
-        {
-          name: 'FB18-F01-02',
-          children: [
-            {
-              name: '子节点 1-1',
-              children: [
-                {
-                  name: '子节点 1-1-1',
-                  children: [],
-                },
-                {
-                  name: '子节点 1-1-2',
-                  children: [],
-                },
-              ],
-            },
-            {
-              name: '子节点 1-2',
-              children: [],
-            },
-          ],
-        },
-        {
-          name: 'FB18-F01-02',
-          children: [
-            {
-              name: '子节点 2-1',
-              children: [],
-            },
-          ],
-        },
-      ],
+      treeData: [],
       // 组数据
       groupData: [
         {
@@ -1410,21 +1489,73 @@ export default {
           bottom_text: '通过打电话提升销量和转化量。',
         },
       ],
+      treeCurrentIndex: 0,
+      // 树结构当前类型
+      treeCurrentType: 1,
+      currentBileName: '',
+      currentZuName: '',
+      currentGangGaoName: '',
 
-      groupData2: [
-        {
-          name: '组1',
-          children: [],
-        },
-      ],
+       // 数据集 就是像素名字
+      dataset: '',
+      // 转化事件
+      conversionEvent: '',
+      // 地区
+      area: '',
+      // 公共主页名称
+      pageName: '',
+      // 公共主页头像
+      pageAvatarUrl: '',
+      // 广告位图片
+      adPicturesUrl: '',
+      // 预览网址
+      attributionUrl: '',
+      // 视频地址
+      videoUrl: '',
+      // 链接官网
+      LinkWebsite: '',
+      // 链接详情
+      LinkDetails: '',
     }
+  },
+  mounted () {
+    const treeData = localStorage.getItem('treeData')
+    this.treeData = JSON.parse(treeData)
+    this.currentBileName = this.treeData[0].label
+    this.currentZuName = this.treeData[1].label
+    this.currentGangGaoName = this.treeData[2].label
+
+    this.dataset = JSON.parse(localStorage.getItem('dataset'));
+    this.conversionEvent = JSON.parse(localStorage.getItem('conversionEvent'));
+    this.area = JSON.parse(localStorage.getItem('area'));
+    this.pageName = JSON.parse(localStorage.getItem('pageName'));
+    this.pageAvatarUrl = JSON.parse(localStorage.getItem('pageAvatarUrl'));
+    this.adPicturesUrl = JSON.parse(localStorage.getItem('adPicturesUrl'));
+    this.attributionUrl = JSON.parse(localStorage.getItem('attributionUrl'));
+    this.videoUrl = JSON.parse(localStorage.getItem('videoUrl'))
+    this.LinkWebsite = JSON.parse(localStorage.getItem('LinkWebsite'))
+    this.LinkDetails = JSON.parse(localStorage.getItem('LinkDetails'))
   },
   methods: {
     closeMask() {
       this.$emit('closeMask')
     },
     jumpUrl() {
-      window.open(this.$props.attributionUrl, '_blank')
+      window.open(this.attributionUrl, '_blank')
+    },
+    handleXIlieClick(treeItem, treeIndex) {
+      this.treeCurrentType = treeItem.adsType
+      this.treeCurrentIndex = treeIndex
+      const adsTypeMap = {
+        1: 'currentBileName',
+        2: 'currentZuName',
+        3: 'currentGangGaoName',
+      }
+
+      const key = adsTypeMap[treeItem.adsType]
+      if (key) {
+        this[key] = treeItem.label
+      }
     },
   },
 }
@@ -1443,8 +1574,19 @@ export default {
 .x1qsmy5i {
   color: rgba(10, 120, 190, 1);
 }
-.file_x:hover {
+.xilie:hover {
   background: rgb(225, 237, 247);
+}
+.active_line{
+  width: 2px;
+  background: rgba(10, 120, 190, 1);
+  height: 100%;
+  position: absolute;
+  left: 0;
+}
+.tree_active {
+  background: rgb(225, 237, 247);
+  position: relative;
 }
 .xilie {
   display: flex;
@@ -1452,13 +1594,14 @@ export default {
   cursor: pointer;
   justify-content: space-between;
   height: 46px;
+  padding: 0 16px;
 }
 .x4s1yf2 {
   color: rgba(40, 57, 67, 1);
 }
 .file_x {
   cursor: pointer;
-  padding: 0 16px;
+  // padding: 0 16px;
   .file_l {
     display: flex;
   }
@@ -1489,7 +1632,17 @@ export default {
     font-size: 14px;
     font-weight: 400;
     color: rgb(28, 43, 51);
+    width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
+}
+.zu_class {
+  padding-left: 32px;
+}
+.gang_gao_class {
+  padding-left: 48px;
 }
 .content-box__right {
   width: 990px;
@@ -1513,6 +1666,7 @@ export default {
     display: flex;
     align-items: center;
   }
+
   .add_div_text_xx {
     width: 106px !important;
     margin-top: 0px !important;
@@ -3282,10 +3436,19 @@ export default {
         .step_on {
           background: none !important;
         }
+        .step_active {
+          background: rgb(225, 237, 247) !important;
+          .step_one_text {
+            color: rgb(10, 120, 190) !important;
+            cursor: pointer;
+            font-size: 15px !important;
+            font-weight: 400 !important;
+          }
+        }
         .step_one {
           display: flex;
           align-items: center;
-          background: rgb(225, 237, 247);
+          color: rgba(28, 43, 51, 0.65);
           padding: 4px;
           border-radius: 4px;
         }
@@ -3299,13 +3462,7 @@ export default {
         }
         .step_three_icon {
         }
-        .step_one_text {
-          color: rgb(10, 120, 190);
-          // color: rgba(28, 43, 51, 0.65);
-          cursor: pointer;
-          font-size: 15px;
-          font-weight: 400;
-        }
+
         .step_one_box {
           color: rgba(28, 43, 51, 0.65);
           font-family: 'Optimistic Display', system-ui, sans-serif;
@@ -3471,7 +3628,7 @@ export default {
     }
   }
   .content-box__middle {
-    width: 360px;
+    width: 308px;
     height: 100%;
     border-right: 1px solid rgb(203, 210, 217);
     display: flex;
