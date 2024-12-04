@@ -24,13 +24,41 @@
       </div>
       <div class="s_box_inner_2"></div>
       <div class="s_box_inner_3">
-        <tree-node
+        <!-- <tree-node
           v-for="(node, index) in treeData"
           :key="index"
           :item="node"
           :level="0"
         >
-        </tree-node>
+        </tree-node> -->
+        <div class="file_x">
+          <div class="xilie">
+            <div class="file_l">
+              <div class="left_x_icon">
+                <svg
+                  viewBox="0 0 48 48"
+                  width="1em"
+                  height="1em"
+                  fill="currentColor"
+                  class="x4s1yf2 xlup9mm x1kky2od"
+                >
+                  <g>
+                    <path
+                      d="m19.95 8.76-.18-.53a4 4 0 0 0-3.79-2.74H6.5c-1.66 0-3 1.34-3 3v30c0 2.21 1.79 4 4 4h33c2.21 0 4-1.79 4-4V15.5c0-2.21-1.79-4-4-4H23.74c-1.72 0-3.25-1.1-3.79-2.74z"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="3px"
+                      fill="none"
+                    ></path>
+                  </g>
+                </svg>
+              </div>
+              <div class="center_text">FB18-F01-02</div>
+            </div>
+            <div class="right_icon"></div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="content-box__right">
@@ -643,7 +671,7 @@
                     <div class="div_input_url">
                       <div class="div_select div_select_xx">
                         <div class="left_text over_hi">
-                         {{attributionUrl}}
+                          {{ attributionUrl }}
                         </div>
                       </div>
                       <div
@@ -904,10 +932,7 @@
                         loop=""
                         playsinline=""
                       >
-                        <source
-                          :src="videoUrl"
-                          type="video/mp4"
-                        />
+                        <source :src="videoUrl" type="video/mp4" />
                         <track default="" kind="captions" />
                       </video>
                     </div>
@@ -1307,11 +1332,8 @@
 </template>
 
 <script>
-import TreeNode from './TreeNode'
 export default {
-  components: {
-    TreeNode,
-  },
+  components: {},
   props: {
     attributionUrl: {
       type: String,
@@ -1402,7 +1424,7 @@ export default {
       this.$emit('closeMask')
     },
     jumpUrl() {
-      window.open(this.$props.attributionUrl,'_blank')
+      window.open(this.$props.attributionUrl, '_blank')
     },
   },
 }
@@ -1420,6 +1442,54 @@ export default {
 }
 .x1qsmy5i {
   color: rgba(10, 120, 190, 1);
+}
+.file_x:hover {
+  background: rgb(225, 237, 247);
+}
+.xilie {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: space-between;
+  height: 46px;
+}
+.x4s1yf2 {
+  color: rgba(40, 57, 67, 1);
+}
+.file_x {
+  cursor: pointer;
+  padding: 0 16px;
+  .file_l {
+    display: flex;
+  }
+  .right_icon {
+    background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yo/r/5ffohX21Pdw.png);
+    background-position-x: -147px;
+    background-position-y: -2227px;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    /* // background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yS/r/Y2CLjbmxPzF.png);
+          // background-position-x: 0px;
+          // background-position-y: -117px; */
+  }
+  .left_x_icon {
+    // background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yZ/r/kyq61n7ov7d.png);
+    // background-position-x: 0px;
+    // background-position-y: -319px;
+    // background-repeat: no-repeat;
+    // background-size: auto;
+    width: 16px;
+    height: 16px;
+    // background-color: rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+    margin-right: 8px;
+  }
+  .center_text {
+    font-size: 14px;
+    font-weight: 400;
+    color: rgb(28, 43, 51);
+  }
 }
 .content-box__right {
   width: 990px;

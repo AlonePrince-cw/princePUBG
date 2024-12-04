@@ -74,8 +74,7 @@ export default {
   font-weight: bold;
 }
 .file_x:hover{
-  background: rgb(225, 237, 247)
-;
+  background: rgb(225, 237, 247);
 }
 .file_x {
   cursor: pointer;

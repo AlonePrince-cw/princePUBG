@@ -501,6 +501,9 @@ export default {
       dataDate: '',
       showTableFlag: false,
       showMockDom: true,
+      selectNumberDom: '',
+      videoUrl: '',
+      attributionUrl:'',
       mockData: [
         {
           switchValue: true,
