@@ -35,10 +35,10 @@
             <div class="box_top_btn1_text">更新时间：</div>
             <div class="box_top_btn1_text">刚刚</div>
           </div>
-          <div class="box_top_btn2">
+          <div class="box_top_btn2" @click="pageReload">
             <div class="box_top_btn2_text"></div>
           </div>
-          <div class="box_top_btn3">放弃草稿</div>
+          <!-- <div class="box_top_btn3">放弃草稿</div> -->
           <div class="box_top_btn4">检查并发布</div>
           <div class="box_top_btn5">
             <div class="box_top_btn5_text"></div>
@@ -81,7 +81,7 @@
             >
               {{ item.text }}
             </div>
-            <div class="abs_box" v-if="selectNumberDom != 0">
+            <div class="abs_box" v-if="selectNumberDom != 0 && index == 0">
               <div class="abs_box_text">选中 {{ selectNumberDom }} 项</div>
               <div class="abs_box_del"></div>
             </div>
@@ -94,12 +94,21 @@
               <div class="btn_text">创建</div>
             </div>
             <div class="top_buttom_2">
-              <div class="icon_2"></div>
-              <div class="btn_text_hui btn_text_black">复制</div>
+              <div
+                :class="[
+                  selectNumberDom > 0 ? 'icon_2_active' : 'icon_2',
+                ]"
+              ></div>
+              <div class="btn_text_hui" :class="[selectNumberDom > 0 ?'btn_text_black':'']">复制</div>
             </div>
             <div class="top_buttom_2" @click="handleEdit">
-              <div class="icon_3" v-if="!editLoading"></div>
-              <div class="btn_text_hui btn_text_black" v-if="!editLoading">
+              <div
+                :class="[
+                  selectNumberDom > 0 ? 'icon_3_active' : 'icon_3',
+                ]"
+                v-if="!editLoading"
+              ></div>
+              <div class="btn_text_hui" :class="[selectNumberDom > 0 ?'btn_text_black':'']" v-if="!editLoading">
                 编辑
               </div>
               <div class="donut" v-else></div>
@@ -442,6 +451,7 @@
           <div class="xi_tong" style="margin: 16px 0">
             <el-button type="success" @click="clickAddTr()">添加</el-button>
             <el-button type="success" @click="saveData()">保存数据</el-button>
+            <el-button type="danger" @click="clearData()">清空数据</el-button>
           </div>
           <div class="xi_tong">
             <div class="attribution_text adsName_text">
@@ -451,6 +461,7 @@
               <el-date-picker
                 v-model="dataDate"
                 type="date"
+                disabled
                 placeholder="选择日期"
                 value-format="yyyy年MM月dd日"
                 @change="dateChange($event)"
@@ -466,6 +477,7 @@
         class="ads_right_box_X"
         v-for="(item, index) in rightBoxIcon"
         :key="index"
+        @click="handleRightBoxIcon(item, index)"
       >
         <div
           class="ads_right_box_X_top"
@@ -487,7 +499,7 @@ export default {
     return {
       dataDate: '',
       showTableFlag: false,
-      showMockDom: false,
+      showMockDom: true,
       selectNumberDom: '',
       mockData: [
         {
@@ -524,43 +536,43 @@ export default {
             },
           ],
         },
-        {
-          switchValue: true,
-          registerText: '',
-          clickText: '',
-          attributionText: '',
-          adsXlName: 'ABCVIP-175BR-+175004',
-          statusValue: '',
-          budgetText: '',
-          exhibitText: '',
-          adsImgUrl: '',
-          spendText: '',
-          effectivenessText: '',
-          deliveryStatus: [
-            {
-              value: '1',
-              label: '未投放',
-            },
-            {
-              value: '2',
-              label: '投放中',
-            },
-            {
-              value: '3',
-              label: '账户已停用',
-            },
-            {
-              value: '4',
-              label: '已关闭',
-            },
-            {
-              value: '5',
-              label: '北京烤鸭',
-            },
-          ],
-        },
+        // {
+        //   switchValue: true,
+        //   registerText: '',
+        //   clickText: '',
+        //   attributionText: '',
+        //   adsXlName: 'ABCVIP-175BR-+175004',
+        //   statusValue: '',
+        //   budgetText: '',
+        //   exhibitText: '',
+        //   adsImgUrl: '',
+        //   spendText: '',
+        //   effectivenessText: '',
+        //   deliveryStatus: [
+        //     {
+        //       value: '1',
+        //       label: '未投放',
+        //     },
+        //     {
+        //       value: '2',
+        //       label: '投放中',
+        //     },
+        //     {
+        //       value: '3',
+        //       label: '账户已停用',
+        //     },
+        //     {
+        //       value: '4',
+        //       label: '已关闭',
+        //     },
+        //     {
+        //       value: '5',
+        //       label: '北京烤鸭',
+        //     },
+        //   ],
+        // },
       ],
-      accountName: 'Yuri-899-10181457-POP',
+      accountName: '12/5-00-A001 (960129822629513)',
       yesterdayTime: '',
       maskSlot: false,
       editLoading: false,
@@ -623,129 +635,6 @@ export default {
           ],
           customColumnHeight: 33,
         },
-        // {
-        //   customTable: [
-        //     {
-        //       id: 1,
-        //       text: '',
-        //       tabHeaderWidth: 20,
-        //       typeBox: 2,
-        //       isChecked: false,
-        //     },
-        //     {
-        //       id: 2,
-        //       text: '关/开',
-        //       tabHeaderWidth: 50,
-        //       typeBox: 3,
-        //     },
-        //     {
-        //       id: 3,
-        //       text: 'ABCVIP-175BR-+175004',
-        //       tabHeaderWidth: 200,
-        //       typeBox: 1,
-        //       adsImg:
-        //         'https://scontent-hkg4-1.xx.fbcdn.net/v/t15.13418-10/469207028_1142760284133488_2069691284372399490_n.jpg?_nc_cat=106&ccb=1-7&_nc_ohc=Gx6z4D9LlkMQ7kNvgHUfEpi&_nc_zt=23&_nc_ht=scontent-hkg4-1.xx&_nc_gid=AMIodRAxBqSq7e7VAgUVwgn&stp=c0.5000x0.5000f_dst-emg0_p46x46_q75&ur=ace027&_nc_sid=58080a&oh=00_AYAV88Ya4-txq9AH9Grf9jwSdjOowxBw-qY6M04qfHRD5g&oe=6754FE38',
-        //     },
-        //     {
-        //       id: 4,
-        //       text: '投放状态',
-        //       tabHeaderWidth: 150,
-        //       typeBox: 4,
-        //       adsStatus: '2',
-        //     },
-        //     {
-        //       id: 5,
-        //       text: '5000',
-        //       tabHeaderWidth: 120,
-        //       typeBox: 5,
-        //       des: '单日',
-        //       isUnderline: false,
-        //       isMoney: true,
-        //       isShowTop: true,
-        //     },
-        //     {
-        //       id: 6,
-        //       text: '134',
-        //       tabHeaderWidth: 150,
-        //       typeBox: 5,
-        //       des: '网站购物',
-        //       isUnderline: true,
-        //       isMoney: false,
-        //       isShowTop: true,
-        //     },
-        //     {
-        //       id: 7,
-        //       text: '99801',
-        //       tabHeaderWidth: 100,
-        //       typeBox: 5,
-        //       des: '',
-        //       isUnderline: false,
-        //       isMoney: false,
-        //       isShowTop: false,
-        //     },
-        //     {
-        //       id: 8,
-        //       text: '9891.11',
-        //       tabHeaderWidth: 100,
-        //       typeBox: 5,
-        //       des: '',
-        //       isUnderline: false,
-        //       isMoney: true,
-        //       isShowTop: false,
-        //     },
-        //     {
-        //       id: 9,
-        //       text: '98981',
-        //       tabHeaderWidth: 180,
-        //       typeBox: 5,
-        //       des: '单次购物',
-        //       isUnderline: true,
-        //       isMoney: true,
-        //       isShowTop: false,
-        //     },
-        //     {
-        //       id: 10,
-        //       text: '98981',
-        //       tabHeaderWidth: 160,
-        //       typeBox: 5,
-        //       des: '',
-        //       isUnderline: true,
-        //       isMoney: true,
-        //       isShowTop: false,
-        //     },
-        //     {
-        //       id: 11,
-        //       text: '12',
-        //       tabHeaderWidth: 100,
-        //       typeBox: 5,
-        //       des: '',
-        //       isUnderline: true,
-        //       isMoney: false,
-        //       isShowTop: true,
-        //     },
-        //     {
-        //       id: 12,
-        //       text: '8882',
-        //       tabHeaderWidth: 253,
-        //       typeBox: 5,
-        //       des: '',
-        //       isUnderline: false,
-        //       isMoney: false,
-        //       isShowTop: false,
-        //     },
-        //     // {
-        //     //   id: 13,
-        //     //   text: '123',
-        //     //   tabHeaderWidth: 340,
-        //     //   typeBox: 5,
-        //     //   des: '',
-        //     //   isUnderline: false,
-        //     //   isMoney: false,
-        //     //   isShowTop: false,
-        //     // },
-        //   ],
-        //   customColumnHeight: 46,
-        // },
         {
           customTable: [
             {
@@ -818,7 +707,7 @@ export default {
             },
             {
               id: 9,
-              text: '19.61',
+              text: 19.61,
               tabHeaderWidth: 180,
               typeBox: 5,
               des: '单次购物',
@@ -828,7 +717,7 @@ export default {
             },
             {
               id: 10,
-              text: '12.80',
+              text: 12.80,
               tabHeaderWidth: 160,
               typeBox: 5,
               des: '',
@@ -937,7 +826,7 @@ export default {
             },
             {
               id: 9,
-              text: '19.61',
+              text: 19.61,
               tabHeaderWidth: 180,
               typeBox: 5,
               des: '单次购物',
@@ -947,7 +836,7 @@ export default {
             },
             {
               id: 10,
-              text: '12.80',
+              text: 12.80,
               tabHeaderWidth: 160,
               typeBox: 5,
               des: '',
@@ -1055,7 +944,11 @@ export default {
           activeBGPosition: '0px -33px',
         },
       ],
-      BMIMG: '',
+      BMIMG: 'https://scontent-hkg4-1.xx.fbcdn.net/v/t1.30497-1/83577589_556345944958992_2558068442594803712_n.png?stp=c81.0.275.275a_cp0_dst-png_s32x32&_nc_cat=1&ccb=1-7&_nc_sid=7565cd&_nc_ohc=ChAEL493Pq0Q7kNvgEEddRg&_nc_zt=24&_nc_ht=scontent-hkg4-1.xx&_nc_gid=AlKxImbI5eZfN7_srtZaUD2&oh=00_AYD_wB0oNnbJ9kYamPpQ8dwFQrtloI8gwEE8D29CaZG2GQ&oe=677ECCA6',
+      spendTotal: '',
+      exhibitTotal: '',
+      registerTotal: '',
+      clickTotal:''
     }
   },
   computed: {
@@ -1077,6 +970,16 @@ export default {
       day.getDate() +
       '日'
     this.yesterdayTime = s // 获取��天的日期
+
+    const maxTableInfo = localStorage.getItem('maxTableInfo')
+    const mockData = localStorage.getItem('mockData')
+    const showMockDom = localStorage.getItem('showMockDom')
+    this.showMockDom = JSON.parse(showMockDom)
+    if (maxTableInfo) {
+      this.maxTableInfo = JSON.parse(maxTableInfo)
+      this.mockData = JSON.parse(mockData)
+      // this.mockData = this.maxTableInfo[1].customTable
+    }
   },
   created() {},
   methods: {
@@ -1126,10 +1029,6 @@ export default {
       })
       this.maxTableInfo[this.maxTableInfo.length - 1].customTable[5].text =
         this.effectivenessTotal
-      console.log(
-        'dada',
-        (Number(this.spendTotal) / this.effectivenessTotal).toFixed(2)
-      )
       this.maxTableInfo[this.maxTableInfo.length - 1].customTable[8].text = (
         Number(this.spendTotal) / this.effectivenessTotal
       ).toFixed(2)
@@ -1188,18 +1087,25 @@ export default {
 
       this.maxTableInfo[this.maxTableInfo.length - 1].customTable[10].text =
         this.registerTotal
-      console.log(this.registerTotal, this.effectivenessTotal)
       this.maxTableInfo[this.maxTableInfo.length - 1].customTable[9].text = (
         Number(this.spendTotal) / this.registerTotal
       ).toFixed(2)
     },
     isDividedBy2MultipleOf2(num) {
-      if (num === 0 || this.maxTableInfo.length == 3) return false
+      if (num === 0 || this.maxTableInfo.length - 1 == num) return false
       return num % 2 == 0
     },
-    clickChange(index) {
+    clickChange (index) {
+      console.log('点击', index)
+      this.clickTotal = ''
       this.maxTableInfo[index + 1].customTable[11].text =
         this.mockData[index].clickText
+      this.maxTableInfo.forEach((item, index) => { 
+        if (index === 0 || index === this.maxTableInfo.length - 1) return
+        this.clickTotal =
+          Number(this.clickTotal) + Number(item.customTable[11].text)
+      })
+      this.maxTableInfo[this.maxTableInfo.length - 1].customTable[11].text = this.clickTotal
     },
     adsImgUrlChange(index) {
       this.maxTableInfo[index + 1].customTable[2].adsImg =
@@ -1210,17 +1116,12 @@ export default {
       //   this.mockData[index].attributionText
       this.maxTableInfo.map((iten, key) => {
         if (key > 0 && key < this.maxTableInfo.length - 1) {
-          console.log(
-            'dada',
-            index,
-            iten.customTable[iten.customTable.length - 1].text
-          )
           iten.customTable[iten.customTable.length - 1].text =
             this.mockData[index].attributionText
         }
       })
     },
-    formatNumberWithCommas(number) {
+    formatNumberWithCommas (number) {
       // 将数字转换为字符串
       if (!number) return
       let numStr = number.toString()
@@ -1240,10 +1141,13 @@ export default {
             item.customTable.filter((iten) => iten.isChecked == true).length
           )
       })
+      // 控制只有三个数据时 全选
+      if (this.maxTableInfo.length == 3) { 
+        this.maxTableInfo[0].customTable[0].isChecked = !this.maxTableInfo[0].customTable[0].isChecked
+      }
       this.$forceUpdate()
     },
     handleSwitch(table, item) {
-      console.log(table, item)
       item.isChecked = !item.isChecked
       if (item.isChecked) {
         table[3].adsStatus = '4'
@@ -1355,8 +1259,26 @@ export default {
           )
       })
     },
-    saveData () {
-      
+    pageReload() {
+      this.showTableFlag = true
+      let timer = setTimeout(() => {
+        this.showTableFlag = false
+        clearTimeout(timer)
+      }, 1000)
+    },
+    saveData() {
+      localStorage.setItem('maxTableInfo', JSON.stringify(this.maxTableInfo))
+      localStorage.setItem('mockData', JSON.stringify(this.mockData))
+    },
+    clearData() {
+      localStorage.removeItem('maxTableInfo')
+      localStorage.removeItem('mockData')
+      window.location.reload()
+    },
+    handleRightBoxIcon (item,index) {
+      console.log(item, index)
+      this.showMockDom = !this.showMockDom
+      localStorage.setItem('showMockDom', this.showMockDom)
     },
     clickAddTr() {
       this.mockData.push({
@@ -1393,6 +1315,131 @@ export default {
           },
         ],
       })
+      const itemData = {
+        customTable: [
+          {
+            id: 1,
+            text: '',
+            tabHeaderWidth: 20,
+            typeBox: 2,
+            isChecked: false,
+          },
+          {
+            id: 2,
+            text: '关/开',
+            tabHeaderWidth: 50,
+            typeBox: 3,
+          },
+          {
+            id: 3,
+            text: 'ABCVIP-175BR-+175004',
+            tabHeaderWidth: 200,
+            typeBox: 1,
+            adsImg:
+              'https://scontent-hkg4-1.xx.fbcdn.net/v/t15.13418-10/469207028_1142760284133488_2069691284372399490_n.jpg?_nc_cat=106&ccb=1-7&_nc_ohc=Gx6z4D9LlkMQ7kNvgHUfEpi&_nc_zt=23&_nc_ht=scontent-hkg4-1.xx&_nc_gid=AMIodRAxBqSq7e7VAgUVwgn&stp=c0.5000x0.5000f_dst-emg0_p46x46_q75&ur=ace027&_nc_sid=58080a&oh=00_AYAV88Ya4-txq9AH9Grf9jwSdjOowxBw-qY6M04qfHRD5g&oe=6754FE38',
+          },
+          {
+            id: 4,
+            text: '投放状态',
+            tabHeaderWidth: 150,
+            typeBox: 4,
+            adsStatus: '2',
+          },
+          {
+            id: 5,
+            text: '5000',
+            tabHeaderWidth: 120,
+            typeBox: 5,
+            des: '单日',
+            isUnderline: false,
+            isMoney: true,
+            isShowTop: true,
+          },
+          {
+            id: 6,
+            text: '134',
+            tabHeaderWidth: 150,
+            typeBox: 5,
+            des: '网站购物',
+            isUnderline: true,
+            isMoney: false,
+            isShowTop: true,
+          },
+          {
+            id: 7,
+            text: '99801',
+            tabHeaderWidth: 100,
+            typeBox: 5,
+            des: '',
+            isUnderline: false,
+            isMoney: false,
+            isShowTop: false,
+          },
+          {
+            id: 8,
+            text: '9891.11',
+            tabHeaderWidth: 100,
+            typeBox: 5,
+            des: '',
+            isUnderline: false,
+            isMoney: true,
+            isShowTop: false,
+          },
+          {
+            id: 9,
+            text: '98981',
+            tabHeaderWidth: 180,
+            typeBox: 5,
+            des: '单次购物',
+            isUnderline: true,
+            isMoney: true,
+            isShowTop: false,
+          },
+          {
+            id: 10,
+            text: '98981',
+            tabHeaderWidth: 160,
+            typeBox: 5,
+            des: '',
+            isUnderline: true,
+            isMoney: true,
+            isShowTop: false,
+          },
+          {
+            id: 11,
+            text: '12',
+            tabHeaderWidth: 100,
+            typeBox: 5,
+            des: '',
+            isUnderline: true,
+            isMoney: false,
+            isShowTop: true,
+          },
+          {
+            id: 12,
+            text: '8882',
+            tabHeaderWidth: 253,
+            typeBox: 5,
+            des: '',
+            isUnderline: false,
+            isMoney: false,
+            isShowTop: false,
+          },
+          // {
+          //   id: 13,
+          //   text: '123',
+          //   tabHeaderWidth: 340,
+          //   typeBox: 5,
+          //   des: '',
+          //   isUnderline: false,
+          //   isMoney: false,
+          //   isShowTop: false,
+          // },
+        ],
+        customColumnHeight: 46,
+      }
+      const lastIndex = this.maxTableInfo.length - 1
+      this.maxTableInfo.splice(lastIndex, 0, itemData)
     },
   },
 }
@@ -1419,7 +1466,7 @@ export default {
 
 .mock_data {
   position: absolute;
-  bottom: 100px;
+  bottom: 30px;
   left: 0;
   width: 100%;
   .adsName_text {
@@ -1911,7 +1958,7 @@ input[type='checkbox'].switch:checked::after {
     }
     .box_top_right {
       display: flex;
-      width: 416px;
+      width:330px;
       justify-content: space-between;
       .box_top_btn1 {
         display: flex;
@@ -2195,29 +2242,52 @@ input[type='checkbox'].switch:checked::after {
         justify-content: center;
         margin-left: 8px;
         cursor: pointer;
-
+        .icon_2_active {
+          width: 16px !important;
+          height: 16px !important;
+          -webkit-mask-position-x: 0px !important;
+          -webkit-mask-position-y: -813px !important;
+          mask-image: url(https://static.xx.fbcdn.net/rsrc.php/v4/y0/r/boSFU0ZFd9R.png) !important;
+          background-color: rgb(28, 43, 51) !important;
+          color: rgb(28, 43, 51) !important;
+        }
         .icon_2 {
           width: 16px;
           height: 16px;
-          background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yV/r/llvmClTohD1.png);
-          background-position: -51px -222px;
+           -webkit-mask-position-x: -51px;
+          -webkit-mask-position-y: -222px;
+          mask-image: url(https://static.xx.fbcdn.net/rsrc.php/v4/y2/r/2qdc4_H3cyf.png);
+          background-color: rgba(28, 43, 51, 0.6);
+          color: rgba(28, 43, 51, 0.6);
+         
+        }
+        .icon_3_active {
+          background-color: rgb(28, 43, 51) !important;
+          color: rgb(28, 43, 51) !important;
+          mask-image: url(https://static.xx.fbcdn.net/rsrc.php/v4/y0/r/boSFU0ZFd9R.png) !important;
+          mask-position: 0px -1051px !important;
+          width: 16px !important;
+          height: 16px !important;
         }
         .icon_3 {
           width: 16px;
           height: 16px;
-          background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/y_/r/wZHjRGmJ_xq.png);
-          background-position: 0px -1032px;
+          background-color: rgba(28, 43, 51, 0.6);
+          color: rgba(28, 43, 51, 0.6);
+          mask-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/y_/r/wZHjRGmJ_xq.png);
+          mask-position: 0px -1015px;
         }
         .btn_text_hui {
           font-size: 13px;
           font-weight: 400;
           height: 16px;
-          color: rgba(0, 0, 0, 0.45);
+          // color: rgba(0, 0, 0, 0.45);
+          color: rgba(28, 43, 51, 0.6);
           // line-height: 16px;
           margin-left: 8px;
         }
         .btn_text_black {
-          color: #000 !important;
+          color: rgb(28, 43, 51) !important;
         }
       }
       .top_buttom_1 {

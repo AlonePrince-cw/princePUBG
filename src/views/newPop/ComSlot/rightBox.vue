@@ -35,11 +35,15 @@
                 : treeItem.adsType == 3
                 ? 'gang_gao_class'
                 : '',
-              treeCurrentIndex == treeIndex ? 'tree_active' : '',
+              treeCurrentIndex == treeIndex ||
+              (treeItem.adsType == 3 && treeBtnCurrent)
+                ? 'tree_active'
+                : '',
             ]"
             @click="handleXIlieClick(treeItem, treeIndex)"
           >
-            <div class="active_line" v-if="treeCurrentIndex == treeIndex"></div>
+            <div class="active_line" v-if="treeCurrentIndex == treeIndex ||
+              (treeItem.adsType == 3 && treeBtnCurrent)"></div>
             <div class="file_l">
               <div class="left_x_icon">
                 <!-- 系列svg 未选中 -->
@@ -65,7 +69,7 @@
 
                 <!-- 系列svg 选中 -->
                 <svg
-                v-if="treeCurrentIndex == treeIndex && treeItem.adsType == 1"
+                  v-if="treeCurrentIndex == treeIndex && treeItem.adsType == 1"
                   viewBox="0 0 48 48"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -84,9 +88,43 @@
                     ></path>
                   </g>
                 </svg>
-                <svg v-if="treeCurrentIndex == treeIndex && treeItem.adsType == 2" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" class="x1qsmy5i xlup9mm x1kky2od"><g data-name="Layer 2"><g><g data-name="16"><rect class="xi5qq39" x="9.5" y="0.5" width="6" height="6" rx="1"></rect><path d="M5.5 0h-4A1.5 1.5 0 0 0 0 1.5v4A1.5 1.5 0 0 0 1.5 7h4A1.5 1.5 0 0 0 7 5.5v-4A1.5 1.5 0 0 0 5.5 0zM14.5 9h-4A1.5 1.5 0 0 0 9 10.5v4a1.5 1.5 0 0 0 1.5 1.5h4a1.5 1.5 0 0 0 1.5-1.5v-4A1.5 1.5 0 0 0 14.5 9z"></path><rect class="xi5qq39" x="0.5" y="9.5" width="6" height="6" rx="1" transform="rotate(90 3.5 12.5)"></rect></g></g></g></svg>
                 <svg
-                 v-if="treeCurrentIndex != treeIndex && treeItem.adsType == 2"
+                  v-if="treeCurrentIndex == treeIndex && treeItem.adsType == 2"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                  height="1em"
+                  fill="currentColor"
+                  class="x1qsmy5i xlup9mm x1kky2od"
+                >
+                  <g data-name="Layer 2">
+                    <g>
+                      <g data-name="16">
+                        <rect
+                          class="xi5qq39"
+                          x="9.5"
+                          y="0.5"
+                          width="6"
+                          height="6"
+                          rx="1"
+                        ></rect>
+                        <path
+                          d="M5.5 0h-4A1.5 1.5 0 0 0 0 1.5v4A1.5 1.5 0 0 0 1.5 7h4A1.5 1.5 0 0 0 7 5.5v-4A1.5 1.5 0 0 0 5.5 0zM14.5 9h-4A1.5 1.5 0 0 0 9 10.5v4a1.5 1.5 0 0 0 1.5 1.5h4a1.5 1.5 0 0 0 1.5-1.5v-4A1.5 1.5 0 0 0 14.5 9z"
+                        ></path>
+                        <rect
+                          class="xi5qq39"
+                          x="0.5"
+                          y="9.5"
+                          width="6"
+                          height="6"
+                          rx="1"
+                          transform="rotate(90 3.5 12.5)"
+                        ></rect>
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+                <svg
+                  v-if="treeCurrentIndex != treeIndex && treeItem.adsType == 2"
                   viewBox="0 0 16 16"
                   width="1em"
                   height="1em"
@@ -134,9 +172,37 @@
                     </g>
                   </g>
                 </svg>
-                <svg v-if="treeCurrentIndex != treeIndex && treeItem.adsType == 3" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" class="x4s1yf2 xlup9mm x1kky2od"><g data-name="Layer 2"><g data-name="16"><rect x="1.5" y="1.5" width="13" height="13" rx="1.25" stroke="currentColor" fill="none"></rect><circle cx="4.5" cy="4.5" r="1"></circle><path stroke-linecap="round" stroke="currentColor" fill="none" d="M7.5 4.5 12.5 4.5"></path></g></g></svg>
-                 <svg
-                 v-if="treeCurrentIndex == treeIndex && treeItem.adsType == 3"
+                <svg
+                  v-if="treeCurrentIndex != treeIndex && treeItem.adsType == 3 && !treeBtnCurrent"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                  height="1em"
+                  fill="currentColor"
+                  class="x4s1yf2 xlup9mm x1kky2od"
+                >
+                  <g data-name="Layer 2">
+                    <g data-name="16">
+                      <rect
+                        x="1.5"
+                        y="1.5"
+                        width="13"
+                        height="13"
+                        rx="1.25"
+                        stroke="currentColor"
+                        fill="none"
+                      ></rect>
+                      <circle cx="4.5" cy="4.5" r="1"></circle>
+                      <path
+                        stroke-linecap="round"
+                        stroke="currentColor"
+                        fill="none"
+                        d="M7.5 4.5 12.5 4.5"
+                      ></path>
+                    </g>
+                  </g>
+                </svg>
+                <svg
+                  v-if="(treeCurrentIndex == treeIndex && treeItem.adsType == 3) || (treeBtnCurrent && treeItem.adsType == 3)"
                   viewBox="0 0 16 16"
                   width="1em"
                   height="1em"
@@ -169,12 +235,13 @@
           <div class="step">
             <!-- 广告系列 -->
             <div
+              @click="clickTreeIndex(0)"
               class="step_one step_on"
               :class="[treeCurrentType == 1 ? 'step_active' : '']"
             >
               <div class="step_one_icon">
                 <svg
-                v-if="treeCurrentType == 1"
+                  v-if="treeCurrentType == 1"
                   viewBox="0 0 48 48"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -194,7 +261,7 @@
                   </g>
                 </svg>
                 <svg
-                v-if="treeCurrentType != 1"
+                  v-if="treeCurrentType != 1"
                   viewBox="0 0 48 48"
                   width="1em"
                   height="1em"
@@ -212,8 +279,6 @@
                     ></path>
                   </g>
                 </svg>
-
-                
               </div>
               <div class="step_one_text step_one_box">
                 {{ currentBileName }}
@@ -222,13 +287,48 @@
             <div class="step_arrow"></div>
             <!-- 广告组 -->
             <div
+              @click="clickTreeIndex(1)"
               class="step_one step_on"
               :class="[treeCurrentType == 2 ? 'step_active' : '']"
             >
               <div class="step_one_icon">
-                <svg v-if="treeCurrentType == 2" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" class="x1qsmy5i xlup9mm x1kky2od"><g data-name="Layer 2"><g><g data-name="16"><rect class="xi5qq39" x="9.5" y="0.5" width="6" height="6" rx="1"></rect><path d="M5.5 0h-4A1.5 1.5 0 0 0 0 1.5v4A1.5 1.5 0 0 0 1.5 7h4A1.5 1.5 0 0 0 7 5.5v-4A1.5 1.5 0 0 0 5.5 0zM14.5 9h-4A1.5 1.5 0 0 0 9 10.5v4a1.5 1.5 0 0 0 1.5 1.5h4a1.5 1.5 0 0 0 1.5-1.5v-4A1.5 1.5 0 0 0 14.5 9z"></path><rect class="xi5qq39" x="0.5" y="9.5" width="6" height="6" rx="1" transform="rotate(90 3.5 12.5)"></rect></g></g></g></svg>
                 <svg
-                v-if="treeCurrentType != 2"
+                  v-if="treeCurrentType == 2"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                  height="1em"
+                  fill="currentColor"
+                  class="x1qsmy5i xlup9mm x1kky2od"
+                >
+                  <g data-name="Layer 2">
+                    <g>
+                      <g data-name="16">
+                        <rect
+                          class="xi5qq39"
+                          x="9.5"
+                          y="0.5"
+                          width="6"
+                          height="6"
+                          rx="1"
+                        ></rect>
+                        <path
+                          d="M5.5 0h-4A1.5 1.5 0 0 0 0 1.5v4A1.5 1.5 0 0 0 1.5 7h4A1.5 1.5 0 0 0 7 5.5v-4A1.5 1.5 0 0 0 5.5 0zM14.5 9h-4A1.5 1.5 0 0 0 9 10.5v4a1.5 1.5 0 0 0 1.5 1.5h4a1.5 1.5 0 0 0 1.5-1.5v-4A1.5 1.5 0 0 0 14.5 9z"
+                        ></path>
+                        <rect
+                          class="xi5qq39"
+                          x="0.5"
+                          y="9.5"
+                          width="6"
+                          height="6"
+                          rx="1"
+                          transform="rotate(90 3.5 12.5)"
+                        ></rect>
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+                <svg
+                  v-if="treeCurrentType != 2"
                   viewBox="0 0 16 16"
                   width="1em"
                   height="1em"
@@ -282,13 +382,42 @@
             <div class="step_arrow"></div>
             <!-- 广告 -->
             <div
+              @click="clickTreeIndex(2)"
               class="step_one"
               :class="[treeCurrentType == 3 ? 'step_active' : '']"
             >
               <div class="step_one_icon">
-                <svg v-if="treeCurrentType != 3" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" class="x4s1yf2 xlup9mm x1kky2od"><g data-name="Layer 2"><g data-name="16"><rect x="1.5" y="1.5" width="13" height="13" rx="1.25" stroke="currentColor" fill="none"></rect><circle cx="4.5" cy="4.5" r="1"></circle><path stroke-linecap="round" stroke="currentColor" fill="none" d="M7.5 4.5 12.5 4.5"></path></g></g></svg>
                 <svg
-                v-if="treeCurrentType == 3"
+                  v-if="treeCurrentType != 3"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                  height="1em"
+                  fill="currentColor"
+                  class="x4s1yf2 xlup9mm x1kky2od"
+                >
+                  <g data-name="Layer 2">
+                    <g data-name="16">
+                      <rect
+                        x="1.5"
+                        y="1.5"
+                        width="13"
+                        height="13"
+                        rx="1.25"
+                        stroke="currentColor"
+                        fill="none"
+                      ></rect>
+                      <circle cx="4.5" cy="4.5" r="1"></circle>
+                      <path
+                        stroke-linecap="round"
+                        stroke="currentColor"
+                        fill="none"
+                        d="M7.5 4.5 12.5 4.5"
+                      ></path>
+                    </g>
+                  </g>
+                </svg>
+                <svg
+                  v-if="treeCurrentType == 3"
                   viewBox="0 0 16 16"
                   width="1em"
                   height="1em"
@@ -302,9 +431,10 @@
                     ></path>
                   </g>
                 </svg>
-
               </div>
-              <div class="step_one_text step_one_box">{{ currentGangGaoName }}</div>
+              <div class="step_one_text step_one_box">
+                {{ GangGaoNum !=0? `${GangGaoNum}个广告` : currentGangGaoName }}
+              </div>
             </div>
           </div>
         </div>
@@ -391,11 +521,8 @@
                 </div>
                 <div class="div_select">
                   <div class="left_text left_text_d_flex">
-                    <img
-                      class="n_img"
-                      :src="pageAvatarUrl"
-                    />
-                    <div class="left_text_t">{{pageName}}</div>
+                    <img class="n_img" :src="pageAvatarUrl" />
+                    <div class="left_text_t">{{ pageName }}</div>
                   </div>
                   <div class="right__icon"></div>
                 </div>
@@ -583,10 +710,7 @@
                 <div class="img_box_li">
                   <div class="left_img">
                     <div class="img_box_a">
-                      <img
-                        :src="adPicturesUrl"
-                        alt=""
-                      />
+                      <img :src="adPicturesUrl" alt="" />
                     </div>
                     <div class="center_content">
                       <div class="center_content_text">
@@ -601,10 +725,7 @@
                 <div class="img_box_li">
                   <div class="left_img">
                     <div class="img_box_a bg_no">
-                      <img
-                        :src="adPicturesUrl"
-                        alt=""
-                      />
+                      <img :src="adPicturesUrl" alt="" />
                     </div>
                     <div class="center_content">
                       <div class="center_content_text">快拍和 Reels</div>
@@ -616,10 +737,7 @@
                 <div class="img_box_li">
                   <div class="left_img">
                     <div class="img_box_a min_img">
-                      <img
-                        :src="adPicturesUrl"
-                        alt=""
-                      />
+                      <img :src="adPicturesUrl" alt="" />
                     </div>
                     <div class="center_content">
                       <div class="center_content_text">右边栏、搜索结果</div>
@@ -950,12 +1068,9 @@
                   <div class="video_img_l">
                     <div class="video_img_l_top">
                       <div class="left_video_box">
-                        <img
-                          class="top_average_img"
-                          :src="pageAvatarUrl"
-                        />
+                        <img class="top_average_img" :src="pageAvatarUrl" />
                         <div class="top_average_name_text">
-                          <div class="top_average_name">{{pageName}}</div>
+                          <div class="top_average_name">{{ pageName }}</div>
                           <div class="top_average_name_text1">
                             <div class="top_average_name_text2">赞助内容</div>
                             <div class="top_average_name_text2 mlr_4">·</div>
@@ -988,15 +1103,11 @@
 
                       <div class="video_img_l_bottom">
                         <div class="lave_img">
-                          <img
-                            class="aa_img"
-                            :src="adPicturesUrl"
-                            alt=""
-                          />
+                          <img class="aa_img" :src="adPicturesUrl" alt="" />
                           <div class="tit_img">
-                            <div class="tit_img_text">{{LinkWebsite}}</div>
+                            <div class="tit_img_text">{{ LinkWebsite }}</div>
                             <div class="tit_img_text_2">
-                              {{LinkDetails}}
+                              {{ LinkDetails }}
                             </div>
                           </div>
                         </div>
@@ -1030,12 +1141,9 @@
                         src="../../../assets/header-background-2x.png"
                       />
                       <div class="left_video_box po_abc">
-                        <img
-                          class="top_average_img"
-                          :src="pageAvatarUrl"
-                        />
+                        <img class="top_average_img" :src="pageAvatarUrl" />
                         <div class="top_average_name_text">
-                          <div class="top_average_name">{{pageName}}</div>
+                          <div class="top_average_name">{{ pageName }}</div>
                           <div class="top_average_name_text1">
                             <div class="top_average_name_text2">赞助内容</div>
                             <div class="top_average_name_text2 mlr_4">·</div>
@@ -1145,7 +1253,7 @@
               </div>
               <div class="div_select div_s_bg">
                 <div class="left_text">
-                  {{dataset}}
+                  {{ dataset }}
                 </div>
                 <div
                   class="right__icon"
@@ -1160,7 +1268,7 @@
                 <div class="div_text3_box_icon"></div>
               </div>
               <div class="div_select div_s_bg">
-                <div class="left_text">{{conversionEvent}}</div>
+                <div class="left_text">{{ conversionEvent }}</div>
                 <div
                   class="right__icon"
                   :class="[isGroupInfo ? 'right__icon_hui' : '']"
@@ -1315,7 +1423,7 @@
               <div class="div_bahn3 div_bahn">包含的地区：</div>
               <div class="div_bahn">
                 <div class="div_bahn1"></div>
-                <div class="div_bahn2">{{area}}</div>
+                <div class="div_bahn2">{{ area }}</div>
               </div>
             </div>
             <div class="group_line"></div>
@@ -1457,6 +1565,8 @@ export default {
   components: {},
   data() {
     return {
+      GangGaoNum: 0,
+      treeBtnCurrent: false,
       isGroupInfo: true,
       // 树形数据
       treeData: [],
@@ -1496,7 +1606,7 @@ export default {
       currentZuName: '',
       currentGangGaoName: '',
 
-       // 数据集 就是像素名字
+      // 数据集 就是像素名字
       dataset: '',
       // 转化事件
       conversionEvent: '',
@@ -1518,20 +1628,20 @@ export default {
       LinkDetails: '',
     }
   },
-  mounted () {
+  mounted() {
     const treeData = localStorage.getItem('treeData')
     this.treeData = JSON.parse(treeData)
     this.currentBileName = this.treeData[0].label
     this.currentZuName = this.treeData[1].label
     this.currentGangGaoName = this.treeData[2].label
 
-    this.dataset = JSON.parse(localStorage.getItem('dataset'));
-    this.conversionEvent = JSON.parse(localStorage.getItem('conversionEvent'));
-    this.area = JSON.parse(localStorage.getItem('area'));
-    this.pageName = JSON.parse(localStorage.getItem('pageName'));
-    this.pageAvatarUrl = JSON.parse(localStorage.getItem('pageAvatarUrl'));
-    this.adPicturesUrl = JSON.parse(localStorage.getItem('adPicturesUrl'));
-    this.attributionUrl = JSON.parse(localStorage.getItem('attributionUrl'));
+    this.dataset = JSON.parse(localStorage.getItem('dataset'))
+    this.conversionEvent = JSON.parse(localStorage.getItem('conversionEvent'))
+    this.area = JSON.parse(localStorage.getItem('area'))
+    this.pageName = JSON.parse(localStorage.getItem('pageName'))
+    this.pageAvatarUrl = JSON.parse(localStorage.getItem('pageAvatarUrl'))
+    this.adPicturesUrl = JSON.parse(localStorage.getItem('adPicturesUrl'))
+    this.attributionUrl = JSON.parse(localStorage.getItem('attributionUrl'))
     this.videoUrl = JSON.parse(localStorage.getItem('videoUrl'))
     this.LinkWebsite = JSON.parse(localStorage.getItem('LinkWebsite'))
     this.LinkDetails = JSON.parse(localStorage.getItem('LinkDetails'))
@@ -1557,6 +1667,16 @@ export default {
         this[key] = treeItem.label
       }
     },
+    clickTreeIndex (value) {
+     this.GangGaoNum = '' 
+      this.treeCurrentIndex = value
+      this.treeCurrentType = value + 1
+      this.treeBtnCurrent = value == 2
+      if (value == 2) {
+       this.GangGaoNum = this.treeData.filter(item => item.adsType == 3).length;
+        console.log(this.GangGaoNum, 'count');
+       }
+    },
   },
 }
 </script>
@@ -1577,7 +1697,7 @@ export default {
 .xilie:hover {
   background: rgb(225, 237, 247);
 }
-.active_line{
+.active_line {
   width: 2px;
   background: rgba(10, 120, 190, 1);
   height: 100%;
