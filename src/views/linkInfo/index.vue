@@ -255,7 +255,7 @@ export default {
           channelNumber: 'FB18-F05-02',
           link: 'https://kkttppp.com?ch=9tm02&sdmode=4&fbPixelId=1742684496533110',
           pixel: '1742684496533110',
-          budget: 300,
+          budget: 500,
           is_top: false,
           timeZone: '-3',
           report:
@@ -269,7 +269,7 @@ export default {
           channelNumber: '拌面-GAN-6线',
           link: 'https://23mwea.com?ch=rz08t&sdmode=4&fbPixelId=1037555564823386',
           pixel: '1037555564823386',
-          budget: 1200,
+          budget: 800,
           is_top: false,
           timeZone: '-3',
           report:
@@ -297,11 +297,67 @@ export default {
           channelNumber: '拌面-GAN-11线',
           link: 'https://23mwea.com?ch=32fbe&sdmode=4&fbPixelId=761997855963993',
           pixel: '761997855963993',
-          budget: 1000,
+          budget: 800,
           is_top: false,
           timeZone: '-3',
           report:
             'https://docs.google.com/spreadsheets/d/1wP7Bweqiw8IUF1gwOU0FY4wKh2nZJLZtHZjXtbUzUz0/edit?hl=zh-cn&gid=0#gid=0',
+        },
+        {
+          date: '2024-12-07',
+          name: '青雉',
+          kpi: '',
+          groupName: 'DT41 — fb（6+1）',
+          channelNumber: '青雉 dt4xfh1',
+          link: 'https://bsbet1.com/?cid=991736&type=2&currency=BRL&id=437520542&fb_dynamic_pixel=1174152790291746',
+          pixel: '1742684496533110',
+          budget: 0,
+          is_top: false,
+          timeZone: '-3',
+          report:
+            'https://docs.google.com/spreadsheets/d/1wP7Bweqiw8IUF1gwOU0FY4wKh2nZJLZtHZjXtbUzUz0/edit?hl=zh-cn&gid=0#gid=0',
+        },
+        {
+          date: '2024-12-07',
+          name: '曲曲',
+          kpi: '',
+          groupName: 'Hdt4 -桑酒 5+1',
+          channelNumber: '曲曲 hdt4xfh2',
+          link: 'https://win2.bethh4.com/?cid=979125&type=2&currency=BRL&id=671735215&fb_dynamic_pixel=761997855963993',
+          pixel: '761997855963993',
+          budget: 0,
+          is_top: false,
+          timeZone: '-3',
+          report:
+            'https://docs.google.com/spreadsheets/d/1wP7Bweqiw8IUF1gwOU0FY4wKh2nZJLZtHZjXtbUzUz0/edit?hl=zh-cn&gid=0#gid=0',
+        },
+                {
+          date: '2024-11-26',
+          name: '周周',
+          kpi: '',
+          groupName: 'AA031-FB-pwa-8%服务费 -3时区',
+          channelNumber: 'AA031-FB-pwa3',
+          link: 'https://vip.ccc768guinkkk.com?ch=t2t53&sdmode=4&fbPixelId=761997855963993',
+          pixel: '761997855963993',
+          budget: 0,
+          is_top: false,
+          timeZone: '-3',
+          report:
+            'https://docs.google.com/spreadsheets/d/1R4anW-kwbZ6HN5g2YfkSyAJaVrdGAYcIYRmOPzn9gEM/edit?usp=sharing',
+        },
+                {
+          date: '2024-12-08',
+          name: '周周',
+          kpi: '',
+          groupName: '尼尼tg5-6+1内部群KPI：11',
+          channelNumber: '周周 tg55131',
+          link: 'https://google.o82je.com?ch=yafm9&sdmode=4&fbPixelId=761997855963993',
+          pixel: '761997855963993',
+          budget: 0,
+          is_top: false,
+          timeZone: '0',
+          report:
+            'https://docs.google.com/spreadsheets/d/1R4anW-kwbZ6HN5g2YfkSyAJaVrdGAYcIYRmOPzn9gEM/edit?usp=sharing',
         },
         {
           date: '2024-12-01',
@@ -359,20 +415,7 @@ export default {
           report:
             'https://docs.google.com/spreadsheets/d/1x8YWocq45b9hA4xdBfj3fu1tkbRhhH-CM2RrlWPB398/edit?gid=0#gid=0',
         },
-        {
-          date: '2024-11-26',
-          name: '周周',
-          kpi: '',
-          groupName: 'AA031-FB-pwa-8%服务费 -3时区',
-          channelNumber: 'AA031-FB-pwa3',
-          link: 'https://vip.ccc768guinkkk.com?ch=t2t53&sdmode=4&fbPixelId=761997855963993',
-          pixel: '761997855963993',
-          budget: 0,
-          is_top: false,
-          timeZone: '-3',
-          report:
-            'https://docs.google.com/spreadsheets/d/1R4anW-kwbZ6HN5g2YfkSyAJaVrdGAYcIYRmOPzn9gEM/edit?usp=sharing',
-        },
+
          {
           date: '2024-11-20',
           name: '圆圆',

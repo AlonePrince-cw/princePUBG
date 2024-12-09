@@ -26,7 +26,7 @@
         <div class="box_top_left">
           <div class="box_top_title">广告</div>
           <div class="box_top_select">
-            <div class="select_box text_over">{{accountName}}</div>
+            <div class="select_box text_over">{{ accountName }}</div>
             <div class="select_box_icon"></div>
           </div>
         </div>
@@ -49,7 +49,7 @@
         <div class="middle_box_search">搜索和筛选</div>
         <div class="middle_box_date">
           <div class="middle_box_date_icon"></div>
-          <div class="middle_box_date_text">{{yesterdayTime}}</div>
+          <div class="middle_box_date_text">{{ yesterdayTime }}</div>
           <div class="middle_box_date_icon2"></div>
         </div>
       </div>
@@ -210,7 +210,9 @@
                       <img :src="item.adsImg" alt="" />
                     </div>
                     <div class="cen_fn">
-                      <div class="cen_fn_text">{{ item.text }}</div>
+                      <div :class="[currentIndex == 2 ? 'cen_fn_text' : '']">
+                        {{ item.text }}
+                      </div>
                       <div class="cen_fn_x">
                         <div class="cen_fn_x_1">
                           <div class="cen_fn_x_1_icon"></div>
@@ -218,7 +220,9 @@
                         </div>
                         <div class="cen_fn_x_1">
                           <div class="cen_fn_x_2_icon"></div>
-                          <div class="cen_fn_x_1_text">编辑</div>
+                          <div class="cen_fn_x_1_text" @click="handleEdit(2)">
+                            编辑
+                          </div>
                         </div>
                         <div class="cen_fn_x_1">
                           <div class="cen_fn_x_3_icon"></div>
@@ -435,29 +439,25 @@
               ></el-input>
             </div>
           </div>
+          <div class="xi_tong" style="margin: 16px 0">
+            <el-button type="success" @click="clickAddTr()">添加</el-button>
+            <el-button type="success" @click="saveData()">保存数据</el-button>
+          </div>
           <div class="xi_tong">
-            <el-button type="success" @click="clickAddTr()" style="margin: 0 0 16px 0"
-          >添加</el-button
-        >
+            <div class="attribution_text adsName_text">
+              <el-input v-model="accountName" placeholder="账户名"></el-input>
+            </div>
+            <div class="data_date_text adsName_text">
+              <el-date-picker
+                v-model="dataDate"
+                type="date"
+                placeholder="选择日期"
+                value-format="yyyy年MM月dd日"
+                @change="dateChange($event)"
+              >
+              </el-date-picker>
+            </div>
           </div>
-         <div class="xi_tong">
-          <div class="attribution_text adsName_text">
-            <el-input
-              v-model="accountName"
-              placeholder="账户名"
-            ></el-input>
-          </div>
-          <div class="data_date_text adsName_text">
-            <el-date-picker
-          v-model="dataDate"
-          type="date"
-          placeholder="选择日期"
-          value-format="yyyy年MM月dd日"
-          @change="dateChange($event)"
-        >
-        </el-date-picker>
-          </div>
-         </div>
         </div>
       </div>
     </div>
@@ -474,9 +474,7 @@
       </div>
     </div>
     <div class="mask_right_box" v-if="maskSlot">
-      <RightBox
-        @closeMask="closeMask"
-      />
+      <RightBox @closeMask="closeMask" />
     </div>
   </div>
 </template>
@@ -489,7 +487,7 @@ export default {
     return {
       dataDate: '',
       showTableFlag: false,
-      showMockDom: true,
+      showMockDom: false,
       selectNumberDom: '',
       mockData: [
         {
@@ -497,7 +495,7 @@ export default {
           registerText: '',
           clickText: '',
           attributionText: '',
-          adsXlName: 'X003-FB-PWA-1',
+          adsXlName: 'ABCVIP-175BR-+175004',
           statusValue: '',
           budgetText: '',
           exhibitText: '',
@@ -531,7 +529,7 @@ export default {
           registerText: '',
           clickText: '',
           attributionText: '',
-          adsXlName: 'X003-FB-PWA-1',
+          adsXlName: 'ABCVIP-175BR-+175004',
           statusValue: '',
           budgetText: '',
           exhibitText: '',
@@ -563,7 +561,7 @@ export default {
         },
       ],
       accountName: 'Yuri-899-10181457-POP',
-      yesterdayTime:'',
+      yesterdayTime: '',
       maskSlot: false,
       editLoading: false,
       // typeBox 1 纯文本组件 2 复选框组件 3 开关组件 4 左图标右文本组件 5 全靠右上下组件 6 全靠右上带数字分割符组件 7 全靠右上上下组件
@@ -625,6 +623,129 @@ export default {
           ],
           customColumnHeight: 33,
         },
+        // {
+        //   customTable: [
+        //     {
+        //       id: 1,
+        //       text: '',
+        //       tabHeaderWidth: 20,
+        //       typeBox: 2,
+        //       isChecked: false,
+        //     },
+        //     {
+        //       id: 2,
+        //       text: '关/开',
+        //       tabHeaderWidth: 50,
+        //       typeBox: 3,
+        //     },
+        //     {
+        //       id: 3,
+        //       text: 'ABCVIP-175BR-+175004',
+        //       tabHeaderWidth: 200,
+        //       typeBox: 1,
+        //       adsImg:
+        //         'https://scontent-hkg4-1.xx.fbcdn.net/v/t15.13418-10/469207028_1142760284133488_2069691284372399490_n.jpg?_nc_cat=106&ccb=1-7&_nc_ohc=Gx6z4D9LlkMQ7kNvgHUfEpi&_nc_zt=23&_nc_ht=scontent-hkg4-1.xx&_nc_gid=AMIodRAxBqSq7e7VAgUVwgn&stp=c0.5000x0.5000f_dst-emg0_p46x46_q75&ur=ace027&_nc_sid=58080a&oh=00_AYAV88Ya4-txq9AH9Grf9jwSdjOowxBw-qY6M04qfHRD5g&oe=6754FE38',
+        //     },
+        //     {
+        //       id: 4,
+        //       text: '投放状态',
+        //       tabHeaderWidth: 150,
+        //       typeBox: 4,
+        //       adsStatus: '2',
+        //     },
+        //     {
+        //       id: 5,
+        //       text: '5000',
+        //       tabHeaderWidth: 120,
+        //       typeBox: 5,
+        //       des: '单日',
+        //       isUnderline: false,
+        //       isMoney: true,
+        //       isShowTop: true,
+        //     },
+        //     {
+        //       id: 6,
+        //       text: '134',
+        //       tabHeaderWidth: 150,
+        //       typeBox: 5,
+        //       des: '网站购物',
+        //       isUnderline: true,
+        //       isMoney: false,
+        //       isShowTop: true,
+        //     },
+        //     {
+        //       id: 7,
+        //       text: '99801',
+        //       tabHeaderWidth: 100,
+        //       typeBox: 5,
+        //       des: '',
+        //       isUnderline: false,
+        //       isMoney: false,
+        //       isShowTop: false,
+        //     },
+        //     {
+        //       id: 8,
+        //       text: '9891.11',
+        //       tabHeaderWidth: 100,
+        //       typeBox: 5,
+        //       des: '',
+        //       isUnderline: false,
+        //       isMoney: true,
+        //       isShowTop: false,
+        //     },
+        //     {
+        //       id: 9,
+        //       text: '98981',
+        //       tabHeaderWidth: 180,
+        //       typeBox: 5,
+        //       des: '单次购物',
+        //       isUnderline: true,
+        //       isMoney: true,
+        //       isShowTop: false,
+        //     },
+        //     {
+        //       id: 10,
+        //       text: '98981',
+        //       tabHeaderWidth: 160,
+        //       typeBox: 5,
+        //       des: '',
+        //       isUnderline: true,
+        //       isMoney: true,
+        //       isShowTop: false,
+        //     },
+        //     {
+        //       id: 11,
+        //       text: '12',
+        //       tabHeaderWidth: 100,
+        //       typeBox: 5,
+        //       des: '',
+        //       isUnderline: true,
+        //       isMoney: false,
+        //       isShowTop: true,
+        //     },
+        //     {
+        //       id: 12,
+        //       text: '8882',
+        //       tabHeaderWidth: 253,
+        //       typeBox: 5,
+        //       des: '',
+        //       isUnderline: false,
+        //       isMoney: false,
+        //       isShowTop: false,
+        //     },
+        //     // {
+        //     //   id: 13,
+        //     //   text: '123',
+        //     //   tabHeaderWidth: 340,
+        //     //   typeBox: 5,
+        //     //   des: '',
+        //     //   isUnderline: false,
+        //     //   isMoney: false,
+        //     //   isShowTop: false,
+        //     // },
+        //   ],
+        //   customColumnHeight: 46,
+        // },
         {
           customTable: [
             {
@@ -642,7 +763,7 @@ export default {
             },
             {
               id: 3,
-              text: 'X003-FB-PWA-1',
+              text: 'ABCVIP-175BR-+175004',
               tabHeaderWidth: 200,
               typeBox: 1,
               adsImg:
@@ -657,7 +778,7 @@ export default {
             },
             {
               id: 5,
-              text: '5000',
+              text: '3000',
               tabHeaderWidth: 120,
               typeBox: 5,
               des: '单日',
@@ -667,7 +788,7 @@ export default {
             },
             {
               id: 6,
-              text: '134',
+              text: '141',
               tabHeaderWidth: 150,
               typeBox: 5,
               des: '网站购物',
@@ -677,7 +798,7 @@ export default {
             },
             {
               id: 7,
-              text: '99801',
+              text: '62338',
               tabHeaderWidth: 100,
               typeBox: 5,
               des: '',
@@ -687,7 +808,7 @@ export default {
             },
             {
               id: 8,
-              text: '9891.11',
+              text: '2765.75',
               tabHeaderWidth: 100,
               typeBox: 5,
               des: '',
@@ -697,7 +818,7 @@ export default {
             },
             {
               id: 9,
-              text: '98981',
+              text: '19.61',
               tabHeaderWidth: 180,
               typeBox: 5,
               des: '单次购物',
@@ -707,7 +828,7 @@ export default {
             },
             {
               id: 10,
-              text: '98981',
+              text: '12.80',
               tabHeaderWidth: 160,
               typeBox: 5,
               des: '',
@@ -717,7 +838,7 @@ export default {
             },
             {
               id: 11,
-              text: '12',
+              text: '216',
               tabHeaderWidth: 100,
               typeBox: 5,
               des: '',
@@ -727,130 +848,7 @@ export default {
             },
             {
               id: 12,
-              text: '8882',
-              tabHeaderWidth: 253,
-              typeBox: 5,
-              des: '',
-              isUnderline: false,
-              isMoney: false,
-              isShowTop: false,
-            },
-            // {
-            //   id: 13,
-            //   text: '123',
-            //   tabHeaderWidth: 340,
-            //   typeBox: 5,
-            //   des: '',
-            //   isUnderline: false,
-            //   isMoney: false,
-            //   isShowTop: false,
-            // },
-          ],
-          customColumnHeight: 46,
-        },
-        {
-          customTable: [
-            {
-              id: 1,
-              text: '',
-              tabHeaderWidth: 20,
-              typeBox: 2,
-              isChecked: false,
-            },
-            {
-              id: 2,
-              text: '关/开',
-              tabHeaderWidth: 50,
-              typeBox: 3,
-            },
-            {
-              id: 3,
-              text: 'X003-FB-PWA-2',
-              tabHeaderWidth: 200,
-              typeBox: 1,
-              adsImg:
-                'https://scontent-hkg4-1.xx.fbcdn.net/v/t15.13418-10/469207028_1142760284133488_2069691284372399490_n.jpg?_nc_cat=106&ccb=1-7&_nc_ohc=Gx6z4D9LlkMQ7kNvgHUfEpi&_nc_zt=23&_nc_ht=scontent-hkg4-1.xx&_nc_gid=AMIodRAxBqSq7e7VAgUVwgn&stp=c0.5000x0.5000f_dst-emg0_p46x46_q75&ur=ace027&_nc_sid=58080a&oh=00_AYAV88Ya4-txq9AH9Grf9jwSdjOowxBw-qY6M04qfHRD5g&oe=6754FE38',
-            },
-            {
-              id: 4,
-              text: '投放状态',
-              tabHeaderWidth: 150,
-              typeBox: 4,
-              adsStatus: '2',
-            },
-            {
-              id: 5,
-              text: '5000',
-              tabHeaderWidth: 120,
-              typeBox: 5,
-              des: '单日',
-              isUnderline: false,
-              isMoney: true,
-              isShowTop: true,
-            },
-            {
-              id: 6,
-              text: '134',
-              tabHeaderWidth: 150,
-              typeBox: 5,
-              des: '网站购物',
-              isUnderline: true,
-              isMoney: false,
-              isShowTop: true,
-            },
-            {
-              id: 7,
-              text: '99801',
-              tabHeaderWidth: 100,
-              typeBox: 5,
-              des: '',
-              isUnderline: false,
-              isMoney: false,
-              isShowTop: false,
-            },
-            {
-              id: 8,
-              text: '9891.11',
-              tabHeaderWidth: 100,
-              typeBox: 5,
-              des: '',
-              isUnderline: false,
-              isMoney: true,
-              isShowTop: false,
-            },
-            {
-              id: 9,
-              text: '98981',
-              tabHeaderWidth: 180,
-              typeBox: 5,
-              des: '单次购物',
-              isUnderline: true,
-              isMoney: true,
-              isShowTop: false,
-            },
-            {
-              id: 10,
-              text: '98981',
-              tabHeaderWidth: 160,
-              typeBox: 5,
-              des: '',
-              isUnderline: true,
-              isMoney: true,
-              isShowTop: false,
-            },
-            {
-              id: 11,
-              text: '12',
-              tabHeaderWidth: 100,
-              typeBox: 5,
-              des: '',
-              isUnderline: true,
-              isMoney: false,
-              isShowTop: true,
-            },
-            {
-              id: 12,
-              text: '8882',
+              text: '656',
               tabHeaderWidth: 253,
               typeBox: 5,
               des: '',
@@ -887,7 +885,7 @@ export default {
             },
             {
               id: 3,
-              text: 'X003-FB-PWA-1',
+              text: 'ABCVIP-175BR-+175004',
               tabHeaderWidth: 200,
               typeBox: 6,
             },
@@ -909,7 +907,7 @@ export default {
             },
             {
               id: 6,
-              text: '134',
+              text: '141',
               tabHeaderWidth: 150,
               typeBox: 5,
               des: '网站购物',
@@ -919,7 +917,7 @@ export default {
             },
             {
               id: 7,
-              text: '99801',
+              text: '62338',
               tabHeaderWidth: 100,
               typeBox: 5,
               des: '',
@@ -929,7 +927,7 @@ export default {
             },
             {
               id: 8,
-              text: '9891.11',
+              text: '2765.75',
               tabHeaderWidth: 100,
               typeBox: 5,
               des: '',
@@ -939,7 +937,7 @@ export default {
             },
             {
               id: 9,
-              text: '98981',
+              text: '19.61',
               tabHeaderWidth: 180,
               typeBox: 5,
               des: '单次购物',
@@ -949,7 +947,7 @@ export default {
             },
             {
               id: 10,
-              text: '98981',
+              text: '12.80',
               tabHeaderWidth: 160,
               typeBox: 5,
               des: '',
@@ -959,7 +957,7 @@ export default {
             },
             {
               id: 11,
-              text: '12',
+              text: '216',
               tabHeaderWidth: 100,
               typeBox: 5,
               des: '',
@@ -969,7 +967,7 @@ export default {
             },
             {
               id: 12,
-              text: '8882',
+              text: '656',
               tabHeaderWidth: 253,
               typeBox: 5,
               des: '',
@@ -1057,7 +1055,7 @@ export default {
           activeBGPosition: '0px -33px',
         },
       ],
-      BMIMG:'',
+      BMIMG: '',
     }
   },
   computed: {
@@ -1066,8 +1064,8 @@ export default {
       return this.maxTableInfo.slice(1, this.maxTableInfo.length - 1)
     },
   },
-  mounted () {
-     let day = new Date()
+  mounted() {
+    let day = new Date()
     day.setTime(day.getTime() - 24 * 60 * 60 * 1000)
     let s =
       day.getFullYear() +
@@ -1079,8 +1077,6 @@ export default {
       day.getDate() +
       '日'
     this.yesterdayTime = s // 获取��天的日期
-
-    
   },
   created() {},
   methods: {
@@ -1100,7 +1096,7 @@ export default {
       // 格式化为 "YYYY年MM月DD日"（月份保持两位数，日不加前导零）
       return `${year}年${month}月${day}日`
     },
-    dateChange (e) { 
+    dateChange(e) {
       this.dataDate = this.removeLeadingZero(e)
     },
     xlChange(index) {
@@ -1261,14 +1257,22 @@ export default {
       this.showMockDom = true
     },
     //编辑
-    handleEdit() {
-      this.editLoading = true
-      this.showMockDom = false
-      let timer = setTimeout(() => {
-        this.editLoading = false
-        this.maskSlot = true
-        clearTimeout(timer)
-      }, 1500)
+    handleEdit(value) {
+      if (value == 2) {
+        let timer = setTimeout(() => {
+          this.editLoading = false
+          this.maskSlot = true
+          clearTimeout(timer)
+        }, 1500)
+      } else {
+        this.editLoading = true
+        this.showMockDom = false
+        let timer = setTimeout(() => {
+          this.editLoading = false
+          this.maskSlot = true
+          clearTimeout(timer)
+        }, 1500)
+      }
     },
     // 切换当前表头索引
     changeCurrentIndex(index) {
@@ -1287,13 +1291,15 @@ export default {
           }
           item.customTable[item.customTable.length - 1].tabHeaderWidth = 253
         })
-        this.maxTableInfo[this.maxTableInfo.length - 1].customTable[0].tabHeaderWidth = 21
+        this.maxTableInfo[
+          this.maxTableInfo.length - 1
+        ].customTable[0].tabHeaderWidth = 21
       } else if (index == 2) {
         this.maxTableInfo[0].customTable[2].text = '广告'
         this.maxTableInfo[
           this.maxTableInfo.length - 1
         ].customTable[0].tabHeaderWidth = '25'
-        
+
         this.maxTableInfo.map((item, index) => {
           item.customTable[item.customTable.length - 1].tabHeaderWidth = 150
           if (index == 0) {
@@ -1317,7 +1323,7 @@ export default {
           } else {
             item.customTable.push({
               id: 13,
-              text: '123',
+              text: 'https://777vipv3.com?ch=a8tzo&sdmode=4&fbPixelId=1972658133149960',
               tabHeaderWidth: 340,
               typeBox: 5,
               des: '',
@@ -1335,7 +1341,9 @@ export default {
           }
           item.customTable[item.customTable.length - 1].tabHeaderWidth = 253
         })
-        this.maxTableInfo[this.maxTableInfo.length - 1].customTable[0].tabHeaderWidth = 21
+        this.maxTableInfo[
+          this.maxTableInfo.length - 1
+        ].customTable[0].tabHeaderWidth = 21
         this.$forceUpdate()
       }
       this.maxTableInfo.filter((item, index) => {
@@ -1347,42 +1355,45 @@ export default {
           )
       })
     },
-    clickAddTr () { 
+    saveData () {
+      
+    },
+    clickAddTr() {
       this.mockData.push({
-          switchValue: true,
-          registerText: '',
-          clickText: '',
-          attributionText: '',
-          adsXlName: 'X003-FB-PWA-1',
-          statusValue: '',
-          budgetText: '',
-          exhibitText: '',
-          spendText: '',
-          effectivenessText: '',
-          deliveryStatus: [
-            {
-              value: '1',
-              label: '未投放',
-            },
-            {
-              value: '2',
-              label: '投放中',
-            },
-            {
-              value: '3',
-              label: '账户已停用',
-            },
-            {
-              value: '4',
-              label: '已关闭',
-            },
-            {
-              value: '5',
-              label: '北京烤鸭',
-            },
-          ],
+        switchValue: true,
+        registerText: '',
+        clickText: '',
+        attributionText: '',
+        adsXlName: 'ABCVIP-175BR-+175004',
+        statusValue: '',
+        budgetText: '',
+        exhibitText: '',
+        spendText: '',
+        effectivenessText: '',
+        deliveryStatus: [
+          {
+            value: '1',
+            label: '未投放',
+          },
+          {
+            value: '2',
+            label: '投放中',
+          },
+          {
+            value: '3',
+            label: '账户已停用',
+          },
+          {
+            value: '4',
+            label: '已关闭',
+          },
+          {
+            value: '5',
+            label: '北京烤鸭',
+          },
+        ],
       })
-    }
+    },
   },
 }
 </script>
@@ -1466,6 +1477,12 @@ export default {
   background-repeat: no-repeat;
   background-size: 22px 22px;
 }
+.cen_fn_text {
+  width: 110px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 .cc_check_no {
   width: 36px;
   height: 20px;
@@ -1499,7 +1516,7 @@ export default {
     border-radius: 50%;
   }
 }
-.xi_tong{
+.xi_tong {
   display: flex;
   align-items: center;
 }
