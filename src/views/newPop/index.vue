@@ -95,20 +95,25 @@
             </div>
             <div class="top_buttom_2">
               <div
-                :class="[
-                  selectNumberDom > 0 ? 'icon_2_active' : 'icon_2',
-                ]"
+                :class="[selectNumberDom > 0 ? 'icon_2_active' : 'icon_2']"
               ></div>
-              <div class="btn_text_hui" :class="[selectNumberDom > 0 ?'btn_text_black':'']">复制</div>
+              <div
+                class="btn_text_hui"
+                :class="[selectNumberDom > 0 ? 'btn_text_black' : '']"
+              >
+                复制
+              </div>
             </div>
             <div class="top_buttom_2" @click="handleEdit">
               <div
-                :class="[
-                  selectNumberDom > 0 ? 'icon_3_active' : 'icon_3',
-                ]"
+                :class="[selectNumberDom > 0 ? 'icon_3_active' : 'icon_3']"
                 v-if="!editLoading"
               ></div>
-              <div class="btn_text_hui" :class="[selectNumberDom > 0 ?'btn_text_black':'']" v-if="!editLoading">
+              <div
+                class="btn_text_hui"
+                :class="[selectNumberDom > 0 ? 'btn_text_black' : '']"
+                v-if="!editLoading"
+              >
                 编辑
               </div>
               <div class="donut" v-else></div>
@@ -717,7 +722,7 @@ export default {
             },
             {
               id: 10,
-              text: 12.80,
+              text: 12.8,
               tabHeaderWidth: 160,
               typeBox: 5,
               des: '',
@@ -836,7 +841,7 @@ export default {
             },
             {
               id: 10,
-              text: 12.80,
+              text: 12.8,
               tabHeaderWidth: 160,
               typeBox: 5,
               des: '',
@@ -944,11 +949,12 @@ export default {
           activeBGPosition: '0px -33px',
         },
       ],
-      BMIMG: 'https://scontent-hkg4-1.xx.fbcdn.net/v/t1.30497-1/83577589_556345944958992_2558068442594803712_n.png?stp=c81.0.275.275a_cp0_dst-png_s32x32&_nc_cat=1&ccb=1-7&_nc_sid=7565cd&_nc_ohc=ChAEL493Pq0Q7kNvgEEddRg&_nc_zt=24&_nc_ht=scontent-hkg4-1.xx&_nc_gid=AlKxImbI5eZfN7_srtZaUD2&oh=00_AYD_wB0oNnbJ9kYamPpQ8dwFQrtloI8gwEE8D29CaZG2GQ&oe=677ECCA6',
+      BMIMG:
+        'https://scontent-hkg4-1.xx.fbcdn.net/v/t1.30497-1/83577589_556345944958992_2558068442594803712_n.png?stp=c81.0.275.275a_cp0_dst-png_s32x32&_nc_cat=1&ccb=1-7&_nc_sid=7565cd&_nc_ohc=ChAEL493Pq0Q7kNvgEEddRg&_nc_zt=24&_nc_ht=scontent-hkg4-1.xx&_nc_gid=AlKxImbI5eZfN7_srtZaUD2&oh=00_AYD_wB0oNnbJ9kYamPpQ8dwFQrtloI8gwEE8D29CaZG2GQ&oe=677ECCA6',
       spendTotal: '',
       exhibitTotal: '',
       registerTotal: '',
-      clickTotal:''
+      clickTotal: '',
     }
   },
   computed: {
@@ -980,6 +986,7 @@ export default {
       this.mockData = JSON.parse(mockData)
       // this.mockData = this.maxTableInfo[1].customTable
     }
+    this.pageReload()
   },
   created() {},
   methods: {
@@ -1095,17 +1102,18 @@ export default {
       if (num === 0 || this.maxTableInfo.length - 1 == num) return false
       return num % 2 == 0
     },
-    clickChange (index) {
+    clickChange(index) {
       console.log('点击', index)
       this.clickTotal = ''
       this.maxTableInfo[index + 1].customTable[11].text =
         this.mockData[index].clickText
-      this.maxTableInfo.forEach((item, index) => { 
+      this.maxTableInfo.forEach((item, index) => {
         if (index === 0 || index === this.maxTableInfo.length - 1) return
         this.clickTotal =
           Number(this.clickTotal) + Number(item.customTable[11].text)
       })
-      this.maxTableInfo[this.maxTableInfo.length - 1].customTable[11].text = this.clickTotal
+      this.maxTableInfo[this.maxTableInfo.length - 1].customTable[11].text =
+        this.clickTotal
     },
     adsImgUrlChange(index) {
       this.maxTableInfo[index + 1].customTable[2].adsImg =
@@ -1121,7 +1129,7 @@ export default {
         }
       })
     },
-    formatNumberWithCommas (number) {
+    formatNumberWithCommas(number) {
       // 将数字转换为字符串
       if (!number) return
       let numStr = number.toString()
@@ -1142,8 +1150,9 @@ export default {
           )
       })
       // 控制只有三个数据时 全选
-      if (this.maxTableInfo.length == 3) { 
-        this.maxTableInfo[0].customTable[0].isChecked = !this.maxTableInfo[0].customTable[0].isChecked
+      if (this.maxTableInfo.length == 3) {
+        this.maxTableInfo[0].customTable[0].isChecked =
+          !this.maxTableInfo[0].customTable[0].isChecked
       }
       this.$forceUpdate()
     },
@@ -1158,7 +1167,7 @@ export default {
     },
     closeMask() {
       this.maskSlot = false
-      this.showMockDom = true
+      // this.showMockDom = true
     },
     //编辑
     handleEdit(value) {
@@ -1275,7 +1284,7 @@ export default {
       localStorage.removeItem('mockData')
       window.location.reload()
     },
-    handleRightBoxIcon (item,index) {
+    handleRightBoxIcon(item, index) {
       console.log(item, index)
       this.showMockDom = !this.showMockDom
       localStorage.setItem('showMockDom', this.showMockDom)
@@ -1958,7 +1967,7 @@ input[type='checkbox'].switch:checked::after {
     }
     .box_top_right {
       display: flex;
-      width:330px;
+      width: 330px;
       justify-content: space-between;
       .box_top_btn1 {
         display: flex;
@@ -2254,12 +2263,11 @@ input[type='checkbox'].switch:checked::after {
         .icon_2 {
           width: 16px;
           height: 16px;
-           -webkit-mask-position-x: -51px;
+          -webkit-mask-position-x: -51px;
           -webkit-mask-position-y: -222px;
           mask-image: url(https://static.xx.fbcdn.net/rsrc.php/v4/y2/r/2qdc4_H3cyf.png);
           background-color: rgba(28, 43, 51, 0.6);
           color: rgba(28, 43, 51, 0.6);
-         
         }
         .icon_3_active {
           background-color: rgb(28, 43, 51) !important;
