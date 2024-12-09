@@ -1194,7 +1194,7 @@ export default {
       ).toFixed(2)
     },
     isDividedBy2MultipleOf2(num) {
-      if (num === 0) return false
+      if (num === 0 || this.maxTableInfo.length == 3) return false
       return num % 2 == 0
     },
     clickChange(index) {
