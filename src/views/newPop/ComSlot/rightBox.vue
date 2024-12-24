@@ -1675,7 +1675,8 @@ export default {
       if (value == 2) {
        this.GangGaoNum = this.treeData.filter(item => item.adsType == 3).length;
         console.log(this.GangGaoNum, 'count');
-       }
+      }
+     this.$emit('clickTreeIndex',value)
     },
   },
 }

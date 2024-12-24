@@ -20,6 +20,22 @@
           </div>
         </div>
       </div>
+      <div class="ads_left_box_bottom mt200">
+        <div class="left_box_bottom">
+          <div
+            class="left_icon_bg"
+            v-for="(item, index) in bottomBoxIcon"
+            :key="index"
+            :class="[item.id === 1 ? 'icon_active_b' : '']"
+          >
+            <div
+              :class="item.id != 1 ? 'bottom_icon_3' : ''"
+              class="bottom_icon"
+              :style="{ backgroundPosition: item.backgroundPosition }"
+            ></div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="ads_middle_box">
       <div class="middle_box_one">
@@ -81,9 +97,53 @@
             >
               {{ item.text }}
             </div>
-            <div class="abs_box" v-if="selectNumberDom != 0 && index == 0">
-              <div class="abs_box_text">选中 {{ selectNumberDom }} 项</div>
-              <div class="abs_box_del"></div>
+            <div
+              class="abs_box"
+              v-if="
+                selectNumberDom != 0 &&
+                index == 0 &&
+                selectNumberDom != '' &&
+                selectNumberDom != null
+              "
+            >
+              <div class="abs_box_text">
+                选中
+                {{ selectNumberDom }}
+                项
+              </div>
+              <div class="abs_box_del" @click="del_Item('selectNumberDom')"></div>
+            </div>
+            <div
+              class="abs_box"
+              v-if="
+                groupNumber != 0 &&
+                index == 1 &&
+                groupNumber != '' &&
+                groupNumber != null
+              "
+            >
+              <div class="abs_box_text">
+                选中
+                {{ groupNumber }}
+                项
+              </div>
+              <div class="abs_box_del" @click="del_Item('groupNumber')"></div>
+            </div>
+            <div
+              class="abs_box"
+              v-if="
+                adsNumber != 0 &&
+                index == 2 &&
+                adsNumber != '' &&
+                adsNumber != null
+              "
+            >
+              <div class="abs_box_text">
+                选中
+                {{ adsNumber }}
+                项
+              </div>
+              <div class="abs_box_del" @click="del_Item('adsNumber')"></div>
             </div>
           </div>
         </div>
@@ -95,23 +155,23 @@
             </div>
             <div class="top_buttom_2">
               <div
-                :class="[selectNumberDom > 0 ? 'icon_2_active' : 'icon_2']"
+                :class="[selectNumberDom > 0 || groupNumber > 0 || adsNumber >0 ? 'icon_2_active' : 'icon_2']"
               ></div>
               <div
                 class="btn_text_hui"
-                :class="[selectNumberDom > 0 ? 'btn_text_black' : '']"
+                :class="[selectNumberDom > 0 || groupNumber > 0 || adsNumber >0 ? 'btn_text_black' : '']"
               >
                 复制
               </div>
             </div>
             <div class="top_buttom_2" @click="handleEdit">
               <div
-                :class="[selectNumberDom > 0 ? 'icon_3_active' : 'icon_3']"
+                :class="[selectNumberDom > 0 || groupNumber > 0 || adsNumber >0 ? 'icon_3_active' : 'icon_3']"
                 v-if="!editLoading"
               ></div>
               <div
                 class="btn_text_hui"
-                :class="[selectNumberDom > 0 ? 'btn_text_black' : '']"
+                :class="[selectNumberDom > 0 || groupNumber > 0 || adsNumber >0 ? 'btn_text_black' : '']"
                 v-if="!editLoading"
               >
                 编辑
@@ -156,7 +216,7 @@
         </div>
         <!-- 内容表格 -->
         <div class="table_content">
-          <el-skeleton v-if="showTableFlag" :rows="3" animated />
+          <el-skeleton v-if="showTableFlag" :rows="maxTableInfo.length" animated />
           <div v-else class="table_content_header">
             <div
               class="dynamic_table"
@@ -206,7 +266,7 @@
                   <div class="left_x_l">
                     <div class="left_b_t">
                       <div class="left_b_te">
-                        {{ maxTableInfo.length - 2 }}个广告系列的成效
+                        {{ maxTableInfo.length - 2 }}个{{currentIndex == 0?'广告系列':currentIndex ==1?'广告组':'广告'}}的成效
                       </div>
                       <div class="left_b_ic"></div>
                     </div>
@@ -276,7 +336,11 @@
                   </div>
                 </div>
                 <!-- 金额组件或数字组件 -->
-                <div class="t_b_c" v-if="item.typeBox == 5 && adsIndex != 0">
+                <div
+                  class="t_b_c"
+                  :class="[currentIndex == 2 && item.id == 5 ? 't_b_d' : '']"
+                  v-if="item.typeBox == 5 && adsIndex != 0"
+                >
                   <div class="m_box">
                     <div
                       class="m_text"
@@ -321,7 +385,7 @@
                     <label for="check" class="notice"></label>
                   </div> -->
                   <div
-                    @click="handleCCcheck(item)"
+                    @click="handleCCcheck(item, adsIndex)"
                     :class="[
                       item.isChecked
                         ? 'checkbox_select_active'
@@ -454,7 +518,13 @@
             </div>
           </div>
           <div class="xi_tong" style="margin: 16px 0">
-            <el-button type="success" @click="clickAddTr()">添加</el-button>
+            <el-button type="success" @click="clickAddTr(1)"
+              >添加系列</el-button
+            >
+            <el-button type="success" @click="clickAddTr(2)">添加组</el-button>
+            <el-button type="success" @click="clickAddTr(3)"
+              >添加广告</el-button
+            >
             <el-button type="success" @click="saveData()">保存数据</el-button>
             <el-button type="danger" @click="clearData()">清空数据</el-button>
           </div>
@@ -491,7 +561,7 @@
       </div>
     </div>
     <div class="mask_right_box" v-if="maskSlot">
-      <RightBox @closeMask="closeMask" />
+      <RightBox @closeMask="closeMask" @clickTreeIndex="clickTreeIndex" />
     </div>
   </div>
 </template>
@@ -506,6 +576,8 @@ export default {
       showTableFlag: false,
       showMockDom: true,
       selectNumberDom: '',
+      adsNumber: '',
+      groupNumber: '',
       mockData: [
         {
           switchValue: true,
@@ -762,6 +834,7 @@ export default {
             // },
           ],
           customColumnHeight: 46,
+          trType: 1,
         },
         {
           customTable: [
@@ -914,6 +987,32 @@ export default {
           backgroundPosition: '0px -1580px',
         },
       ],
+      bottomBoxIcon: [
+        {
+          id: 1,
+          backgroundPosition: '-21px -369px',
+        },
+        {
+          id: 2,
+          backgroundPosition: '-105px -291px',
+        },
+        {
+          id: 3,
+          backgroundPosition: '-105px -312px',
+        },
+        {
+          id: 4,
+          backgroundPosition: '-189px -291px',
+        },
+        {
+          id: 5,
+          backgroundPosition: '-21px -312px',
+        },
+        {
+          id: 6,
+          backgroundPosition: '-252px -291px',
+        },
+      ],
       rightBoxIcon: [
         {
           id: 1,
@@ -955,6 +1054,13 @@ export default {
       exhibitTotal: '',
       registerTotal: '',
       clickTotal: '',
+      effectivenessSum: 0,
+      exhibitSum: 0,
+      spendSum: 0,
+      clickSum: 0,
+      registerSum: 0,
+      singleEffectSum: 0,
+      singleRegisterSum: 0,
     }
   },
   computed: {
@@ -1018,8 +1124,13 @@ export default {
         this.mockData[index].statusValue
     },
     budgetChange(index) {
-      this.maxTableInfo[index + 1].customTable[4].text =
+      const localMaxTableInfo = JSON.parse(localStorage.getItem('maxTableInfo'))
+      // this.maxTableInfo[index + 1].customTable[4].text =
+      //   this.mockData[index].budgetText
+      localMaxTableInfo[index + 1].customTable[4].text =
         this.mockData[index].budgetText
+      console.log(localMaxTableInfo)
+      this.maxTableInfo = localMaxTableInfo
     },
     effectivenessChange(index) {
       this.effectivenessTotal = ''
@@ -1103,7 +1214,6 @@ export default {
       return num % 2 == 0
     },
     clickChange(index) {
-      console.log('点击', index)
       this.clickTotal = ''
       this.maxTableInfo[index + 1].customTable[11].text =
         this.mockData[index].clickText
@@ -1138,24 +1248,66 @@ export default {
       return numStr.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
     },
 
-    handleCCcheck(item) {
-      this.selectNumberDom = ''
-      item.isChecked = !item.isChecked
+    handleCCcheck(item, adsIndex) {
+      this.selectNumberDom = localStorage.getItem("selectNumberDom");
+      this.groupNumber = localStorage.getItem('groupNumber');
+      this.adsNumber = localStorage.getItem('adsNumber');
+      // item.isChecked = !item.isChecked
+
+      // 控制只有三个数据时 全选
+      // if (this.maxTableInfo.length == 3) {
+      //   this.maxTableInfo[0].customTable[0].isChecked =
+      //     !this.maxTableInfo[0].customTable[0].isChecked
+      // }
+      // if (adsIndex === 0) {
+      this.maxTableInfo.map((item) => {
+        return (item.customTable[0].isChecked = !item.customTable[0].isChecked)
+      })
+      // }
+      console.log(this.maxTableInfo, adsIndex)
       this.maxTableInfo.filter((item, index) => {
         if (index === 0 || index === this.maxTableInfo.length - 1) return
-        this.selectNumberDom =
-          Number(this.selectNumberDom) +
-          Number(
-            item.customTable.filter((iten) => iten.isChecked == true).length
-          )
+        if (this.currentIndex == 0) {
+          this.selectNumberDom =
+            Number(this.selectNumberDom) +
+              Number(
+                item.customTable.filter(
+                  (iten) => iten.isChecked == true && item.trType == 1
+                ).length
+              ) ||
+            localStorage.getItem('selectNumberDom') ||
+            ''
+            localStorage.setItem('selectNumberDom', this.selectNumberDom)
+        } else if (this.currentIndex == 1) {
+          this.groupNumber =
+            Number(this.groupNumber) +
+              Number(
+                item.customTable.filter(
+                  (iten) => iten.isChecked == true && item.trType == 2
+                ).length
+              ) ||
+            localStorage.getItem('groupNumber') ||
+            ''
+            localStorage.setItem('groupNumber', this.groupNumber)
+        } else {
+          this.adsNumber =
+            Number(this.adsNumber) +
+              Number(
+                item.customTable.filter(
+                  (iten) => iten.isChecked == true && item.trType == 3
+                ).length
+              ) ||
+            localStorage.getItem('adsNumber') ||
+            ''
+            localStorage.setItem('adsNumber', this.adsNumber)
+        }
+
+        console.log('this.selectNumberDom', this.selectNumberDom)
+        
       })
-      // 控制只有三个数据时 全选
-      if (this.maxTableInfo.length == 3) {
-        this.maxTableInfo[0].customTable[0].isChecked =
-          !this.maxTableInfo[0].customTable[0].isChecked
-      }
       this.$forceUpdate()
     },
+
     handleSwitch(table, item) {
       item.isChecked = !item.isChecked
       if (item.isChecked) {
@@ -1168,6 +1320,9 @@ export default {
     closeMask() {
       this.maskSlot = false
       // this.showMockDom = true
+    },
+    clickTreeIndex (key) { 
+this.changeCurrentIndex(key)
     },
     //编辑
     handleEdit(value) {
@@ -1186,7 +1341,11 @@ export default {
           clearTimeout(timer)
         }, 1500)
       }
-    },
+    }, 
+    del_Item (key) {
+      this[key]=''
+      localStorage.removeItem(key)
+     },
     // 切换当前表头索引
     changeCurrentIndex(index) {
       this.selectNumberDom = ''
@@ -1259,14 +1418,85 @@ export default {
         ].customTable[0].tabHeaderWidth = 21
         this.$forceUpdate()
       }
-      this.maxTableInfo.filter((item, index) => {
-        if (index === 0 || index === this.maxTableInfo.length - 1) return
-        this.selectNumberDom =
-          Number(this.selectNumberDom) +
-          Number(
-            item.customTable.filter((iten) => iten.isChecked == true).length
-          )
+
+      const maxTableStorage =
+        JSON.parse(localStorage.getItem('maxTableInfo')) || []
+      if (maxTableStorage.length == 0) return
+      const maxTableInfo = maxTableStorage
+        .map((item, itemKey) => {
+          if (
+            item.trType == index + 1 ||
+            itemKey == maxTableStorage.length - 1 ||
+            itemKey == 0
+          ) {
+            return item
+          }
+        })
+        .filter((iten) => iten !== undefined)
+      // this.maxTableInfo = maxTableInfo
+      this.checkCustomTable(maxTableInfo,index)
+    },
+    checkCustomTable(tables,index) {
+      // 遍历每个对象
+      this.effectivenessSum = 0
+      this.exhibitSum = 0
+      this.spendSum = 0
+      this.clickSum = 0
+      this.registerSum = 0
+      this.singleEffectSum = 0
+      this.singleRegisterSum = 0
+      tables[0].customTable[2].text = index == 1 ? '广告组' : index == 2 ? '广告' : '广告系列'
+      tables.forEach((item, index) => {
+        if (index == 0 || index == tables.length - 1) return
+        item.customTable.forEach((iten) => {
+          // 找到第六项 (index 5) 并提取 'text'
+          if (iten.id === 6) {
+            // 确保是第六项
+            this.effectivenessSum += Number(iten.text)
+          } else if (iten.id === 7) {
+            this.exhibitSum += Number(iten.text)
+          } else if (iten.id === 8) {
+            this.spendSum += Number(iten.text)
+          } else if (iten.id === 9) {
+            this.singleEffectSum = (
+              this.spendSum / this.effectivenessSum
+            ).toFixed(2)
+            iten.text = (
+              item.customTable[7].text / item.customTable[5].text
+            ).toFixed(2)
+          } else if (iten.id === 10) {
+            iten.text = (
+              item.customTable[7].text / item.customTable[10].text
+            ).toFixed(2)
+          } else if (iten.id === 11) {
+            this.registerSum += Number(iten.text)
+            this.singleRegisterSum = (this.spendSum / this.registerSum).toFixed(
+              2
+            )
+          } else if (iten.id === 12) {
+            this.clickSum += Number(iten.text)
+          }
+        })
       })
+      tables[tables.length - 1].customTable[5].text = this.effectivenessSum
+      tables[tables.length - 1].customTable[6].text = this.exhibitSum
+      tables[tables.length - 1].customTable[7].text = this.spendSum
+      tables[tables.length - 1].customTable[8].text = this.singleEffectSum
+      tables[tables.length - 1].customTable[9].text = this.singleRegisterSum
+      tables[tables.length - 1].customTable[11].text = this.clickSum
+      tables[tables.length - 1].customTable[10].text = this.registerSum
+
+      this.maxTableInfo = tables
+      this.selectNumberDom = localStorage.getItem('selectNumberDom')
+      console.log('this.selectNumberDom', this.selectNumberDom)
+      //       this.maxTableInfo.filter((item, index) => {
+      //   if (index === 0 || index === this.maxTableInfo.length - 1) return
+      //   this.selectNumberDom =
+      //     Number(this.selectNumberDom) +
+      //     Number(
+      //       item.customTable.filter((iten) => iten.isChecked == true).length
+      //     )
+      // })
     },
     pageReload() {
       this.showTableFlag = true
@@ -1282,6 +1512,9 @@ export default {
     clearData() {
       localStorage.removeItem('maxTableInfo')
       localStorage.removeItem('mockData')
+      localStorage.removeItem('selectNumberDom')
+      localStorage.removeItem('groupNumber')
+      localStorage.removeItem('adsNumber')
       window.location.reload()
     },
     handleRightBoxIcon(item, index) {
@@ -1289,13 +1522,13 @@ export default {
       this.showMockDom = !this.showMockDom
       localStorage.setItem('showMockDom', this.showMockDom)
     },
-    clickAddTr() {
+    clickAddTr(trType) {
       this.mockData.push({
         switchValue: true,
         registerText: '',
         clickText: '',
         attributionText: '',
-        adsXlName: 'ABCVIP-175BR-+175004',
+        adsXlName: trType == 1 ? '广告系列' : trType == 2 ? '广告组' : '广告',
         statusValue: '',
         budgetText: '',
         exhibitText: '',
@@ -1341,7 +1574,7 @@ export default {
           },
           {
             id: 3,
-            text: 'ABCVIP-175BR-+175004',
+            text: trType == 1 ? '广告系列' : trType == 2 ? '广告组' : '广告',
             tabHeaderWidth: 200,
             typeBox: 1,
             adsImg:
@@ -1446,6 +1679,7 @@ export default {
           // },
         ],
         customColumnHeight: 46,
+        trType,
       }
       const lastIndex = this.maxTableInfo.length - 1
       this.maxTableInfo.splice(lastIndex, 0, itemData)
@@ -1580,6 +1814,10 @@ export default {
   background: rgba(24, 119, 242, 0.1);
   border-radius: 6px;
 }
+.icon_active_b {
+  background: rgb(230, 245, 240);
+  border-radius: 50%;
+}
 .header_active {
   width: 24px !important;
   height: 24px !important;
@@ -1697,7 +1935,9 @@ export default {
 .icon_r_x {
   background: rgb(99, 190, 9);
 }
-
+.t_b_d {
+  align-items: flex-start !important;
+}
 .t_b_c {
   width: 100%;
   display: flex;
@@ -1886,6 +2126,9 @@ input[type='checkbox'].switch:checked::after {
       margin-top: 32px;
     }
   }
+  .mt200 {
+    margin-top: 160px;
+  }
   .ads_left_box_bottom {
     display: flex;
     flex-direction: column;
@@ -1911,6 +2154,22 @@ input[type='checkbox'].switch:checked::after {
       background-size: auto;
       width: 24px;
       height: 24px;
+      background-repeat: no-repeat;
+      display: inline-block;
+    }
+    .bottom_icon {
+      background-image: url(https://static.xx.fbcdn.net/rsrc.php/v4/y9/r/BxrYU6vSj-L.png);
+      background-size: auto;
+      width: 20px;
+      height: 20px;
+      background-repeat: no-repeat;
+      display: inline-block;
+    }
+    .bottom_icon_3 {
+      background-image: url(https://static.xx.fbcdn.net/rsrc.php/v4/y3/r/DeKP7dAAazZ.png);
+      background-size: auto;
+      width: 20px;
+      height: 20px;
       background-repeat: no-repeat;
       display: inline-block;
     }
@@ -2369,7 +2628,7 @@ input[type='checkbox'].switch:checked::after {
     margin-top: 2px;
   }
   .el-skeleton__p.is-first {
-    width: 68%;
+    width: 88%;
   }
 }
 .table_content {
@@ -2380,7 +2639,7 @@ input[type='checkbox'].switch:checked::after {
     color: rgb(28, 30, 33);
     font-family: Roboto, Arial, sans-serif;
     width: 100%;
-    padding-bottom: 200px;
+    padding-bottom: 400px;
     .select_box {
       // 固定宽高
       width: 50px;
