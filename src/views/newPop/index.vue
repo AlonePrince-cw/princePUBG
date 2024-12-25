@@ -369,7 +369,7 @@
                     class="m_text_b"
                     :class="[item.isShowTop ? 'mr14' : '']"
                   >
-                    {{ item.des }}
+                    {{ currentIndex == 2 && adsItem.customTable.length - 1 == index ?'': item.des }}
                   </div>
                 </div>
                 <!-- 复选框组件 -->
@@ -502,17 +502,17 @@
                 placeholder="点击"
               ></el-input>
             </div>
-            <div class="attribution_text adsName_text" v-if="currentIndex == 2">
+            <div class="attribution_text adsName_text">
               <el-input
                 v-model="item.adsImgUrl"
-                @change="adsImgUrlChange(index)"
+                @change="adsImgUrlChange(item.adsImgUrl)"
                 placeholder="广告头像"
               ></el-input>
             </div>
-            <div class="attribution_text adsName_text" v-if="currentIndex == 2">
+            <div class="attribution_text adsName_text">
               <el-input
                 v-model="item.attributionText"
-                @change="attributionChange(index)"
+                @change="attributionChange(item.attributionText)"
                 placeholder="投放链接"
               ></el-input>
             </div>
@@ -790,7 +790,7 @@ export default {
               des: '单次购物',
               isUnderline: true,
               isMoney: true,
-              isShowTop: false,
+              isShowTop: true,
             },
             {
               id: 10,
@@ -800,7 +800,7 @@ export default {
               des: '',
               isUnderline: true,
               isMoney: true,
-              isShowTop: false,
+              isShowTop: true,
             },
             {
               id: 11,
@@ -917,7 +917,7 @@ export default {
               text: 12.8,
               tabHeaderWidth: 160,
               typeBox: 5,
-              des: '',
+              des: '每次动作',
               isUnderline: true,
               isMoney: true,
               isShowTop: false,
@@ -927,7 +927,7 @@ export default {
               text: '216',
               tabHeaderWidth: 100,
               typeBox: 5,
-              des: '',
+              des: '共计',
               isUnderline: true,
               isMoney: false,
               isShowTop: true,
@@ -937,7 +937,7 @@ export default {
               text: '656',
               tabHeaderWidth: 253,
               typeBox: 5,
-              des: '',
+              des: '共计',
               isUnderline: false,
               isMoney: false,
               isShowTop: false,
@@ -953,6 +953,7 @@ export default {
             //   isShowTop: false,
             // },
           ],
+          trType: 1,
           customColumnHeight: 64,
         },
       ],
@@ -1129,7 +1130,6 @@ export default {
       //   this.mockData[index].budgetText
       localMaxTableInfo[index + 1].customTable[4].text =
         this.mockData[index].budgetText
-      console.log(localMaxTableInfo)
       this.maxTableInfo = localMaxTableInfo
     },
     effectivenessChange(index) {
@@ -1225,19 +1225,35 @@ export default {
       this.maxTableInfo[this.maxTableInfo.length - 1].customTable[11].text =
         this.clickTotal
     },
-    adsImgUrlChange(index) {
-      this.maxTableInfo[index + 1].customTable[2].adsImg =
-        this.mockData[index].adsImgUrl
-    },
-    attributionChange(index) {
-      // this.maxTableInfo[index + 1].customTable[3].attribution =
-      //   this.mockData[index].attributionText
-      this.maxTableInfo.map((iten, key) => {
-        if (key > 0 && key < this.maxTableInfo.length - 1) {
-          iten.customTable[iten.customTable.length - 1].text =
-            this.mockData[index].attributionText
+    adsImgUrlChange(items) {
+      // this.maxTableInfo[index + 1].customTable[2].adsImg =
+      //   this.mockData[index].adsImgUrl
+      const localStorageMaxTableInfo = JSON.parse(localStorage.getItem('maxTableInfo'))||[]
+      localStorageMaxTableInfo.map((item)=>{
+        if(item.trType == 3){
+          return  item.customTable[2].adsImg = items
         }
       })
+      this.maxTableInfo = localStorageMaxTableInfo
+    },
+    attributionChange(items) {
+      // this.maxTableInfo[index + 1].customTable[3].attribution =
+      //   this.mockData[index].attributionText
+      const localStorageMaxTableInfo = JSON.parse(localStorage.getItem('maxTableInfo'))||[]
+      localStorageMaxTableInfo.map((item)=>{
+        if(item.trType == 3){
+          return  item.customTable[item.customTable.length - 1].text = items
+        }
+      })
+      this.maxTableInfo = localStorageMaxTableInfo
+//       }
+     
+      // this.maxTableInfo.map((iten, key) => {
+      //   if (key > 0 && key < this.maxTableInfo.length - 1) {
+      //     iten.customTable[iten.customTable.length - 1].text =
+      //       this.mockData[index].attributionText
+      //   }
+      // })
     },
     formatNumberWithCommas(number) {
       // 将数字转换为字符串
@@ -1302,7 +1318,6 @@ export default {
             localStorage.setItem('adsNumber', this.adsNumber)
         }
 
-        console.log('this.selectNumberDom', this.selectNumberDom)
         
       })
       this.$forceUpdate()
@@ -1488,7 +1503,15 @@ this.changeCurrentIndex(key)
 
       this.maxTableInfo = tables
       this.selectNumberDom = localStorage.getItem('selectNumberDom')
-      console.log('this.selectNumberDom', this.selectNumberDom)
+      if(this.currentIndex == 2){
+        this.maxTableInfo[0].customTable[this.maxTableInfo[0].customTable.length - 1].text = '链接（广告设置）'
+        this.maxTableInfo[this.maxTableInfo.length - 1].customTable[this.maxTableInfo[0].customTable.length - 1].text = ''
+      }
+      
+    //  const aa =  this.maxTableInfo.map((forItem)=>{
+    //     return forItem.customTable.filter(item=>item.id != 12)
+    //   })
+    //   console.log('aa', aa)
       //       this.maxTableInfo.filter((item, index) => {
       //   if (index === 0 || index === this.maxTableInfo.length - 1) return
       //   this.selectNumberDom =
@@ -1527,7 +1550,7 @@ this.changeCurrentIndex(key)
         switchValue: true,
         registerText: '',
         clickText: '',
-        attributionText: '',
+        attributionText: '12345',
         adsXlName: trType == 1 ? '广告系列' : trType == 2 ? '广告组' : '广告',
         statusValue: '',
         budgetText: '',
@@ -1635,7 +1658,7 @@ this.changeCurrentIndex(key)
             des: '单次购物',
             isUnderline: true,
             isMoney: true,
-            isShowTop: false,
+            isShowTop: true,
           },
           {
             id: 10,
@@ -1645,7 +1668,7 @@ this.changeCurrentIndex(key)
             des: '',
             isUnderline: true,
             isMoney: true,
-            isShowTop: false,
+            isShowTop: true,
           },
           {
             id: 11,
