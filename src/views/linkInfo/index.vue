@@ -50,7 +50,8 @@
         <div class="middle_box_date">
           <div class="middle_box_date_icon"></div>
           <div class="middle_box_date_text">2019年10月21日</div>
-          <div class="middle_box_date_icon2"></div>
+          <div class="middle_box_date_icon2">
+          </div>
         </div>
       </div>
 
@@ -134,7 +135,7 @@
           </div>
         </div>
         <!-- 内容表格 -->
-        <el-table :data="tableData" border style="width: 100%" show-summary>
+        <el-table :data="tableData" border style="width: 100%;" show-summary>
           <el-table-column
             fixed
             type="index"
@@ -161,7 +162,7 @@
                 >{{ scope.row.channelNumber }}</span
               >
               <el-button
-                @click="handleClick(scope.row,1)"
+                @click="handleClick(scope.row, 1)"
                 type="text"
                 size="small"
                 >复制</el-button
@@ -174,23 +175,24 @@
           <el-table-column prop="link" label="链接" width="500">
           </el-table-column>
           <el-table-column prop="report" label="报表" width="300">
-             <template slot-scope="scope">
-              <div style="display: flex;align-items: center;">
+            <template slot-scope="scope">
+              <div style="display: flex; align-items: center">
                 <div
-              style="
-                width: 200px;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-              "
-              >{{ scope.row.report }}</div
-            >
-             <el-button
-                @click="handleClick(scope.row,2)"
-                type="text"
-                size="small"
-                >复制</el-button
-              >
+                  style="
+                    width: 200px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                  "
+                >
+                  {{ scope.row.report }}
+                </div>
+                <el-button
+                  @click="handleClick(scope.row, 2)"
+                  type="text"
+                  size="small"
+                  >复制</el-button
+                >
               </div>
             </template>
           </el-table-column>
@@ -202,7 +204,7 @@
           >
             <template slot-scope="scope">
               <el-button
-                @click="handleClick(scope.row,3)"
+                @click="handleClick(scope.row, 3)"
                 type="text"
                 size="small"
                 >复制</el-button
@@ -236,199 +238,72 @@ export default {
         {
           date: '2024-11-04',
           name: '拌面',
-          kpi: '',
-          groupName: 'F01-PWA-02【-3时区】',
-          channelNumber: 'FB18-F01-02',
-          link: 'https://9ky56t.vip?ch=kdj2m&sdmode=4&fbPixelId=761997855963993',
-          pixel: '761997855963993',
-          budget: 1500,
+          kpi: '购物',
+          groupName: '拌面-新211-VO-5%',
+          channelNumber: 'A13-01',
+          link: 'https://711br.com?ch=xhfde&sdmode=4&fbPixelId=1174152790291746',
+          pixel: '1174152790291746',
+          budget: 0,
           is_top: false,
           timeZone: '-3',
           report:
-            'https://docs.google.com/spreadsheets/d/1h9XNGpHs14kBKdndBn1XmMRK8DS9dZeT-jFE92h-31w/edit?hl=zh-cn&gid=527612904#gid=527612904',
+            'https://docs.google.com/spreadsheets/d/178l1_olQg6Lz1yFPMhLjlemPNQV-GSwkoRIPbDMYOzI/edit?hl=zh-cn&gid=0#gid=0',
         },
-        {
+             {
           date: '2024-11-04',
           name: '拌面',
-          kpi: '',
-          groupName: 'FB18-PWA-02【-3时区】8%-VO',
-          channelNumber: 'FB18-F05-02',
-          link: 'https://kkttppp.com?ch=9tm02&sdmode=4&fbPixelId=1742684496533110',
-          pixel: '1742684496533110',
-          budget: 500,
-          is_top: false,
-          timeZone: '-3',
-          report:
-            'https://docs.google.com/spreadsheets/d/1h9XNGpHs14kBKdndBn1XmMRK8DS9dZeT-jFE92h-31w/edit?hl=zh-cn&gid=527612904#gid=527612904',
-        },
-        {
-          date: '2024-11-09',
-          name: '拌面',
-          kpi: '',
-          groupName: '拌面-GAN-巴西6%-nei',
-          channelNumber: '拌面-GAN-6线',
-          link: 'https://23mwea.com?ch=rz08t&sdmode=4&fbPixelId=1037555564823386',
-          pixel: '1037555564823386',
-          budget: 800,
-          is_top: false,
-          timeZone: '-3',
-          report:
-            'https://docs.google.com/spreadsheets/d/1wP7Bweqiw8IUF1gwOU0FY4wKh2nZJLZtHZjXtbUzUz0/edit?hl=zh-cn&gid=0#gid=0',
-        },
-        {
-          date: '2024-11-13',
-          name: '拌面',
-          kpi: '',
-          groupName: '拌面-GAN-巴西6%-nei',
-          channelNumber: '拌面-GAN-9线',
-          link: 'https://23mwea.com?ch=v3ws2&sdmode=4&fbPixelId=761997855963993',
-          pixel: '761997855963993',
-          budget: 1000,
-          is_top: false,
-          timeZone: '-3',
-          report:
-            'https://docs.google.com/spreadsheets/d/1wP7Bweqiw8IUF1gwOU0FY4wKh2nZJLZtHZjXtbUzUz0/edit?hl=zh-cn&gid=0#gid=0',
-        },
-        {
-          date: '2024-11-14',
-          name: '拌面',
-          kpi: '',
-          groupName: '拌面-GAN-巴西6%-nei',
-          channelNumber: '拌面-GAN-11线',
-          link: 'https://23mwea.com?ch=32fbe&sdmode=4&fbPixelId=761997855963993',
-          pixel: '761997855963993',
-          budget: 800,
-          is_top: false,
-          timeZone: '-3',
-          report:
-            'https://docs.google.com/spreadsheets/d/1wP7Bweqiw8IUF1gwOU0FY4wKh2nZJLZtHZjXtbUzUz0/edit?hl=zh-cn&gid=0#gid=0',
-        },
-        {
-          date: '2024-12-07',
-          name: '青雉',
-          kpi: '',
-          groupName: 'DT41 — fb（6+1）',
-          channelNumber: '青雉 dt4xfh1',
-          link: 'https://bsbet1.com/?cid=991736&type=2&currency=BRL&id=437520542&fb_dynamic_pixel=1174152790291746',
-          pixel: '1742684496533110',
+          kpi: '购物',
+          groupName: '拌面-新211-VO-5%',
+          channelNumber: 'A13-02',
+          link: 'https://711br.com?ch=ejvlj&sdmode=4&fbPixelId=1174152790291746',
+          pixel: '1174152790291746',
           budget: 0,
           is_top: false,
           timeZone: '-3',
           report:
-            'https://docs.google.com/spreadsheets/d/1wP7Bweqiw8IUF1gwOU0FY4wKh2nZJLZtHZjXtbUzUz0/edit?hl=zh-cn&gid=0#gid=0',
-        },
-        {
-          date: '2024-12-07',
-          name: '曲曲',
-          kpi: '',
-          groupName: 'Hdt4 -桑酒 5+1',
-          channelNumber: '曲曲 hdt4xfh2',
-          link: 'https://win2.bethh4.com/?cid=979125&type=2&currency=BRL&id=671735215&fb_dynamic_pixel=761997855963993',
-          pixel: '761997855963993',
-          budget: 0,
-          is_top: false,
-          timeZone: '-3',
-          report:
-            'https://docs.google.com/spreadsheets/d/1wP7Bweqiw8IUF1gwOU0FY4wKh2nZJLZtHZjXtbUzUz0/edit?hl=zh-cn&gid=0#gid=0',
+            'https://docs.google.com/spreadsheets/d/178l1_olQg6Lz1yFPMhLjlemPNQV-GSwkoRIPbDMYOzI/edit?hl=zh-cn&gid=0#gid=0',
         },
                 {
-          date: '2024-11-26',
-          name: '周周',
-          kpi: '',
-          groupName: 'AA031-FB-pwa-8%服务费 -3时区',
-          channelNumber: 'AA031-FB-pwa3',
-          link: 'https://vip.ccc768guinkkk.com?ch=t2t53&sdmode=4&fbPixelId=761997855963993',
-          pixel: '761997855963993',
+          date: '2024-11-04',
+          name: '拌面',
+          kpi: '购物',
+          groupName: '拌面-新211-VO-5%',
+          channelNumber: 'A016-01',
+          link: 'https://711br.com?ch=wvlk9&sdmode=4&fbPixelId=1174152790291746',
+          pixel: '1174152790291746',
           budget: 0,
           is_top: false,
           timeZone: '-3',
           report:
-            'https://docs.google.com/spreadsheets/d/1R4anW-kwbZ6HN5g2YfkSyAJaVrdGAYcIYRmOPzn9gEM/edit?usp=sharing',
+            'https://docs.google.com/spreadsheets/d/178l1_olQg6Lz1yFPMhLjlemPNQV-GSwkoRIPbDMYOzI/edit?hl=zh-cn&gid=0#gid=0',
         },
-                {
-          date: '2024-12-08',
-          name: '周周',
-          kpi: '',
-          groupName: '尼尼tg5-6+1内部群KPI：11',
-          channelNumber: '周周 tg55131',
-          link: 'https://google.o82je.com?ch=yafm9&sdmode=4&fbPixelId=761997855963993',
-          pixel: '761997855963993',
+        {
+          date: '2024-12-10',
+          name: '七喜-小小 -pop像素',
+          kpi: '购物',
+          groupName: 'ABCVIP-246BR-柒喜-FB6+1--VIP777',
+          channelNumber: '柒喜-VIP777 246010',
+          link: 'https://vip777c6.com?ch=o2b3t&sdmode=4&fbPixelId=1174152790291746',
+          pixel: '1174152790291746',
           budget: 0,
           is_top: false,
           timeZone: '0',
           report:
-            'https://docs.google.com/spreadsheets/d/1R4anW-kwbZ6HN5g2YfkSyAJaVrdGAYcIYRmOPzn9gEM/edit?usp=sharing',
+            'https://docs.google.com/spreadsheets/d/1qAOVePgsNNDHID8NA4F5kfkm9xr5w2av-gcrGtClsaE/edit?gid=0#gid=0',
         },
         {
-          date: '2024-12-01',
-          name: '拌面',
-          kpi: '',
-          groupName: '拌面-3433puh.com-6%',
-          channelNumber: '拌面 57*2 vip.game',
-          link: ' https://58xtg62.com?ch=43727&fbPixelId=761997855963993',
-          pixel: '761997855963993',
+          date: '2024-12-17',
+          name: '七喜-pop像素',
+          kpi: '购物',
+          groupName: 'AA072 asen 巴西 7+1 柒喜',
+          channelNumber: 'AA072-FB-pwa2 -3时区',
+          link: 'https://vip.ddd67fytfvuvgtvy.com?ch=7x4pv&sdmode=4&fbPixelId=8542990825810780',
+          pixel: '8542990825810780',
           budget: 0,
           is_top: false,
           timeZone: '-3',
           report:
-            'https://docs.google.com/spreadsheets/d/1-gMKiozfJIw2o7wVoAogB962oG8zK9gWAtRawZDaMec/edit?hl=zh-cn&gid=0#gid=0',
-        },
-        {
-          date: '2024-12-01',
-          name: '拌面',
-          kpi: '',
-          groupName: '拌面-3433puh.com-6%',
-          channelNumber: '拌面 57*4 vip.game',
-          link: ' https://58xtg62.com?ch=43729&fbPixelId=1742684496533110',
-          pixel: '1742684496533110',
-          budget: 0,
-          is_top: false,
-          timeZone: '-3',
-          report:
-            'https://docs.google.com/spreadsheets/d/1-gMKiozfJIw2o7wVoAogB962oG8zK9gWAtRawZDaMec/edit?hl=zh-cn&gid=0#gid=0',
-        },
-        {
-          date: '2024-12-01',
-          name: '拌面',
-          kpi: '',
-          groupName: '拌面-3433puh.com-6%',
-          channelNumber: '拌面 57*7 vip.game',
-          link: 'https://58xtg62.com?ch=43732&fbPixelId=1037555564823386',
-          pixel: '1037555564823386',
-          budget: 0,
-          is_top: false,
-          timeZone: '-3',
-          report:
-            'https://docs.google.com/spreadsheets/d/1-gMKiozfJIw2o7wVoAogB962oG8zK9gWAtRawZDaMec/edit?hl=zh-cn&gid=0#gid=0',
-        },
-        {
-          date: '2024-11-28',
-          name: '圆圆',
-          kpi: '',
-          groupName: '【vip4】-3时区渣渣高净值-7+1',
-          channelNumber: '渣渣 147*15 vip.game',
-          link: 'https://00lzq78.com?ch=43032&fbPixelId=761997855963993',
-          pixel: '761997855963993',
-          budget: 0,
-          is_top: false,
-          timeZone: '-3',
-          report:
-            'https://docs.google.com/spreadsheets/d/1x8YWocq45b9hA4xdBfj3fu1tkbRhhH-CM2RrlWPB398/edit?gid=0#gid=0',
-        },
-
-         {
-          date: '2024-11-20',
-          name: '圆圆',
-          kpi: '',
-          groupName: 'EA51-FB-PWA1-3【-3时区】6+1',
-          channelNumber: 'EA51-FB-PWA-3',
-          link: 'https://hyvqpr.com?ch=yiejt&sdmode=4&fbPixelId=567396359006377',
-          pixel: '567396359006377',
-          budget: 0,
-          is_top: false,
-          timeZone: '-3',
-          report:
-            'https://docs.google.com/spreadsheets/d/1mvqmQOl9zMg96SluLY9Q3PTJq_zSIgfierI2-v6lbU0/edit?gid=0#gid=0',
+            '还没更新',
         }
       ],
 
@@ -505,20 +380,20 @@ export default {
   mounted() {},
   created() {},
   methods: {
-    handleClick(row,type) {
+    handleClick(row, type) {
       // 创建一个临时的textarea元素
       const needCopyDom = document.createElement('textarea')
       if (type == 1) {
         needCopyDom.value = row.channelNumber
       } else if (type == 2) {
         needCopyDom.value = row.report
-      } else { 
+      } else {
         needCopyDom.value = row.link
       }
       document.body.appendChild(needCopyDom)
       needCopyDom.select()
       needCopyDom.setSelectionRange(0, 99999) // For mobile devices
-      
+
       try {
         // 执行复制操作
         document.execCommand('copy')
