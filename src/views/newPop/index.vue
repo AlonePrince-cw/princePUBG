@@ -111,7 +111,10 @@
                 {{ selectNumberDom }}
                 项
               </div>
-              <div class="abs_box_del" @click="del_Item('selectNumberDom')"></div>
+              <div
+                class="abs_box_del"
+                @click="del_Item('selectNumberDom')"
+              ></div>
             </div>
             <div
               class="abs_box"
@@ -155,23 +158,39 @@
             </div>
             <div class="top_buttom_2">
               <div
-                :class="[selectNumberDom > 0 || groupNumber > 0 || adsNumber >0 ? 'icon_2_active' : 'icon_2']"
+                :class="[
+                  selectNumberDom > 0 || groupNumber > 0 || adsNumber > 0
+                    ? 'icon_2_active'
+                    : 'icon_2',
+                ]"
               ></div>
               <div
                 class="btn_text_hui"
-                :class="[selectNumberDom > 0 || groupNumber > 0 || adsNumber >0 ? 'btn_text_black' : '']"
+                :class="[
+                  selectNumberDom > 0 || groupNumber > 0 || adsNumber > 0
+                    ? 'btn_text_black'
+                    : '',
+                ]"
               >
                 复制
               </div>
             </div>
             <div class="top_buttom_2" @click="handleEdit">
               <div
-                :class="[selectNumberDom > 0 || groupNumber > 0 || adsNumber >0 ? 'icon_3_active' : 'icon_3']"
+                :class="[
+                  selectNumberDom > 0 || groupNumber > 0 || adsNumber > 0
+                    ? 'icon_3_active'
+                    : 'icon_3',
+                ]"
                 v-if="!editLoading"
               ></div>
               <div
                 class="btn_text_hui"
-                :class="[selectNumberDom > 0 || groupNumber > 0 || adsNumber >0 ? 'btn_text_black' : '']"
+                :class="[
+                  selectNumberDom > 0 || groupNumber > 0 || adsNumber > 0
+                    ? 'btn_text_black'
+                    : '',
+                ]"
                 v-if="!editLoading"
               >
                 编辑
@@ -216,7 +235,11 @@
         </div>
         <!-- 内容表格 -->
         <div class="table_content">
-          <el-skeleton v-if="showTableFlag" :rows="maxTableInfo.length" animated />
+          <el-skeleton
+            v-if="showTableFlag"
+            :rows="maxTableInfo.length"
+            animated
+          />
           <div v-else class="table_content_header">
             <div
               class="dynamic_table"
@@ -266,7 +289,13 @@
                   <div class="left_x_l">
                     <div class="left_b_t">
                       <div class="left_b_te">
-                        {{ maxTableInfo.length - 2 }}个{{currentIndex == 0?'广告系列':currentIndex ==1?'广告组':'广告'}}的成效
+                        {{ maxTableInfo.length - 2 }}个{{
+                          currentIndex == 0
+                            ? '广告系列'
+                            : currentIndex == 1
+                            ? '广告组'
+                            : '广告'
+                        }}的成效
                       </div>
                       <div class="left_b_ic"></div>
                     </div>
@@ -369,7 +398,12 @@
                     class="m_text_b"
                     :class="[item.isShowTop ? 'mr14' : '']"
                   >
-                    {{ currentIndex == 2 && adsItem.customTable.length - 1 == index ?'': item.des }}
+                    {{
+                      currentIndex == 2 &&
+                      adsItem.customTable.length - 1 == index
+                        ? ''
+                        : item.des
+                    }}
                   </div>
                 </div>
                 <!-- 复选框组件 -->
@@ -441,14 +475,14 @@
             <div class="adsName_text">
               <el-input
                 v-model="item.adsXlName"
-                @change="xlChange(index)"
+                @change="xlChange(index, item.adsXlName)"
                 placeholder="广告系列名"
               ></el-input>
             </div>
             <div class="stat_type">
               <el-select
                 v-model="item.statusValue"
-                @change="statusChange(index)"
+                @change="statusChange(index, item.statusValue)"
                 placeholder="请选择"
               >
                 <el-option
@@ -463,13 +497,13 @@
             <div class="budget_text adsName_text">
               <el-input
                 v-model="item.budgetText"
-                @change="budgetChange(index)"
+                @change="budgetChange(index,item.budgetText)"
                 placeholder="预算"
               ></el-input>
             </div>
             <div class="effectiveness_text adsName_text">
               <el-input
-                @change="effectivenessChange(index)"
+                @change="effectivenessChange(index,item.effectivenessText)"
                 v-model="item.effectivenessText"
                 placeholder="成效"
               ></el-input>
@@ -477,35 +511,35 @@
             <div class="exhibit_text adsName_text">
               <el-input
                 v-model="item.exhibitText"
-                @change="exhibitChange(index)"
+                @change="exhibitChange(index,item.exhibitText)"
                 placeholder="展示"
               ></el-input>
             </div>
             <div class="spend_text adsName_text">
               <el-input
                 v-model="item.spendText"
-                @change="spendChange(index)"
+                @change="spendChange(index,item.spendText)"
                 placeholder="花费金额"
               ></el-input>
             </div>
             <div class="register_text adsName_text">
               <el-input
                 v-model="item.registerText"
-                @change="registerChange(index)"
+                @change="registerChange(index,item.registerText)"
                 placeholder="完成注册数"
               ></el-input>
             </div>
             <div class="click_text adsName_text">
               <el-input
                 v-model="item.clickText"
-                @change="clickChange(index)"
+                @change="clickChange(index,item.clickText)"
                 placeholder="点击"
               ></el-input>
             </div>
             <div class="attribution_text adsName_text">
               <el-input
                 v-model="item.adsImgUrl"
-                @change="adsImgUrlChange(item.adsImgUrl)"
+                @change="adsImgUrlChange(index,item.adsImgUrl)"
                 placeholder="广告头像"
               ></el-input>
             </div>
@@ -1116,138 +1150,172 @@ export default {
     dateChange(e) {
       this.dataDate = this.removeLeadingZero(e)
     },
-    xlChange(index) {
-      this.maxTableInfo[index + 1].customTable[2].text =
-        this.mockData[index].adsXlName
+    xlChange(index, item) {
+      const localStorageInfo = JSON.parse(localStorage.getItem('maxTableInfo'))
+      localStorageInfo[index + 1].customTable[2].text = item
+      this.maxTableInfo = localStorageInfo
+      // localStorage.setItem('maxTableInfo', JSON.stringify(localStorageInfo))
     },
-    statusChange(index) {
-      this.maxTableInfo[index + 1].customTable[3].adsStatus =
-        this.mockData[index].statusValue
+    statusChange (index,item) {
+      const localStorageInfo = JSON.parse(localStorage.getItem('maxTableInfo'))
+      localStorageInfo[index + 1].customTable[3].adsStatus = item
+      this.maxTableInfo = localStorageInfo
+      localStorage.setItem('maxTableInfo', JSON.stringify(localStorageInfo))
     },
-    budgetChange(index) {
-      const localMaxTableInfo = JSON.parse(localStorage.getItem('maxTableInfo'))
-      // this.maxTableInfo[index + 1].customTable[4].text =
-      //   this.mockData[index].budgetText
-      localMaxTableInfo[index + 1].customTable[4].text =
-        this.mockData[index].budgetText
-      this.maxTableInfo = localMaxTableInfo
+    budgetChange(index,item) {
+      const localStorageInfo = JSON.parse(localStorage.getItem('maxTableInfo'))
+      localStorageInfo[index + 1].customTable[4].text = item
+      this.maxTableInfo = localStorageInfo
+      localStorage.setItem('maxTableInfo', JSON.stringify(localStorageInfo))
     },
-    effectivenessChange(index) {
-      this.effectivenessTotal = ''
-      this.maxTableInfo[index + 1].customTable[5].text =
-        this.mockData[index].effectivenessText
-      this.maxTableInfo[index + 1].customTable[8].text = (
-        Number(this.maxTableInfo[index + 1].customTable[7].text) /
-        Number(this.maxTableInfo[index + 1].customTable[5].text)
-      ).toFixed(2)
-      this.maxTableInfo.forEach((item, index) => {
-        if (index === 0 || index === this.maxTableInfo.length - 1) return
-        this.effectivenessTotal =
-          Number(this.effectivenessTotal) + Number(item.customTable[5].text)
-      })
-      this.maxTableInfo[this.maxTableInfo.length - 1].customTable[5].text =
-        this.effectivenessTotal
-      this.maxTableInfo[this.maxTableInfo.length - 1].customTable[8].text = (
-        Number(this.spendTotal) / this.effectivenessTotal
-      ).toFixed(2)
+    effectivenessChange (index, item) {
+      const localStorageInfo = JSON.parse(localStorage.getItem('maxTableInfo'))
+      localStorageInfo[index + 1].customTable[5].text = item
+      this.maxTableInfo = localStorageInfo
+localStorage.setItem('maxTableInfo', JSON.stringify(localStorageInfo))
+      // this.effectivenessTotal = ''
+      // this.maxTableInfo[index + 1].customTable[5].text =
+      //   this.mockData[index].effectivenessText
+      // this.maxTableInfo[index + 1].customTable[8].text = (
+      //   Number(this.maxTableInfo[index + 1].customTable[7].text) /
+      //   Number(this.maxTableInfo[index + 1].customTable[5].text)
+      // ).toFixed(2)
+      // this.maxTableInfo.forEach((item, index) => {
+      //   if (index === 0 || index === this.maxTableInfo.length - 1) return
+      //   this.effectivenessTotal =
+      //     Number(this.effectivenessTotal) + Number(item.customTable[5].text)
+      // })
+      // this.maxTableInfo[this.maxTableInfo.length - 1].customTable[5].text =
+      //   this.effectivenessTotal
+      // this.maxTableInfo[this.maxTableInfo.length - 1].customTable[8].text = (
+      //   Number(this.spendTotal) / this.effectivenessTotal
+      // ).toFixed(2)
     },
-    exhibitChange(index) {
-      this.exhibitTotal = ''
-      this.maxTableInfo[index + 1].customTable[6].text =
-        this.mockData[index].exhibitText
+    exhibitChange (index, item) {
+      const localStorageInfo = JSON.parse(localStorage.getItem('maxTableInfo'))
+      localStorageInfo[index + 1].customTable[6].text = item
+      this.maxTableInfo = localStorageInfo
+localStorage.setItem('maxTableInfo', JSON.stringify(localStorageInfo))
 
-      this.maxTableInfo.forEach((item, index) => {
-        if (index === 0 || index === this.maxTableInfo.length - 1) return
-        this.exhibitTotal =
-          Number(this.exhibitTotal) + Number(item.customTable[6].text)
-      })
-      this.maxTableInfo[this.maxTableInfo.length - 1].customTable[6].text =
-        this.exhibitTotal
+      // this.exhibitTotal = ''
+      // this.maxTableInfo[index + 1].customTable[6].text =
+      //   this.mockData[index].exhibitText
+
+      // this.maxTableInfo.forEach((item, index) => {
+      //   if (index === 0 || index === this.maxTableInfo.length - 1) return
+      //   this.exhibitTotal =
+      //     Number(this.exhibitTotal) + Number(item.customTable[6].text)
+      // })
+      // this.maxTableInfo[this.maxTableInfo.length - 1].customTable[6].text =
+      //   this.exhibitTotal
     },
-    spendChange(index) {
-      this.spendTotal = ''
-      this.maxTableInfo[index + 1].customTable[7].text =
-        this.mockData[index].spendText
-      this.maxTableInfo[index + 1].customTable[9].text = (
-        Number(this.maxTableInfo[index + 1].customTable[7].text) /
-        Number(this.maxTableInfo[index + 1].customTable[10].text)
-      ).toFixed(2)
-      this.maxTableInfo[index + 1].customTable[8].text = (
-        Number(this.maxTableInfo[index + 1].customTable[7].text) /
-        Number(this.maxTableInfo[index + 1].customTable[5].text)
-      ).toFixed(2)
+    spendChange (index,item) {
+      const localStorageInfo = JSON.parse(localStorage.getItem('maxTableInfo'))
+      localStorageInfo[index + 1].customTable[7].text = item
+      this.maxTableInfo = localStorageInfo
+      
+      localStorage.setItem('maxTableInfo', JSON.stringify(localStorageInfo))
+      // this.spendTotal = ''
+      // this.maxTableInfo[index + 1].customTable[7].text =
+      //   this.mockData[index].spendText
+      // this.maxTableInfo[index + 1].customTable[9].text = (
+      //   Number(this.maxTableInfo[index + 1].customTable[7].text) /
+      //   Number(this.maxTableInfo[index + 1].customTable[10].text)
+      // ).toFixed(2)
+      // this.maxTableInfo[index + 1].customTable[8].text = (
+      //   Number(this.maxTableInfo[index + 1].customTable[7].text) /
+      //   Number(this.maxTableInfo[index + 1].customTable[5].text)
+      // ).toFixed(2)
 
-      this.maxTableInfo.forEach((item, index) => {
-        if (index === 0 || index === this.maxTableInfo.length - 1) return
-        this.spendTotal =
-          Number(this.spendTotal) + Number(item.customTable[7].text)
-      })
-      this.maxTableInfo[this.maxTableInfo.length - 1].customTable[7].text =
-        this.spendTotal
-      this.maxTableInfo[this.maxTableInfo.length - 1].customTable[8].text = (
-        Number(this.spendTotal) / this.effectivenessTotal
-      ).toFixed(2)
+      // this.maxTableInfo.forEach((item, index) => {
+      //   if (index === 0 || index === this.maxTableInfo.length - 1) return
+      //   this.spendTotal =
+      //     Number(this.spendTotal) + Number(item.customTable[7].text)
+      // })
+      // this.maxTableInfo[this.maxTableInfo.length - 1].customTable[7].text =
+      //   this.spendTotal
+      // this.maxTableInfo[this.maxTableInfo.length - 1].customTable[8].text = (
+      //   Number(this.spendTotal) / this.effectivenessTotal
+      // ).toFixed(2)
     },
-    registerChange(index) {
-      this.registerTotal = ''
-      this.maxTableInfo[index + 1].customTable[10].text =
-        this.mockData[index].registerText
-      this.maxTableInfo[index + 1].customTable[9].text = (
-        Number(this.maxTableInfo[index + 1].customTable[7].text) /
-        Number(this.maxTableInfo[index + 1].customTable[10].text)
-      ).toFixed(2)
+    registerChange (index, item) {
+      const localStorageInfo = JSON.parse(localStorage.getItem('maxTableInfo'))
+      localStorageInfo[index + 1].customTable[10].text = item
+      this.maxTableInfo = localStorageInfo
+      localStorage.setItem('maxTableInfo', JSON.stringify(localStorageInfo))
 
-      this.maxTableInfo.forEach((item, index) => {
-        if (index === 0 || index === this.maxTableInfo.length - 1) return
-        this.registerTotal =
-          Number(this.registerTotal) + Number(item.customTable[10].text)
-      })
+      // this.registerTotal = ''
+      // this.maxTableInfo[index + 1].customTable[10].text =
+      //   this.mockData[index].registerText
+      // this.maxTableInfo[index + 1].customTable[9].text = (
+      //   Number(this.maxTableInfo[index + 1].customTable[7].text) /
+      //   Number(this.maxTableInfo[index + 1].customTable[10].text)
+      // ).toFixed(2)
 
-      this.maxTableInfo[this.maxTableInfo.length - 1].customTable[10].text =
-        this.registerTotal
-      this.maxTableInfo[this.maxTableInfo.length - 1].customTable[9].text = (
-        Number(this.spendTotal) / this.registerTotal
-      ).toFixed(2)
+      // this.maxTableInfo.forEach((item, index) => {
+      //   if (index === 0 || index === this.maxTableInfo.length - 1) return
+      //   this.registerTotal =
+      //     Number(this.registerTotal) + Number(item.customTable[10].text)
+      // })
+
+      // this.maxTableInfo[this.maxTableInfo.length - 1].customTable[10].text =
+      //   this.registerTotal
+      // this.maxTableInfo[this.maxTableInfo.length - 1].customTable[9].text = (
+      //   Number(this.spendTotal) / this.registerTotal
+      // ).toFixed(2)
     },
     isDividedBy2MultipleOf2(num) {
       if (num === 0 || this.maxTableInfo.length - 1 == num) return false
       return num % 2 == 0
     },
-    clickChange(index) {
-      this.clickTotal = ''
-      this.maxTableInfo[index + 1].customTable[11].text =
-        this.mockData[index].clickText
-      this.maxTableInfo.forEach((item, index) => {
-        if (index === 0 || index === this.maxTableInfo.length - 1) return
-        this.clickTotal =
-          Number(this.clickTotal) + Number(item.customTable[11].text)
-      })
-      this.maxTableInfo[this.maxTableInfo.length - 1].customTable[11].text =
-        this.clickTotal
+    clickChange (index, item) {
+      const localStorageInfo = JSON.parse(localStorage.getItem('maxTableInfo'))
+      localStorageInfo[index + 1].customTable[10].text = item
+      this.maxTableInfo = localStorageInfo
+      localStorage.setItem('maxTableInfo', JSON.stringify(localStorageInfo))
+
+      // this.clickTotal = ''
+      // this.maxTableInfo[index + 1].customTable[11].text =
+      //   this.mockData[index].clickText
+      // this.maxTableInfo.forEach((item, index) => {
+      //   if (index === 0 || index === this.maxTableInfo.length - 1) return
+      //   this.clickTotal =
+      //     Number(this.clickTotal) + Number(item.customTable[11].text)
+      // })
+      // this.maxTableInfo[this.maxTableInfo.length - 1].customTable[11].text =
+      //   this.clickTotal
     },
-    adsImgUrlChange(items) {
+    adsImgUrlChange (index, items) {
+      const localStorageInfo = JSON.parse(localStorage.getItem('maxTableInfo'))
+      this.maxTableInfo[index + 1].customTable[2].adsImg = items
+       this.maxTableInfo = localStorageInfo
+     localStorage.setItem('maxTableInfo', JSON.stringify(localStorageInfo))
+
+
       // this.maxTableInfo[index + 1].customTable[2].adsImg =
       //   this.mockData[index].adsImgUrl
-      const localStorageMaxTableInfo = JSON.parse(localStorage.getItem('maxTableInfo'))||[]
-      localStorageMaxTableInfo.map((item)=>{
-        if(item.trType == 3){
-          return  item.customTable[2].adsImg = items
-        }
-      })
-      this.maxTableInfo = localStorageMaxTableInfo
+      // const localStorageMaxTableInfo =
+      //   JSON.parse(localStorage.getItem('maxTableInfo')) || []
+      // localStorageMaxTableInfo.map((item) => {
+      //   if (item.trType == 3) {
+      //     return (item.customTable[2].adsImg = items)
+      //   }
+      // })
+      // this.maxTableInfo = localStorageMaxTableInfo
     },
     attributionChange(items) {
       // this.maxTableInfo[index + 1].customTable[3].attribution =
       //   this.mockData[index].attributionText
-      const localStorageMaxTableInfo = JSON.parse(localStorage.getItem('maxTableInfo'))||[]
-      localStorageMaxTableInfo.map((item)=>{
-        if(item.trType == 3){
-          return  item.customTable[item.customTable.length - 1].text = items
+      const localStorageMaxTableInfo =
+        JSON.parse(localStorage.getItem('maxTableInfo')) || []
+      localStorageMaxTableInfo.map((item) => {
+        if (item.trType == 3) {
+          return (item.customTable[item.customTable.length - 1].text = items)
         }
       })
       this.maxTableInfo = localStorageMaxTableInfo
-//       }
-     
+      //       }
+
       // this.maxTableInfo.map((iten, key) => {
       //   if (key > 0 && key < this.maxTableInfo.length - 1) {
       //     iten.customTable[iten.customTable.length - 1].text =
@@ -1265,9 +1333,9 @@ export default {
     },
 
     handleCCcheck(item, adsIndex) {
-      this.selectNumberDom = localStorage.getItem("selectNumberDom");
-      this.groupNumber = localStorage.getItem('groupNumber');
-      this.adsNumber = localStorage.getItem('adsNumber');
+      this.selectNumberDom = localStorage.getItem('selectNumberDom')
+      this.groupNumber = localStorage.getItem('groupNumber')
+      this.adsNumber = localStorage.getItem('adsNumber')
       // item.isChecked = !item.isChecked
 
       // 控制只有三个数据时 全选
@@ -1293,7 +1361,7 @@ export default {
               ) ||
             localStorage.getItem('selectNumberDom') ||
             ''
-            localStorage.setItem('selectNumberDom', this.selectNumberDom)
+          localStorage.setItem('selectNumberDom', this.selectNumberDom)
         } else if (this.currentIndex == 1) {
           this.groupNumber =
             Number(this.groupNumber) +
@@ -1304,7 +1372,7 @@ export default {
               ) ||
             localStorage.getItem('groupNumber') ||
             ''
-            localStorage.setItem('groupNumber', this.groupNumber)
+          localStorage.setItem('groupNumber', this.groupNumber)
         } else {
           this.adsNumber =
             Number(this.adsNumber) +
@@ -1315,10 +1383,8 @@ export default {
               ) ||
             localStorage.getItem('adsNumber') ||
             ''
-            localStorage.setItem('adsNumber', this.adsNumber)
+          localStorage.setItem('adsNumber', this.adsNumber)
         }
-
-        
       })
       this.$forceUpdate()
     },
@@ -1336,8 +1402,8 @@ export default {
       this.maskSlot = false
       // this.showMockDom = true
     },
-    clickTreeIndex (key) { 
-this.changeCurrentIndex(key)
+    clickTreeIndex(key) {
+      this.changeCurrentIndex(key)
     },
     //编辑
     handleEdit(value) {
@@ -1356,11 +1422,11 @@ this.changeCurrentIndex(key)
           clearTimeout(timer)
         }, 1500)
       }
-    }, 
-    del_Item (key) {
-      this[key]=''
+    },
+    del_Item(key) {
+      this[key] = ''
       localStorage.removeItem(key)
-     },
+    },
     // 切换当前表头索引
     changeCurrentIndex(index) {
       this.selectNumberDom = ''
@@ -1449,9 +1515,9 @@ this.changeCurrentIndex(key)
         })
         .filter((iten) => iten !== undefined)
       // this.maxTableInfo = maxTableInfo
-      this.checkCustomTable(maxTableInfo,index)
+      this.checkCustomTable(maxTableInfo, index)
     },
-    checkCustomTable(tables,index) {
+    checkCustomTable(tables, index) {
       // 遍历每个对象
       this.effectivenessSum = 0
       this.exhibitSum = 0
@@ -1460,7 +1526,8 @@ this.changeCurrentIndex(key)
       this.registerSum = 0
       this.singleEffectSum = 0
       this.singleRegisterSum = 0
-      tables[0].customTable[2].text = index == 1 ? '广告组' : index == 2 ? '广告' : '广告系列'
+      tables[0].customTable[2].text =
+        index == 1 ? '广告组' : index == 2 ? '广告' : '广告系列'
       tables.forEach((item, index) => {
         if (index == 0 || index == tables.length - 1) return
         item.customTable.forEach((iten) => {
@@ -1503,23 +1570,14 @@ this.changeCurrentIndex(key)
 
       this.maxTableInfo = tables
       this.selectNumberDom = localStorage.getItem('selectNumberDom')
-      if(this.currentIndex == 2){
-        this.maxTableInfo[0].customTable[this.maxTableInfo[0].customTable.length - 1].text = '链接（广告设置）'
-        this.maxTableInfo[this.maxTableInfo.length - 1].customTable[this.maxTableInfo[0].customTable.length - 1].text = ''
+      if (this.currentIndex == 2) {
+        this.maxTableInfo[0].customTable[
+          this.maxTableInfo[0].customTable.length - 1
+        ].text = '链接（广告设置）'
+        this.maxTableInfo[this.maxTableInfo.length - 1].customTable[
+          this.maxTableInfo[0].customTable.length - 1
+        ].text = ''
       }
-      
-    //  const aa =  this.maxTableInfo.map((forItem)=>{
-    //     return forItem.customTable.filter(item=>item.id != 12)
-    //   })
-    //   console.log('aa', aa)
-      //       this.maxTableInfo.filter((item, index) => {
-      //   if (index === 0 || index === this.maxTableInfo.length - 1) return
-      //   this.selectNumberDom =
-      //     Number(this.selectNumberDom) +
-      //     Number(
-      //       item.customTable.filter((iten) => iten.isChecked == true).length
-      //     )
-      // })
     },
     pageReload() {
       this.showTableFlag = true
@@ -1681,8 +1739,11 @@ this.changeCurrentIndex(key)
             isShowTop: true,
           },
           {
-            id: trType == 1 || trType==2 ? 12 : 13 ,
-            text: trType == 1 || trType== 2? '888' : 'https://777vipv3.com?ch=a8tzo&sdmode=4&fbPixelId=1972658133149960',
+            id: trType == 1 || trType == 2 ? 12 : 13,
+            text:
+              trType == 1 || trType == 2
+                ? '888'
+                : 'https://777vipv3.com?ch=a8tzo&sdmode=4&fbPixelId=1972658133149960',
             tabHeaderWidth: 253,
             typeBox: 5,
             des: '',
