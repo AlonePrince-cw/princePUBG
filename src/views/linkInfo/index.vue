@@ -50,8 +50,7 @@
         <div class="middle_box_date">
           <div class="middle_box_date_icon"></div>
           <div class="middle_box_date_text">2019年10月21日</div>
-          <div class="middle_box_date_icon2">
-          </div>
+          <div class="middle_box_date_icon2"></div>
         </div>
       </div>
 
@@ -135,7 +134,7 @@
           </div>
         </div>
         <!-- 内容表格 -->
-        <el-table :data="tableData" border style="width: 100%;" show-summary>
+        <el-table :data="tableData" border style="width: 100%" show-summary>
           <el-table-column
             fixed
             type="index"
@@ -249,7 +248,7 @@ export default {
           report:
             'https://docs.google.com/spreadsheets/d/178l1_olQg6Lz1yFPMhLjlemPNQV-GSwkoRIPbDMYOzI/edit?hl=zh-cn&gid=0#gid=0',
         },
-             {
+        {
           date: '2024-11-04',
           name: '拌面',
           kpi: '购物',
@@ -263,7 +262,7 @@ export default {
           report:
             'https://docs.google.com/spreadsheets/d/178l1_olQg6Lz1yFPMhLjlemPNQV-GSwkoRIPbDMYOzI/edit?hl=zh-cn&gid=0#gid=0',
         },
-                {
+        {
           date: '2024-11-04',
           name: '拌面',
           kpi: '购物',
@@ -276,6 +275,62 @@ export default {
           timeZone: '-3',
           report:
             'https://docs.google.com/spreadsheets/d/178l1_olQg6Lz1yFPMhLjlemPNQV-GSwkoRIPbDMYOzI/edit?hl=zh-cn&gid=0#gid=0',
+        },
+        {
+          date: '2024-11-04',
+          name: '拌面',
+          kpi: '购物',
+          groupName: '拌面-新211-VO-5%',
+          channelNumber: 'A21-03',
+          link: 'https://499br.com?ch=11gve&sdmode=4&fbPixelId=1062868381935342',
+          pixel: '1062868381935342',
+          budget: 0,
+          is_top: false,
+          timeZone: '-3',
+          report:
+            'https://docs.google.com/spreadsheets/d/178l1_olQg6Lz1yFPMhLjlemPNQV-GSwkoRIPbDMYOzI/edit?hl=zh-cn&gid=0#gid=0',
+        },
+            {
+          date: '2024-11-04',
+          name: '拌面',
+          kpi: '购物',
+          groupName: '拌面-新211-VO-5%',
+          channelNumber: 'A20-04',
+          link: 'https://499br.com?ch=bw0m2&sdmode=4&fbPixelId=1174152790291746',
+          pixel: '1174152790291746',
+          budget: 0,
+          is_top: false,
+          timeZone: '-3',
+          report:
+            'https://docs.google.com/spreadsheets/d/178l1_olQg6Lz1yFPMhLjlemPNQV-GSwkoRIPbDMYOzI/edit?hl=zh-cn&gid=0#gid=0',
+        },
+        {
+          date: '2024-11-04',
+          name: '青稚',
+          kpi: 'firstrecharge',
+          groupName: 'a58 青稚 越南 6+1%',
+          channelNumber: '1线',
+          link: 'https://d74ufxhk49hr0.cloudfront.net/?cid=404938&type=2&currency=VND&id=438141609&fb_dynamic_pixel=865178305694100',
+          pixel: '865178305694100',
+          budget: 0,
+          is_top: false,
+          timeZone: '-3',
+          report:
+            'https://docs.google.com/spreadsheets/d/1Fj8NhA5_51BtnZcgXkfNf7KIbefbVxfnrdyMVU1py_w/edit?hl=zh-cn&gid=0#gid=0',
+        },
+          {
+          date: '2024-11-04',
+          name: '青稚',
+          kpi: '包Apk6',
+          groupName: 'SS038-巴西-FB-PWA-7+1%',
+          channelNumber: '1线',
+          link: '',
+          pixel: '',
+          budget: 0,
+          is_top: false,
+          timeZone: '-3',
+          report:
+            'https://docs.google.com/spreadsheets/d/1Fj8NhA5_51BtnZcgXkfNf7KIbefbVxfnrdyMVU1py_w/edit?hl=zh-cn&gid=0#gid=0',
         },
         {
           date: '2024-12-10',
@@ -302,9 +357,8 @@ export default {
           budget: 0,
           is_top: false,
           timeZone: '-3',
-          report:
-            '还没更新',
-        }
+          report: '还没更新',
+        },
       ],
 
       leftBoxIcon: [
