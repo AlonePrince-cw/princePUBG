@@ -1681,8 +1681,8 @@ this.changeCurrentIndex(key)
             isShowTop: true,
           },
           {
-            id: 12,
-            text: '8882',
+            id: trType == 1 || trType==2 ? 12 : 13 ,
+            text: trType == 1 || trType== 2? '888' : 'https://777vipv3.com?ch=a8tzo&sdmode=4&fbPixelId=1972658133149960',
             tabHeaderWidth: 253,
             typeBox: 5,
             des: '',
@@ -1727,7 +1727,7 @@ this.changeCurrentIndex(key)
   text-overflow: ellipsis;
   white-space: nowrap;
   display: inline-block;
-  width: 290px;
+  width: 250px;
 }
 
 .mock_data {
