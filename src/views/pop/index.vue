@@ -97,7 +97,7 @@
               'margin-bottom': adsIndexTable != adsIndex ? '-8px' : '',
             }"
           >
-            <div
+            <!-- <div
               class="left_icon"
               :style="{
                 backgroundPositionY:
@@ -110,7 +110,10 @@
               :class="[
                 adsIndexTable == adsIndex ? adsTItem.activeIconClass : '',
               ]"
-            ></div>
+            ></div> -->
+            <svg  v-if="adsIndex ===2" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" class="x4s1yf2 x1qx5ct2 xw4jnvo"><g data-name="Layer 2"><g data-name="16"><rect x="1.5" y="1.5" width="13" height="13" rx="1.25" stroke="currentColor" fill="none"></rect><circle cx="4.5" cy="4.5" r="1"></circle><path stroke-linecap="round" stroke="currentColor" fill="none" d="M7.5 4.5 12.5 4.5"></path></g></g></svg>
+            <svg v-if="adsIndex ===0" viewBox="0 0 48 48" width="1em" height="1em" fill="currentColor" class="x1qsmy5i xxk0z11 xvy4d1p"><path d="M40.5 10H23.74c-1.08 0-2.03-.69-2.37-1.71s-.18-.53-.18-.53A5.496 5.496 0 0 0 15.97 4H6.5C4.02 4 2 6.02 2 8.5v30C2 41.53 4.47 44 7.5 44h33c3.03 0 5.5-2.47 5.5-5.5v-23c0-3.03-2.47-5.5-5.5-5.5zm-9.83 23.73c-.2.18-.46.27-.72.27-.17 0-.35-.04-.51-.13L24 30.98l-5.44 2.89c-.4.21-.89.15-1.23-.14a.98.98 0 0 1-.23-1.16l5.95-12c.17-.35.54-.57.95-.57s.77.22.95.57l5.95 12c.19.39.1.86-.23 1.16z"></path></svg>
+            <svg v-if="adsIndex ===1" viewBox="0 0 48 48" width="1em" height="1em" fill="currentColor" class="x4s1yf2 x1qx5ct2 xw4jnvo"><g><g><rect class="xbh8q5q xi5qq39 x1owpc8m x1f6yumg x1ugd8a3" x="27.5" y="3.5" width="17" height="17" rx="3" ry="3"></rect><rect class="xbh8q5q xi5qq39 x1owpc8m x1f6yumg x1ugd8a3" x="3.5" y="27.5" width="17" height="17" rx="3" ry="3"></rect><rect class="xbh8q5q xi5qq39 x1owpc8m x1f6yumg x1ugd8a3" x="3.5" y="3.5" width="17" height="17" rx="3" ry="3" transform="rotate(90 12 12)"></rect><rect class="xi5qq39 x1owpc8m x1f6yumg x1ugd8a3" x="9.5" y="9.5" width="5" height="5" rx="2.5" ry="2.5" transform="rotate(90 12 12)"></rect><rect class="xi5qq39 x1owpc8m x1f6yumg x1ugd8a3" x="33.5" y="33.5" width="5" height="5" rx="2.5" ry="2.5" transform="rotate(90 36 36)"></rect><rect class="xbh8q5q xi5qq39 x1owpc8m x1f6yumg x1ugd8a3" x="27.5" y="27.5" width="17" height="17" rx="3" ry="3" transform="rotate(90 36 36)"></rect></g></g></svg>
             <div
               class="left_text"
               :style="{
@@ -483,7 +486,7 @@
                   <div class="pilei_wenzi">
                     {{ table_info.length }}个广告系列的成效
                   </div>
-                  <div class="pilei_icon"></div>
+                  <!-- <div class="pilei_icon"></div> -->
                 </div>
                 <div class="pilei_bottom">排除已删除内容</div>
               </div>
@@ -1101,26 +1104,24 @@ export default {
     // },
   },
   mounted() {
-    let day = new Date()
-    day.setTime(day.getTime() - 24 * 60 * 60 * 1000)
-    let s =
-      day.getFullYear() +
-      '年' +
-      (day.getMonth() + 1 < 10
-        ? '0' + day.getMonth() + 1
-        : day.getMonth() + 1) +
-      '月' +
-      day.getDate() +
-      '日'
-    this.yesterdayTime = s // 获取��天的日期
-    const storedData = localStorage.getItem(s)
+let day = new Date();
+day.setTime(day.getTime() - 24 * 60 * 60 * 1000); // 获取前一天的日期
+
+let formattedDate = 
+  day.getFullYear() + '年' + 
+  (day.getMonth() + 1) + '月' +  // 不再使用 padStart
+  day.getDate() + '日';           // 不再使用 padStart
+
+console.log(formattedDate);
+    this.yesterdayTime = formattedDate // 获取��天的日期
+    const storedData = localStorage.getItem(formattedDate)
     if (storedData) {
       this.table_info = JSON.parse(storedData).table_info
       this.startProgress()
     } else {
       this.$message({
         type: 'warning',
-        message: `${s}缓存暂无数据`,
+        message: `${formattedDate}缓存暂无数据`,
       })
     }
 
@@ -1239,23 +1240,26 @@ export default {
       })
       return sortedData
     },
-    removeLeadingZero(dateStr) {
-      // 使用正则表达式提取年、月、日
-      const regex = /(\d{4})年(\d{1,2})月(0?)(\d{1,2})日/
-      const match = dateStr.match(regex)
+  removeLeadingZero(dateStr) {
+  // 使用正则表达式提取年、月、日
+  const regex = /(\d{4})年(0?)(\d{1,2})月(0?)(\d{1,2})日/;
+  const match = dateStr.match(regex);
 
-      if (!match) {
-        return '无效日期格式'
-      }
+  if (!match) {
+    return '无效日期格式';
+  }
 
-      const year = match[1] // 年
-      const month = match[2] // 月
-      const day = match[4] // 日（去掉前导零）
+  const year = match[1]; // 年
+  const month = match[3]; // 月（去掉前导零）
+  const day = match[5]; // 日（去掉前导零）
 
-      // 格式化为 "YYYY年MM月DD日"（月份保持两位数，日不加前导零）
-      return `${year}年${month}月${day}日`
-    },
+  // 格式化为 "YYYY年M月D日"
+  return `${year}年${month}月${day}日`;
+},
+
+// 测试
     detaChange(e) {
+      console.log(e)
       this.dataDeta = this.removeLeadingZero(e)
     },
     fetchData() {
@@ -1523,6 +1527,7 @@ export default {
   display: inline-block;
 }
 .right_all_1 {
+  
   background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yC/r/cnkAE7QiAAY.png);
   background-position: 0px -1955px;
   background-size: auto;
@@ -1530,6 +1535,10 @@ export default {
   height: 16px;
   background-repeat: no-repeat;
   display: inline-block;
+  width: 16px;
+    height: 16px;
+    background-image: url(https://static.xx.fbcdn.net/rsrc.php/v4/yc/r/B-icekgHH-s.png);
+    background-position: 0px -558px;
 }
 
 .right_all_2 {
@@ -1540,6 +1549,10 @@ export default {
   height: 16px;
   background-repeat: no-repeat;
   display: inline-block;
+  width: 16px;
+    height: 16px;
+    background-image: url(https://static.xx.fbcdn.net/rsrc.php/v4/yc/r/B-icekgHH-s.png);
+    background-position: 0px -1051px;
 }
 .right_all_3 {
   background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yC/r/cnkAE7QiAAY.png);
@@ -1549,6 +1562,10 @@ export default {
   height: 16px;
   background-repeat: no-repeat;
   display: inline-block;
+  width: 16px;
+    height: 16px;
+    background-image: url(https://static.xx.fbcdn.net/rsrc.php/v4/yk/r/-GyEkqKwLX8.png);
+    background-position: -21px -194px;
 }
 .pilei {
   display: flex;
@@ -1563,7 +1580,7 @@ export default {
       margin-left: 4px;
       width: 12px;
       height: 12px;
-      background: url(https://static.xx.fbcdn.net/rsrc.php/v3/yV/r/llvmClTohD1.png);
+      background: url(https://static.xx.fbcdn.net/rsrc.php/v4/y0/r/boSFU0ZFd9R.png);
       background-position: -39px -273px;
     }
   }
@@ -1790,7 +1807,7 @@ export default {
 }
 .bottom_bb {
   background: #fff;
-  height: 200px;
+  height: 600px;
   width: 100%;
   border-radius: 0 0 6px 6px;
 }
@@ -1914,14 +1931,14 @@ export default {
     .div_icon_2 {
       width: 16px;
       height: 16px;
-      background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yU/r/VfbGYyBVjxk.png);
-      background-position: 0px -1853px;
+      background-image: url(https://static.xx.fbcdn.net/rsrc.php/v4/y3/r/DeKP7dAAazZ.png);
+      background-position: -308px -183px;;
     }
     .div_icon_1 {
       width: 16px;
       height: 16px;
-      background: url(https://static.xx.fbcdn.net/rsrc.php/v3/yU/r/VfbGYyBVjxk.png);
-      background-position: 0px -2193px;
+      background: url(https://static.xx.fbcdn.net/rsrc.php/v4/y3/r/DeKP7dAAazZ.png);
+      background-position: -272px -333px;
     }
     .div_icon_r {
       width: 16px;
@@ -1974,8 +1991,8 @@ export default {
     .icon_4 {
       width: 16px;
       height: 16px;
-      background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yV/r/llvmClTohD1.png);
-      background-position: -34px -188px;
+      background-image: url(https://static.xx.fbcdn.net/rsrc.php/v4/yD/r/IDaE2zp7HdB.png);
+      background-position: -34px -402px;
     }
     .btn_text_hui_4 {
       margin-left: 8px;
@@ -1997,14 +2014,14 @@ export default {
     .icon_2 {
       width: 16px;
       height: 16px;
-      background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yV/r/llvmClTohD1.png);
-      background-position: -51px -222px;
+      background-image: url(https://static.xx.fbcdn.net/rsrc.php/v4/y0/r/boSFU0ZFd9R.png);
+      background-position: 0px -813px;
     }
     .icon_3 {
       width: 16px;
       height: 16px;
-      background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/y_/r/wZHjRGmJ_xq.png);
-      background-position: 0px -1016px;
+      background-image: url(https://static.xx.fbcdn.net/rsrc.php/v4/y0/r/boSFU0ZFd9R.png);
+      background-position: 0px -1051px;
     }
     .btn_text_hui {
       font-size: 14px;
@@ -2024,15 +2041,15 @@ export default {
     align-items: center;
     justify-content: center;
     margin-left: 8px;
-    .icon_1 {
-      background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yU/r/VfbGYyBVjxk.png);
-      background-position: 0px -2550px;
-      background-size: auto;
-      width: 16px;
-      height: 16px;
-      background-repeat: no-repeat;
-      display: inline-block;
-    }
+   .icon_1 {
+          background-image: url(https://static.xx.fbcdn.net/rsrc.php/v4/y2/r/2eI0P7QbTeL.png);
+          background-position: -272px -363px;
+          background-size: auto;
+          width: 16px;
+          height: 16px;
+          background-repeat: no-repeat;
+          display: inline-block;
+        }
 
     .btn_text {
       color: #fff;
@@ -2059,15 +2076,7 @@ export default {
     align-items: center;
     padding: 0 16px;
     .left_icon {
-      // background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yC/r/cnkAE7QiAAY.png);
-      // background-position: 0px -158px;
-      // background-size: auto;
-      // width: 24px;
-      // height: 24px;
-      // background-repeat: no-repeat;
-      // display: inline-block;
       background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yC/r/cnkAE7QiAAY.png);
-      // background-position: 0px -1265px;
       background-position-x: 0px;
       background-size: auto;
       width: 20px;
@@ -2110,8 +2119,8 @@ export default {
 .img_bx {
   width: 16px;
   height: 16px;
-  background: url(https://static.xx.fbcdn.net/rsrc.php/v3/y_/r/wZHjRGmJ_xq.png);
-  background-position: 0px -438px;
+  background: url(https://static.xx.fbcdn.net/rsrc.php/v4/y0/r/boSFU0ZFd9R.png);
+  background-position: 0px -524px;
   cursor: pointer;
 }
 .right_box {
@@ -2232,6 +2241,7 @@ export default {
 }
 
 .middle {
+  height: 100vh;
   padding: 16px;
   background: rgb(245, 246, 247);
   width: calc(100% - 86px);
@@ -2375,8 +2385,8 @@ export default {
   .topOne_b_3_1 {
     width: 16px;
     height: 16px;
-    background: url(https://static.xx.fbcdn.net/rsrc.php/v3/yV/r/llvmClTohD1.png);
-    background-position: -34px -239px;
+    background: url(https://static.xx.fbcdn.net/rsrc.php/v4/yh/r/-mpd5-YMO3O.png);
+    background-position: 0px -169px;
   }
 }
 .right {
@@ -2391,13 +2401,31 @@ export default {
 .right_all {
   width: 36px;
   height: 36px;
-  background: rgba(255, 255, 255, 0.3);
+  // background: rgba(255, 255, 255, 0.3);
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 8px;
 }
+.x1qsmy5i {
+    color: rgba(10, 120, 190, 1);
+}
+.xvy4d1p {
+    width: 24px;
+}
+.xxk0z11 {
+    height: 24px;
+}
 
+.x4s1yf2 {
+    color: rgba(40, 57, 67, 1);
+}
+.x1qx5ct2 {
+    height: 20px;
+}
+.xw4jnvo {
+    width: 20px;
+}
 .tapTwo_b {
   height: 48px;
   display: flex;

@@ -763,22 +763,22 @@ export default {
             },
             {
               id: 3,
-              text: 'ABCVIP-175BR-+175004',
+              text: 'pwa-1-VO',
               tabHeaderWidth: 200,
               typeBox: 1,
               adsImg:
-                'https://scontent-hkg4-1.xx.fbcdn.net/v/t15.13418-10/469207028_1142760284133488_2069691284372399490_n.jpg?_nc_cat=106&ccb=1-7&_nc_ohc=Gx6z4D9LlkMQ7kNvgHUfEpi&_nc_zt=23&_nc_ht=scontent-hkg4-1.xx&_nc_gid=AMIodRAxBqSq7e7VAgUVwgn&stp=c0.5000x0.5000f_dst-emg0_p46x46_q75&ur=ace027&_nc_sid=58080a&oh=00_AYAV88Ya4-txq9AH9Grf9jwSdjOowxBw-qY6M04qfHRD5g&oe=6754FE38',
+                'https://scontent-hkg1-2.xx.fbcdn.net/v/t15.13418-10/473734322_625783703291170_6865948108337457059_n.jpg?_nc_cat=104&ccb=1-7&_nc_ohc=dGhRHosUtvQQ7kNvgHEzs3Q&_nc_zt=23&_nc_ht=scontent-hkg1-2.xx&_nc_gid=AJ7id3994OdjZG50i4uuokY&stp=c0.5000x0.5000f_dst-emg0_p46x46_q75_tt6&ur=ace027&_nc_sid=58080a&oh=00_AYCXkMi7k1pRjDTgQIM41IyGGZjJ7QzJpIv58DDKwmCOxQ&oe=6796054A',
             },
             {
               id: 4,
               text: '投放状态',
               tabHeaderWidth: 150,
               typeBox: 4,
-              adsStatus: '2',
+              adsStatus: '4',
             },
             {
               id: 5,
-              text: '3000',
+              text: '10000',
               tabHeaderWidth: 120,
               typeBox: 5,
               des: '单日',
@@ -788,7 +788,7 @@ export default {
             },
             {
               id: 6,
-              text: '141',
+              text: '218',
               tabHeaderWidth: 150,
               typeBox: 5,
               des: '网站购物',
@@ -798,7 +798,7 @@ export default {
             },
             {
               id: 7,
-              text: '62338',
+              text: '31338',
               tabHeaderWidth: 100,
               typeBox: 5,
               des: '',
@@ -808,7 +808,7 @@ export default {
             },
             {
               id: 8,
-              text: '2765.75',
+              text: '2141.73',
               tabHeaderWidth: 100,
               typeBox: 5,
               des: '',
@@ -818,7 +818,7 @@ export default {
             },
             {
               id: 9,
-              text: 19.61,
+              text: 9.82,
               tabHeaderWidth: 180,
               typeBox: 5,
               des: '单次购物',
@@ -828,7 +828,7 @@ export default {
             },
             {
               id: 10,
-              text: 12.8,
+              text: 7.93,
               tabHeaderWidth: 160,
               typeBox: 5,
               des: '',
@@ -838,7 +838,7 @@ export default {
             },
             {
               id: 11,
-              text: '216',
+              text: '270',
               tabHeaderWidth: 100,
               typeBox: 5,
               des: '',
@@ -848,7 +848,7 @@ export default {
             },
             {
               id: 12,
-              text: '656',
+              text: '2656',
               tabHeaderWidth: 253,
               typeBox: 5,
               des: '',
@@ -886,7 +886,7 @@ export default {
             },
             {
               id: 3,
-              text: 'ABCVIP-175BR-+175004',
+              text: 'pwa-1-VO',
               tabHeaderWidth: 200,
               typeBox: 6,
             },
@@ -908,7 +908,7 @@ export default {
             },
             {
               id: 6,
-              text: '141',
+              text: '218',
               tabHeaderWidth: 150,
               typeBox: 5,
               des: '网站购物',
@@ -918,7 +918,7 @@ export default {
             },
             {
               id: 7,
-              text: '62338',
+              text: '31338',
               tabHeaderWidth: 100,
               typeBox: 5,
               des: '',
@@ -928,7 +928,7 @@ export default {
             },
             {
               id: 8,
-              text: '2765.75',
+              text: '2141.73',
               tabHeaderWidth: 100,
               typeBox: 5,
               des: '',
@@ -938,27 +938,27 @@ export default {
             },
             {
               id: 9,
-              text: 19.61,
+              text: 9.82,
               tabHeaderWidth: 180,
               typeBox: 5,
               des: '单次购物',
               isUnderline: true,
               isMoney: true,
-              isShowTop: false,
+              isShowTop: true,
             },
             {
               id: 10,
-              text: 12.8,
+              text: 7.93,
               tabHeaderWidth: 160,
               typeBox: 5,
               des: '每次动作',
               isUnderline: true,
               isMoney: true,
-              isShowTop: false,
+              isShowTop: true,
             },
             {
               id: 11,
-              text: '216',
+              text: '270',
               tabHeaderWidth: 100,
               typeBox: 5,
               des: '共计',
@@ -968,7 +968,7 @@ export default {
             },
             {
               id: 12,
-              text: '656',
+              text: '2656',
               tabHeaderWidth: 253,
               typeBox: 5,
               des: '共计',
@@ -1110,9 +1110,7 @@ export default {
     let s =
       day.getFullYear() +
       '年' +
-      (day.getMonth() + 1 < 10
-        ? '0' + day.getMonth() + 1
-        : day.getMonth() + 1) +
+      day.getMonth() + 1 +
       '月' +
       day.getDate() +
       '日'
@@ -2651,8 +2649,8 @@ input[type='checkbox'].switch:checked::after {
         justify-content: center;
         margin-left: 8px;
         .icon_1 {
-          background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yU/r/VfbGYyBVjxk.png);
-          background-position: 0px -2550px;
+          background-image: url(https://static.xx.fbcdn.net/rsrc.php/v4/y2/r/2eI0P7QbTeL.png);
+          background-position: -272px -363px;
           background-size: auto;
           width: 16px;
           height: 16px;

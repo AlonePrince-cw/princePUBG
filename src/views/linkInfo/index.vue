@@ -134,7 +134,7 @@
           </div>
         </div>
         <!-- 内容表格 -->
-        <el-table :data="tableData" border style="width: 100%" show-summary>
+        <el-table :data="tableData" border style="width: 100%">
           <el-table-column
             fixed
             type="index"
@@ -233,131 +233,74 @@
 export default {
   data() {
     return {
+      formattedDate: '',
       tableData: [
-        {
+       {
+          date: '2024-11-04',
+          name: '青雉',
+          kpi: '购物',
+          groupName: '海军 win 越南 6+1%',
+          channelNumber: '海军-4 551815',
+          link: 'https://555win.app/?cid=551815&currency=VND&id=865885244&fb_dynamic_pixel=956575996626166',
+          pixel: '956575996626166',
+          budget: 0,
+          is_top: false,
+          timeZone: '-3',
+          report:
+            'https://docs.google.com/spreadsheets/d/1yZ8H2u77jiFC4u_cz3mtENOu3AEu1u5N-tKYh_1A9c8/edit?gid=0#gid=0',
+        }, {
+          date: '2024-11-04',
+          name: '青雉',
+          kpi: '购物',
+          groupName: '青稚代投 999 孟加拉 5+1%',
+          channelNumber: 'F999 孟加拉 aa59',
+          link: 'https://www.55f999.com/?cid=315213&type=4&currency=BDT&id=219855125&fb_dynamic_pixel=1266154821101588',
+          pixel: '1266154821101588',
+          budget: 0,
+          is_top: false,
+          timeZone: '-3',
+          report:
+            'https://docs.google.com/spreadsheets/d/1yZ8H2u77jiFC4u_cz3mtENOu3AEu1u5N-tKYh_1A9c8/edit?gid=0#gid=0',
+        },
+    {
+          date: '2024-11-04',
+          name: '圆圆',
+          kpi: '购物',
+          groupName: '泰国6+1%-糊糊-少爷 134d6b91',
+          channelNumber: '泰国 -4时区 134d6b91',
+          link: 'https://th.789th.online?5b75e=134d6b91&install=2',
+          pixel: '509407631918410',
+          budget: 0,
+          is_top: false,
+          timeZone: '-4',
+          report:
+            'https://docs.google.com/spreadsheets/d/1yZ8H2u77jiFC4u_cz3mtENOu3AEu1u5N-tKYh_1A9c8/edit?gid=0#gid=0',
+        }, {
+          date: '2024-11-04',
+          name: '圆圆',
+          kpi: '购物',
+          groupName: 'fv79 ppg 巴西4+1',
+          channelNumber: 'fv79 ppg 2线',
+          link: 'https://my2.tk7758.com/2822295412/2822295412_home.html?rb=0QRp2erx&tplhx=1',
+          pixel: '653128934069809',
+          budget: 0,
+          is_top: false,
+          timeZone: '-4',
+          report:
+            'https://docs.google.com/spreadsheets/d/1yZ8H2u77jiFC4u_cz3mtENOu3AEu1u5N-tKYh_1A9c8/edit?gid=0#gid=0',
+        },{
           date: '2024-11-04',
           name: '拌面',
           kpi: '购物',
-          groupName: '拌面-新211-VO-5%',
-          channelNumber: 'A13-01',
-          link: 'https://711br.com?ch=xhfde&sdmode=4&fbPixelId=1174152790291746',
-          pixel: '1174152790291746',
+          groupName: '拌面-002win 5% bd2003',
+          channelNumber: '002win bd2003',
+          link: 'https://www.002win.online/8295658530/8295658530_main.html?rb=ghbtx5uP',
+          pixel: '1385492455944075',
           budget: 0,
           is_top: false,
-          timeZone: '-3',
+          timeZone: '5.5',
           report:
-            'https://docs.google.com/spreadsheets/d/178l1_olQg6Lz1yFPMhLjlemPNQV-GSwkoRIPbDMYOzI/edit?hl=zh-cn&gid=0#gid=0',
-        },
-        {
-          date: '2024-11-04',
-          name: '拌面',
-          kpi: '购物',
-          groupName: '拌面-新211-VO-5%',
-          channelNumber: 'A13-02',
-          link: 'https://711br.com?ch=ejvlj&sdmode=4&fbPixelId=1174152790291746',
-          pixel: '1174152790291746',
-          budget: 0,
-          is_top: false,
-          timeZone: '-3',
-          report:
-            'https://docs.google.com/spreadsheets/d/178l1_olQg6Lz1yFPMhLjlemPNQV-GSwkoRIPbDMYOzI/edit?hl=zh-cn&gid=0#gid=0',
-        },
-        {
-          date: '2024-11-04',
-          name: '拌面',
-          kpi: '购物',
-          groupName: '拌面-新211-VO-5%',
-          channelNumber: 'A016-01',
-          link: 'https://711br.com?ch=wvlk9&sdmode=4&fbPixelId=1174152790291746',
-          pixel: '1174152790291746',
-          budget: 0,
-          is_top: false,
-          timeZone: '-3',
-          report:
-            'https://docs.google.com/spreadsheets/d/178l1_olQg6Lz1yFPMhLjlemPNQV-GSwkoRIPbDMYOzI/edit?hl=zh-cn&gid=0#gid=0',
-        },
-        {
-          date: '2024-11-04',
-          name: '拌面',
-          kpi: '购物',
-          groupName: '拌面-新211-VO-5%',
-          channelNumber: 'A21-03',
-          link: 'https://499br.com?ch=11gve&sdmode=4&fbPixelId=1062868381935342',
-          pixel: '1062868381935342',
-          budget: 0,
-          is_top: false,
-          timeZone: '-3',
-          report:
-            'https://docs.google.com/spreadsheets/d/178l1_olQg6Lz1yFPMhLjlemPNQV-GSwkoRIPbDMYOzI/edit?hl=zh-cn&gid=0#gid=0',
-        },
-            {
-          date: '2024-11-04',
-          name: '拌面',
-          kpi: '购物',
-          groupName: '拌面-新211-VO-5%',
-          channelNumber: 'A20-04',
-          link: 'https://499br.com?ch=bw0m2&sdmode=4&fbPixelId=1174152790291746',
-          pixel: '1174152790291746',
-          budget: 0,
-          is_top: false,
-          timeZone: '-3',
-          report:
-            'https://docs.google.com/spreadsheets/d/178l1_olQg6Lz1yFPMhLjlemPNQV-GSwkoRIPbDMYOzI/edit?hl=zh-cn&gid=0#gid=0',
-        },
-        {
-          date: '2024-11-04',
-          name: '青稚',
-          kpi: 'firstrecharge',
-          groupName: 'a58 青稚 越南 6+1%',
-          channelNumber: '1线',
-          link: 'https://d74ufxhk49hr0.cloudfront.net/?cid=404938&type=2&currency=VND&id=438141609&fb_dynamic_pixel=865178305694100',
-          pixel: '865178305694100',
-          budget: 0,
-          is_top: false,
-          timeZone: '-3',
-          report:
-            'https://docs.google.com/spreadsheets/d/1Fj8NhA5_51BtnZcgXkfNf7KIbefbVxfnrdyMVU1py_w/edit?hl=zh-cn&gid=0#gid=0',
-        },
-          {
-          date: '2024-11-04',
-          name: '青稚',
-          kpi: '包Apk6',
-          groupName: 'SS038-巴西-FB-PWA-7+1%',
-          channelNumber: '1线',
-          link: '',
-          pixel: '',
-          budget: 0,
-          is_top: false,
-          timeZone: '-3',
-          report:
-            'https://docs.google.com/spreadsheets/d/1Fj8NhA5_51BtnZcgXkfNf7KIbefbVxfnrdyMVU1py_w/edit?hl=zh-cn&gid=0#gid=0',
-        },
-        {
-          date: '2024-12-10',
-          name: '七喜-小小 -pop像素',
-          kpi: '购物',
-          groupName: 'ABCVIP-246BR-柒喜-FB6+1--VIP777',
-          channelNumber: '柒喜-VIP777 246010',
-          link: 'https://vip777c6.com?ch=o2b3t&sdmode=4&fbPixelId=1174152790291746',
-          pixel: '1174152790291746',
-          budget: 0,
-          is_top: false,
-          timeZone: '0',
-          report:
-            'https://docs.google.com/spreadsheets/d/1qAOVePgsNNDHID8NA4F5kfkm9xr5w2av-gcrGtClsaE/edit?gid=0#gid=0',
-        },
-        {
-          date: '2024-12-17',
-          name: '七喜-pop像素',
-          kpi: '购物',
-          groupName: 'AA072 asen 巴西 7+1 柒喜',
-          channelNumber: 'AA072-FB-pwa2 -3时区',
-          link: 'https://vip.ddd67fytfvuvgtvy.com?ch=7x4pv&sdmode=4&fbPixelId=8542990825810780',
-          pixel: '8542990825810780',
-          budget: 0,
-          is_top: false,
-          timeZone: '-3',
-          report: '还没更新',
+            'https://docs.google.com/spreadsheets/d/1yZ8H2u77jiFC4u_cz3mtENOu3AEu1u5N-tKYh_1A9c8/edit?gid=0#gid=0',
         },
       ],
 
@@ -431,9 +374,24 @@ export default {
     }
   },
   computed: {},
-  mounted() {},
+  mounted() {
+    //     const date = new Date();
+    // this.formattedDate = this.formatDate(date);
+    // console.log(formattedDate); // 输出类似 '2021-05-14 16:30:00' 的字符串
+  },
   created() {},
   methods: {
+    formatDate(date) {
+      const year = date.getFullYear()
+      const month = ('0' + (date.getMonth() + 1)).slice(-2)
+      const day = ('0' + date.getDate()).slice(-2)
+      // const hours = ('0' + date.getHours()).slice(-2);
+      // const minutes = ('0' + date.getMinutes()).slice(-2);
+      // const seconds = ('0' + date.getSeconds()).slice(-2);
+      // return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+      return `${year}-${month}-${day}`
+    },
+
     handleClick(row, type) {
       // 创建一个临时的textarea元素
       const needCopyDom = document.createElement('textarea')

@@ -25,6 +25,7 @@ import awen from './awen';
 import linkInfo from './linkInfo';
 import ComSlot from './ComSlot';
 import adsDataPage from './adsDataPage';
+import newReport from './newReport';
 
 
 import CCGetPayNumber from './CCGetPayNumber';
@@ -43,6 +44,7 @@ const routes = [
     baiyang,
     linkInfo,
     ComSlot,
+    newReport,
     newPop,
     baibai,
     halande,

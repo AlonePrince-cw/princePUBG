@@ -76,7 +76,7 @@
                   class="number_box"
                   :class="{
                     gouwucishu:
-                      item.tableHeaderName === '购物次数' ||
+                      item.tableHeaderName === '成效' ||
                       item.tableHeaderName === '完成注册次数',
                   }"
                   :style="{
@@ -185,7 +185,7 @@
             </div>
           </div>
         </div>
-        <div class="table_box_mo"></div>
+        <!-- <div class="table_box_mo"></div> -->
         <!-- <img src="../../assets/photo_2024-09-10_15-38-14.jpg" style="width: 150px;height: 150px;margin-top: 32px;" /> -->
          <el-button type="success" style="margin: 16px 16px" @click="reload()"
       >刷新页面</el-button
@@ -196,315 +196,10 @@
         <el-button type="success" style="margin: 16px 16px" @click="addLiucun()"
       >添加一行留存</el-button
     >
-        <div class="Vo_jehu" v-if="showPNG">
-          <div class="top_box">
-            {{fujianTimes}}
-          </div>
-          <el-table
-            :data="tableData2"
-            style="width: 100%"
-            border
-            :default-sort="{ prop: 'date', order: 'descending' }"
-          >
-            <el-table-column
-              prop="shishitongji"
-              align="center"
-              label="实时统计"
-              width="120"
-            >
-              <template slot-scope="scope">
-                <span style="color: rgb(10, 120, 190); font-size: 14px">{{
-                  scope.row.shishitongji
-                }}</span>
-              </template>
-            </el-table-column>
-            <el-table-column
-              prop="quad"
-              align="center"
-              label="渠道"
-              width="120"
-            >
-            </el-table-column>
-            <el-table-column
-              prop="fangwenrenshu"
-              align="center"
-              label="访问人数"
-              sortable
-              width="120"
-            >
-            </el-table-column>
-            <el-table-column
-              prop="zhucerenshu"
-              align="center"
-              label="注册人数"
-              sortable
-              width="120"
-            >
-            </el-table-column>
-            <el-table-column
-              prop="zhukov"
-              align="center"
-              label="注册率"
-              sortable
-              width="100"
-            >
-              <template slot-scope="scope">
-                <span class=""
-                  >{{ formatNumber(Number(scope.row.zhukov) * 100) }}%</span
-                >
-              </template>
-            </el-table-column>
-            <el-table-column
-              prop="dengjirenshu"
-              align="center"
-              label="登录人数"
-              sortable
-              width="120"
-            >
-            </el-table-column>
-            <el-table-column
-              prop="shouchongrenshu"
-              align="center"
-              label="首充人数"
-              sortable
-              width="80"
-            >
-            </el-table-column>
-            <el-table-column
-              prop="zhucechongzhibi"
-              align="center"
-              label="注册充值比"
-              sortable
-              width="120"
-            >
-              <template slot-scope="scope">
-                <span class=""
-                  >{{
-                    formatNumber(Number(scope.row.zhucechongzhibi) * 100)
-                  }}%</span
-                >
-              </template>
-            </el-table-column>
-            <el-table-column
-              prop="shouchongjine"
-              align="center"
-              label="首充金额"
-              sortable
-              width="100"
-            >
-              <template slot-scope="scope">
-                <span class="">{{
-                  formatNumber(scope.row.shouchongjine)
-                }}</span>
-              </template>
-            </el-table-column>
-            <el-table-column
-              prop="chongzhirenshu"
-              align="center"
-              label="充值人数"
-              sortable
-              width="80"
-            >
-            </el-table-column>
-            <el-table-column
-              prop="chongzhicishu"
-              align="center"
-              label="充值次数"
-              sortable
-              width="120"
-            >
-            </el-table-column>
-            <el-table-column
-              prop="chongzhijine"
-              align="center"
-              label="充值金额"
-              sortable
-              width="120"
-            >
-              <template slot-scope="scope">
-                <span class="">{{ formatNumber(scope.row.chongzhijine) }}</span>
-              </template>
-            </el-table-column>
-          </el-table>
-        </div>
-
-        <div class="Vo_jehu table-class" v-if="!showPNG">
-          <div class="top_box">
-            {{fujianTimes}}
-          </div>
-          <el-table
-            :data="tableData22"
-            style="width: 100%"
-            border
-            :default-sort="{ prop: 'date', order: 'descending' }"
-          >
-            <el-table-column
-              prop="shishitongji"
-              align="center"
-              label="实时统计"
-              width="120"
-            >
-              <template slot-scope="scope">
-                <span style="color: rgb(10, 120, 190); font-size: 14px">{{
-                  scope.row.shishitongji
-                }}</span>
-              </template>
-            </el-table-column>
-            <el-table-column
-              prop="quad"
-              align="center"
-              label="渠道"
-              width="120"
-            >
-            </el-table-column>
-            <el-table-column
-              prop="shouchongrenshu22"
-              align="center"
-              label="首充人数"
-              sortable
-              width="120"
-            >
-            </el-table-column>
-            <el-table-column
-              prop="shouchongjine22"
-              align="center"
-              label="首充金额"
-              sortable
-              width="120"
-            >
-            </el-table-column>
-            <el-table-column
-              prop="chongzhijine22"
-              align="center"
-              label="充值金额"
-              sortable
-              width="120"
-            >
-            </el-table-column>
-            <el-table-column
-              prop="tixianrenshu22"
-              align="center"
-              label="提现人数"
-              sortable
-              width="120"
-            >
-            </el-table-column>
-            <el-table-column
-              prop="tixianjine22"
-              align="center"
-              label="提现金额"
-              sortable
-              width="120"
-            >
-            </el-table-column>
-            <!-- <el-table-column
-              prop="fuchongrenshu22"
-              align="center"
-              label="复充人数"
-              sortable
-              width="120"
-            ></el-table-column> -->
-            <el-table-column
-              prop="dangrifuchong22"
-              align="center"
-              label="当日复充"
-              sortable
-              width="120"
-            >
-              <template slot-scope="scope">
-                <span>{{ scope.row.dangrifuchong22 }}</span>
-                <span>{{
-                  '('+((scope.row.dangrifuchong22/ scope.row.shouchongrenshu22)*100).toFixed(2) + "%"+')'
-                }}</span>
-              </template>
-            </el-table-column>
-            <el-table-column
-              prop="twoliucun"
-              align="center"
-              label="2日留存"
-              sortable
-              width="100"
-            >
-              <template slot-scope="scope" v-if="scope.row.twoliucun !=0">
-                <span>{{ scope.row.twoliucun }}</span>
-                <span>{{
-                  '('+((scope.row.twoliucun/ scope.row.shouchongrenshu22)*100).toFixed(2) + "%"+')'
-                }}</span>
-              </template>
-            </el-table-column>
-            <el-table-column
-              prop="tliucun"
-              align="center"
-              label="3日留存"
-              sortable
-              width="120"
-            >
-             <template slot-scope="scope" v-if="scope.row.tliucun !=0">
-                <span>{{ scope.row.tliucun }}</span>
-                <span>{{
-                  '('+((scope.row.tliucun/ scope.row.shouchongrenshu22)*100).toFixed(2) + "%"+')'
-                }}</span>
-              </template>
-            </el-table-column>
-            <el-table-column
-              prop="fliucun"
-              align="center"
-              label="4日留存"
-              sortable
-              width="120"
-            >
-              <template slot-scope="scope" v-if="scope.row.fliucun !=0">
-                <span>{{ scope.row.fliucun }}</span>
-                <span>{{
-                  '('+((scope.row.fliucun/ scope.row.shouchongrenshu22)*100).toFixed(2) + "%"+')'
-                }}</span>
-              </template>
-            </el-table-column>
-            <el-table-column
-              prop="fllliucun"
-              align="center"
-              label="5日留存"
-              sortable
-              width="120"
-            >
-              <template slot-scope="scope" v-if="scope.row.fllliucun !=0">
-                <span>{{ scope.row.fllliucun }}</span>
-                <span>{{
-                  '('+((scope.row.fllliucun/ scope.row.shouchongrenshu22)*100).toFixed(2) + "%"+')'
-                }}</span>
-              </template>
-            </el-table-column>
-             <el-table-column
-              prop="sliucun"
-              align="center"
-              label="6日留存"
-              sortable
-              width="120"
-            >
-            <template slot-scope="scope" v-if="scope.row.sliucun !=0">
-                <span>{{ scope.row.sliucun }}</span>
-                <span>{{
-                  '('+((scope.row.sliucun/ scope.row.shouchongrenshu22)*100).toFixed(2) + "%"+')'
-                }}</span>
-              </template>
-            </el-table-column>
-             <el-table-column
-              prop="seliucun"
-              align="center"
-              label="7日留存"
-              sortable
-              width="120"
-            >
-             <template slot-scope="scope" v-if="scope.row.seliucun !=0">
-                <span>{{ scope.row.seliucun }}</span>
-                <span>{{
-                  '('+((scope.row.seliucun/ scope.row.shouchongrenshu22)*100).toFixed(2) + "%"+')'
-                }}</span>
-              </template>
-            </el-table-column>
-          </el-table>
-          
-        </div>
+     <el-input v-model="inputContent" placeholder="请输入内容" style="width: 180px;"></el-input>
+       <el-button type="success" style="margin: 16px 16px" @click="onShowZhanshi(inputContent)"
+      >点击隐藏{{inputContent}}</el-button
+    >
       </div>
     </div>
 
@@ -548,7 +243,7 @@
       <el-input
         v-model="input2"
         @change="input2Change"
-        placeholder="请输入购物次数"
+        placeholder="请输入成效"
         style="width: 240px; margin-right: 24px"
       ></el-input>
       <el-input
@@ -559,160 +254,12 @@
       ></el-input>
     </div>
    
-     <el-input
-        v-model="fujianTimes"
-        placeholder="请输入时间区间"
-        style="width: 300px; margin-right: 24px"
-      ></el-input>
-      <template  v-if="showPNG">
-    <div class="revise_input revise_input_no"  v-for="(item, index) in tableData22" :key="index">
-       <el-input
-        v-model="item.quad"
-        @change="quadChange"
-        placeholder="请输入渠道"
-        style="width: 100px; margin-right: 24px"
-      ></el-input>
-      <el-input
-        v-model="item.shouchongrenshu22"
-        @change="shouchongrenshu22Fn(index,$event)"
-        placeholder="请输入访问人数"
-        style="width: 100px; margin-right: 24px"
-      ></el-input>
-      <el-input
-        v-model="item.shouchongjine22"
-        @change="shouchongjine22Fn(index)"
-        placeholder="请输入注册人数"
-        style="width: 100px; margin-right: 24px"
-      ></el-input>
-      <el-input
-        v-model="item.chongzhijine22"
-        @change="chongzhijine22Fn(index)"
-        placeholder="请输入登录人数"
-        style="width: 100px; margin-right: 24px"
-      ></el-input>
-      <el-input
-        v-model="item.tixianrenshu22"
-        @change="tixianrenshu22Fn(index)"
-        placeholder="请输入首充人数"
-        style="width: 100px; margin-right: 24px"
-      ></el-input>
-      <el-input
-        v-model="item.tixianjine22"
-        @change="tixianjine22(index)"
-        placeholder="请输入首充金额"
-        style="width: 100px; margin-right: 24px"
-      ></el-input>
-      <el-input
-        v-model="item.fuchongrenshu22"
-        @change="fuchongrenshu22Fn(index)"
-        placeholder="请输入充值人数"
-        style="width: 100px; margin-right: 24px"
-      ></el-input>
-      <el-input
-        v-model="item.dangrifuchong22"
-        @change="dangrifuchong22Fn(index)"
-        placeholder="请输入充值次数"
-        style="width: 100px; margin-right: 24px"
-      ></el-input>
-      <el-input
-        v-model="item.twoliucun"
-        @change="twoliucunFn(index)"
-        placeholder="请输入充值金额"
-        style="width: 100px; margin-right: 24px"
-      ></el-input>
-       <el-input
-        v-model="item.tliucun"
-        @change="tliucunFn(index)"
-        placeholder="请输入充值金额"
-        style="width: 100px; margin-right: 24px"
-      ></el-input>
-       <el-input
-        v-model="item.fliucun"
-        @change="fliucunFn(index)"
-        placeholder="请输入充值金额"
-        style="width: 100px; margin-right: 24px"
-      ></el-input>
-       <el-input
-        v-model="item.fllliucun"
-        @change="fllliucunFn(index)"
-        placeholder="请输入充值金额"
-        style="width: 100px; margin-right: 24px"
-      ></el-input>
-       <el-input
-        v-model="item.sliucun"
-        @change="sliucunFn(index)"
-        placeholder="请输入充值金额"
-        style="width: 100px; margin-right: 24px"
-      ></el-input>
-       <el-input
-        v-model="item.seliucun"
-        @change="seliucunFn(index)"
-        placeholder="请输入充值金额"
-        style="width: 100px; margin-right: 24px"
-      ></el-input>
-    </div>
-    </template>
-    <template  v-if="!showPNG">
-    <div class="revise_input revise_input_no"  v-for="(item, index) in tableData22" :key="index">
-       <el-input
-        v-model="item.quad"
-        @change="quadChange"
-        placeholder="请输入渠道"
-        style="width: 100px; margin-right: 24px"
-      ></el-input>
-      <el-input
-        v-model="item.shouchongrenshu22"
-        @change="fangedChange(index)"
-        placeholder="请输入访问人数"
-        style="width: 100px; margin-right: 24px"
-      ></el-input>
-      <el-input
-        v-model="item.zhucerenshu"
-        @change="zhucerenshuChange(index)"
-        placeholder="请输入注册人数"
-        style="width: 100px; margin-right: 24px"
-      ></el-input>
-      <el-input
-        v-model="item.dengjirenshu"
-        placeholder="请输入登录人数"
-        style="width: 100px; margin-right: 24px"
-      ></el-input>
-      <el-input
-        v-model="item.shouchongrenshu"
-        @change="shouchongrenshuChange(index)"
-        placeholder="请输入首充人数"
-        style="width: 100px; margin-right: 24px"
-      ></el-input>
-      <el-input
-        v-model="item.shouchongjine"
-        placeholder="请输入首充金额"
-        style="width: 100px; margin-right: 24px"
-      ></el-input>
-      <el-input
-        v-model="item.chongzhirenshu"
-        @change="chongzhirenshuChange(index)"
-        placeholder="请输入充值人数"
-        style="width: 100px; margin-right: 24px"
-      ></el-input>
-      <el-input
-        v-model="item.chongzhicishu"
-        placeholder="请输入充值次数"
-        style="width: 100px; margin-right: 24px"
-      ></el-input>
-      <el-input
-        v-model="item.chongzhijine"
-        placeholder="请输入充值金额"
-        style="width: 100px; margin-right: 24px"
-      ></el-input>
-    </div>
-    </template>
-    <el-button type="success" style="margin: 0 16px" @click="addTable()"
-      >增加一行</el-button
-    >
+     
   </div>
 </template>
 
 <script>
+
 export default {
   data() {
     return {
@@ -918,13 +465,14 @@ export default {
         },
         {
           tableHeaderName: '归因设置',
-          tableHeaderValue: '点击后7天、浏览后1天或互动观看后1天',
+          tableHeaderValue: '点击后1天或互动观看后1天',
           tableHeaderBottom: '',
         },
         {
           tableHeaderName: '购物次数',
           tableHeaderValue: '167',
           tableHeaderBottom: '共计',
+          isCustomWidth: 120,
         },
         {
           tableHeaderName: '完成注册次数',
@@ -941,7 +489,7 @@ export default {
       ],
       yesterdayTime: '',
       adsXilieName: 'Y04-FB-PWA-1',
-     
+       inputContent:'展示次数'
     }
   },
   mounted() {
@@ -959,7 +507,14 @@ export default {
   },
 
   methods: {
- 
+       onShowZhanshi (inputContent) { 
+      let includeArr = ['展示次数','频次','花费金额','归因设置','购物次数','完成注册次数','点击量（全部）']
+      if (includeArr.includes(inputContent) ) {
+        this.tableData = this.tableData.filter(item => item.tableHeaderName !== inputContent)
+      } else { 
+        this.$message.error('想我程序BUG！！！')
+      }
+    },
     addLiucun () { 
       this.tableData22.push({
         shishitongji: '实时统计',
@@ -1178,7 +733,6 @@ export default {
 }
 .revise_input {
   display: flex;
-  margin-top: 60px;
   margin-left: 32px;
 }
 .revise_input_no{
