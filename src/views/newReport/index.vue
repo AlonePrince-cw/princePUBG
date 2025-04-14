@@ -465,7 +465,7 @@ export default {
         },
         {
           tableHeaderName: '归因设置',
-          tableHeaderValue: '点击后1天或互动观看后1天',
+          tableHeaderValue: '点击后7天、浏览后1天或互动观看后1天',
           tableHeaderBottom: '',
         },
         {

@@ -88,7 +88,20 @@
                     : item.BGPosition,
               }"
               :class="[currentIndex == index ? 'header_active' : '']"
-            ></div>
+            >
+            <template>
+              <svg v-if="index ==0 && currentIndex == index" viewBox="0 0 48 48" width="1em" height="1em" fill="currentColor" class="x1qsmy5i xxk0z11 xvy4d1p"><path d="M40.5 10H23.74c-1.08 0-2.03-.69-2.37-1.71s-.18-.53-.18-.53A5.496 5.496 0 0 0 15.97 4H6.5C4.02 4 2 6.02 2 8.5v30C2 41.53 4.47 44 7.5 44h33c3.03 0 5.5-2.47 5.5-5.5v-23c0-3.03-2.47-5.5-5.5-5.5zm-9.83 23.73c-.2.18-.46.27-.72.27-.17 0-.35-.04-.51-.13L24 30.98l-5.44 2.89c-.4.21-.89.15-1.23-.14a.98.98 0 0 1-.23-1.16l5.95-12c.17-.35.54-.57.95-.57s.77.22.95.57l5.95 12c.19.39.1.86-.23 1.16z"></path></svg>
+              <svg v-if="index ==0 && currentIndex != index" viewBox="0 0 48 48" width="1em" height="1em" fill="currentColor" class="x4s1yf2 x1qx5ct2 xw4jnvo"><path d="m19.95 8.76-.18-.53a4 4 0 0 0-3.79-2.74H6.5c-1.66 0-3 1.34-3 3v30c0 2.21 1.79 4 4 4h33c2.21 0 4-1.79 4-4V15.5c0-2.21-1.79-4-4-4H23.74c-1.72 0-3.25-1.1-3.79-2.74z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3px" fill="none"></path><path d="m30.9 32.57-5.95-12c-.17-.35-.54-.57-.95-.57s-.77.22-.95.57l-5.95 12c-.19.39-.1.86.23 1.16.33.3.83.36 1.23.14L24 30.98l5.44 2.89a1.075 1.075 0 0 0 1.23-.14c.33-.3.42-.76.23-1.16z"></path></svg>
+            </template>
+              <template>
+             <svg v-if="index ==1 && currentIndex == index" viewBox="0 0 48 48" width="1em" height="1em" fill="currentColor" class="x1qsmy5i xxk0z11 xvy4d1p"><rect x="26" y="2" width="20" height="20" rx="4.5" ry="4.5"></rect><rect x="2" y="26" width="20" height="20" rx="4.5" ry="4.5"></rect><path d="M17.5 2h-11C4.02 2 2 4.02 2 6.5v11C2 19.98 4.02 22 6.5 22h11c2.48 0 4.5-2.02 4.5-4.5v-11C22 4.02 19.98 2 17.5 2zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zM41.5 26h-11c-2.48 0-4.5 2.02-4.5 4.5v11c0 2.48 2.02 4.5 4.5 4.5h11c2.48 0 4.5-2.02 4.5-4.5v-11c0-2.48-2.02-4.5-4.5-4.5zM36 40c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"></path></svg>
+              <svg v-if="index ==1 && currentIndex != index" viewBox="0 0 48 48" width="1em" height="1em" fill="currentColor" class="x4s1yf2 x1qx5ct2 xw4jnvo"><g><g><rect class="xbh8q5q xi5qq39 x1owpc8m x1f6yumg x1ugd8a3" x="27.5" y="3.5" width="17" height="17" rx="3" ry="3"></rect><rect class="xbh8q5q xi5qq39 x1owpc8m x1f6yumg x1ugd8a3" x="3.5" y="27.5" width="17" height="17" rx="3" ry="3"></rect><rect class="xbh8q5q xi5qq39 x1owpc8m x1f6yumg x1ugd8a3" x="3.5" y="3.5" width="17" height="17" rx="3" ry="3" transform="rotate(90 12 12)"></rect><rect class="xi5qq39 x1owpc8m x1f6yumg x1ugd8a3" x="9.5" y="9.5" width="5" height="5" rx="2.5" ry="2.5" transform="rotate(90 12 12)"></rect><rect class="xi5qq39 x1owpc8m x1f6yumg x1ugd8a3" x="33.5" y="33.5" width="5" height="5" rx="2.5" ry="2.5" transform="rotate(90 36 36)"></rect><rect class="xbh8q5q xi5qq39 x1owpc8m x1f6yumg x1ugd8a3" x="27.5" y="27.5" width="17" height="17" rx="3" ry="3" transform="rotate(90 36 36)"></rect></g></g></svg>
+            </template>
+            <template>
+              <svg v-if="index ==2 && currentIndex == index" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" class="x1qsmy5i xxk0z11 xvy4d1p"><g data-name="Layer 2"><path d="M13.25 1H2.75A1.76 1.76 0 0 0 1 2.75v10.5A1.76 1.76 0 0 0 2.75 15h10.5A1.76 1.76 0 0 0 15 13.25V2.75A1.76 1.76 0 0 0 13.25 1zM4.5 5.5a1 1 0 1 1 1-1 1 1 0 0 1-1 1zm8-.5h-5a.5.5 0 0 1 0-1h5a.5.5 0 0 1 0 1z" data-name="16"></path></g></svg>
+              <svg v-if="index ==2 && currentIndex != index" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" class="x4s1yf2 x1qx5ct2 xw4jnvo"><g data-name="Layer 2"><g data-name="16"><rect x="1.5" y="1.5" width="13" height="13" rx="1.25" stroke="currentColor" fill="none"></rect><circle cx="4.5" cy="4.5" r="1"></circle><path stroke-linecap="round" stroke="currentColor" fill="none" d="M7.5 4.5 12.5 4.5"></path></g></g></svg>
+            </template>
+          </div>
             <div
               class="table_header_left_text"
               :style="{
@@ -606,88 +619,137 @@ export default {
   components: { RightBox },
   data() {
     return {
-      dataDate: '',
-      showTableFlag: false,
-      showMockDom: true,
-      selectNumberDom: '',
-      adsNumber: '',
-      groupNumber: '',
-      mockData: [
-        {
-          switchValue: true,
-          registerText: '',
-          clickText: '',
-          attributionText: '',
-          adsXlName: 'ABCVIP-175BR-+175004',
-          statusValue: '',
-          budgetText: '',
-          exhibitText: '',
-          spendText: '',
-          effectivenessText: '',
-          deliveryStatus: [
+      // 广告系列数据
+      CampaignNameData: [
+       {
+          customTable: [
             {
-              value: '1',
-              label: '未投放',
+              id: 1,
+              text: '',
+              tabHeaderWidth: 21,
+              typeBox: 'r_n',
             },
             {
-              value: '2',
-              label: '投放中',
+              id: 2,
+              text: '关/开',
+              tabHeaderWidth: 50,
+              typeBox: 'x',
             },
             {
-              value: '3',
-              label: '账户已停用',
+              id: 3,
+              text: 'pwa-1-VO',
+              tabHeaderWidth: 200,
+              typeBox: 6,
             },
             {
-              value: '4',
-              label: '已关闭',
+              id: 4,
+              text: '投放状态',
+              tabHeaderWidth: 151,
+              typeBox: 'r_n',
             },
             {
-              value: '5',
-              label: '北京烤鸭',
+              id: 5,
+              text: '5000',
+              tabHeaderWidth: 120,
+              typeBox: 'x',
+              des: '单日',
+              isUnderline: false,
+              isMoney: true,
+              isShowTop: true,
             },
+            {
+              id: 6,
+              text: '218',
+              tabHeaderWidth: 150,
+              typeBox: 5,
+              des: '网站购物',
+              isUnderline: true,
+              isMoney: false,
+              isShowTop: true,
+            },
+            {
+              id: 7,
+              text: '31338',
+              tabHeaderWidth: 100,
+              typeBox: 5,
+              des: '',
+              isUnderline: false,
+              isMoney: false,
+              isShowTop: false,
+            },
+            {
+              id: 8,
+              text: '2141.73',
+              tabHeaderWidth: 100,
+              typeBox: 5,
+              des: '',
+              isUnderline: false,
+              isMoney: true,
+              isShowTop: false,
+            },
+            {
+              id: 9,
+              text: 9.82,
+              tabHeaderWidth: 180,
+              typeBox: 5,
+              des: '单次购物',
+              isUnderline: true,
+              isMoney: true,
+              isShowTop: true,
+            },
+            {
+              id: 10,
+              text: 7.93,
+              tabHeaderWidth: 160,
+              typeBox: 5,
+              des: '每次动作',
+              isUnderline: true,
+              isMoney: true,
+              isShowTop: true,
+            },
+            {
+              id: 11,
+              text: '270',
+              tabHeaderWidth: 100,
+              typeBox: 5,
+              des: '共计',
+              isUnderline: true,
+              isMoney: false,
+              isShowTop: true,
+            },
+            {
+              id: 12,
+              text: '2656',
+              tabHeaderWidth: 253,
+              typeBox: 5,
+              des: '共计',
+              isUnderline: false,
+              isMoney: false,
+              isShowTop: false,
+            },
+            // {
+            //   id: 13,
+            //   text: '123',
+            //   tabHeaderWidth: 340,
+            //   typeBox: 5,
+            //   des: '',
+            //   isUnderline: false,
+            //   isMoney: false,
+            //   isShowTop: false,
+            // },
           ],
-        },
-        // {
-        //   switchValue: true,
-        //   registerText: '',
-        //   clickText: '',
-        //   attributionText: '',
-        //   adsXlName: 'ABCVIP-175BR-+175004',
-        //   statusValue: '',
-        //   budgetText: '',
-        //   exhibitText: '',
-        //   adsImgUrl: '',
-        //   spendText: '',
-        //   effectivenessText: '',
-        //   deliveryStatus: [
-        //     {
-        //       value: '1',
-        //       label: '未投放',
-        //     },
-        //     {
-        //       value: '2',
-        //       label: '投放中',
-        //     },
-        //     {
-        //       value: '3',
-        //       label: '账户已停用',
-        //     },
-        //     {
-        //       value: '4',
-        //       label: '已关闭',
-        //     },
-        //     {
-        //       value: '5',
-        //       label: '北京烤鸭',
-        //     },
-        //   ],
-        // },
+          trType: 1,
+          customColumnHeight: 64,
+        }
       ],
-      accountName: '12/5-00-A001 (960129822629513)',
-      yesterdayTime: '',
-      maskSlot: false,
-      editLoading: false,
-      // typeBox 1 纯文本组件 2 复选框组件 3 开关组件 4 左图标右文本组件 5 全靠右上下组件 6 全靠右上带数字分割符组件 7 全靠右上上下组件
+      // 广告组数据
+      AdGroupNameData:[],
+      // 广告数据
+      AdsNameData:[],
+     
+
+
+            // typeBox 1 纯文本组件 2 复选框组件 3 开关组件 4 左图标右文本组件 5 全靠右上下组件 6 全靠右上带数字分割符组件 7 全靠右上上下组件
       maxTableInfo: [
         {
           customTable: [
@@ -992,6 +1054,57 @@ export default {
         },
       ],
 
+      // 简化数据格式 结束
+
+
+      dataDate: '',
+      showTableFlag: false,
+      showMockDom: true,
+      selectNumberDom: '',
+      adsNumber: '',
+      groupNumber: '',
+      mockData: [
+        {
+          switchValue: true,
+          registerText: '',
+          clickText: '',
+          attributionText: '',
+          adsXlName: 'ABCVIP-175BR-+175004',
+          statusValue: '',
+          budgetText: '',
+          exhibitText: '',
+          spendText: '',
+          effectivenessText: '',
+          deliveryStatus: [
+            {
+              value: '1',
+              label: '未投放',
+            },
+            {
+              value: '2',
+              label: '投放中',
+            },
+            {
+              value: '3',
+              label: '账户已停用',
+            },
+            {
+              value: '4',
+              label: '已关闭',
+            },
+            {
+              value: '5',
+              label: '北京烤鸭',
+            },
+          ],
+        },
+      ],
+      accountName: '12/5-00-A001 (960129822629513)',
+      yesterdayTime: '',
+      maskSlot: false,
+      editLoading: false,
+
+
       leftBoxIcon: [
         {
           id: 1,
@@ -1110,7 +1223,7 @@ export default {
     let s =
       day.getFullYear() +
       '年' +
-      day.getMonth() + 1 +
+      Number(day.getMonth() + 1) +
       '月' +
       day.getDate() +
       '日'
@@ -1125,6 +1238,7 @@ export default {
       this.mockData = JSON.parse(mockData)
       // this.mockData = this.maxTableInfo[1].customTable
     }
+    console.log(this.maxTableInfo)
     this.pageReload()
   },
   created() {},
@@ -1888,6 +2002,40 @@ localStorage.setItem('maxTableInfo', JSON.stringify(localStorageInfo))
     border-radius: 50%;
   }
 }
+.xxk0z11 {
+    height: 24px;
+}
+.xvy4d1p {
+    width: 24px;
+}
+.xw4jnvo {
+    width: 20px;
+}
+.x1qx5ct2 {
+    height: 20px;
+}
+.x1qsmy5i {
+    color: #0a78be;
+}
+.xi5qq39 {
+    stroke: #000;
+}
+.x1owpc8m {
+    stroke-linecap: round;
+}
+.x1f6yumg {
+    stroke-linejoin: round;
+}
+.x1ugd8a3 {
+    stroke-width: 3px;
+}
+.xi5qq39 {
+    stroke: #000;
+}
+.xbh8q5q {
+    fill: none;
+}
+
 .xi_tong {
   display: flex;
   align-items: center;
@@ -2330,8 +2478,8 @@ input[type='checkbox'].switch:checked::after {
         .box_top_btn2_text {
           width: 16px;
           height: 16px;
-          background: url(https://static.xx.fbcdn.net/rsrc.php/v3/y_/r/wZHjRGmJ_xq.png);
-          background-position: 0px -438px;
+           background: url(https://static.xx.fbcdn.net/rsrc.php/v4/y0/r/boSFU0ZFd9R.png);
+  background-position: 0px -524px;
           cursor: pointer;
         }
       }
@@ -2369,8 +2517,8 @@ input[type='checkbox'].switch:checked::after {
         .box_top_btn5_text {
           width: 16px;
           height: 16px;
-          background: url(https://static.xx.fbcdn.net/rsrc.php/v3/yV/r/llvmClTohD1.png);
-          background-position: -34px -239px;
+          background: url(https://static.xx.fbcdn.net/rsrc.php/v4/yh/r/-mpd5-YMO3O.png);
+    background-position: 0px -169px;
         }
       }
     }
@@ -2506,20 +2654,20 @@ input[type='checkbox'].switch:checked::after {
         .div_icon_3 {
           width: 16px;
           height: 16px;
-          background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yX/r/eYmZdrwDEDA.png);
-          background-position: -136px -221px;
+           background-image: url(https://static.xx.fbcdn.net/rsrc.php/v4/yZ/r/tbCWzjtOK65.png);
+      background-position:-102px -363px;
         }
         .div_icon_2 {
           width: 16px;
           height: 16px;
-          background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yU/r/VfbGYyBVjxk.png);
-          background-position: 0px -1853px;
+          background-image: url(https://static.xx.fbcdn.net/rsrc.php/v4/y3/r/DeKP7dAAazZ.png);
+      background-position: -308px -183px;;
         }
         .div_icon_1 {
           width: 16px;
           height: 16px;
-          background: url(https://static.xx.fbcdn.net/rsrc.php/v3/yU/r/VfbGYyBVjxk.png);
-          background-position: 0px -2193px;
+          background: url(https://static.xx.fbcdn.net/rsrc.php/v4/y3/r/DeKP7dAAazZ.png);
+      background-position: -272px -333px;
         }
         .div_icon_r {
           width: 16px;
@@ -2572,8 +2720,8 @@ input[type='checkbox'].switch:checked::after {
         .icon_4 {
           width: 16px;
           height: 16px;
-          background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yV/r/llvmClTohD1.png);
-          background-position: -34px -188px;
+          background-image: url(https://static.xx.fbcdn.net/rsrc.php/v4/yD/r/IDaE2zp7HdB.png);
+          background-position: -34px -402px;
         }
         .btn_text_hui_4 {
           margin-left: 8px;
@@ -2623,8 +2771,8 @@ input[type='checkbox'].switch:checked::after {
           height: 16px;
           background-color: rgba(28, 43, 51, 0.6);
           color: rgba(28, 43, 51, 0.6);
-          mask-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/y_/r/wZHjRGmJ_xq.png);
-          mask-position: 0px -1015px;
+          mask-image: url(https://static.xx.fbcdn.net/rsrc.php/v4/y0/r/boSFU0ZFd9R.png);
+          mask-position: 0px -1051px;
         }
         .btn_text_hui {
           font-size: 13px;

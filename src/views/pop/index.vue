@@ -1925,8 +1925,8 @@ console.log(formattedDate);
     .div_icon_3 {
       width: 16px;
       height: 16px;
-      background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yX/r/eYmZdrwDEDA.png);
-      background-position: -136px -221px;
+      background-image: url(https://static.xx.fbcdn.net/rsrc.php/v4/yZ/r/tbCWzjtOK65.png);
+      background-position: -102px -363px;
     }
     .div_icon_2 {
       width: 16px;
